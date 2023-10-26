@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="tAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="tCurAmt" xml:space="preserve">
+    <value>Current amount</value>
+  </data>
+  <data name="tDeposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="tDepositHeader" xml:space="preserve">
+    <value>!!! Deposit !!!</value>
+  </data>
+  <data name="tDepositNow" xml:space="preserve">
+    <value>Deposit Now</value>
+  </data>
+  <data name="tDetail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="tFrq" xml:space="preserve">
+    <value>Frq</value>
+  </data>
+  <data name="tKeyScan" xml:space="preserve">
+    <value>Key/Scan</value>
+  </data>
+  <data name="tLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="tMsgAlipayAutoVoid" xml:space="preserve">
+    <value>This bill made an automatic return Alipay. Because  Alipay problem before contact.Please advise customers to check Alipay balance.</value>
+  </data>
+  <data name="tMsgAliPayNotPay" xml:space="preserve">
+    <value>This bill can not be paid by Alipay. Please pay by others.</value>
+  </data>
+  <data name="tMsgAlipayProblem" xml:space="preserve">
+    <value>There was a problem contact with alipay.Please advise customers to check Alipay balance.</value>
+  </data>
+  <data name="tMsgChooseReason" xml:space="preserve">
+    <value>Please choose reason</value>
+  </data>
+  <data name="tMsgDateOpenAgain" xml:space="preserve">
+    <value>Can not open shift because date for open less than date used to open</value>
+  </data>
+  <data name="tMsgInputDeposit" xml:space="preserve">
+    <value>Please input deposit</value>
+  </data>
+  <data name="tMsgInputWithdraw" xml:space="preserve">
+    <value>Please input withdraw</value>
+  </data>
+  <data name="tMsgShiftOpenSuccess" xml:space="preserve">
+    <value>Shift open success, go to home</value>
+  </data>
+  <data name="tOpenShift" xml:space="preserve">
+    <value>Open shift</value>
+  </data>
+  <data name="tPdtDesc" xml:space="preserve">
+    <value>Product Description</value>
+  </data>
+  <data name="tPincode" xml:space="preserve">
+    <value>Pin code</value>
+  </data>
+  <data name="tPreviousSum" xml:space="preserve">
+    <value>Previous sum</value>
+  </data>
+  <data name="tRemark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="tRole" xml:space="preserve">
+    <value>Role Function</value>
+  </data>
+  <data name="tSaleDate" xml:space="preserve">
+    <value>Sale date</value>
+  </data>
+  <data name="tSignin" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="tSumAmt" xml:space="preserve">
+    <value>Summary amount</value>
+  </data>
+  <data name="tSumFeq" xml:space="preserve">
+    <value>Summary frequency</value>
+  </data>
+  <data name="tSwitch" xml:space="preserve">
+    <value>Switch user</value>
+  </data>
+  <data name="tTitleAlipay" xml:space="preserve">
+    <value>Alipay</value>
+  </data>
+  <data name="tTitleRemarkBill" xml:space="preserve">
+    <value>Bill remark</value>
+  </data>
+  <data name="tTitleRemrkPdt" xml:space="preserve">
+    <value>Product remark</value>
+  </data>
+  <data name="tWithdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="tWithdrawHeader" xml:space="preserve">
+    <value>!!! Withdraw !!!</value>
+  </data>
+  <data name="tWithdrawNow" xml:space="preserve">
+    <value>Withdraw Now</value>
+  </data>
+  <data name="tTitleBank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="tTitleNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="tTitlePromptPay" xml:space="preserve">
+    <value>PromptPay</value>
+  </data>
+  <data name="tChange" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="tMsgInputBank" xml:space="preserve">
+    <value>Please input bank !!!</value>
+  </data>
+  <data name="tMsgInputNum" xml:space="preserve">
+    <value>Please input number !!!</value>
+  </data>
+  <data name="tMsgManualKey" xml:space="preserve">
+    <value>Do you want to manual key in?</value>
+  </data>
+  <data name="tMsgWorking" xml:space="preserve">
+    <value>Please wait...It is working</value>
+  </data>
+  <data name="tTitleApvCode" xml:space="preserve">
+    <value>Approve Code</value>
+  </data>
+  <data name="tTitleCreditCard" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
+  <data name="tTitleTraceCode" xml:space="preserve">
+    <value>Trace Code</value>
+  </data>
+  <data name="tScanQR" xml:space="preserve">
+    <value>Please scan QR Code</value>
+  </data>
+  <data name="tAmt" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="tQty" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="tType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="tTitleChooseItemRef" xml:space="preserve">
+    <value>Choose item for refund</value>
+  </data>
+  <data name="tTitlePdtCode" xml:space="preserve">
+    <value>Product Code</value>
+  </data>
+  <data name="tTitlePdtName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="tTitlePrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="tTitleUnit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="tAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tSetColor" xml:space="preserve">
+    <value>Set Color</value>
+  </data>
+  <data name="tTitleSetColorCode" xml:space="preserve">
+    <value>Color Code</value>
+  </data>
+  <data name="tButtonSetColor" xml:space="preserve">
+    <value>Color More ... </value>
+  </data>
+  <data name="tMsgSetColorEmpty" xml:space="preserve">
+    <value>Please enter the color code.</value>
+  </data>
+  <data name="tMsgSetColorFalse" xml:space="preserve">
+    <value>Invalid color code format !</value>
+  </data>
+  <data name="tEditSalePrice" xml:space="preserve">
+    <value>Edit Sale Price</value>
+  </data>
+  <data name="tNewPrice" xml:space="preserve">
+    <value>New Price</value>
+  </data>
+  <data name="tOldPrice" xml:space="preserve">
+    <value>Old Price</value>
+  </data>
+  <data name="tLocSplashLastUser" xml:space="preserve">
+    <value>The latest user is</value>
+  </data>
+  <data name="tLocSplasMsghigh" xml:space="preserve">
+    <value>Do you want to log out?</value>
+  </data>
+  <data name="tLocSplasMsgLow" xml:space="preserve">
+    <value>You have no rights to unlock!</value>
+  </data>
+  <data name="tPdtQtyNew" xml:space="preserve">
+    <value>New  Quantity</value>
+  </data>
+  <data name="tPdtQtyOld" xml:space="preserve">
+    <value>Old Quantity</value>
+  </data>
+  <data name="tTitleChangePdtQty" xml:space="preserve">
+    <value>Change Quantity</value>
+  </data>
+  <data name="tCashCoupon" xml:space="preserve">
+    <value>Cash Coupon</value>
+  </data>
+  <data name="tCouponNo" xml:space="preserve">
+    <value>Coupon No</value>
+  </data>
+  <data name="tDiscountCoupon" xml:space="preserve">
+    <value>Discount Coupon</value>
+  </data>
+  <data name="tMsgInputCoupon" xml:space="preserve">
+    <value>Please input coupon no</value>
+  </data>
+  <data name="tMsgSelCoupon" xml:space="preserve">
+    <value>Please select coupon type</value>
+  </data>
+  <data name="tChequeDate" xml:space="preserve">
+    <value>Cheque Date</value>
+  </data>
+  <data name="tChequeNo" xml:space="preserve">
+    <value>Cheque No</value>
+  </data>
+  <data name="tMsgErrQtyRfn" xml:space="preserve">
+    <value>The Quantity returned is more than the sales Quantity !!!</value>
+  </data>
+  <data name="tTitleQty" xml:space="preserve">
+    <value>Enter Refund Quantity</value>
+  </data>
+  <data name="tQtyRfn" xml:space="preserve">
+    <value>Refund Quantity</value>
+  </data>
+  <data name="tDiscCond" xml:space="preserve">
+    <value>Discount conditions</value>
+  </data>
+  <data name="tTitleAvailable" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="tTitleBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="tUseableDate" xml:space="preserve">
+    <value>Useable Date</value>
+  </data>
+  <data name="tUseableTime" xml:space="preserve">
+    <value>Useable Time</value>
+  </data>
+  <data name="tValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="tEditQtyRfn" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tDisAmt" xml:space="preserve">
+    <value>Discount Amount</value>
+  </data>
+  <data name="tDisPer" xml:space="preserve">
+    <value>Discount Percent</value>
+  </data>
+  <data name="tTitleChooseCpn" xml:space="preserve">
+    <value>Choose coupon</value>
+  </data>
+  <data name="tTitleCond" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="tTitleCpnMsg1" xml:space="preserve">
+    <value>Message1</value>
+  </data>
+  <data name="tTitleCpnMsg2" xml:space="preserve">
+    <value>Message2</value>
+  </data>
+  <data name="tTitleCpnName" xml:space="preserve">
+    <value>Coupon Name</value>
+  </data>
+  <data name="tTitleDateFrm" xml:space="preserve">
+    <value>Date From</value>
+  </data>
+  <data name="tTitleDateTo" xml:space="preserve">
+    <value>Date To</value>
+  </data>
+  <data name="tChoose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="tMsgNoItemOrUsed" xml:space="preserve">
+    <value>This coupon no cannot be found. Or already been used</value>
+  </data>
+  <data name="tReferSOBchCode" xml:space="preserve">
+    <value>Branch Code</value>
+  </data>
+  <data name="tReferSODate" xml:space="preserve">
+    <value>Document Date</value>
+  </data>
+  <data name="tReferSODocNo" xml:space="preserve">
+    <value>Document No.</value>
+  </data>
+  <data name="tReferSOUsrApv" xml:space="preserve">
+    <value>User Approve</value>
+  </data>
+  <data name="tReferSOUsrKey" xml:space="preserve">
+    <value>User Key</value>
+  </data>
+  <data name="tTitleReferSO" xml:space="preserve">
+    <value>Sale Order</value>
+  </data>
+  <data name="tPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="tTitleAuthen" xml:space="preserve">
+    <value>Authentication</value>
+  </data>
+  <data name="tCpnValue" xml:space="preserve">
+    <value>Coupon Value</value>
+  </data>
+  <data name="tTitleAvailableDis" xml:space="preserve">
+    <value>Available Discount</value>
+  </data>
+  <data name="tTitleChooseItem" xml:space="preserve">
+    <value>Choose Item</value>
+  </data>
+  <data name="tTitleSearchPdt" xml:space="preserve">
+    <value>Search : Product</value>
+  </data>
+  <data name="tRdColBarcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="tRdColChoose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="tRdColMinTotBill" xml:space="preserve">
+    <value>Minimum balance</value>
+  </data>
+  <data name="tRdColPdtName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="tRdColQty" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="tRdColRefCode" xml:space="preserve">
+    <value>Referent Code</value>
+  </data>
+  <data name="tRdColUnitName" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="tRdColUseMny" xml:space="preserve">
+    <value>Use Money</value>
+  </data>
+  <data name="tRdColUseMnyDis" xml:space="preserve">
+    <value>Discount Value</value>
+  </data>
+  <data name="tRdColUsePoin" xml:space="preserve">
+    <value>Use Point</value>
+  </data>
+  <data name="tRdColUsePoinDis" xml:space="preserve">
+    <value>Point Value</value>
+  </data>
+  <data name="tTitleRedeemAvailable" xml:space="preserve">
+    <value>Point Available</value>
+  </data>
+  <data name="tTitleRedeemBalance" xml:space="preserve">
+    <value>Point Balance</value>
+  </data>
+  <data name="tTitleRedeemGetDiscount" xml:space="preserve">
+    <value>Redeem Get Discount</value>
+  </data>
+  <data name="tTitleRedeemGetPdt" xml:space="preserve">
+    <value>Redeem Get Product</value>
+  </data>
+  <data name="tMsgGetCouponNotSuccess" xml:space="preserve">
+    <value>Load Coupon Data not Success</value>
+  </data>
+  <data name="tMsgGetRedeemNotSuccess" xml:space="preserve">
+    <value>Load Redeen Point Data not Success</value>
+  </data>
+  <data name="tMsgRdNotEnoughPoints" xml:space="preserve">
+    <value>Not enough points !!!</value>
+  </data>
+  <data name="tTitleRedeemLimitQty" xml:space="preserve">
+    <value>Limit Quantity / Bill</value>
+  </data>
+  <data name="tTitleRedeemNotLimitQty" xml:space="preserve">
+    <value>Not Limit Quantity / Bill</value>
+  </data>
+  <data name="tTitleRedeemQtyBalance" xml:space="preserve">
+    <value>balance</value>
+  </data>
+  <data name="tMsgRdLimitQty" xml:space="preserve">
+    <value>Redeem more than the Limit !!!</value>
+  </data>
+  <data name="tMsgRdNoItem" xml:space="preserve">
+    <value>There are no Item that can be Redeem !!!</value>
+  </data>
+  <data name="tTitleBarCode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="tMsgRdDisAfterPay" xml:space="preserve">
+    <value>Item discount is not allowed after payment has been made !!!</value>
+  </data>
+  <data name="tRedeemCoupon" xml:space="preserve">
+    <value>Redeem Coupon</value>
+  </data>
+  <data name="tMsgSelPdt" xml:space="preserve">
+    <value>Please select Product</value>
+  </data>
+  <data name="tMsgCpnLimitPerBill" xml:space="preserve">
+    <value>Coupon is exceed per Bill</value>
+  </data>
+  <data name="tPaperA4" xml:space="preserve">
+    <value>Paper A4</value>
+  </data>
+  <data name="tPaperThermal" xml:space="preserve">
+    <value>Paper thermal</value>
+  </data>
+  <data name="tTitlePrnSelect" xml:space="preserve">
+    <value>Select format to Print</value>
+  </data>
+  <data name="tMsgChkReport" xml:space="preserve">
+    <value>Please check report file</value>
+  </data>
+  <data name="tMsgSelDriverPrn" xml:space="preserve">
+    <value>Please select printer</value>
+  </data>
+  <data name="tTitlePdtNameOth" xml:space="preserve">
+    <value>Name Other</value>
+  </data>
+  <data name="tColCstCardID" xml:space="preserve">
+    <value>Card ID</value>
+  </data>
+  <data name="tColCstCode" xml:space="preserve">
+    <value>Customer Code</value>
+  </data>
+  <data name="tColCstMemCrdNo" xml:space="preserve">
+    <value>Member Card No.</value>
+  </data>
+  <data name="tColCstName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="tColCstTel" xml:space="preserve">
+    <value>Tel.</value>
+  </data>
+  <data name="tTitleCstSchBtnCstSch" xml:space="preserve">
+    <value>Fill Data for Search</value>
+  </data>
+  <data name="tTitleCstSchBtnRFIDSch" xml:space="preserve">
+    <value>Search By RFID</value>
+  </data>
+  <data name="tTitleCstSchByCstCardID" xml:space="preserve">
+    <value>Search By Card ID</value>
+  </data>
+  <data name="tTitleCstSchByCstCode" xml:space="preserve">
+    <value>Search By CstCode</value>
+  </data>
+  <data name="tTitleCstSchByCstMemCrdNo" xml:space="preserve">
+    <value>Search By Member Card No.</value>
+  </data>
+  <data name="tTitleCstSchByCstName" xml:space="preserve">
+    <value>Search By Name</value>
+  </data>
+  <data name="tTitleCstSchByCstTaxNo" xml:space="preserve">
+    <value>Search By Tax No.</value>
+  </data>
+  <data name="tTitleCstSchByCstTel" xml:space="preserve">
+    <value>Search By Phone Number</value>
+  </data>
+  <data name="tTitleCstSearch" xml:space="preserve">
+    <value>Search Customer</value>
+  </data>
+  <data name="tMsgNoOnTopPmt" xml:space="preserve">
+    <value>Cannot use on Top Promotion</value>
+  </data>
+  <data name="tSelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="tMsgCantSelectCst" xml:space="preserve">
+    <value>Can not select new customers if there are some items on the bil</value>
+  </data>
+  <data name="tMsgDiffPriLev" xml:space="preserve">
+    <value>Difference price level cannot change (just change by cancel document)</value>
+  </data>
+  <data name="tMsgEditQtyPriceless" xml:space="preserve">
+    <value>Product Price will below than specific.
+If continue will cancel all discount of this product.</value>
+  </data>
+  <data name="tMsgEditQtyFale" xml:space="preserve">
+    <value>Quantity of edit must than 0 !!!</value>
+  </data>
+  <data name="tMsgNoWithdraw" xml:space="preserve">
+    <value>Withdraw has value greater than deposit</value>
+  </data>
+  <data name="tMsgNoItemDisChrg" xml:space="preserve">
+    <value>No Item is allowed to Dis / Charge</value>
+  </data>
+  <data name="tPayCrd" xml:space="preserve">
+    <value>Pay by credit</value>
+  </data>
+  <data name="tPayCsh" xml:space="preserve">
+    <value>Pay by cash</value>
+  </data>
+  <data name="tReferSOCshOrCrd" xml:space="preserve">
+    <value>Pay Type</value>
+  </data>
+  <data name="tTitleChooseItemRefRtn" xml:space="preserve">
+    <value>Choose item for Sale</value>
+  </data>
+  <data name="tChgPwdConfirm" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="tChgPwdNew" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="tChgPwdOld" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="tMsgChgPwdIncorrect" xml:space="preserve">
+    <value>Incorrect</value>
+  </data>
+  <data name="tMsgChgPwdReqPram" xml:space="preserve">
+    <value>Please enter</value>
+  </data>
+  <data name="tMsgChgPwdSuccess" xml:space="preserve">
+    <value>Change Password Success.</value>
+  </data>
+  <data name="tMsgErrChgPwdUnSuccess" xml:space="preserve">
+    <value>Change Password Not Success !!!</value>
+  </data>
+  <data name="tTitleChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="tMsgPdtQtyDef" xml:space="preserve">
+    <value>Not enough products !!!</value>
+  </data>
+  <data name="tColCstTaxNo" xml:space="preserve">
+    <value>Tax No.</value>
+  </data>
+  <data name="tTitleCstDetail" xml:space="preserve">
+    <value>Customer Detail</value>
+  </data>
+  <data name="tTitleCstName" xml:space="preserve">
+    <value>Name : </value>
+  </data>
+  <data name="tTitleCstPoint" xml:space="preserve">
+    <value>Point : </value>
+  </data>
+  <data name="tTitleQuotas" xml:space="preserve">
+    <value>Quotas</value>
+  </data>
+  <data name="tTitlVehicle" xml:space="preserve">
+    <value>Choose Car</value>
+  </data>
+  <data name="tTitlePosRegister" xml:space="preserve">
+    <value>Register Pos</value>
+  </data>
+  <data name="tMsgPosRegFalse" xml:space="preserve">
+    <value>{0} is already registered as {1}</value>
+  </data>
+  <data name="tMsgPosRegSuccess" xml:space="preserve">
+    <value>The POS registration information has been submitted. Please check the registration approval from the administrator.</value>
+  </data>
+  <data name="tTitleChangeQuota" xml:space="preserve">
+    <value>Change Quota</value>
+  </data>
+  <data name="tTitleCstPntAvailable" xml:space="preserve">
+    <value>Point Available</value>
+  </data>
+  <data name="tMsgOverLimit" xml:space="preserve">
+    <value>Quantity over limit</value>
+  </data>
+  <data name="tLimitQty" xml:space="preserve">
+    <value>Limit Quantity</value>
+  </data>
+  <data name="tTitleChooseCst" xml:space="preserve">
+    <value>Choose Customer</value>
+  </data>
+  <data name="tTitleVehEngine" xml:space="preserve">
+    <value>Engine Number</value>
+  </data>
+  <data name="tTitleVehModel" xml:space="preserve">
+    <value>Model Number</value>
+  </data>
+  <data name="tTitleVehSaledate" xml:space="preserve">
+    <value>Sale Date</value>
+  </data>
+  <data name="tTitleVehVIN" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="tTitleCstBenefit" xml:space="preserve">
+    <value>Benefit List</value>
+  </data>
+  <data name="tTitleAmt" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="tBchCode" xml:space="preserve">
+    <value>Branch Code</value>
+  </data>
+  <data name="tPosCode" xml:space="preserve">
+    <value>Pos Code</value>
+  </data>
+  <data name="tMsgPrcCreateCstCode" xml:space="preserve">
+    <value>Process send create Customer Code Fail.</value>
+  </data>
+  <data name="tRetriveBill" xml:space="preserve">
+    <value>Retrive bill</value>
+  </data>
+  <data name="tChgPINConfirm" xml:space="preserve">
+    <value>Confirm PIN Code</value>
+  </data>
+  <data name="tChgPINNew" xml:space="preserve">
+    <value>New PIN Code</value>
+  </data>
+  <data name="tChgPINOld" xml:space="preserve">
+    <value>Old PIN Code</value>
+  </data>
+  <data name="tTitleChangePinCode" xml:space="preserve">
+    <value>Change PIN Code</value>
+  </data>
+  <data name="tMsgReqLengthPIN" xml:space="preserve">
+    <value>Request a New PIN Code of 6 characters.</value>
+  </data>
+  <data name="tMsgReqLengthPwd" xml:space="preserve">
+    <value>Request a New password of at least 8 characters.</value>
+  </data>
+  <data name="tMsgCstSchChoose" xml:space="preserve">
+    <value>Please choose customer information.</value>
+  </data>
+  <data name="tMsgCstSchReq" xml:space="preserve">
+    <value>Please enter information for searching.</value>
+  </data>
+  <data name="tMsgChgPwdNewSameOld" xml:space="preserve">
+    <value>The {0} cannot be the same as the {1}</value>
+  </data>
+  <data name="tTitleReturnBillCode" xml:space="preserve">
+    <value>Enter return bill code</value>
+  </data>
+  <data name="tTitleReturnBillCodeTel" xml:space="preserve">
+    <value>Return bill code/Tel.</value>
+  </data>
+</root>

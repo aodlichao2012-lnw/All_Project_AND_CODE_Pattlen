@@ -1,0 +1,374 @@
+using AdaPos.Forms;
+using AdaPos.Models.Database;
+using AdaPos.Models.DatabaseTmp;
+using AdaPos.Models.Other;
+using AdaPos.Models.Webservice.Respond.SaleOrder;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Net;
+using System.Resources;
+
+namespace AdaPos.Class
+{
+    public class cVB
+    {
+        #region String
+
+        public static string tVB_KbdCallByName;     // FTKbdCallByName : Call by name
+        public static string tVB_UsrCode;           // FTUsrCode : User code
+        public static string tVB_UsrName;           // FTUsrName : User name
+        public static string tVB_KbdScreen;         // FTKbdScreen : Keyboard Screen
+        public static string tVB_CstCode;           // FTCstCode : Customer Code
+        public static string tVB_MemCode;           // Member code      //*Em 63-08-11 สำหรับนำค่าไปใช้ในการคำนวณโปรโมชั่น
+        public static string tVB_SaleDate;          // Openshift : Sale date
+        public static string tVB_ShfCreateOn;       // Openshift : Create date      //*Em 63-08-09
+        public static string tVB_Passcode;          // Code : tCN_UsrSignInType, Key : Password, Seq : 3
+        public static string tVB_RolCode;           // FTRolCode : Role code, User
+        public static string tVB_RteCode;           // FTRteCode : Rate code
+        public static string tVB_OpenShiftHD;       // Open shift HD
+        public static string tVB_OpenShiftDT;       // Open shift DT
+        public static string tVB_PosCode;           // FTPosCode : Pos code
+        public static string tVB_PosStaShift;       // FTPosStaShift : Pos status shift
+        public static string tVB_PosRegNo;          // FTPosRegNo : Pos Register No.
+        public static string tVB_SmgCode;           // FTSmgCode : Slip Msg Code
+        public static string tVB_BchCode;           // FTBchCode : Branch code
+        public static string tVB_BchName;           // FTBchName : Bracnch Name
+        public static string tVB_ShfCode;           // FTShfCode : Shift code
+        public static string tVB_ShpCode;           // FTShpCode : Shop code
+        public static string tVB_ShpName;           // FTShpName : Shop Name
+        public static string tVB_EvnCode;           // FTEvnCode : Event code
+        public static string tVB_CardNo;            // Wristband / Card No.
+        public static string tVB_CmpCode;           // FTCmpCode : Company Code
+        public static string tVB_CmpName;           // FTCmpName : Company Name
+        public static string tVB_WahCode;           // FTWahCode : WaHouse Code
+        public static string tVB_PosType;           // FTPosType : Pos Type (1 : Store, 2 : Cashier)
+        public static string tVB_StoreBack;         // Store Back
+        public static string tVB_API2PSMaster;      // API2PSMaster
+        public static string tVB_API2FNWallet;      // API2FNWallet
+        public static string tVB_API2FNWalletHQ;    // API2FNWallet     //*Em 62-12-24
+        public static string tVB_API2PSSale;        // API2PSSale
+        public static string tVB_SgnRPosSrv;        // Signal R Pos Server
+        public static string tVB_AgnKeyAPI;         // Agency API Key
+        public static string tVB_APIHeader;         // Header API
+        public static string tVB_SgnAIBoardcast = "C_SETxBroadcast";    // Function Name : Boardcast Signal R
+        public static string tVB_SgnAISend = "C_SETxSendData";          // Function Name : Send data Signal R
+        public static string tVB_RateCode;          // สกุลเงิน
+        public static string tVB_RateType;          // สกุลเงิน
+        public static string tVB_DocNo;             // เลขที่เอกกสาร
+        public static string tVB_PrnConn;           // IP,Mac address,Port      //*Em 62-01-04
+        public static string tVB_VATInOrEx;         //Include VAT or Exclude VAT    1:Inclusive(Def), 2:Exclusive
+        public static string tVB_DptCode;           //Department
+        public static string tVB_VatCode;           //Vat Code
+        public static string tVB_RefDocNo;           //Refer document number
+        public static string tVB_CstTel;            //Telephon number for customer     
+        public static string tVB_CstName;            //Name for customer  
+        public static string tVB_ParcelCode;        //รหัสพัสดุ
+        public static string tVB_PriceGroup;        //กลุ่มราคา
+        public static string tVB_BchPriceGroup;     //กลุ่มราคา สาขา
+        public static string tVB_PdtCodeSrv;        //รหัสสินค้าบริการ
+        public static string tVB_Merchart;          //FTMerCode
+        public static string tVB_CstDef;            //ลูกค้าทั่วไป
+        public static string tVB_CstDefName;        //ชื่อลูกค้าทั่วไป
+        public static string tVB_MQ_KEY = "Sk$4dF#z"; //สำหรับถอดรหัส MQ
+        public static string tVB_TaxID;             //เลขประจำตัวผู้เสียภาษี
+        public static string tVB_MerName;           //ชื่อกลุ่มธุรกิจ     //*Em 62-10-04
+        public static string tVB_QMemMsgID;         //Queue Member MsgID     //*Arm 62-10-27
+        public static string tVB_PathLogo;          //ตำแหน่งรูป Logo สำหรับพิมพ์บนสลิป
+        public static string tVB_HQBchCode;         //รหัสสาขาสำนักงานใหญ่
+        public static string tVB_DisChgTxt;
+        public static string tVB_API2ARDoc;         //API2ARDoc     //*Arm 63-02-19
+        public static string tVB_CstStaAlwPosCalSo="1";  //FTCstStaAlwPosCalSo อนุญาตคำนวณใบสั่งขายใหม่ 1:อนุญาต , 2:ไม่อนุญาต (default) //*Arm 63-02-20
+        public static string tVB_MemCgpCode;           //*Arm 63-03-30 Company กลุ่มบริษัท Member
+        public static string tVB_MemBchCode;        //*Arm 63-03-30 รหัสสาขา Member
+        public static string tVB_MemberCard;        //*Arm 63-04-03 เลขที่บัตรสมาชิก
+        public static string tVB_ExpiredDate;        //*Arm 63-04-03 วันหมดอายุบัตร 
+        public static string tVB_CstCardID;        //*Arm 63-04-04 เลขที่บัตรประชาชน
+
+        public static string tVB_CardBin; // เก็บค่า 6 ตัวหน้า หรือ 4 ตัวหน้าบัตรเครดิต
+        //*Em 63-01-09
+        public static string tVB_BCHMQHost;
+        public static string tVB_BCHMQUsr;
+        public static string tVB_BCHMQPwd;
+        public static string tVB_BCHMQVirtual;
+        public static string tVB_BCHMQPort;
+        public static string tVB_HQMQHost;
+        public static string tVB_HQMQUsr;
+        public static string tVB_HQMQPwd;
+        public static string tVB_HQMQVirtual;
+        public static string tVB_HQMQPort;
+        //++++++++++++++++++++++
+        public static string tVB_CNStaPrnTax;       //1:กระดาษ Thermal  2:กระดาษ A4 //*Em 63-02-20
+        public static string tVB_CNTaxPrnDriver;    //ไดรเวอร์เครื่องพิมพ์       //*Em 63-02-20
+        public static string tVB_DocNoPrn;  //*Em 63-03-02
+
+        //*Arm 63-03-17 Connect RabbitMQ AdaMember(Center)
+        public static string tVB_MemberMQHost;
+        public static string tVB_MemberMQUsr;
+        public static string tVB_MemberMQPwd;
+        public static string tVB_MemberMQVirtual;
+        public static string tVB_MemberMQPort;
+        //+++++++++++++++++++++
+
+        public static string tVB_MonitorDocNo;          // Monitor เลขที่เอกกสาร
+        public static string tVB_SaleOrg;               //*Arm 63-06-10  Sales Organization(SKC)
+        //public static string tVB_APIKADS;               //*Arm 63-06-10  AIP KADS (SKC)
+        public static string tVB_BchRefID;              //*Arm 63-06-11
+        public static string tVB_WahRefCode;            //*Arm 63-06-17  Ref WhaCode
+        public static string tVB_WahRefNo;              //*Arm 63-06-17  Ref WhaCode
+        public static string tVB_AgnCode;               //*Arm 63-06-23
+        public static string tVB_WahStaChkStk;          //*Arm 63-06-19 ใช้ตรวจสอบในขั้นตอนการขาย 1: ไม่เช็ค (ขายติดลบได้)  2: เช็ค Local  (Vending)  3: Check Online   API (Ada,3Party)   
+        //public static string tVB_KADSAuth;              //*Arm 63-06-11
+        //public static string tVB_APIKADS_ChkStock;      //*Arm 63-06-25 URL สำหรับ Check Stock SKC
+        //public static string tVB_KADSAuth_ChkStock;     //*Arm 63-06-25 BASIC AUTHEN สำหรับ Check Stock SKC
+        public static string tVB_ConStr;                //ไว้เก็บ Connection String เอาไปใช้ในบ้างกรณี ที่ต้องการแค่ Connection String
+        //public static string tVB_APIKADS_Vehicle;       //*Arm 63-06-26 URL สำหรับ Get Data Vehicle
+        //public static string tVB_KADSAuth_Vehicle;      //*Arm 63-06-26 BASIC AUTHEN สำหรับ Get Data Vehicle
+        public static string tVB_KubotaID;              //*Arm 63-06-26 KubotaID
+        public static string tVB_DisCode;               //*Arm 63-07-13 Discount Code
+        public static string tVB_DisCodeRef;            //*Arm 63-07-13 Referent Discount Code
+        public static string tVB_StaPrice;              //*Arm 63-07-13 StaPrice 1:Full Net Price, 2:Net Price
+        public static string tVB_WahStaPrcStk;          //*Arm 63-08-04 สถานะ Process Stock 1:ไม่ตัด, 2:ตัด Stock
+        //public static string tVB_APIKADS_ReqToken_Url;  //*Arm 63-08-05 URL สำหรับ Request Token
+        //public static string tVB_APIKADS_ReqToken_Token;//*Arm 63-08-05 Token สำหรับ Request Token
+        //public static string tVB_KADSAuth_ReqToken;     //*Arm 63-08-05 Authen สำหรับ Request Token
+        public static string tVB_Token_CreateCstCode;   //*Arm 63-08-06 เก็บ Token ที่ส่งไปขอ
+
+
+        // Api
+        public static string tVB_ApiChkStk;             //*Arm 63-08-09 Api สำหรับ ตรวจสอบ Stock Online
+        public static string tVB_ApiCstSch;             //*Arm 63-08-09 Api สำหรับ ค้นหาข้อมูลลูกค้า
+        public static string tVB_ApiVehicle;            //*Arm 63-08-09 Api สำหรับ ค้นหาข้อมูลรถ
+        public static string tVB_ApiGetToken;           //*Arm 63-08-09 Api สำหรับ ขอ Token
+
+        public static string tVB_ApiChkStk_Fmt;         //*Arm 63-08-09 รูปแบบ Api Stock Online
+        public static string tVB_ApiCstSch_Fmt;         //*Arm 63-08-09 รูปแบบ Api ค้นหาข้อมูลลูกค้า
+        public static string tVB_ApiVehicle_Fmt;        //*Arm 63-08-09 รูปแบบ Api ค้นหาข้อมูลรถ
+        public static string tVB_ApiGetToken_Fmt;       //*Arm 63-08-09 รูปแบบ Api ขอ Token
+
+        public static string tVB_ApiChkStk_Auth;        //*Arm 63-08-09 Auth Api Stock Online
+        public static string tVB_ApiCstSch_Auth;        //*Arm 63-08-09 Auth Api ค้นหาข้อมูลลูกค้า
+        public static string tVB_ApiVehicle_Auth;       //*Arm 63-08-09 Auth Api ค้นหาข้อมูลรถ
+        public static string tVB_ApiGetToken_Auth;      //*Arm 63-08-09 Auth Api ขอ Token
+        public static string tVB_ShwUsrName;            //*Arm 63-08-11 ชื่อ User สำหรับโชว์
+
+        #endregion End String
+
+        #region int
+
+        public static int nVB_Language;
+        //*Net 63-07-30 ปรับตาม Moshi
+        //public static int nVB_DecShow = 2;
+        //public static int nVB_DecSave = 2;
+        public static int nVB_DecShow ;
+        public static int nVB_DecSave ;
+        public static int nVB_MaxLenPasscode;       // Code : tCN_UsrSignInType, Key : Password, Seq : 2
+        public static int nVB_AddressTypeCst;       // Address type customer : 1. แสดงที่อยู่แบบแยกรายละเอียด, 2. แสดงที่อยู่แบบรวม
+        public static int nVB_ReferBy;              // 0 : No Refer to bill, 1 : Wristband, 2 : Document
+        public static int nVB_ShfSeq;               // Shift Sequence no
+        public static int nVB_SettingFrom;          // 0:Start Program, 1:Splash Screen, 2:Home
+        public static int nVB_PaperSize;            // Paper Size 1 : Small, 2 : Big
+        public static int nVB_MaxData;              // Max data limit
+        public static int nVB_DisplayOrder;         // Order Display Format
+        public static int nVB_CNTheme;              // Theme 0:Custom 1: Green 2:Orange 3:Sky 4:Brown 5:Pink
+        public static int nVB_PrnType;              // 1:TCP/IP 2:Bluetooth 3.Driver        //*Em 62-01-04
+        public static int nVB_TxnOffline;           // [Pong][2019-01-22][จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband]  
+        public static int nVB_QRTimeout;            // อายุของ QRCode หน่วย : นาที
+        public static int nVB_RolLevel;             // ระดับการใช้งาน
+        public static int nVB_ChkShowBarQR;         // 1 : แสดง Barcode, 2 : แสดง QRcode, 3 : แสดงทั้ง Barcode และ QRcode
+        public static int nVB_SyncSuccess = 0;      // นับจำนวนรายชื่อ Sync สำเร็จ
+        public static int nVB_SyncError = 0;        // นับจำนวนรายชื่อ Sync ที่ไม่สำเร็จ
+        public static int nVB_SyncMax;              // จำนวนรายชื่อ Sync ทั้งหมด
+        public static int nVB_PdtPerPage = 12;      // จำนวนรายการสินค้าต่อหน้า
+        public static int nVB_GrpPerPage = 5;       // จำนวนกลุ่มต่อหน้า
+        public static int nVB_MenuPerPage = 10;      // จำนวนเมนูต่อหน้า //*Net 63-07-30 default 10 ตาม Moshi
+        public static int nVB_ReturnType;           // Option การคืน 1;คืนได้ครังเดียว เต็มบิลเท่านัน,2:คืนได้ครังเดียว บางรายการได้ ,3:คืนได้หลายครัง ตรวจสอบจํานวน ,4:คืนได้หลายครัง ไม่ตรวจสอบจํานวน ,5:ห้ามคืน
+        public static int nVB_PrnRefundMaster;            // จำนวนการพิมพ์ต้นฉบับ บิลคืน
+        public static int nVB_PrnRefundCopy;         // จำนวนการพิมพ์ต้นสำเนา บิลคืน
+        public static int nVB_PrnTaxMaster;               // จำนวนการพิมพ์ต้นฉบับ ใบกำกับภาษี
+        public static int nVB_PrnTaxCopy;            // จำนวนการพิมพ์ต้นสำเนา ใบกำกับภาษี
+        public static int nVB_CstPoint;             // แต้มสะสม  //*Arm 63-03-09
+        public static int nVB_CstPiontB4Used;       // แต้มสะสมก่อนใช้  //*Arm 63-03-16       
+        public static int nVB_ChkShowPdtBarCode;    // *Arm 63-04-13  พิมพ์รหัสสินค้าหรือบาร์โค้ดในแสดงสลิป 0:ไม่แสดง, 1:แสดง Product Code, 2:แสดง Barcode 
+        public static int nVB_CstPiontB4UsedPrn;    // แต้มสะสมก่อนใช้ Print   //*Arm 63-04-29
+        public static int nVB_StartY;               // *Arm 63-05-03
+        //*Net 63-07-30 ยกมาจาก Moshi
+        public static int nVB_DelayTimeChg;         // ระยะเวลาในการแสดงเงินทอน(วินาที)    //*Em 63-07-26
+        public static int nVB_CountDown;            //*Net 63-07-24 การนับเลขถอยหลัง
+        public static int nVB_FixDoc;               //*Net 63-07-24 จำนวนรอบที่ซ่อมบิล
+
+
+        //*Zen 63-01-29
+        public static int nVB_Check2nd;
+        public static int nVB_Setting2nd; // check : 0 ไม่โชว์หน้า 2 : 1 โชว์หน้า 2
+
+        public static int nVB_SaleModeStd; // check : 1 Standard Mode , 2 Touch Mode
+        public static int nPS_StaSumPdt;            // จำนวนสินค้าหน้าจอขาย 1:แยกรายการ 2:รวมรายการ
+        public static int nVB_StaSumScan;           // *Arm 63-05-05 สถานะรวมรายการสินค้าตอนสแกน 1:อนุญาต 2: ไม่อนุญาต
+        public static int nVB_StaSumPrn;            // *Arm 63-05-05 สถานะรวมรายการสินค้าตอนพิมพ์ 1:อนุญาต 2: ไม่อนุญาต
+                                                    //public static int nVB_SaleModeStd;      //โหมดการแสดงผลหน้าจอขาย ยกมาจาก baseline
+
+        public static int nVB_TimeClearLog; // ตัวแปรที่ใช้ในการเก็บ Log คิดเป็น วัน
+        public static int nVB_PrnHoldBillMaster;    //*Arm 63-05-27 จำนวนการพิมพ์ต้นฉบับ บิลพักบิล
+        public static int nVB_PrnHoldBillCopy;      //*Arm 63-05-27 จำนวนการพิมพ์ต้นสำเนา บิลพักบิล
+        public static int nVB_PrnSlipMaster;        //*Arm 63-06-11 จำนวนการพิมพ์ต้นฉบับ บิลขาย 
+        public static int nVB_PrnSlipCopy;          //*Arm 63-06-11 จำนวนการพิมพ์ต้นสำเนา บิลขาย
+
+        //*Net 63-07-30 ยกมาจาก Moshi
+        public static int nVB_LastBillR;      //*Net 63-06-10 เลขที่บิลคืนสมบูรณ์ล่าสุด
+        public static int nVB_LastBillS;      //*Net 63-06-10 เลขที่บืลขายสมบูรณ์ล่าสุด
+
+        public static int nVB_CmdTimeout;           //*Arm 63-08-07 เวลา timeout Command บันทึกสินค้า
+        public static int nVB_ApiResTimeout;        //*Arm 63-08-07 เวลา timeout รอ Api Response โหลดสินค้า
+        public static int nVB_BrwTop;               //*Arm 63-08-28 แสดงจำนวนรายการ
+        #endregion End int
+
+        #region double / float
+
+        public static decimal cVB_Amount;            // Amount for payment
+        public static decimal cVB_Rate;              // สกุลเงิน
+        public static decimal cVB_Available;         // [Pong][2019-01-22][ยอดเงินใช้ได้จาก บัตร/wristband]
+        public static decimal cVB_VatRate;          //Vat Rate
+        public static decimal cVB_Change;           // เงินทอน
+        public static decimal cVB_QRPayAmt;         //ยอดชำระจากคิวอาร์โค้ด
+        public static decimal cVB_RoundDiff;        //ยอดปัดเศษ      //*Em 62-10-08
+        public static decimal cVB_MaxChg;           //เงินทอนสูงสุด
+        public static decimal cVB_SmallBill;        //ยอดต่ำสุดหลังหักส่วนลดลูกค้า
+        public static decimal cVB_PntOptBuyAmt;     //เงื่อนไข อัตราส่วนมูลค่าซื้อ  //*Arm 63-03-09
+        public static decimal cVB_PntOptGetQty;      //เงื่อนไข อัตราแต้มที่จะได้   //*Arm 63-03-09
+        public static decimal cVB_PriceAfEditQty;   //ราคาสินค้า หลังจากแก้ไขจำนวน
+
+        public static Nullable<decimal> cVB_MonitorSalGrand;  //มอนิเตอร์ยอดขายต่อบิล
+
+        #endregion End double / float
+
+        #region Boolean
+
+        public static bool bVB_StaLockScr;
+        public static bool bVB_SplashScreen;        // Check open form splash screen
+        public static bool bVB_ChkPrint;            // ตรวจสอบว่าให้เปิดการพิมพ์ไหม
+        public static bool bVB_PSysRnd;             // อนุญาตให้ปัดเศษ
+        public static bool bVB_ModeScan;            // Mode Scan
+        public static bool bVB_ReadWriteWB;         // Read Wrist Wristband
+        public static bool bVB_PrnQRCode;           //     
+        public static bool bVB_ScanQR;              //มาจากการ ScanQRCode
+        public static bool bVB_PrnShiftRCV;         // พิมพ์ใบสรุปยอด
+        public static bool bVB_PrnShiftBNK;         // พิมพ์ใบนำส่งเงิน
+        public static bool bVB_PrnShiftSUM;         // พิมพ์ใบปิดรอบ
+        public static bool bVB_AlwPrnVoid;          // พิมพ์รายการ Void ในสลิป
+        public static bool bVB_PrnTaxInvoiceCopy;   // ตรวจสอบการพิมพ์สำเนาของใบกำกับภาษี
+
+        public static bool bVB_AlwShw2Screen;       // อนุญาตแสดงหน้าจอโฆษณา //*Net 63-07-30 ไม่ใช้แล้ว
+        public static bool bVB_AlwShwCstScreen;       // อนุญาตแสดงหน้าจอสำหรับลูกค้า //*Net 63-07-30 ปรับตาม Moshi
+
+        // Edit By Zen 2020-02-19
+        public static bool bVB_PrnShiftRCVRef;      // ตรวจสอบ พิมพ์ใบสรุปยอด null ไม่ต้องตัวยอดขาย | 1 ตรวจสอบยอดขาย | 2 ไม่ต้องตรวจสอบยอดขาย
+        public static bool bVB_AlwChkShfRCV;        //อนุญาต ให้ตรวจสอบยอดการชำระ เมื่อปิดรอบ 1 : อนุญาต, 0 : ไม่อนุญาต //*Net 63-07-07 เปลี่ยนจาก bVB_PrnShiftRCVRef
+        public static bool bVB_PrnShiftBNKRef;      // ตรวจสอบ พิมพ์ใบนำส่งเงิน null ไม่ต้องตัวยอดขาย | 1 ตรวจสอบยอดขาย | 2 ไม่ต้องตรวจสอบยอดขาย
+        //public static bool bVB_PrnShiftSUMRef;      // ตรวจสอบ พิมพ์ใบปิดรอบ null ไม่ต้องตัวยอดขาย | 1 ตรวจสอบยอดขาย | 2 ไม่ต้องตรวจสอบยอดขาย
+        public static bool bPS_PrintHoldBill;      // อนุญาต ให้พิมพ์ใบพักบิล 1 พิมพ์ | อื่นๆ ไม่พิมพ์
+
+        public static bool bVB_RetriveBill;         //*Em 63-04-25
+        public static bool bVB_PriceConfirm;        // ยืนยันราคาใหม่      //*Em 63-05-06
+        public static bool bVB_RefundFullBill;      //*Em 63-05-07
+        public static bool bVB_RefundTrans;         //*Arm 63-05-25 true: Transaction, false: Temp
+        public static bool bVB_PmtPriGrp;           //*Arm 63-05-25 โปรโมชั่นกลุ่มราคา true:มี, false: ไม่มี
+        public static bool bVB_PmtDis;              //*Arm 63-05-25 โปรโมชั่นส่วนลด true:มี, false: ไม่มี
+        public static bool bVB_PrnShiftSumRedeem;   //*Arm 63-05-27 สถานะแสดงสรุปการแลกแต้ม ส่วนลด true:แสดง, false: ไม่แสดง
+        public static bool bVB_PrnRownum;           //*Zen 63-06-04 Option เปิด Rownumber
+        public static bool bVB_AlwPrnLog;           //*Net 63-06-06 เปิด ปิด การพิมพ์ Log
+        public static bool bVB_RefundDataFrom;      //*Arm 63-06-09 DocRefer ที่มาข้อมูล True: ข้อมูลในเครื่อง, False: ข้อมูลการขายมาจากหลังบ้านโดย Call API2ARDoc
+        public static bool bVB_Flag;                //*Arm 63-06-09 สถาณะอนุญาตให้ใช้ e Couponc หรือ Loyalty หรือไม่ --> true:อนุญาติ, False:ไม่อนุญาตให้ใช้
+        public static bool bVB_ChkPosRegister;      //*Arm 63-07-09 option อนุญาตตรวจสอบสถานะ Register เครื่องจุดขาย true:อนุญาติ, false:ไม่อนุญาต
+        public static bool bVB_AlwPmtDisAvg;        //*Em 63-08-27
+        #endregion End Boolean
+
+        #region Datetime
+        public static DateTime dVB_QRDateChkExpire;   //วันที่จาก QR Code
+        public static DateTime dVB_TimeStamp;         //mark วันที่และแวลา เพิ่มเทส
+        #endregion Datetime
+        #region List / Array
+
+        public static List<Font> aoVB_PInvLayout;               // Set font for print
+        public static List<cmlTCNMPosHW> aoVB_PosHW;            // Pos HW
+        public static List<cmlTFNMRateUnit> aoVB_RateUnit;      // Rate Unit        //*Em 62-10-08
+        public static List<cmlPdtOrder> aoVB_PdtReferSO;        // Product จาก SO //*Arm 63-02-19
+
+        public static string[] atVB_PmtRefund; //*Em 63-04-17
+        public static int[] anVB_PdtSeqNoRefund;  //*Em 63-05-07
+        #endregion End List / Array
+
+        #region object
+
+        public static Color oVB_ColNormal;
+        public static Color oVB_ColDark;
+        public static Color oVB_ColLight;
+        public static ResourceManager oVB_GBResource;
+        public static wSale oVB_Sale;
+        public static SqlConnection oVB_ConnDB;
+        public static cmlConfigDB oVB_Config;
+        public static cmlTCNMRsn oVB_Reason;
+        public static wPayment oVB_Payment;
+        //public static wTaxInvoice oVB_TaxInvoice;   //*Em 62-08-08
+        public static wTax oVB_TaxInvoice;   //*Em 63-02-28
+        public static cmlCstCard oVB_CstCard; //*Net 63-03-31
+
+        public static List<cmlPdtOrder> aoVB_PdtRefund; //*Em 62-08-15
+        public static List<cmlTPSTSalHDDis> aoVB_PdtHDDisRefund; //*Arm 63-04-03
+        public static List<cmlPdtDisChg> aoVB_PdtDisChgRefund; //*Arm 63-03-20
+        public static List<cmlPdtRedeem> aoVB_PdtRdDocType1; //*Arm 63-03-20
+        public static List<cmlPdtRedeem> aoVB_PdtRdDocType2; //*Arm 63-03-20
+
+        public static List<cmlPdtDisChg> aoVB_PdtDisChgCoupon; //*Net 63-03-23
+
+        public static cmlRabbitMQConfig oVB_RabbitMQConfig;
+
+        public static cRabbitMQ oVB_MQ;
+        public static cRabbitMQ oVB_MQ_Member; //*Arm 62-10-25
+        public static cmlPdtOrder oVB_PdtOrder;
+        public static int oVB_OrderRowIndex;
+        
+
+        //*Em 63-01-06  Coupon
+        public static ConnectionFactory oVB_MQFactory;
+        public static IConnection oVB_MQConn;
+        public static IModel oVB_MQModel;
+        public static EventingBasicConsumer oVB_MQEvent;
+        public static cRabbitMQ oVB_Coupon;
+
+        //*Net 63-06-04 FixDocNo
+        public static IConnection oVB_MQConn_FixDocNo;
+        public static IModel oVB_MQModel_FixDocNo;
+        public static EventingBasicConsumer oVB_MQEvent_FixDocNo;
+
+        //*Zen 63-01-26
+        public static wShw2ndScreen oVB_2ndScreen;
+        public static cmlTCNMTaxAddress oVB_TaxAddr;    //*Em 63-02-29
+
+        //SO
+        public static cmlDataOrdersByDoc oVB_ReferSO; //*Arm 6-03-05
+        //Promotion
+        public static wPmtGetorSug oVB_PmtGetorSug; //*Arm 6-03-05
+
+        public static DataTable oVB_GetPmt;
+        public static DataTable oVB_PmtSug;
+
+        //*Em 63-04-25
+        public static List<cmlTPSMFunc> oVB_PayType;
+        public static List<cmlTPSMFunc> oVB_PayMenuBar;
+        public static List<cmlTFNMBankNote> oVB_QuickAmt;
+        public static List<cmlTCNMSlipMsgDTTmp_L> oVB_SlipMsg;  //*Em 63-05-16
+
+        public static DataTable oVB_CstPrivilege; //*Arm 63-06-24  Privilege Customer SKC
+
+        public static wCstScreen oVB_CstScreen; //*Net 63-07-08 หน้าจอ 2 //*Net 63-07-30 ยกมาจาก Moshi
+
+        public static CookieContainer oVB_Cookie_CreateCstCode;   //*Arm 63-08-06 เก็บ cookie ที่ส่งไปขอ
+        #endregion End object 
+
+    }
+}

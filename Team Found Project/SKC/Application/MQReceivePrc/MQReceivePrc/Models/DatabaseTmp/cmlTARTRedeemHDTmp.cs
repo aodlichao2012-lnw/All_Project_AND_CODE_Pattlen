@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MQReceivePrc.Models.DatabaseTmp
+{
+    public class cmlTARTRedeemHDTmp
+    {
+        /// <summary>
+        ///รหัสสาขา
+        /// </summary>
+        public string FTBchCode { get; set; }
+
+        /// <summary>
+        ///รหัสโปรโมชั่นแลกคะแนน XXYY-######
+        /// </summary>
+        public string FTRdhDocNo { get; set; }
+
+        /// <summary>
+        ///วันที่เอกสาร
+        /// </summary>
+        public Nullable<DateTime> FDRdhDocDate { get; set; }
+
+        /// <summary>
+        ///ประเภทเอกสาร 1: Redeem แต้ม+เงิน 2: Redeem ส่วนลด
+        /// </summary>
+        public string FTRdhDocType { get; set; }
+
+        /// <summary>
+        ///การคำนวน 1: ส่วนลด(Default)  2: เงินสด (ไม่ re-cal Vat)
+        /// </summary>
+        public string FTRdhCalType { get; set; }
+
+        /// <summary>
+        ///วันที่เริ่ม
+        /// </summary>
+        public Nullable<DateTime> FDRdhDStart { get; set; }
+
+        /// <summary>
+        ///วันที่สิ้นสุด
+        /// </summary>
+        public Nullable<DateTime> FDRdhDStop { get; set; }
+
+        /// <summary>
+        ///เวลาเริ่ม
+        /// </summary>
+        public Nullable<DateTime> FDRdhTStart { get; set; }
+
+        /// <summary>
+        ///เวลาสิ้นสุด
+        /// </summary>
+        public Nullable<DateTime> FDRdhTStop { get; set; }
+
+        /// <summary>
+        ///หยุดรายการ 0: เปิดใช้  1: หยุด
+        /// </summary>
+        public string FTRdhStaClosed { get; set; }
+
+        /// <summary>
+        ///สถานะเอกสาร ว่าง:ยังไม่สมบูรณ์, 1:สมบูรณ์
+        /// </summary>
+        public string FTRdhStaDoc { get; set; }
+
+        /// <summary>
+        ///สถานะ อนุมัติ เอกสาร ว่าง:ยังไม่ทำ, 1:อนุมัติแล้ว
+        /// </summary>
+        public string FTRdhStaApv { get; set; }
+
+        /// <summary>
+        ///สถานะ prc เอกสาร ว่าง:ยังไม่ทำ, 1:ทำแล้ว
+        /// </summary>
+        public string FTRdhStaPrcDoc { get; set; }
+
+        /// <summary>
+        ///สถานะ เคลื่อนไหว 0:NonActive, 1:Active
+        /// </summary>
+        public Nullable<int> FNRdhStaDocAct { get; set; }
+
+        /// <summary>
+        ///รหัสผู้บันทึก
+        /// </summary>
+        public string FTUsrCode { get; set; }
+
+        /// <summary>
+        ///รหัสผู้อนุมัติ
+        /// </summary>
+        public string FTRdhUsrApv { get; set; }
+
+        /// <summary>
+        ///คำนวนรวมสินค้าโปรโมชั่น 1:อนญาตคำนวน 2:ไม่อนญาตคำนวน
+        /// </summary>
+        public string FTRdhStaOnTopPmt { get; set; }
+
+        /// <summary>
+        ///จำนวนครั้งที่อนุญาต/บิล 0: ไม่จำกัด
+        /// </summary>
+        public Nullable<Int64> FNRdhLimitQty { get; set; }
+
+        /// <summary>
+        ///วันที่ปรับปรุงรายการล่าสุด
+        /// </summary>
+        public Nullable<DateTime> FDLastUpdOn { get; set; }
+
+        /// <summary>
+        ///ผู้ปรับปรุงรายการล่าสุด
+        /// </summary>
+        public string FTLastUpdBy { get; set; }
+
+        /// <summary>
+        ///วันที่สร้างรายการ
+        /// </summary>
+        public Nullable<DateTime> FDCreateOn { get; set; }
+
+        /// <summary>
+        ///ผู้สร้างรายการ
+        /// </summary>
+        public string FTCreateBy { get; set; }
+    }
+}

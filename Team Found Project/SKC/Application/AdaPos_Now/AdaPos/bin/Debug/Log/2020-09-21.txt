@@ -1,0 +1,64 @@
+5.20002.0.0508 : 09:34:53.049 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 09:42:36.219 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 09:45:39.540 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 09:47:30.583 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 09:49:17.663 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:14:29.362 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:14:32.586 : Form (wSetting) > W_GETxService : Insertion index was out of range. Must be non-negative and less than or equal to size.
+Parameter name: index
+5.20002.0.0508 : 10:15:32.643 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:24:08.962 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:28:44.886 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:45:27.086 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:54:19.928 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:57:25.426 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 10:58:03.851 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 11:06:38.959 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 11:17:55.677 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 11:21:36.750 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0508 : 11:58:57.422 : Form (wSetting) > W_GETxService : Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+5.20002.0.0508 : 12:51:22.347 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 12:51:22.925 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 12:54:49.985 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 12:55:28.582 : Form (cRabbitMQ) > C_PRCxPub2Queue : None of the specified endpoints were reachable
+5.20002.0.0508 : 12:55:28.679 : Form (cShift) > C_GENxListenFixDoc : None of the specified endpoints were reachable
+5.20002.0.0508 : 12:56:25.958 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 12:58:21.808 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 14:06:50.830 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 14:06:51.322 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 14:47:30.828 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 14:48:22.740 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 14:53:25.701 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:02:16.080 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:02:22.681 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:03:11.584 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:21:26.260 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:21:30.487 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:21:44.007 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:24:42.362 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:45:14.454 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:52:17.132 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:53:48.649 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 15:54:02.055 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 16:02:00.704 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:29:42.282 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:48:43.772 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:11.421 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:14.655 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:15.436 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:16.031 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:16.903 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:17.510 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 17:55:18.870 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:12:25.974 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:23.476 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:30.514 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:30.954 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:31.505 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:32.234 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:32.906 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:33.632 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:34.471 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:14:34.799 : Form (wSetting) > ogdAPI_CellMouseClick : Object reference not set to an instance of an object.
+5.20002.0.0508 : 19:20:49.123 : Form (cRabbitMQ) > C_SUBxRabbitMQ : None of the specified endpoints were reachable

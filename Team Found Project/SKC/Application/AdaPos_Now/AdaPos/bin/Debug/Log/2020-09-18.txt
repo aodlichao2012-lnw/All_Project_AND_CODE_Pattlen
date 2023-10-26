@@ -1,0 +1,27 @@
+5.20002.0.0507 : 09:41:46.096 : Form (cRabbitMQ) > C_PRCxPub2Queue : None of the specified endpoints were reachable
+5.20002.0.0507 : 09:41:46.128 : Form (cShift) > C_GENxListenFixDoc : None of the specified endpoints were reachable
+5.20002.0.0507 : 15:40:32.601 : Form (cRabbitMQ) > C_PRCxPub2Queue : None of the specified endpoints were reachable
+5.20002.0.0507 : 15:40:32.786 : Form (cShift) > C_GENxListenFixDoc : None of the specified endpoints were reachable
+5.20002.0.0507 : 15:57:01.810 : Form (wSetting) > W_GETxService : Object reference not set to an instance of an object.
+5.20002.0.0507 : 15:58:46.597 : Form (wSetting) > W_GETxService : Object reference not set to an instance of an object.
+5.20002.0.0507 : 16:25:04.106 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 16:28:28.243 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 16:54:13.896 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:19:58.188 : Form (cRabbitMQ) > C_PRCxPub2Queue : None of the specified endpoints were reachable
+5.20002.0.0507 : 17:19:58.254 : Form (cShift) > C_GENxListenFixDoc : None of the specified endpoints were reachable
+5.20002.0.0507 : 17:21:51.078 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:23:17.312 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:28:56.409 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:32:36.974 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:34:39.803 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:35:49.911 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:40:07.387 : Form (cRabbitMQ) > C_PRCxPub2Queue : None of the specified endpoints were reachable
+5.20002.0.0507 : 17:40:07.427 : Form (cShift) > C_GENxListenFixDoc : None of the specified endpoints were reachable
+5.20002.0.0507 : 17:40:35.446 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:42:31.185 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:44:30.306 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:44:50.947 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:45:21.896 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:51:08.204 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:57:10.979 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.
+5.20002.0.0507 : 17:57:55.225 : Form (wCstList) > W_SETxColGrid : Object reference not set to an instance of an object.

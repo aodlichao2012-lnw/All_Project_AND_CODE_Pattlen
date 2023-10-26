@@ -1,0 +1,3293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0897A5B-F38D-4FD3-9254-D34E9FB5E65F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AdaPos</RootNamespace>
+    <AssemblyName>AdaStoreFront</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon App-01 %2864%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdaEDC.NET, Version=4.59.3.5, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\AdaEDC.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="AdaPaymentSvc, Version=1.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\AdaPaymentSvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\AxInterop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="BarcodeLib">
+      <HintPath>DLL\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.4.5.2, Version=4.5.20201.416, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\C1.Win.4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4.5.2, Version=4.5.20201.416, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\C1.Win.C1FlexGrid.4.5.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Drapper, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Drapper.1.2.0\lib\net461\Drapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Drapper.Validation, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Drapper.Validation.2.0.0\lib\netstandard2.0\Drapper.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Core, Version=45.0.6.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\GeckoFX.1.0.5\lib\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms, Version=45.0.6.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeckoFX.1.0.5\lib\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>DLL\Interop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LibExcel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\LibExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.3.0\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="SID_H136_USB_L, Version=1.0.5973.27897, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\SID_H136_USB_L.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Data, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Database, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Design, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Editor, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Map, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Report.Check.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Design, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Report.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Helper, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Stimulsoft.Report.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Web, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Report.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2020.2.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Net.2020.2.1\lib\net45\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=2.4.3.29446, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2020.2.1\lib\net45\Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.1\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.0.0, Culture=neutral, PublicKeyToken=830ae994e36ac27d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\cBankNote.cs" />
+    <Compile Include="Class\cClientService.cs" />
+    <Compile Include="Class\cComboboxItem.cs" />
+    <Compile Include="Class\cCompany.cs" />
+    <Compile Include="Class\cConfig.cs" />
+    <Compile Include="Class\cCstScreen.cs" />
+    <Compile Include="Class\cDashboard.cs" />
+    <Compile Include="Class\cDataReaderAdapter.cs" />
+    <Compile Include="Class\cDiscPolicy.cs" />
+    <Compile Include="Class\cDrawer.cs" />
+    <Compile Include="Class\cExportSale.cs" />
+    <Compile Include="Class\cMiFare.cs" />
+    <Compile Include="Class\cMsgQueue.cs" />
+    <Compile Include="Class\cMsgRemind.cs" />
+    <Compile Include="Class\cNativeWinAPI.cs" />
+    <Compile Include="Class\cPdt.cs" />
+    <Compile Include="Class\cPdtPmt.cs" />
+    <Compile Include="Class\cPos.cs" />
+    <Compile Include="Class\cPosTools.cs" />
+    <Compile Include="Class\cPrint.cs" />
+    <Compile Include="Class\cRabbitMQ.cs" />
+    <Compile Include="Class\cRate.cs" />
+    <Compile Include="Class\cServiceKADS.cs" />
+    <Compile Include="Class\cSetting.cs" />
+    <Compile Include="Class\cShift.cs" />
+    <Compile Include="Class\cPayment.cs" />
+    <Compile Include="Class\cRawPrinterHelper.cs" />
+    <Compile Include="Class\cReason.cs" />
+    <Compile Include="Class\cSale.cs" />
+    <Compile Include="Class\cShiftEvent.cs" />
+    <Compile Include="Class\cSignalR.cs" />
+    <Compile Include="Class\cSlipMsg.cs" />
+    <Compile Include="Class\cSP.cs" />
+    <Compile Include="Class\cStock.cs" />
+    <Compile Include="Class\cSyncData.cs" />
+    <Compile Include="Class\cTax.cs" />
+    <Compile Include="Class\cVB.cs" />
+    <Compile Include="Class\cCustomer.cs" />
+    <Compile Include="Class\cDatabase.cs" />
+    <Compile Include="Class\cEncryptDecrypt.cs" />
+    <Compile Include="Class\cFunctionKeyboard.cs" />
+    <Compile Include="Class\cLanguage.cs" />
+    <Compile Include="Class\cLog.cs" />
+    <Compile Include="Class\cShowPopup.cs" />
+    <Compile Include="Class\cUser.cs" />
+    <Compile Include="Class\cWebService.cs" />
+    <Compile Include="Components\cCirclePicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\uCoupon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uCoupon.Designer.cs">
+      <DependentUpon>uCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uCstAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uCstAddress.Designer.cs">
+      <DependentUpon>uCstAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uMarqueeTxt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uMarqueeTxt.Designer.cs">
+      <DependentUpon>uMarqueeTxt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uMsgQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uMsgQueue.Designer.cs">
+      <DependentUpon>uMsgQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uNotify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uNotify.Designer.cs">
+      <DependentUpon>uNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uNumpad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uNumpad.designer.cs">
+      <DependentUpon>uNumpad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uNumpadLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uNumpadLogin.Designer.cs">
+      <DependentUpon>uNumpadLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uPasscode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uPasscode.Designer.cs">
+      <DependentUpon>uPasscode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uPdtPrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uPdtPrice.Designer.cs">
+      <DependentUpon>uPdtPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uPdtRental.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uPdtRental.Designer.cs">
+      <DependentUpon>uPdtRental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uPdtRental2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uPdtRental2.Designer.cs">
+      <DependentUpon>uPdtRental2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uPincode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uPincode.Designer.cs">
+      <DependentUpon>uPincode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uProduct.designer.cs">
+      <DependentUpon>uProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uProductGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uProductGroup.Designer.cs">
+      <DependentUpon>uProductGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uQty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uQty.Designer.cs">
+      <DependentUpon>uQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uSaleDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uSaleDateTime.Designer.cs">
+      <DependentUpon>uSaleDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uShowQR.cs" />
+    <Compile Include="Control\uShowQR.Designer.cs">
+      <DependentUpon>uShowQR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uShowtime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uShowtime.Designer.cs">
+      <DependentUpon>uShowtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uTicket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uTicket.Designer.cs">
+      <DependentUpon>uTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uVideo2ndScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uVideo2ndScreen.Designer.cs">
+      <DependentUpon>uVideo2ndScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\uZone.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\uZone.Designer.cs">
+      <DependentUpon>uZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wBlank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wBlank.Designer.cs">
+      <DependentUpon>wBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCstScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCstScreen.Designer.cs">
+      <DependentUpon>wCstScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseTmp\cmlTCNMTxnAPITmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMTxnAPITmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMTxnSpcAPITmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrActRoleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTLKMWaHouseTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncDTSpcTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTDiscPolicyTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalDTDisTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalHDCstTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalHDDisTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalPDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalRCTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTSalRDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysDisPolicyTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysDisPolicyTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysSyncModuleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\TCNTMemTxnRedeemTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\TCNTMemTxnSaleTmp.cs" />
+    <Compile Include="Models\Other\cmlAdMsgMedia.cs" />
+    <Compile Include="Models\Other\cmlGetURL.cs" />
+    <Compile Include="Models\Other\cmlShiftSumRedeem.cs" />
+    <Compile Include="Models\RabbitMQ\cmlCheckListSalDoc.cs" />
+    <Compile Include="Models\Webservice\Required\KADS\Customer\cmlReqCustomerCreate.cs" />
+    <Compile Include="Models\Webservice\Required\Pos\cmlReqPosRegister.cs" />
+    <Compile Include="Models\Webservice\Required\SaleDocRefer\cmlReqSaleDwn.cs" />
+    <Compile Include="Models\Webservice\Required\SaleDocRefer\cmlReqUpdSaleRefer.cs" />
+    <Compile Include="Models\Webservice\Required\Stock\cmlReqChkStock.cs" />
+    <Compile Include="Models\Webservice\Required\Stock\cmlReqChkStockMulti.cs" />
+    <Compile Include="Models\Webservice\Required\User\cmlReqPwdChange.cs" />
+    <Compile Include="Models\Webservice\Respond\Download\cmlResInfoSyncModule.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResInfoFuncDTSpc.cs" />
+    <Compile Include="Models\Webservice\Respond\Interface\cmlResLinkWahouseInfo.cs" />
+    <Compile Include="Models\Webservice\Respond\Interface\cmlResListOfcmlResInfoLinkWahouse.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\CheckStock\cmlResInfoResultStock.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\cmlResKADS.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\cmlResMetadata.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\Customer\cmlResCstKAD.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\Customer\cmlResCstKADRef.cs" />
+    <Compile Include="Models\Webservice\Respond\KADS\Vehicle\cmlResInfoResultVehicle.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResPosRegister.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalDT.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalDTDis.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalDTPmt.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalHD.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalHDCst.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalHDDis.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalPD.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalRC.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoSalRD.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoTxnRedeem.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResInfoTxnSale.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleDocRefer\cmlResSaleDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Stock\cmlResChkStock.cs" />
+    <Compile Include="Models\Webservice\Respond\Stock\cmlResChkStockMulti.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResDisPolicyDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoDisPolicy.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoDisPolicyLng.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoTPSTDiscPolicy.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResItemOfcmlResDisPolicyDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\TxnAPI\cmlResInfoTxnAPI.cs" />
+    <Compile Include="Models\Webservice\Respond\TxnAPI\cmlResInfoTxnAPILng.cs" />
+    <Compile Include="Models\Webservice\Respond\TxnAPI\cmlResInfoTxnSpcAPI.cs" />
+    <Compile Include="Models\Webservice\Respond\TxnAPI\cmlResItemOfcmlResTxnAPIDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\TxnAPI\cmlResTxnAPIDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResInfoTCNMUsrActRole.cs" />
+    <Compile Include="Popup\All\wChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wChangePassword.Designer.cs">
+      <DependentUpon>wChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wCountDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wCountDown.Designer.cs">
+      <DependentUpon>wCountDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wCstDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wCstDetail.Designer.cs">
+      <DependentUpon>wCstDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wCstList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wCstList.Designer.cs">
+      <DependentUpon>wCstList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wProgress.Designer.cs">
+      <DependentUpon>wProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPayment.Designer.cs">
+      <DependentUpon>wPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wHome.designer.cs">
+      <DependentUpon>wHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPmtGetorSug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPmtGetorSug.Designer.cs">
+      <DependentUpon>wPmtGetorSug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPmtPriConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPmtPriConfirm.Designer.cs">
+      <DependentUpon>wPmtPriConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPriceCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPriceCheck.Designer.cs">
+      <DependentUpon>wPriceCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wReturnCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wReturnCard.Designer.cs">
+      <DependentUpon>wReturnCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSale.designer.cs">
+      <DependentUpon>wSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSetting.designer.cs">
+      <DependentUpon>wSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wShw2ndScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wShw2ndScreen.Designer.cs">
+      <DependentUpon>wShw2ndScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wTax.designer.cs">
+      <DependentUpon>wTax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wVideo.designer.cs">
+      <DependentUpon>wVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemCDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTSoDTDisTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTSoDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAdMsgTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAdMsgTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAreaTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAreaTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMBranchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMBranchTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstContactTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstCreditTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstLevTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstLevTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstOcpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstOcpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstRFIDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMDistrictTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMDistrictTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgObjTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgPersonTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMediaObjTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMerchantTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMerchantTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBarTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBrandTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBrandTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtColorTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtColorTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtCostAvgTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF0DCSTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF0DCSTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF1DepartTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF1DepartTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF2ClassTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF2ClassTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF3SubClassTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF3SubClassTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFhnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFSeasonTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFSeasonTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtModelTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtModelTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtNoSleByEvnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtNoSleByEvnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPackSizeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPmtGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPmtGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPriListTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPriListTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtRentalTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSizeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSizeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSpcBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTouchGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTouchGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtUnitTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtUnitTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosAdsTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosHWTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosLastNoTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPrinterTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPrinterTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMProvinceTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMProvinceTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMRsnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMRsnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShipViaTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShipViaTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShopTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShopTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSlipMsgDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSlipMsgHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplContactTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplCreditTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplLevTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplLevTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSpnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSpnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSubDistrictTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSubDistrictTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUserTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUserTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrDepartTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrDepartTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrLoginTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrRoleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrRoleTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMVatRateTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMWahouseTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMWahouseTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMZoneTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMZoneTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCBTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCGTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDCstTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHD_LTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPrice4CSTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPrice4PDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPriDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPriHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTUrlObjectLoginTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTUrlObjectTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankNoteTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankNoteTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCrdCpnListTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCrdCpnListTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCreditCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCreditCardTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMEdcTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMEdcTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateUnitTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvSpcTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSTCouponHD_Tmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysConfigTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysConfigTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPmtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPmtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPrinterTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPrinterTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvAppTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvFmtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvFmtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysScaleMapTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysScaleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysSyncDataTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysSyncDataTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvConfigTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDTmp_L.cs" />
+    <Compile Include="Models\Database\cmlBankNote.cs" />
+    <Compile Include="Models\Database\cmlPaymentType.cs" />
+    <Compile Include="Models\Database\cmlPdtRental.cs" />
+    <Compile Include="Models\Database\cmlShiftRcv.cs" />
+    <Compile Include="Models\Database\cmlShiftSummary.cs" />
+    <Compile Include="Models\Database\cmlTCNMAddress.cs" />
+    <Compile Include="Models\Database\cmlTCNMAppModule.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdt.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdtBar.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdtGrp.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdtTouchGrp.cs" />
+    <Compile Include="Models\Database\cmlTCNMTaxAddress.cs" />
+    <Compile Include="Models\Database\cmlTCNMUsrLogin.cs" />
+    <Compile Include="Models\Database\cmlTCNTCstPoint.cs" />
+    <Compile Include="Models\Database\cmlTCNTMsgQueue.cs" />
+    <Compile Include="Models\Database\cmlTCNTTmpLogChg.cs" />
+    <Compile Include="Models\Database\cmlTFNMRate.cs" />
+    <Compile Include="Models\Database\cmlTFNMRateUnit.cs" />
+    <Compile Include="Models\Database\cmlTFNMRcv.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpDT.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpHD.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpRC.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDTDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDTPmt.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHD.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHDCst.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHDDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalPD.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalRC.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalRD.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSKeyBN.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSKeyRcv.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSLastDoc.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSRatePdt.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSSumRcv.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDTDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDTPmt.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHD.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHDCst.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHDDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxRC.cs" />
+    <Compile Include="Models\Database\cmlTPSTVoidDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTVoidDTDis.cs" />
+    <Compile Include="Models\Database\cmlTSysDocType.cs" />
+    <Compile Include="Models\Database\cmlTSysEdc.cs" />
+    <Compile Include="Models\Database\cmlTSysPosHW.cs" />
+    <Compile Include="Models\Database\cmlTSysRsnGrp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTmp.cs" />
+    <Compile Include="Models\Database\cmlTCNTSpnGroup.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrFuncRpt.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrGroup.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrMenu.cs" />
+    <Compile Include="Models\Database\cmlEmail.cs" />
+    <Compile Include="Models\Database\cmlTCNMBranch.cs" />
+    <Compile Include="Models\Database\cmlTCNMCompany.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCompTmp_L.cs" />
+    <Compile Include="Models\Database\cmlTCNMCst.cs" />
+    <Compile Include="Models\Database\cmlTCNMPosHW.cs" />
+    <Compile Include="Models\Database\cmlTCNMRsn.cs" />
+    <Compile Include="Models\Database\cmlTCNMShop.cs" />
+    <Compile Include="Models\Database\cmlTFNMBankNote.cs" />
+    <Compile Include="Models\Database\cmlTPSMFunc.cs" />
+    <Compile Include="Models\Database\cmlTCNMUser.cs" />
+    <Compile Include="Models\Database\cmlTCNMPos.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftEvent.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftHD.cs" />
+    <Compile Include="Models\Database\cmlTSysConfig.cs" />
+    <Compile Include="Models\Database\cmlTSysLanguage.cs" />
+    <Compile Include="Models\Database\cmlTSysSetting.cs" />
+    <Compile Include="Models\Database\cmlTCNTMsgRemind.cs" />
+    <Compile Include="Models\Database\cmlTSysSyncData.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCompTmp.cs" />
+    <Compile Include="Models\Database\cmlTSysSyncData_L.cs" />
+    <Compile Include="Models\Other\cmlConfigDB.cs" />
+    <Compile Include="Models\Other\cmlCouponDisDetail.cs" />
+    <Compile Include="Models\Other\cmlCstCard.cs" />
+    <Compile Include="Models\Other\cmlDiscountItem.cs" />
+    <Compile Include="Models\Other\cmlEDC.cs" />
+    <Compile Include="Models\Other\cmlMsgLng.cs" />
+    <Compile Include="Models\Other\cmlPayItem.cs" />
+    <Compile Include="Models\Other\cmlPdtDetail.cs" />
+    <Compile Include="Models\Other\cmlPdtDisChg.cs" />
+    <Compile Include="Models\Other\cmlPdtOrder.cs" />
+    <Compile Include="Models\Other\cmlPdtRentalOrder.cs" />
+    <Compile Include="Models\Other\cmlPmtGet.cs" />
+    <Compile Include="Models\Other\cmlPmtSug.cs" />
+    <Compile Include="Models\Other\cmlPreparePmt.cs" />
+    <Compile Include="Models\Other\cmlPrnSplipDTDis.cs" />
+    <Compile Include="Models\Other\cmlProrateDT.cs" />
+    <Compile Include="Models\Other\cmlRabbitMQConfig.cs" />
+    <Compile Include="Models\Other\cmlRedeemPointDetail.cs" />
+    <Compile Include="Models\Other\cmlSearch.cs" />
+    <Compile Include="Models\Other\cmlShiftBN.cs" />
+    <Compile Include="Models\Other\cmlShiftSum.cs" />
+    <Compile Include="Models\Other\cmlTPSTSal.cs" />
+    <Compile Include="Models\Other\cmlTPSTShift.cs" />
+    <Compile Include="Models\Other\cmlTPSTTax.cs" />
+    <Compile Include="Models\Other\cmlTPSTVoid.cs" />
+    <Compile Include="Models\Other\cmlWristband.cs" />
+    <Compile Include="Models\Other\PriceCheck\cmlPdtBarcode.cs" />
+    <Compile Include="Models\Other\PriceCheck\cmlPriceCheck.cs" />
+    <Compile Include="Models\RabbitMQ\cmlMonitorReq.cs" />
+    <Compile Include="Models\RabbitMQ\cmlNotification.cs" />
+    <Compile Include="Models\RabbitMQ\cmlQueueMember.cs" />
+    <Compile Include="Models\RabbitMQ\cmlReqCoupon.cs" />
+    <Compile Include="Models\RabbitMQ\cmlResCoupon.cs" />
+    <Compile Include="Models\RabbitMQ\cmlResTxnSale.cs" />
+    <Compile Include="Models\Sync\cmlSyncHistory.cs" />
+    <Compile Include="Models\Webservice\Required\cmlReqCardHistory.cs" />
+    <Compile Include="Models\Webservice\Required\cmlReqChgCrd.cs" />
+    <Compile Include="Models\Webservice\Required\cmlReqSpotChk.cs" />
+    <Compile Include="Models\Webservice\Required\cmlReqSyncData.cs" />
+    <Compile Include="Models\Webservice\Required\cmlReqTopup.cs" />
+    <Compile Include="Models\Webservice\Required\Customer\cmlReqCstSch.cs" />
+    <Compile Include="Models\Webservice\Required\GenDocNo\cmlReqGenDocNo.cs" />
+    <Compile Include="Models\Webservice\Required\SaleOrder\cmlReqSO.cs" />
+    <Compile Include="Models\Webservice\Respond\AdMsg\cmlResAdvMsgDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\AdMsg\cmlResInfoAdvMsg.cs" />
+    <Compile Include="Models\Webservice\Respond\AdMsg\cmlResInfoAdvMsgLng.cs" />
+    <Compile Include="Models\Webservice\Respond\AdMsg\cmlResItemOfcmlResAdvMsgDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\AdMsg\cmlTCNMMediaObj.cs" />
+    <Compile Include="Models\Webservice\Respond\Area\cmlResAreaDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Area\cmlResInfoArea.cs" />
+    <Compile Include="Models\Webservice\Respond\Area\cmlResInfoAreaLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Area\cmlResItemOfcmlResAreaDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Banknote\cmlResBankNoteDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Banknote\cmlResInfoBankNote.cs" />
+    <Compile Include="Models\Webservice\Respond\Banknote\cmlResInfoBankNoteLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Banknote\cmlResItemOfcmlResBankNoteDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Bank\cmlResBankDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Bank\cmlResInfoBank.cs" />
+    <Compile Include="Models\Webservice\Respond\Bank\cmlResInfoBankLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Bank\cmlResItemOfcmlResBankDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Base\cmlResBase.cs" />
+    <Compile Include="Models\Webservice\Respond\Base\cmlResItem.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResBchDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResTCNTUrlObject.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResTCNTUrlObjectLogin.cs" />
+    <Compile Include="Models\Webservice\Respond\CardCouponList\cmlResCrdCpnListDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CardCouponList\cmlResInfoCrdCpnList.cs" />
+    <Compile Include="Models\Webservice\Respond\CardCouponList\cmlResInfoCrdCpnListLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CardCouponList\cmlResItemOfcmlResCrdCpnListDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CardType\cmlResCardTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CardType\cmlResInfoCardType.cs" />
+    <Compile Include="Models\Webservice\Respond\CardType\cmlResInfoCardTypeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CardType\cmlResItemOfcmlResCardTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Card\cmlResCardDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Card\cmlResInfoCard.cs" />
+    <Compile Include="Models\Webservice\Respond\Card\cmlResInfoCardLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Card\cmlResItemOfcmlResCardDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResChgCrd.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResInfoAddrLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResInfoBch.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResInfoBchLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Branch\cmlResItemOfcmlResBchDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResCardHistory.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResCardHistoryList.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResInfoImgPerson.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResIsOnline.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResTopup.cs" />
+    <Compile Include="Models\Webservice\Respond\Company\cmlResCompDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Company\cmlResInfoComp.cs" />
+    <Compile Include="Models\Webservice\Respond\Company\cmlResInfoCompLng.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResInfoImgObj.cs" />
+    <Compile Include="Models\Webservice\Respond\Company\cmlResItemOfcmlResCompDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Cost\cmlResListOfcmlTCNMPdtCostAvg.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResCpnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResCpnTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpn.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnDT.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnHD.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnHDBch.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnHDCstPri.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnHDPdt.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnHD_L.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnType.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResInfoCpnType_L.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResItemOfcmlResCpnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Coupon\cmlResItemOfcmlResCpnTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CreditCard\cmlResCreditCardDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CreditCard\cmlResInfoCreditCard.cs" />
+    <Compile Include="Models\Webservice\Respond\CreditCard\cmlResInfoCreditCardLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CreditCard\cmlResItemOfcmlResCreditCardDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerAddress\cmlResInfoCstAddrLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerAddress\cmlResListOfcmlResInfoCstAddrLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerGroup\cmlResCstGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerGroup\cmlResInfoCstGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerGroup\cmlResInfoCstGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerGroup\cmlResItemOfcmlResCstGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerLevel\cmlResCstLevDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerLevel\cmlResInfoCstLev.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerLevel\cmlResInfoCstLevLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerLevel\cmlResItemOfcmlResCstLevDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerOccupation\cmlResCstOcpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerOccupation\cmlResInfoCstOcp.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerOccupation\cmlResInfoCstOcpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerOccupation\cmlResItemOfcmlResCstOcpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerType\cmlResCstTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerType\cmlResInfoCstType.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerType\cmlResInfoCstTypeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\CustomerType\cmlResItemOfcmlResCstTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResCstDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResCstSch.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCst.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstCard.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstContactLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstCredit.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstPoint.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResInfoCstRFIDLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Customer\cmlResItemOfcmlResCstDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\District\cmlResDistrictDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\District\cmlResInfoDistrict.cs" />
+    <Compile Include="Models\Webservice\Respond\District\cmlResInfoDistrictLng.cs" />
+    <Compile Include="Models\Webservice\Respond\District\cmlResItemOfcmlResDistrictDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResEventDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResInfoEventDT.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResInfoEventDTLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResInfoEventHD.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResInfoEventHDLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Events\cmlResItemOfcmlResEventDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResFuncDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResInfoFuncDT.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResInfoFuncDTLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResInfoFuncHD.cs" />
+    <Compile Include="Models\Webservice\Respond\Function\cmlResItemOfcmlResFuncDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Merchant\cmlResItemOfcmlResMerchant.cs" />
+    <Compile Include="Models\Webservice\Respond\Merchant\cmlResMerchant.cs" />
+    <Compile Include="Models\Webservice\Respond\Merchant\cmlTCNMMerchant.cs" />
+    <Compile Include="Models\Webservice\Respond\Merchant\cmlTCNMMerchant_L.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoEdc.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoEdcLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPos.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPosHW.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPosLastNo.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPosLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPrinter.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResInfoPrinterLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResItemOfcmlResPosDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResListOfcmlTCNMPosAds.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlResPosDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Pos\cmlTCNMPosAds.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductBrand\cmlResInfoPdtBrand.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductBrand\cmlResInfoPdtBrandLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductBrand\cmlResItemOfcmlResPdtBrandDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductBrand\cmlResPdtBrandDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductColor\cmlResInfoPdtColor.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductColor\cmlResInfoPdtColorLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductColor\cmlResItemOfcmlResPdtColorDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductColor\cmlResPdtColorDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionClass\cmlResInfoPdtClass.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionClass\cmlResInfoPdtClassLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionClass\cmlResItemOfcmlResPdtClassDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionClass\cmlResPdtClassDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDCS\cmlResInfoPdtDCS.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDCS\cmlResInfoPdtDCSLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDCS\cmlResItemOfcmlResPdtDCSDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDCS\cmlResPdtDCSDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDepart\cmlResInfoPdtDepart.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDepart\cmlResInfoPdtDepartLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDepart\cmlResItemOfcmlResPdtDepartDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionDepart\cmlResPdtDepartDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSeason\cmlResInfoPdtSeason.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSeason\cmlResInfoPdtSeasonLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSeason\cmlResItemOfcmlResPdtSeasonDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSeason\cmlResPdtSeasonDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSubClass\cmlResInfoPdtSubClass.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSubClass\cmlResInfoPdtSubClassLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSubClass\cmlResItemOfcmlResPdtSubClassDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashionSubClass\cmlResPdtSubClassDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashion\cmlResInfoPdtFhn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashion\cmlResItemOfcmlResPdtFhnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductFashion\cmlResPdtFhnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductGroup\cmlResInfoPdtGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductGroup\cmlResInfoPdtGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductGroup\cmlResItemOfcmlResPdtGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductGroup\cmlResPdtGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductModel\cmlResInfoPdtModel.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductModel\cmlResInfoPdtModelLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductModel\cmlResItemOfcmlResPdtModelDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductModel\cmlResPdtModelDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductNoSaleByEvent\cmlResInfoPdtNoSleByEvn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductNoSaleByEvent\cmlResInfoPdtNoSleByEvnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductNoSaleByEvent\cmlResItemOfcmlResPdtNoSleByEvnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductNoSaleByEvent\cmlResPdtNoSleByEvnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPriceList\cmlResInfoPdtPriList.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPriceList\cmlResInfoPdtPriListLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPriceList\cmlResItemOfcmlResPdtPriListDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPriceList\cmlResPdtPriListDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPrice\cmlResInfoPdtApv4Cst.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPrice\cmlResInfoPdtApv4Pdt.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPrice\cmlResListOfcmlResInfoPdtApv4Cst.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPrice\cmlResListOfcmlResInfoPdtApv4Pdt.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotionGroup\cmlResInfoPdtPmtGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotionGroup\cmlResInfoPdtPmtGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotionGroup\cmlResItemOfcmlResPdtPmtGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotionGroup\cmlResPdtPmtGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtCB.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtCD.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtCG.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtDT.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtHD.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtHDBch.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtHDCst.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtHDCstPri.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResInfoPdtPmtHD_L.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResItemOfcmlResPdtPmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductPromotion\cmlResPdtPmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductRental\cmlResInfoPdtRental.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductRental\cmlResItemOfcmlResPdtRentalDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductRental\cmlResPdtRentalDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductSize\cmlResInfoPdtSize.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductSize\cmlResInfoPdtSizeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductSize\cmlResItemOfcmlResPdtSizeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductSize\cmlResPdtSizeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductTouchGroup\cmlResInfoPdtTouchGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductTouchGroup\cmlResInfoPdtTouchGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductTouchGroup\cmlResItemOfcmlResPdtTouchGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductTouchGroup\cmlResPdtTouchGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductType\cmlResInfoPdtType.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductType\cmlResInfoPdtTypeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductType\cmlResItemOfcmlResPdtTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductType\cmlResPdtTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductUnit\cmlResInfoPdtUnit.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductUnit\cmlResInfoPdtUnitLng.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductUnit\cmlResItemOfcmlResPdtUnitDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\ProductUnit\cmlResPdtUnitDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResInfoImgPdt.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResInfoPdt.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResInfoPdtBar.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResInfoPdtLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResInfoPdtPackSize.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResItemOfcmlResPdtItemDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResPdtItemDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Product\cmlResTCNMPdtSpcBch.cs" />
+    <Compile Include="Models\Webservice\Respond\Rate\cmlResInfoRate.cs" />
+    <Compile Include="Models\Webservice\Respond\Rate\cmlResInfoRateLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Rate\cmlResInfoRateUnit.cs" />
+    <Compile Include="Models\Webservice\Respond\Rate\cmlResItemOfcmlResRateDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Rate\cmlResRateDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Reason\cmlResInfoRsn.cs" />
+    <Compile Include="Models\Webservice\Respond\Reason\cmlResInfoRsnGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Reason\cmlResInfoRsnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Reason\cmlResItemOfcmlResRsnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Reason\cmlResRsnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResInfoRcv.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResInfoRcvLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResInfoRcvSpc.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResItemOfcmlResRcvDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResItemOfcmlResRcvSpcDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResRcvDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Receive\cmlResRcvSpcDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemCD.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemDT.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemHD.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemHDBch.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemHDCstPri.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResInfoRedeemHDLng.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResRedeemDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\RedeemPoint\cmlResItemOfcmlResRedeemPointDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Role\cmlResInfoFuncRpt.cs" />
+    <Compile Include="Models\Webservice\Respond\Role\cmlResInfoUsrMenu.cs" />
+    <Compile Include="Models\Webservice\Respond\Role\cmlResItemOfcmlResRoleDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Role\cmlResRoleDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResInfoTARTSoDT.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResInfoTARTSoDTDis.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResInfoTARTSoHD.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResInfoTARTSoHDCst.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResInfoTARTSoHDDis.cs" />
+    <Compile Include="Models\Webservice\Respond\SaleOrder\cmlResSO.cs" />
+    <Compile Include="Models\Webservice\Respond\SalePerson\cmlResInfoSpn.cs" />
+    <Compile Include="Models\Webservice\Respond\SalePerson\cmlResInfoSpnGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\SalePerson\cmlResInfoSpnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SalePerson\cmlResItemOfcmlResSpnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SalePerson\cmlResSpnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SlipMsg\cmlResInfoSlipMsgDTLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SlipMsg\cmlResInfoSlipMsgHDLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SlipMsg\cmlResItemOfcmlResSlipMsgDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SlipMsg\cmlResSlipMsgDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SubDistrict\cmlResInfoSubDist.cs" />
+    <Compile Include="Models\Webservice\Respond\SubDistrict\cmlResInfoSubDistLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SubDistrict\cmlResItemOfcmlResSubDistDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SubDistrict\cmlResSubDistDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Download\cmlResInfoSyncData.cs" />
+    <Compile Include="Models\Webservice\Respond\Download\cmlResInfoSyncDataLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Download\cmlResItemOfcmlResSyncDataDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResResult.cs" />
+    <Compile Include="Models\Webservice\Respond\cmlResSpotChk.cs" />
+    <Compile Include="Models\Webservice\Respond\Download\cmlResSyncDataDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Province\cmlResInfoPvn.cs" />
+    <Compile Include="Models\Webservice\Respond\Province\cmlResInfoPvnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Province\cmlResItemOfcmlResPvnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Province\cmlResPvnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Shop\cmlResInfoShop.cs" />
+    <Compile Include="Models\Webservice\Respond\Shop\cmlResInfoShopLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Shop\cmlResItemOfcmlResShopDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Shop\cmlResShopDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierAddress\cmlResListOfcmlResSplAddrDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierAddress\cmlResSplAddrDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierContact\cmlResListOfcmlResSplContactDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierContact\cmlResSplContactDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierGroup\cmlResInfoSplGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierGroup\cmlResInfoSplGrpLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierGroup\cmlResItemOfcmlResSplGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierGroup\cmlResSplGrpDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierLevel\cmlResInfoSplLev.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierLevel\cmlResInfoSplLevLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierLevel\cmlResItemOfcmlResSplLevelDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierLevel\cmlResSplLevelDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierShipVia\cmlResInfoSplShipVia.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierShipVia\cmlResInfoSplShipViaLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierShipVia\cmlResItemOfcmlResSplShipViaDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierShipVia\cmlResSplShipViaDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierType\cmlResInfoSplType.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierType\cmlResInfoSplTypeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierType\cmlResItemOfcmlResSplTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\SupplierType\cmlResSplTypeDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResInfoSpl.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResInfoSplCard.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResInfoSplCredit.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResInfoSplLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResItemOfcmlResSplItemDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Supplier\cmlResSplItemDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysConfig.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysConfigLng.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysDocType.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysEdc.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysLang.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysPmt.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysPmtLng.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysPosHW.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysPrn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysPrnLng.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysRcvFmt.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysRcvFmtLng.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysScale.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResInfoSysScaleMap.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResItemOfcmlResSysConfigDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResItemOfcmlResSysPmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResItemOfcmlResSysPrnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResItemOfcmlResSysRcvFmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlTSysRcvApp.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysDocType.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysEdc.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysLang.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysPosHW.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysScale.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlResInfoSysScaleMap.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResListOfcmlTSysRcvConfig.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResSysConfigDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResSysPmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResSysPrnDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlResSysRcvFmtDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlTSysRcvApp.cs" />
+    <Compile Include="Models\Webservice\Respond\System\cmlTSysRcvConfig.cs" />
+    <Compile Include="Models\Webservice\Respond\UserDepart\cmlResInfoUsrDep.cs" />
+    <Compile Include="Models\Webservice\Respond\UserDepart\cmlResInfoUsrDepLng.cs" />
+    <Compile Include="Models\Webservice\Respond\UserDepart\cmlResItemOfcmlResUsrDepDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\UserDepart\cmlResUsrDepDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\UserRole\cmlResInfoUserRole.cs" />
+    <Compile Include="Models\Webservice\Respond\UserRole\cmlResInfoUserRoleLng.cs" />
+    <Compile Include="Models\Webservice\Respond\UserRole\cmlResItemOfcmlResUserRoleDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\UserRole\cmlResUserRoleDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResInfoUser.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResInfoUserGrp.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResInfoUserLng.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResItemOfcmlResUserDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResTCNMUsrLogin.cs" />
+    <Compile Include="Models\Webservice\Respond\User\cmlResUserDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\VatRate\cmlResInfoVatRate.cs" />
+    <Compile Include="Models\Webservice\Respond\VatRate\cmlResListOfcmlResInfoVatRate.cs" />
+    <Compile Include="Models\Webservice\Respond\Cost\cmlTCNMPdtCostAvg.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResInfoVch.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResInfoVchLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResInfoVchType.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResInfoVchTypeLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResItemOfcmlResVchDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Voucher\cmlResVchDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Warehouse\cmlResInfoWah.cs" />
+    <Compile Include="Models\Webservice\Respond\Warehouse\cmlResInfoWahLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Warehouse\cmlResItemOfcmlResWahDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Warehouse\cmlResWahDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Zone\cmlResInfoZone.cs" />
+    <Compile Include="Models\Webservice\Respond\Zone\cmlResInfoZoneLng.cs" />
+    <Compile Include="Models\Webservice\Respond\Zone\cmlResItemOfcmlResZoneDwn.cs" />
+    <Compile Include="Models\Webservice\Respond\Zone\cmlResZoneDwn.cs" />
+    <Compile Include="Popup\All\wAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wAbout.designer.cs">
+      <DependentUpon>wAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wAuthentication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wAuthentication.designer.cs">
+      <DependentUpon>wAuthentication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wCstSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wCstSearch.Designer.cs">
+      <DependentUpon>wCstSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wEditUrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wEditUrl.Designer.cs">
+      <DependentUpon>wEditUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wHelp.designer.cs">
+      <DependentUpon>wHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wSearch2Column.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wSearch2Column.Designer.cs">
+      <DependentUpon>wSearch2Column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wShowKb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wShowKb.designer.cs">
+      <DependentUpon>wShowKb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Setting\wPosRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Setting\wPosRegister.Designer.cs">
+      <DependentUpon>wPosRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Setting\wSetColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Setting\wSetColor.Designer.cs">
+      <DependentUpon>wSetColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Shift\wProgressUldCloseShif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Shift\wProgressUldCloseShif.Designer.cs">
+      <DependentUpon>wProgressUldCloseShif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Shift\wShiftSum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Shift\wShiftSum.Designer.cs">
+      <DependentUpon>wShiftSum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Shift\wWaitUplCloseShf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Shift\wWaitUplCloseShf.Designer.cs">
+      <DependentUpon>wWaitUplCloseShf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wCash\wPdtDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wCash\wPdtDetail.Designer.cs">
+      <DependentUpon>wPdtDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wHome\wDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wHome\wDeposit.Designer.cs">
+      <DependentUpon>wDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wHome\wOpenShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wHome\wOpenShift.Designer.cs">
+      <DependentUpon>wOpenShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSignin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSignin.Designer.cs">
+      <DependentUpon>wSignin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wHome\wWithdraw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wHome\wWithdraw.Designer.cs">
+      <DependentUpon>wWithdraw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wAlipay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wAlipay.Designer.cs">
+      <DependentUpon>wAlipay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wChange.Designer.cs">
+      <DependentUpon>wChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCoupon.Designer.cs">
+      <DependentUpon>wCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCouponDis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCouponDis.designer.cs">
+      <DependentUpon>wCouponDis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCreditCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCreditCard.Designer.cs">
+      <DependentUpon>wCreditCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wEDC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wEDC.Designer.cs">
+      <DependentUpon>wEDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wChooseCpn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wChooseCpn.Designer.cs">
+      <DependentUpon>wChooseCpn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wListCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wListCoupon.Designer.cs">
+      <DependentUpon>wListCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wListEDC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wListEDC.Designer.cs">
+      <DependentUpon>wListEDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCheque.Designer.cs">
+      <DependentUpon>wCheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wPromptPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wPromptPay.Designer.cs">
+      <DependentUpon>wPromptPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCouponRedeem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wCouponRedeem.designer.cs">
+      <DependentUpon>wCouponRedeem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wPayment\wRedeem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wPayment\wRedeem.Designer.cs">
+      <DependentUpon>wRedeem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtBarcode.Designer.cs">
+      <DependentUpon>wPdtBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtSupplier.Designer.cs">
+      <DependentUpon>wPdtSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wProduct\wPdtUnit.Designer.cs">
+      <DependentUpon>wPdtUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wReprint\wReprintPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wReprint\wReprintPreview.Designer.cs">
+      <DependentUpon>wReprintPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wChangePdtQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wChangePdtQty.Designer.cs">
+      <DependentUpon>wChangePdtQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wChooseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wChooseBill.Designer.cs">
+      <DependentUpon>wChooseBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Shift\wBanknote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Shift\wBanknote.Designer.cs">
+      <DependentUpon>wBanknote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wChooseItemRef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wChooseItemRef.Designer.cs">
+      <DependentUpon>wChooseItemRef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wCustomerTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wCustomerTicket.Designer.cs">
+      <DependentUpon>wCustomerTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\All\wEnterAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\All\wEnterAmount.Designer.cs">
+      <DependentUpon>wEnterAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wDiscount.Designer.cs">
+      <DependentUpon>wDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wEditSalePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wEditSalePrice.Designer.cs">
+      <DependentUpon>wEditSalePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wReferBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wReferBill.Designer.cs">
+      <DependentUpon>wReferBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wRemark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wRemark.Designer.cs">
+      <DependentUpon>wRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdt.Designer.cs">
+      <DependentUpon>wRentalPdt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdtBudgetRevise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdtBudgetRevise.Designer.cs">
+      <DependentUpon>wRentalPdtBudgetRevise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdtDsct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wRentalPdtDsct.Designer.cs">
+      <DependentUpon>wRentalPdtDsct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wReferSO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wReferSO.Designer.cs">
+      <DependentUpon>wReferSO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wReturnBillCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wReturnBillCode.Designer.cs">
+      <DependentUpon>wReturnBillCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wSearchDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wSearchDoc.Designer.cs">
+      <DependentUpon>wSearchDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wSearchPdt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wSearchPdt.Designer.cs">
+      <DependentUpon>wSearchPdt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wSerial.Designer.cs">
+      <DependentUpon>wSerial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wVehicle.Designer.cs">
+      <DependentUpon>wVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSplashScreen\wLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSplashScreen\wLanguage.designer.cs">
+      <DependentUpon>wLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSplashScreen\wPasscode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSplashScreen\wPasscode.designer.cs">
+      <DependentUpon>wPasscode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wDetailPdt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wDetailPdt.designer.cs">
+      <DependentUpon>wDetailPdt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSale\wPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSale\wPrice.designer.cs">
+      <DependentUpon>wPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wSpotCheck\wSpotCheckHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wSpotCheck\wSpotCheckHistory.Designer.cs">
+      <DependentUpon>wSpotCheckHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxAddrSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxAddrSearch.designer.cs">
+      <DependentUpon>wTaxAddrSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceABB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceABB.Designer.cs">
+      <DependentUpon>wTaxInvoiceABB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceMode.Designer.cs">
+      <DependentUpon>wTaxInvoiceMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoicePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoicePreview.Designer.cs">
+      <DependentUpon>wTaxInvoicePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxInvoiceSearch.Designer.cs">
+      <DependentUpon>wTaxInvoiceSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxSelectPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTaxInvoice\wTaxSelectPrint.designer.cs">
+      <DependentUpon>wTaxSelectPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\wTicket\wTKDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\wTicket\wTKDescription.Designer.cs">
+      <DependentUpon>wTKDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Global\resGlobal_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resGlobal_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Global\resGlobal_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resGlobal_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resChangeWristband_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resChangeWristband_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resChangeWristband_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resChangeWristband_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCloseShift_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCloseShift_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCloseShift_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCloseShift_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCouponPrint_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCouponPrint_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCouponPrint_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCouponPrint_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCustomer_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCustomer_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resCustomer_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resCustomer_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resDiscount_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resDiscount_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resDiscount_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resDiscount_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resMsgRemind_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resMsgRemind_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resMsgRemind_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resMsgRemind_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPopup_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPopup_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPopup_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPopup_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPayment_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPayment_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPayment_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPayment_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resHome_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resHome_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resHome_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resHome_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPriceCheck_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPriceCheck_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resPriceCheck_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resPriceCheck_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resProduct_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resProduct_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resProduct_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resProduct_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resRentalPdt_EN.Designer.cs" />
+    <Compile Include="Resources-String\Local\resRentalPdt_TH.Designer.cs" />
+    <Compile Include="Resources-String\Local\resReprint_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resReprint_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resReprint_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resReprint_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSale_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSale_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSale_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSale_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSeach_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSeach_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSeach_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSeach_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSetting_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSetting_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSetting_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSetting_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSpotCheck_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSpotCheck_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSpotCheck_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSpotCheck_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSync_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSync_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resSync_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resSync_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTaxInvoice_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTaxInvoice_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTaxInvoice_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTaxInvoice_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resReturnCard_EN.Designer.cs">
+      <DependentUpon>resReturnCard_EN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTopUp_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTopUp_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resReturnCard_TH.Designer.cs">
+      <DependentUpon>resReturnCard_TH.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTopUp_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTopUp_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTrade_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTrade_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resTrade_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resTrade_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resVideo_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resVideo_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources-String\Local\resVideo_TH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resVideo_TH.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSplashScreen.Designer.cs">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wTrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wTrade.Designer.cs">
+      <DependentUpon>wTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSyncData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSyncData.Designer.cs">
+      <DependentUpon>wSyncData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCancelTopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCancelTopUp.Designer.cs">
+      <DependentUpon>wCancelTopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wTopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wTopUp.Designer.cs">
+      <DependentUpon>wTopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wSpotCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wSpotCheck.Designer.cs">
+      <DependentUpon>wSpotCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wTaxInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wTaxInvoice.Designer.cs">
+      <DependentUpon>wTaxInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCloseShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCloseShift.Designer.cs">
+      <DependentUpon>wCloseShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wVoid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wVoid.Designer.cs">
+      <DependentUpon>wVoid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wRetriveBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wRetriveBill.Designer.cs">
+      <DependentUpon>wRetriveBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPerson.Designer.cs">
+      <DependentUpon>wPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wOrder.Designer.cs">
+      <DependentUpon>wOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCustomerM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCustomerM.Designer.cs">
+      <DependentUpon>wCustomerM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wReprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wReprint.Designer.cs">
+      <DependentUpon>wReprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCstAddOrEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCstAddOrEdit.Designer.cs">
+      <DependentUpon>wCstAddOrEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wProductM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wProductM.Designer.cs">
+      <DependentUpon>wProductM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wPdtAddOrEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wPdtAddOrEdit.Designer.cs">
+      <DependentUpon>wPdtAddOrEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wCouponPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wCouponPrint.Designer.cs">
+      <DependentUpon>wCouponPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wReason.Designer.cs">
+      <DependentUpon>wReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wReturn.Designer.cs">
+      <DependentUpon>wReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wTicket.Designer.cs">
+      <DependentUpon>wTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wRegister.Designer.cs">
+      <DependentUpon>wRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wChangeWristband.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wChangeWristband.Designer.cs">
+      <DependentUpon>wChangeWristband.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Control\uCoupon.resx">
+      <DependentUpon>uCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uCstAddress.resx">
+      <DependentUpon>uCstAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uMsgQueue.resx">
+      <DependentUpon>uMsgQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uNotify.resx">
+      <DependentUpon>uNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uNumpad.resx">
+      <DependentUpon>uNumpad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uNumpadLogin.resx">
+      <DependentUpon>uNumpadLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uPasscode.resx">
+      <DependentUpon>uPasscode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uPdtPrice.resx">
+      <DependentUpon>uPdtPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uPdtRental.resx">
+      <DependentUpon>uPdtRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uPdtRental2.resx">
+      <DependentUpon>uPdtRental2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uPincode.resx">
+      <DependentUpon>uPincode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uProduct.resx">
+      <DependentUpon>uProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uProductGroup.resx">
+      <DependentUpon>uProductGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uQty.resx">
+      <DependentUpon>uQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uSaleDateTime.resx">
+      <DependentUpon>uSaleDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uShowQR.resx">
+      <DependentUpon>uShowQR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uShowtime.resx">
+      <DependentUpon>uShowtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uTicket.resx">
+      <DependentUpon>uTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uVideo2ndScreen.resx">
+      <DependentUpon>uVideo2ndScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\uZone.resx">
+      <DependentUpon>uZone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wBlank.resx">
+      <DependentUpon>wBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCstScreen.resx">
+      <DependentUpon>wCstScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wChangePassword.resx">
+      <DependentUpon>wChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wCstDetail.resx">
+      <DependentUpon>wCstDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wCstList.resx">
+      <DependentUpon>wCstList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wProgress.resx">
+      <DependentUpon>wProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCancelTopUp.resx">
+      <DependentUpon>wCancelTopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wChangeWristband.resx">
+      <DependentUpon>wChangeWristband.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCouponPrint.resx">
+      <DependentUpon>wCouponPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCstAddOrEdit.resx">
+      <DependentUpon>wCstAddOrEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCustomerM.resx">
+      <DependentUpon>wCustomerM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPayment.resx">
+      <DependentUpon>wPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wCloseShift.resx">
+      <DependentUpon>wCloseShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wHome.resx">
+      <DependentUpon>wHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPerson.resx">
+      <DependentUpon>wPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPmtGetorSug.resx">
+      <DependentUpon>wPmtGetorSug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPmtPriConfirm.resx">
+      <DependentUpon>wPmtPriConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPriceCheck.resx">
+      <DependentUpon>wPriceCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wProductM.resx">
+      <DependentUpon>wProductM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wReason.resx">
+      <DependentUpon>wReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wRegister.resx">
+      <DependentUpon>wRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wRetriveBill.resx">
+      <DependentUpon>wRetriveBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wReturn.resx">
+      <DependentUpon>wReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wReturnCard.resx">
+      <DependentUpon>wReturnCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSale.resx">
+      <DependentUpon>wSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSetting.resx">
+      <DependentUpon>wSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wShw2ndScreen.resx">
+      <DependentUpon>wShw2ndScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSplashScreen.resx">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSpotCheck.resx">
+      <DependentUpon>wSpotCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wTax.resx">
+      <DependentUpon>wTax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wTaxInvoice.resx">
+      <DependentUpon>wTaxInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wTicket.resx">
+      <DependentUpon>wTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wTrade.resx">
+      <DependentUpon>wTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wVideo.resx">
+      <DependentUpon>wVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wVoid.resx">
+      <DependentUpon>wVoid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wAbout.resx">
+      <DependentUpon>wAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wAuthentication.resx">
+      <DependentUpon>wAuthentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wCstSearch.resx">
+      <DependentUpon>wCstSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wEditUrl.resx">
+      <DependentUpon>wEditUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wHelp.resx">
+      <DependentUpon>wHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wSearch2Column.resx">
+      <DependentUpon>wSearch2Column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wShowKb.resx">
+      <DependentUpon>wShowKb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Setting\wPosRegister.resx">
+      <DependentUpon>wPosRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Setting\wSetColor.resx">
+      <DependentUpon>wSetColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Shift\wProgressUldCloseShif.resx">
+      <DependentUpon>wProgressUldCloseShif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Shift\wShiftSum.resx">
+      <DependentUpon>wShiftSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wCash\wPdtDetail.resx">
+      <DependentUpon>wPdtDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wHome\wDeposit.resx">
+      <DependentUpon>wDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wHome\wOpenShift.resx">
+      <DependentUpon>wOpenShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSignin.resx">
+      <DependentUpon>wSignin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wHome\wWithdraw.resx">
+      <DependentUpon>wWithdraw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wAlipay.resx">
+      <DependentUpon>wAlipay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wChange.resx">
+      <DependentUpon>wChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wCoupon.resx">
+      <DependentUpon>wCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wCouponDis.resx">
+      <DependentUpon>wCouponDis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wCreditCard.resx">
+      <DependentUpon>wCreditCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wEDC.resx">
+      <DependentUpon>wEDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wChooseCpn.resx">
+      <DependentUpon>wChooseCpn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wListCoupon.resx">
+      <DependentUpon>wListCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wListEDC.resx">
+      <DependentUpon>wListEDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wCheque.resx">
+      <DependentUpon>wCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wPromptPay.resx">
+      <DependentUpon>wPromptPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wCouponRedeem.resx">
+      <DependentUpon>wCouponRedeem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wPayment\wRedeem.resx">
+      <DependentUpon>wRedeem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wProduct\wPdtBarcode.resx">
+      <DependentUpon>wPdtBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wProduct\wPdtSupplier.resx">
+      <DependentUpon>wPdtSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wProduct\wPdtUnit.resx">
+      <DependentUpon>wPdtUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wReprint\wReprintPreview.resx">
+      <DependentUpon>wReprintPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wChangePdtQty.resx">
+      <DependentUpon>wChangePdtQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wChooseBill.resx">
+      <DependentUpon>wChooseBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Shift\wBanknote.resx">
+      <DependentUpon>wBanknote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wChooseItemRef.resx">
+      <DependentUpon>wChooseItemRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wCustomerTicket.resx">
+      <DependentUpon>wCustomerTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\All\wEnterAmount.resx">
+      <DependentUpon>wEnterAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wDiscount.resx">
+      <DependentUpon>wDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wEditSalePrice.resx">
+      <DependentUpon>wEditSalePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wReferBill.resx">
+      <DependentUpon>wReferBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wRemark.resx">
+      <DependentUpon>wRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wRentalPdt.resx">
+      <DependentUpon>wRentalPdt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wRentalPdtBudgetRevise.resx">
+      <DependentUpon>wRentalPdtBudgetRevise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wRentalPdtDsct.resx">
+      <DependentUpon>wRentalPdtDsct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wReferSO.resx">
+      <DependentUpon>wReferSO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wReturnBillCode.resx">
+      <DependentUpon>wReturnBillCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wSearchDoc.resx">
+      <DependentUpon>wSearchDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wSearchPdt.resx">
+      <DependentUpon>wSearchPdt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wSerial.resx">
+      <DependentUpon>wSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wVehicle.resx">
+      <DependentUpon>wVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSplashScreen\wLanguage.resx">
+      <DependentUpon>wLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSplashScreen\wPasscode.resx">
+      <DependentUpon>wPasscode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wDetailPdt.resx">
+      <DependentUpon>wDetailPdt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSale\wPrice.resx">
+      <DependentUpon>wPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wSpotCheck\wSpotCheckHistory.resx">
+      <DependentUpon>wSpotCheckHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxAddrSearch.resx">
+      <DependentUpon>wTaxAddrSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxInvoiceABB.resx">
+      <DependentUpon>wTaxInvoiceABB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxInvoiceMode.resx">
+      <DependentUpon>wTaxInvoiceMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxInvoicePreview.resx">
+      <DependentUpon>wTaxInvoicePreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxInvoiceSearch.resx">
+      <DependentUpon>wTaxInvoiceSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTaxInvoice\wTaxSelectPrint.resx">
+      <DependentUpon>wTaxSelectPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\wTicket\wTKDescription.resx">
+      <DependentUpon>wTKDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Global\resGlobal_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>resGlobal_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Global\resGlobal_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resGlobal_TH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resChangeWristband_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resChangeWristband_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resChangeWristband_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resChangeWristband_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCloseShift_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCloseShift_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCloseShift_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCloseShift_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCouponPrint_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCouponPrint_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCouponPrint_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCouponPrint_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCustomer_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCustomer_EN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resCustomer_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resCustomer_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resDiscount_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resDiscount_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resDiscount_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resDiscount_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resMsgRemind_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resMsgRemind_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resMsgRemind_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resMsgRemind_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPopup_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPopup_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPopup_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPopup_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPayment_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPayment_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPayment_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPayment_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resHome_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resHome_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resHome_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resHome_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPriceCheck_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPriceCheck_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resPriceCheck_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resPriceCheck_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resProduct_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resProduct_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resProduct_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resProduct_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resRentalPdt_EN.resx" />
+    <EmbeddedResource Include="Resources-String\Local\resRentalPdt_TH.resx" />
+    <EmbeddedResource Include="Resources-String\Local\resReprint_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resReprint_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resReprint_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resReprint_TH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSale_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSale_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSale_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSale_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSeach_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSeach_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSeach_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSeach_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSetting_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSetting_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSetting_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSetting_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSpotCheck_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSpotCheck_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSpotCheck_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSpotCheck_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSync_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSync_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resSync_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resSync_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTaxInvoice_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTaxInvoice_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTaxInvoice_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTaxInvoice_TH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resReturnCard_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resReturnCard_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTopUp_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTopUp_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resReturnCard_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resReturnCard_TH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTopUp_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTopUp_TH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTrade_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTrade_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resTrade_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resTrade_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resVideo_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resVideo_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources-String\Local\resVideo_TH.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resVideo_TH.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wSyncData.resx">
+      <DependentUpon>wSyncData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wTopUp.resx">
+      <DependentUpon>wTopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wOrder.resx">
+      <DependentUpon>wOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wReprint.resx">
+      <DependentUpon>wReprint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wPdtAddOrEdit.resx">
+      <DependentUpon>wPdtAddOrEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Drapper.Settings.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\All_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calculator_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clear_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Favor_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KBB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KBB_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KBW_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LockKeyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mode_Scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mode_Tch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoFavor_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Offline_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Online_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegisterW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchB_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchW_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SystemTime_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adasoft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackDis_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultUser_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VideoW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VideoB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaleDateB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomeB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VersionB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChartB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreviousB_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextB_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB006_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB006_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB012_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB012_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB013_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB013_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB014_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB014_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB015_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB015_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB016_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB016_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB021_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB021_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB023_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB023_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB024_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB024_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB025_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB025_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB028_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB028_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB029_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB029_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB030_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB030_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB031_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB031_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB032_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB032_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB033_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB033_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB038_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB038_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB039_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB039_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB045_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB045_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB056_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB056_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintDis_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trade WristbandB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadDB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadDBB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UploadDB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UploadDBB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TopUpB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CancelTopupB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpotcheckB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\History_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tax_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TaxB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoidBillB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RetriveBillB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CstDefault_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SalePerson_250.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customer_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SalePerson_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrderB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReprintB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CameraB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gen_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Product_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Product_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB044_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB044_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrumpItem_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearR_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddGrid_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CouponPrint_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReprintCoupon_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB043_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB043_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaleB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortAZ_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortZA_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScanW_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackPdt_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RentalB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PaymentB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductList_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reason_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReturnRentalB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReturnSaleB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Location_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchUserB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SigninB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RoleB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AcceptDis_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegisterB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReturnWristband_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB051_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HOME_KB051_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingB_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hardware_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Style_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeletePwd_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ticket_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\AdaEDC.NET.dll" />
+    <Content Include="Basic.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Help_321.png" />
+    <None Include="Resources\KBB_321.png" />
+    <None Include="Resources\Calculator_321.png" />
+    <None Include="Resources\Fn1.png" />
+    <None Include="Resources\VideoW_321.png" />
+    <None Include="Resources\Register_321.png" />
+    <None Include="Resources\SettingW_321.png" />
+    <None Include="Resources\About_321.png" />
+    <None Include="Resources\ExitW_321.png" />
+    <None Include="Resources\SigninW_32.png" />
+    <None Include="Resources\BackW_321.png" />
+    <None Include="Resources\General_321.png" />
+    <None Include="Resources\Style_321.png" />
+    <None Include="Resources\System_321.png" />
+    <None Include="Resources\ProductList_321.png" />
+    <None Include="Resources\Favor_321.png" />
+    <None Include="Resources\SearchW_321.png" />
+    <None Include="Resources\List_321.png" />
+    <None Include="Resources\SortAZ_321.png" />
+    <None Include="Resources\SortZA_321.png" />
+    <None Include="Resources\HOME_KB038_11.png" />
+    <None Include="Resources\HOME_KB039_11.png" />
+    <None Include="Resources\HOME_KB015_11.png" />
+    <None Include="Resources\HOME_KB006_11.png" />
+    <None Include="Resources\HOME_KB016_11.png" />
+    <None Include="Resources\HOME_KB028_11.png" />
+    <None Include="Resources\HOME_KB029_11.png" />
+    <None Include="Resources\HOME_KB023_11.png" />
+    <None Include="Resources\HOME_KB051_11.png" />
+    <None Include="Resources\C_KBDxChangeWristband.bmp" />
+    <None Include="Resources\C_KBDxChangeWristband.png" />
+    <None Include="Resources\scan-writband.png" />
+    <None Include="Resources\Alipay logo.jpg" />
+    <Content Include="DLL\AdaPaymentSvc.dll" />
+    <None Include="Resources\promptpay-logo.jpg" />
+    <Content Include="DLL\AxInterop.WMPLib.dll" />
+    <Content Include="DLL\BarcodeLib.dll" />
+    <Content Include="DLL\Interop.WMPLib.dll" />
+    <Content Include="DLL\Newtonsoft.Json.dll" />
+    <Content Include="DLL\zxing.dll" />
+    <Content Include="icon App-01 %2864%29.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Localization\ar.xml" />
+    <Content Include="Localization\be.xml" />
+    <Content Include="Localization\bg.xml" />
+    <Content Include="Localization\bh.xml" />
+    <Content Include="Localization\ca-ES.xml" />
+    <Content Include="Localization\cs.xml" />
+    <Content Include="Localization\de.xml" />
+    <Content Include="Localization\el-GR.xml" />
+    <Content Include="Localization\en-GB.xml" />
+    <Content Include="Localization\en.xml" />
+    <Content Include="Localization\es.xml" />
+    <Content Include="Localization\eu-ES.xml" />
+    <Content Include="Localization\fa.xml" />
+    <Content Include="Localization\fr.xml" />
+    <Content Include="Localization\gl-ES.xml" />
+    <Content Include="Localization\hr.xml" />
+    <Content Include="Localization\hu.xml" />
+    <Content Include="Localization\id.xml" />
+    <Content Include="Localization\it.xml" />
+    <Content Include="Localization\ja.xml" />
+    <Content Include="Localization\ka.xml" />
+    <Content Include="Localization\ko.xml" />
+    <Content Include="Localization\lt.xml" />
+    <Content Include="Localization\nb-NO.xml" />
+    <Content Include="Localization\nl.xml" />
+    <Content Include="Localization\pl.xml" />
+    <Content Include="Localization\pt-BR.xml" />
+    <Content Include="Localization\pt.xml" />
+    <Content Include="Localization\ro.xml" />
+    <Content Include="Localization\ru.xml" />
+    <Content Include="Localization\sk.xml" />
+    <Content Include="Localization\sr.xml" />
+    <Content Include="Localization\sv.xml" />
+    <Content Include="Localization\tr.xml" />
+    <Content Include="Localization\uk.xml" />
+    <Content Include="Localization\vi.xml" />
+    <Content Include="Localization\zh-CHS.xml" />
+    <Content Include="Localization\zh-CHT.xml" />
+    <None Include="Resources\AdaPos5.png" />
+    <None Include="Resources\AcceptG_32.png" />
+    <Content Include="Resources\AddW_32_V2.png" />
+    <Content Include="Resources\budget.png" />
+    <Content Include="Resources\Check Sale Price.png" />
+    <Content Include="Resources\ClearW_32_V2.png" />
+    <Content Include="Resources\CstDefault1_256.png" />
+    <Content Include="Resources\customer.png" />
+    <None Include="Resources\Down_48.png" />
+    <None Include="Resources\C_KBDxTaxApvDoc.png" />
+    <None Include="Resources\C_KBDxTaxFindDoc.png" />
+    <None Include="Resources\C_KBDxTaxNewDoc.png" />
+    <None Include="Resources\C_KBDxTaxPrintDoc.png" />
+    <None Include="Resources\C_KBDxLock.png" />
+    <None Include="Resources\C_KBDxDownload.png" />
+    <Content Include="Resources\C_KBDxPosRegister.png" />
+    <None Include="Resources\C_KBDxUpload.png" />
+    <None Include="Resources\C_KBDxSetting.png" />
+    <None Include="Resources\C_KBDxStyle.png" />
+    <None Include="Resources\C_KBDxSystem.png" />
+    <Content Include="Resources\Drawer.png" />
+    <Content Include="Resources\Hold Bill.png" />
+    <Content Include="Resources\icon +--02.png" />
+    <Content Include="Resources\icon+01_32.png" />
+    <Content Include="Resources\icon-02_32.png" />
+    <Content Include="Resources\icon-App-01.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\scanner.png" />
+    <None Include="Resources\Save_32.png" />
+    <None Include="Resources\UP_48.png" />
+    <None Include="Resources\waiting-gif.gif" />
+    <None Include="Resources\Load Data package01.gif" />
+    <Content Include="Resources\icon-minus.png" />
+    <Content Include="Resources\icon-plus.png" />
+    <Content Include="Resources\LeftPdt_32.png" />
+    <None Include="Resources\Remark.png" />
+    <Content Include="Resources\LOCK_32.png" />
+    <Content Include="Resources\Retrive Bill.png" />
+    <Content Include="Resources\Sale Billing.png" />
+    <Content Include="Resources\Sale Credit Note.png" />
+    <Content Include="Resources\Sale Deposit.png" />
+    <Content Include="Resources\Sale Invoice.png" />
+    <Content Include="Resources\Sale Order.png" />
+    <Content Include="Resources\Sale Payment.png" />
+    <Content Include="Resources\SO64.png" />
+    <Content Include="Resources\UpPdt_32.png" />
+    <Content Include="Resources\Void Bill.png" />
+    <Content Include="SID_H136_USB_L.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.1\build\net46\System.Data.SQLite.Core.targets')" />
+</Project>

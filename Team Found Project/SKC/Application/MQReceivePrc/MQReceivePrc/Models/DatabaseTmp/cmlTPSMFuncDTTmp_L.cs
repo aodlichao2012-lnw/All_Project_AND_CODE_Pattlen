@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MQReceivePrc.Models.DatabaseTmp
+{
+    public class cmlTPSMFuncDTTmp_L
+    {
+        public string FTGhdCode { get; set; }
+        public string FTSysCode { get; set; }
+        public int FNLngID { get; set; }
+        public string FTGdtName { get; set; }
+
+    }
+}

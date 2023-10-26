@@ -1,0 +1,1035 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C9FBCA0-5EDA-4196-9243-89C0A5EA29ED}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MQReceivePrc</RootNamespace>
+    <AssemblyName>MQReceivePrc</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeStandard, Version=2.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.2.5\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.4\lib\netstandard2.0\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.3.0\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\cAdjPrice.cs" />
+    <Compile Include="Class\cAdjStock.cs" />
+    <Compile Include="Class\cClientService.cs" />
+    <Compile Include="Class\cConfig.cs" />
+    <Compile Include="Class\cConsole.cs" />
+    <Compile Include="Class\cDatabase.cs" />
+    <Compile Include="Class\cDataReader.cs" />
+    <Compile Include="Class\cEJ.cs" />
+    <Compile Include="Class\cEncryptDecrypt.cs" />
+    <Compile Include="Class\cExpress.cs" />
+    <Compile Include="Class\cFixDoc.cs" />
+    <Compile Include="Class\cFunction.cs" />
+    <Compile Include="Class\cGenDocNo.cs" />
+    <Compile Include="Class\cGenSO.cs" />
+    <Compile Include="Class\cMQReceiver.cs" />
+    <Compile Include="Class\cMsgRemind.cs" />
+    <Compile Include="Class\cNotiDocPrc.cs" />
+    <Compile Include="Class\cPayCoupon.cs" />
+    <Compile Include="Class\cPdtTnfBch.cs" />
+    <Compile Include="Class\cPdtTnfWarehouse.cs" />
+    <Compile Include="Class\cPrcBch2Bch.cs" />
+    <Compile Include="Class\cPrcWallet.cs" />
+    <Compile Include="Class\cPurchase.cs" />
+    <Compile Include="Class\cRental.cs" />
+    <Compile Include="Class\cUpdSaleRefer.cs" />
+    <Compile Include="Class\cSaleRT.cs" />
+    <Compile Include="Class\cSaleVD.cs" />
+    <Compile Include="Class\cSecurity.cs" />
+    <Compile Include="Class\cSale.cs" />
+    <Compile Include="Class\cShift.cs" />
+    <Compile Include="Class\cSlipMsg.cs" />
+    <Compile Include="Class\cStock.cs" />
+    <Compile Include="Class\cSyncData.cs" />
+    <Compile Include="Class\cTax.cs" />
+    <Compile Include="Class\cTnfBankDepositSlip2BchHQ.cs" />
+    <Compile Include="Class\cTnfCouponGiftVoucher2Bch.cs" />
+    <Compile Include="Class\cTnfRedeemPoint2Bch.cs" />
+    <Compile Include="Class\cVoid.cs" />
+    <Compile Include="Class\Standard\cLog.cs" />
+    <Compile Include="Class\Standard\cMS.cs" />
+    <Compile Include="Class\Standard\cSP.cs" />
+    <Compile Include="Class\Standard\cVB.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlDataBnkDpl.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNMBank.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNMBnkDepType.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNMBookBank.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNMBookCheque.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNTBnkDpl.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNTBnkDplDT.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNTBnkDplHD.cs" />
+    <Compile Include="Models\BankDepositSlip\cmlTFNTBnkStatement.cs" />
+    <Compile Include="Models\Bch2Bch\cmlBchDownload.cs" />
+    <Compile Include="Models\Bch2Bch\cmlCallSendBch.cs" />
+    <Compile Include="Models\Bch2Bch\cmlTCNTSync2BchHis.cs" />
+    <Compile Include="Models\Config\cmlConsolidateDB.cs" />
+    <Compile Include="Models\Config\cmlDatabase.cs" />
+    <Compile Include="Models\Config\cmlFoodCourtDB.cs" />
+    <Compile Include="Models\Config\cmlRabbitMQ.cs" />
+    <Compile Include="Models\Config\cmlShopDB.cs" />
+    <Compile Include="Models\Coupon\cmlDataCouponGiftVoucher.cs" />
+    <Compile Include="Models\Coupon\cmlPayCoupon.cs" />
+    <Compile Include="Models\Coupon\cmlResResult.cs" />
+    <Compile Include="Models\Coupon\cmlTFNMCouponType.cs" />
+    <Compile Include="Models\Coupon\cmlTFNMCouponType_L.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponDT.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponDTHis.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponHDBch.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponHDCstPri.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponHDPdt.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponHD_L.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCouponHD.cs" />
+    <Compile Include="Models\Coupon\cmlTFNTCoupon.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemCDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTARTRedeemHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAdMsgTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAdMsgTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAppModuleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAreaTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMAreaTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMBranchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMBranchTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCompTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCompTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourieLogin.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourieMan.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourieMan_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourier.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourierGrp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourierGrp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourierType.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourierType_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCourier_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstContactTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstCreditTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstLevTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstLevTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstOcpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstOcpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstRFIDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMCstTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMDistrictTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMDistrictTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMDocApvRoleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMEventHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgObjTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMImgPersonTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMediaObjTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMerchantTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMMerchantTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBarTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBrandTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtBrandTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtColorTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtColorTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtCostAvgTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtDrugTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF0DCSTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF0DCSTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF1DepartTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF1DepartTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF2ClassTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF2ClassTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF3SubClassTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtF3SubClassTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFhnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFSeasonTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtFSeasonTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtModelTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtModelTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtNoSleByEvnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtNoSleByEvnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPackSizeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPmtGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPmtGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPriListTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtPriListTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtRentalTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSizeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSizeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSpcBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtSpcWahTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTouchGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTouchGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtUnitTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPdtUnitTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosAdsTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosHWTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosLastNoTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPosTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPrinterTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMPrinterTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMProvinceTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMProvinceTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMRsnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMRsnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShipViaTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShipViaTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShopTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMShopTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSlipMsgDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSlipMsgHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplAddressTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplContactTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplCreditTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplGrpTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplGrpTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplLevTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplLevTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSplTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSpnTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSpnTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSubDistrictTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMSubDistrictTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUserTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUserTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrDepartTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrDepartTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrLoginTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrRoleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMUsrRoleTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMVatRateTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMWahouseTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMWahouseTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMZoneTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNMZoneTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCBTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtCGTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDCstTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPmtHD_LTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPrice4CSTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPrice4PDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPriDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTPdtPriHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTUrlObjectLoginTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTCNTUrlObjectTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankNoteTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankNoteTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMBankTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCardTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCouponTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCrdCpnListTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCrdCpnListTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCreditCardTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMCreditCardTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMEdcTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMEdcTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRateUnitTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvSpcTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMRcvTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNMVoucherTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDBchTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDCstPriTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDPdtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTFNTCouponHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncDTTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTPSMFuncHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPdtPriDOWTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPdtPriHolidayTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPdtRentalTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPriRateDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPriRateHDTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMPriRateHDTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopLayoutTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopLayoutTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopPosLayoutTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopPosTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopRackTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopRackTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopSizeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopSizeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopTypeTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTMShopTypeTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTTPdtPrice4CSTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTRTTPdtPrice4PDTTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysAppTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysAppTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysConfigTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysConfigTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysDocApvTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPmtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPmtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPosModelTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPrinterTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysPrinterTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvAppTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvConfigTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvFmtTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysRcvFmtTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysScaleMapTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysScaleTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysSyncDataTmp.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTSysSyncDataTmp_L.cs" />
+    <Compile Include="Models\DatabaseTmp\cmlTTmpDTRfn.cs" />
+    <Compile Include="Models\Database\cmlBankNote.cs" />
+    <Compile Include="Models\Database\cmlEmail.cs" />
+    <Compile Include="Models\Database\cmlPaymentType.cs" />
+    <Compile Include="Models\Database\cmlPdtRental.cs" />
+    <Compile Include="Models\Database\cmlShiftRcv.cs" />
+    <Compile Include="Models\Database\cmlShiftSummary.cs" />
+    <Compile Include="Models\Database\cmlTCNMAddress.cs" />
+    <Compile Include="Models\Database\cmlTCNMAppModule.cs" />
+    <Compile Include="Models\Database\cmlTCNMBranch.cs" />
+    <Compile Include="Models\Database\cmlTCNMCompany.cs" />
+    <Compile Include="Models\Database\cmlTCNMCst.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdt.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdtBar.cs" />
+    <Compile Include="Models\Database\cmlTCNMPdtGrp.cs" />
+    <Compile Include="Models\Database\cmlTCNMPos.cs" />
+    <Compile Include="Models\Database\cmlTCNMPosHW.cs" />
+    <Compile Include="Models\Database\cmlTCNMRsn.cs" />
+    <Compile Include="Models\Database\cmlTCNMShop.cs" />
+    <Compile Include="Models\Database\cmlTCNMTaxAddress.cs" />
+    <Compile Include="Models\Database\cmlTCNMUser.cs" />
+    <Compile Include="Models\Database\cmlTCNMUsrLogin.cs" />
+    <Compile Include="Models\Database\cmlTCNTCstPoint.cs" />
+    <Compile Include="Models\Database\cmlTCNTMsgRemind.cs" />
+    <Compile Include="Models\Database\cmlTCNTSpnGroup.cs" />
+    <Compile Include="Models\Database\cmlTCNTTmpLogChg.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrFuncRpt.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrGroup.cs" />
+    <Compile Include="Models\Database\cmlTCNTUsrMenu.cs" />
+    <Compile Include="Models\Database\cmlTFNMBankNote.cs" />
+    <Compile Include="Models\Database\cmlTFNMRate.cs" />
+    <Compile Include="Models\Database\cmlTFNMRateUnit.cs" />
+    <Compile Include="Models\Database\cmlTFNMRcv.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpDT.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpHD.cs" />
+    <Compile Include="Models\Database\cmlTFNTCrdTopUpRC.cs" />
+    <Compile Include="Models\Database\cmlTPSMFunc.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDTDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalDTPmt.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHD.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHDCst.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalHDDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTSalRC.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftEvent.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftHD.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSKeyBN.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSKeyRcv.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSLastDoc.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSRatePdt.cs" />
+    <Compile Include="Models\Database\cmlTPSTShiftSSumRcv.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDTDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxDTPmt.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHD.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHDCst.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxHDDis.cs" />
+    <Compile Include="Models\Database\cmlTPSTTaxRC.cs" />
+    <Compile Include="Models\Database\cmlTPSTVoidDT.cs" />
+    <Compile Include="Models\Database\cmlTPSTVoidDTDis.cs" />
+    <Compile Include="Models\Database\cmlTRTTBooking.cs" />
+    <Compile Include="Models\Doc\cmlNotiTARTDocApvTxn.cs" />
+    <Compile Include="Models\Doc\cmlTARTDocApvTxn.cs" />
+    <Compile Include="Models\ExportSale\cmlDataExportSale.cs" />
+    <Compile Include="Models\Pos\cmlCheckListSalDoc.cs" />
+    <Compile Include="Models\Receive\cmlRcvData.cs" />
+    <Compile Include="Models\Receive\cmlRcvDataHD.cs" />
+    <Compile Include="Models\Receive\cmlRcvSalePS2Touch.cs" />
+    <Compile Include="Models\Receive\cmlRcvUpdRefund.cs" />
+    <Compile Include="Models\Receive\cRcvGenTexNo.cs" />
+    <Compile Include="Models\RedeemPoint\cmlDataRedeemPoint.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeem.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemCD.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemDT.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemHD.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemHDBch.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemHDCstPri.cs" />
+    <Compile Include="Models\RedeemPoint\cmlTARTRedeemHD_L.cs" />
+    <Compile Include="Models\SaleOrder\cmlReqTARTSo.cs" />
+    <Compile Include="Models\SaleOrder\cmlTARTSoDT.cs" />
+    <Compile Include="Models\SaleOrder\cmlTARTSoHD.cs" />
+    <Compile Include="Models\SaleOrder\cmlTARTSoHDCst.cs" />
+    <Compile Include="Models\SaleRefer\cmlReqUpdSaleRefer.cs" />
+    <Compile Include="Models\SaleRefer\cmlTSRF.cs" />
+    <Compile Include="Models\SaleRT\RentalBooking\cmlRTBooking.cs" />
+    <Compile Include="Models\SaleRT\RentalBooking\cmlTRTTBooking.cs" />
+    <Compile Include="Models\Database\cmlTSysConfig.cs" />
+    <Compile Include="Models\Database\cmlTSysDocType.cs" />
+    <Compile Include="Models\Database\cmlTSysEdc.cs" />
+    <Compile Include="Models\Database\cmlTSysLanguage.cs" />
+    <Compile Include="Models\Database\cmlTSysPosHW.cs" />
+    <Compile Include="Models\Database\cmlTSysRsnGrp_L.cs" />
+    <Compile Include="Models\Database\cmlTSysSetting.cs" />
+    <Compile Include="Models\Database\cmlTSysSyncData.cs" />
+    <Compile Include="Models\Database\cmlTSysSyncData_L.cs" />
+    <Compile Include="Models\Doc\PdtTnfBch\cmlTCNTPdtTbx.cs" />
+    <Compile Include="Models\Doc\PdtTnfBch\cmlTCNTPdtTbxDT.cs" />
+    <Compile Include="Models\Doc\PdtTnfBch\cmlTCNTPdtTbxHD.cs" />
+    <Compile Include="Models\Doc\PdtTnfBch\cmlTCNTPdtTbxHDRef.cs" />
+    <Compile Include="Models\Notification\cmlNotification.cs" />
+    <Compile Include="Models\Other\cmlMsgLng.cs" />
+    <Compile Include="Models\Pos\cmlTCNMPos.cs" />
+    <Compile Include="Models\Receive\cmlRcvConsolidate.cs" />
+    <Compile Include="Models\Receive\cmlRcvDataUpload.cs" />
+    <Compile Include="Models\Receive\cmlRcvDocApv.cs" />
+    <Compile Include="Models\Receive\cmlRcvFCBch2HQSale.cs" />
+    <Compile Include="Models\Receive\cmlRcvPrcWallet.cs" />
+    <Compile Include="Models\Receive\cmlRcvSalePos.cs" />
+    <Compile Include="Models\SaleRT\AdminHis\cmlRTAdminHis.cs" />
+    <Compile Include="Models\SaleRT\AdminHis\cmlTRTTAdminHis.cs" />
+    <Compile Include="Models\SaleRT\RentalPay\cmlRTPay.cs" />
+    <Compile Include="Models\SaleRT\RentalPay\cmlTRTTPayDT.cs" />
+    <Compile Include="Models\SaleRT\RentalPay\cmlTRTTPayHD.cs" />
+    <Compile Include="Models\SaleRT\RentalPay\cmlTRTTPayRC.cs" />
+    <Compile Include="Models\SaleRT\RentalSale\cmlRTSale.cs" />
+    <Compile Include="Models\SaleRT\RentalSale\cmlTRTTSalDT.cs" />
+    <Compile Include="Models\SaleRT\RentalSale\cmlTRTTSalDTSL.cs" />
+    <Compile Include="Models\SaleRT\RentalSale\cmlTRTTSalDTSN.cs" />
+    <Compile Include="Models\SaleRT\RentalSale\cmlTRTTSalHD.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSal.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalDT.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalDTDis.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalDTPmt.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalDTVD.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalHD.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalHDCst.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalHDDis.cs" />
+    <Compile Include="Models\SaleVD\cmlTVDTSalRC.cs" />
+    <Compile Include="Models\Sale\cmlTCNTMemTxnRedeem.cs" />
+    <Compile Include="Models\Sale\cmlTCNTMemTxnSale.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSal.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalDT.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalDTDis.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalDTPmt.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalHD.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalHDCst.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalHDDis.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalPD.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalRC.cs" />
+    <Compile Include="Models\Sale\cmlTPSTSalRD.cs" />
+    <Compile Include="Models\Shift\cmlShiftBN.cs" />
+    <Compile Include="Models\Shift\cmlShiftRcv.cs" />
+    <Compile Include="Models\Shift\cmlShiftSum.cs" />
+    <Compile Include="Models\Shift\cmlShiftSumRcv.cs" />
+    <Compile Include="Models\Shift\cmlShiftSumRedeem.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShift.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftDT.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftEvent.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftHD.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftSKeyBN.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftSKeyRcv.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftSLastDoc.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftSRatePdt.cs" />
+    <Compile Include="Models\Shift\cmlTPSTShiftSSumRcv.cs" />
+    <Compile Include="Models\Shift\cmlTPSTUsrLog.cs" />
+    <Compile Include="Models\SlipMsg\cmlPrnSplipDTDis.cs" />
+    <Compile Include="Models\SlipMsg\cmlTCNMSlipMsgDT_L.cs" />
+    <Compile Include="Models\Stock\Stockbalance\cmlPdtStkBal.cs" />
+    <Compile Include="Models\Stock\Stockbalance\cmlTCNTPdtStkBal.cs" />
+    <Compile Include="Models\Stock\StockCard\cmlPdtStkCrd.cs" />
+    <Compile Include="Models\Stock\StockCard\cmlTCNTPdtStkCrd.cs" />
+    <Compile Include="Models\Tax\cmlTCNMTaxAddress.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTax.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxDT.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxDTDis.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxDTPmt.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxHD.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxHDCst.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxHDDis.cs" />
+    <Compile Include="Models\Tax\cmlTPSTTaxRC.cs" />
+    <Compile Include="Models\Void\cmlTPSTVoid.cs" />
+    <Compile Include="Models\Void\cmlTPSTVoidDT.cs" />
+    <Compile Include="Models\Void\cmlTPSTVoidDTDis.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqApvOpenRetCard.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqCardClearList.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqCardNewList.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqChangeCard.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqChangeSta.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqMonitorSrv.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqReturnTopupList.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqSyncData.cs" />
+    <Compile Include="Models\WebService\Request\cmlReqTopupList.cs" />
+    <Compile Include="Models\WebService\Response\AdMsg\cmlResAdvMsgDwn.cs" />
+    <Compile Include="Models\WebService\Response\AdMsg\cmlResInfoAdvMsg.cs" />
+    <Compile Include="Models\WebService\Response\AdMsg\cmlResInfoAdvMsgLng.cs" />
+    <Compile Include="Models\WebService\Response\AdMsg\cmlResItemOfcmlResAdvMsgDwn.cs" />
+    <Compile Include="Models\WebService\Response\AdMsg\cmlTCNMMediaObj.cs" />
+    <Compile Include="Models\WebService\Response\AppModule\cmlResAppitemDwn.cs" />
+    <Compile Include="Models\WebService\Response\AppModule\cmlResAppModule.cs" />
+    <Compile Include="Models\WebService\Response\AppModule\cmlResItemOfcmlResAppitemDwn.cs" />
+    <Compile Include="Models\WebService\Response\AppModule\cmlResSysApp.cs" />
+    <Compile Include="Models\WebService\Response\AppModule\cmlResSysApp_L.cs" />
+    <Compile Include="Models\WebService\Response\Area\cmlResAreaDwn.cs" />
+    <Compile Include="Models\WebService\Response\Area\cmlResInfoArea.cs" />
+    <Compile Include="Models\WebService\Response\Area\cmlResInfoAreaLng.cs" />
+    <Compile Include="Models\WebService\Response\Area\cmlResItemOfcmlResAreaDwn.cs" />
+    <Compile Include="Models\WebService\Response\Banknote\cmlResBankNoteDwn.cs" />
+    <Compile Include="Models\WebService\Response\Banknote\cmlResInfoBankNote.cs" />
+    <Compile Include="Models\WebService\Response\Banknote\cmlResInfoBankNoteLng.cs" />
+    <Compile Include="Models\WebService\Response\Banknote\cmlResItemOfcmlResBankNoteDwn.cs" />
+    <Compile Include="Models\WebService\Response\Bank\cmlResBankDwn.cs" />
+    <Compile Include="Models\WebService\Response\Bank\cmlResInfoBank.cs" />
+    <Compile Include="Models\WebService\Response\Bank\cmlResInfoBankLng.cs" />
+    <Compile Include="Models\WebService\Response\Bank\cmlResItemOfcmlResBankDwn.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResBchDwn.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResInfoBch.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResInfoBchLng.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResItemOfcmlResBchDwn.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResTCNTUrlObject.cs" />
+    <Compile Include="Models\WebService\Response\Branch\cmlResTCNTUrlObjectLogin.cs" />
+    <Compile Include="Models\WebService\Response\CardCouponList\cmlResCrdCpnListDwn.cs" />
+    <Compile Include="Models\WebService\Response\CardCouponList\cmlResInfoCrdCpnList.cs" />
+    <Compile Include="Models\WebService\Response\CardCouponList\cmlResInfoCrdCpnListLng.cs" />
+    <Compile Include="Models\WebService\Response\CardCouponList\cmlResItemOfcmlResCrdCpnListDwn.cs" />
+    <Compile Include="Models\WebService\Response\CardType\cmlResCardTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\CardType\cmlResInfoCardType.cs" />
+    <Compile Include="Models\WebService\Response\CardType\cmlResInfoCardTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\CardType\cmlResItemOfcmlResCardTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\Card\cmlResCardDwn.cs" />
+    <Compile Include="Models\WebService\Response\Card\cmlResInfoCard.cs" />
+    <Compile Include="Models\WebService\Response\Card\cmlResInfoCardLng.cs" />
+    <Compile Include="Models\WebService\Response\Card\cmlResItemOfcmlResCardDwn.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoApvOpenRetCard.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoCardClearList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoCardNewList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoChangeCard.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoChangeSta.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoReturnTopupList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResaoTopupList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResApvOpenRetCard.cs" />
+    <Compile Include="Models\WebService\Response\cmlResCardClearList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResCardNewList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResChangeCard.cs" />
+    <Compile Include="Models\WebService\Response\cmlResChangeSta.cs" />
+    <Compile Include="Models\WebService\Response\cmlResInfoAddrLng.cs" />
+    <Compile Include="Models\WebService\Response\cmlResInfoImgObj.cs" />
+    <Compile Include="Models\WebService\Response\cmlResInfoImgPerson.cs" />
+    <Compile Include="Models\WebService\Response\cmlResItem.cs" />
+    <Compile Include="Models\WebService\Response\cmlResResult.cs" />
+    <Compile Include="Models\WebService\Response\cmlResReturnTopupList.cs" />
+    <Compile Include="Models\WebService\Response\cmlResTopupList.cs" />
+    <Compile Include="Models\WebService\Response\Company\cmlResCompDwn.cs" />
+    <Compile Include="Models\WebService\Response\Company\cmlResInfoComp.cs" />
+    <Compile Include="Models\WebService\Response\Company\cmlResInfoCompLng.cs" />
+    <Compile Include="Models\WebService\Response\Company\cmlResItemOfcmlResCompDwn.cs" />
+    <Compile Include="Models\WebService\Response\Cost\cmlResListOfcmlTCNMPdtCostAvg.cs" />
+    <Compile Include="Models\WebService\Response\Cost\cmlTCNMPdtCostAvg.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResCpnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpn.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnDT.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnHD.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnHDBch.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnHDCstPri.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnHDPdt.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnHD_L.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnLng.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnType.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResInfoCpnTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\Coupon\cmlResItemOfcmlResCpnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourieLogin.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourieMan.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourieMan_L.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourier.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourierGrp.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourierGrp_L.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourierItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourierType.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourierType_L.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResCourier_L.cs" />
+    <Compile Include="Models\WebService\Response\Courier\cmlResItemOfcmlResCourierItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\CreditCard\cmlResCreditCardDwn.cs" />
+    <Compile Include="Models\WebService\Response\CreditCard\cmlResInfoCreditCard.cs" />
+    <Compile Include="Models\WebService\Response\CreditCard\cmlResInfoCreditCardLng.cs" />
+    <Compile Include="Models\WebService\Response\CreditCard\cmlResItemOfcmlResCreditCardDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerAddress\cmlResInfoCstAddrLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerAddress\cmlResListOfcmlResInfoCstAddrLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerGroup\cmlResCstGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerGroup\cmlResInfoCstGrp.cs" />
+    <Compile Include="Models\WebService\Response\CustomerGroup\cmlResInfoCstGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerGroup\cmlResItemOfcmlResCstGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerLevel\cmlResCstLevDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerLevel\cmlResInfoCstLev.cs" />
+    <Compile Include="Models\WebService\Response\CustomerLevel\cmlResInfoCstLevLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerLevel\cmlResItemOfcmlResCstLevDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerOccupation\cmlResCstOcpDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerOccupation\cmlResInfoCstOcp.cs" />
+    <Compile Include="Models\WebService\Response\CustomerOccupation\cmlResInfoCstOcpLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerOccupation\cmlResItemOfcmlResCstOcpDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerType\cmlResCstTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\CustomerType\cmlResInfoCstType.cs" />
+    <Compile Include="Models\WebService\Response\CustomerType\cmlResInfoCstTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\CustomerType\cmlResItemOfcmlResCstTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResCstDwn.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCst.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstCard.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstContactLng.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstCredit.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstLng.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstPoint.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResInfoCstRFIDLng.cs" />
+    <Compile Include="Models\WebService\Response\Customer\cmlResItemOfcmlResCstDwn.cs" />
+    <Compile Include="Models\WebService\Response\District\cmlResDistrictDwn.cs" />
+    <Compile Include="Models\WebService\Response\District\cmlResInfoDistrict.cs" />
+    <Compile Include="Models\WebService\Response\District\cmlResInfoDistrictLng.cs" />
+    <Compile Include="Models\WebService\Response\District\cmlResItemOfcmlResDistrictDwn.cs" />
+    <Compile Include="Models\WebService\Response\Download\cmlResInfoSyncData.cs" />
+    <Compile Include="Models\WebService\Response\Download\cmlResInfoSyncDataLng.cs" />
+    <Compile Include="Models\WebService\Response\Download\cmlResItemOfcmlResSyncDataDwn.cs" />
+    <Compile Include="Models\WebService\Response\Download\cmlResSyncDataDwn.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResEventDwn.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResInfoEventDT.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResInfoEventDTLng.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResInfoEventHD.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResInfoEventHDLng.cs" />
+    <Compile Include="Models\WebService\Response\Events\cmlResItemOfcmlResEventDwn.cs" />
+    <Compile Include="Models\WebService\Response\Function\cmlResFuncDwn.cs" />
+    <Compile Include="Models\WebService\Response\Function\cmlResInfoFuncDT.cs" />
+    <Compile Include="Models\WebService\Response\Function\cmlResInfoFuncDTLng.cs" />
+    <Compile Include="Models\WebService\Response\Function\cmlResInfoFuncHD.cs" />
+    <Compile Include="Models\WebService\Response\Function\cmlResItemOfcmlResFuncDwn.cs" />
+    <Compile Include="Models\WebService\Response\Merchant\cmlResItemOfcmlResMerchant.cs" />
+    <Compile Include="Models\WebService\Response\Merchant\cmlResMerchant.cs" />
+    <Compile Include="Models\WebService\Response\Merchant\cmlTCNMMerchant.cs" />
+    <Compile Include="Models\WebService\Response\Merchant\cmlTCNMMerchant_L.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoEdc.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoEdcLng.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPos.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPosHW.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPosLastNo.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPosLng.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPrinter.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResInfoPrinterLng.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResItemOfcmlResPosDwn.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResListOfcmlTCNMPosAds.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlResPosDwn.cs" />
+    <Compile Include="Models\WebService\Response\Pos\cmlTCNMPosAds.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResItemOfcmlResPriRateItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPdtPriDOW.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPdtPriHoliday.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPriRateDT.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPriRateHD.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPriRateHD_L.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResPriRateItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\PriceRate\cmlResRTPdtPriceDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductBrand\cmlResInfoPdtBrand.cs" />
+    <Compile Include="Models\WebService\Response\ProductBrand\cmlResInfoPdtBrandLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductBrand\cmlResItemOfcmlResPdtBrandDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductBrand\cmlResPdtBrandDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductColor\cmlResInfoPdtColor.cs" />
+    <Compile Include="Models\WebService\Response\ProductColor\cmlResInfoPdtColorLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductColor\cmlResItemOfcmlResPdtColorDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductColor\cmlResPdtColorDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionClass\cmlResInfoPdtClass.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionClass\cmlResInfoPdtClassLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionClass\cmlResItemOfcmlResPdtClassDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionClass\cmlResPdtClassDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDCS\cmlResInfoPdtDCS.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDCS\cmlResInfoPdtDCSLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDCS\cmlResItemOfcmlResPdtDCSDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDCS\cmlResPdtDCSDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDepart\cmlResInfoPdtDepart.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDepart\cmlResInfoPdtDepartLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDepart\cmlResItemOfcmlResPdtDepartDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionDepart\cmlResPdtDepartDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSeason\cmlResInfoPdtSeason.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSeason\cmlResInfoPdtSeasonLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSeason\cmlResItemOfcmlResPdtSeasonDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSeason\cmlResPdtSeasonDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSubClass\cmlResInfoPdtSubClass.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSubClass\cmlResInfoPdtSubClassLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSubClass\cmlResItemOfcmlResPdtSubClassDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashionSubClass\cmlResPdtSubClassDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashion\cmlResInfoPdtFhn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashion\cmlResItemOfcmlResPdtFhnDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductFashion\cmlResPdtFhnDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductGroup\cmlResInfoPdtGrp.cs" />
+    <Compile Include="Models\WebService\Response\ProductGroup\cmlResInfoPdtGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductGroup\cmlResItemOfcmlResPdtGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductGroup\cmlResPdtGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductModel\cmlResInfoPdtModel.cs" />
+    <Compile Include="Models\WebService\Response\ProductModel\cmlResInfoPdtModelLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductModel\cmlResItemOfcmlResPdtModelDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductModel\cmlResPdtModelDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductNoSaleByEvent\cmlResInfoPdtNoSleByEvn.cs" />
+    <Compile Include="Models\WebService\Response\ProductNoSaleByEvent\cmlResInfoPdtNoSleByEvnLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductNoSaleByEvent\cmlResItemOfcmlResPdtNoSleByEvnDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductNoSaleByEvent\cmlResPdtNoSleByEvnDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPriceList\cmlResInfoPdtPriList.cs" />
+    <Compile Include="Models\WebService\Response\ProductPriceList\cmlResInfoPdtPriListLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductPriceList\cmlResItemOfcmlResPdtPriListDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPriceList\cmlResPdtPriListDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPrice\cmlResInfoPdtApv4Cst.cs" />
+    <Compile Include="Models\WebService\Response\ProductPrice\cmlResInfoPdtApv4Pdt.cs" />
+    <Compile Include="Models\WebService\Response\ProductPrice\cmlResItemOfcmlResPdtPriceDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPrice\cmlResListOfcmlResInfoPdtApv4Cst.cs" />
+    <Compile Include="Models\WebService\Response\ProductPrice\cmlResListOfcmlResInfoPdtApv4Pdt.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotionGroup\cmlResInfoPdtPmtGrp.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotionGroup\cmlResInfoPdtPmtGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotionGroup\cmlResItemOfcmlResPdtPmtGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotionGroup\cmlResPdtPmtGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtCB.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtCD.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtCG.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtDT.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtHD.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtHDBch.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtHDCst.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtHDCstPri.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResInfoPdtPmtHD_L.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResItemOfcmlResPdtPmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductPromotion\cmlResPdtPmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResInfoPdtRental.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResItemOfcmlResPdtRentalDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResItemOfcmlResPdtRentalItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResPdtPrice4CST.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResPdtPrice4PDT.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResPdtRental.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResPdtRentalDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductRental\cmlResPdtRentalItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductSize\cmlResInfoPdtSize.cs" />
+    <Compile Include="Models\WebService\Response\ProductSize\cmlResInfoPdtSizeLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductSize\cmlResItemOfcmlResPdtSizeDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductSize\cmlResPdtSizeDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductTouchGroup\cmlResInfoPdtTouchGrp.cs" />
+    <Compile Include="Models\WebService\Response\ProductTouchGroup\cmlResInfoPdtTouchGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductTouchGroup\cmlResItemOfcmlResPdtTouchGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductTouchGroup\cmlResPdtTouchGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductType\cmlResInfoPdtType.cs" />
+    <Compile Include="Models\WebService\Response\ProductType\cmlResInfoPdtTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductType\cmlResItemOfcmlResPdtTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductType\cmlResPdtTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductUnit\cmlResInfoPdtUnit.cs" />
+    <Compile Include="Models\WebService\Response\ProductUnit\cmlResInfoPdtUnitLng.cs" />
+    <Compile Include="Models\WebService\Response\ProductUnit\cmlResItemOfcmlResPdtUnitDwn.cs" />
+    <Compile Include="Models\WebService\Response\ProductUnit\cmlResPdtUnitDwn.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoImgPdt.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdt.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdtBar.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdtDrug.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdtLng.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdtPackSize.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResInfoPdtSpcWah.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResItemOfcmlResPdtItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResPdtItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\Product\cmlResTCNMPdtSpcBch.cs" />
+    <Compile Include="Models\WebService\Response\Province\cmlResInfoPvn.cs" />
+    <Compile Include="Models\WebService\Response\Province\cmlResInfoPvnLng.cs" />
+    <Compile Include="Models\WebService\Response\Province\cmlResItemOfcmlResPvnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Province\cmlResPvnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Rate\cmlResInfoRate.cs" />
+    <Compile Include="Models\WebService\Response\Rate\cmlResInfoRateLng.cs" />
+    <Compile Include="Models\WebService\Response\Rate\cmlResInfoRateUnit.cs" />
+    <Compile Include="Models\WebService\Response\Rate\cmlResItemOfcmlResRateDwn.cs" />
+    <Compile Include="Models\WebService\Response\Rate\cmlResRateDwn.cs" />
+    <Compile Include="Models\WebService\Response\Reason\cmlResInfoRsn.cs" />
+    <Compile Include="Models\WebService\Response\Reason\cmlResInfoRsnGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\Reason\cmlResInfoRsnLng.cs" />
+    <Compile Include="Models\WebService\Response\Reason\cmlResItemOfcmlResRsnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Reason\cmlResRsnDwn.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResInfoRcv.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResInfoRcvLng.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResInfoRcvSpc.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResItemOfcmlResRcvDwn.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResItemOfcmlResRcvSpcDwn.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResRcvDwn.cs" />
+    <Compile Include="Models\WebService\Response\Receive\cmlResRcvSpcDwn.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemCD.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemDT.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemHD.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemHDBch.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemHDCstPri.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResInfoRedeemHDLng.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResItemOfcmlResRedeemPointDwn.cs" />
+    <Compile Include="Models\WebService\Response\RedeemPoint\cmlResRedeemDwn.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResInfoDocApvRole.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResInfoFuncRpt.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResInfoUsrMenu.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResItemOfcmlResRoleDwn.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResListOfcmlResInfoDocApvRole.cs" />
+    <Compile Include="Models\WebService\Response\Role\cmlResRoleDwn.cs" />
+    <Compile Include="Models\WebService\Response\SalePerson\cmlResInfoSpn.cs" />
+    <Compile Include="Models\WebService\Response\SalePerson\cmlResInfoSpnGrp.cs" />
+    <Compile Include="Models\WebService\Response\SalePerson\cmlResInfoSpnLng.cs" />
+    <Compile Include="Models\WebService\Response\SalePerson\cmlResItemOfcmlResSpnDwn.cs" />
+    <Compile Include="Models\WebService\Response\SalePerson\cmlResSpnDwn.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResItemOfcmlResShopPosItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopLayout.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopLayout_L.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopPos.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopPosItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopPosLayout.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopRack.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopRack_L.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopSize.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopSize_L.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopType.cs" />
+    <Compile Include="Models\WebService\Response\ShopPos\cmlResShopType_L.cs" />
+    <Compile Include="Models\WebService\Response\Shop\cmlResInfoShop.cs" />
+    <Compile Include="Models\WebService\Response\Shop\cmlResInfoShopLng.cs" />
+    <Compile Include="Models\WebService\Response\Shop\cmlResItemOfcmlResShopDwn.cs" />
+    <Compile Include="Models\WebService\Response\Shop\cmlResShopDwn.cs" />
+    <Compile Include="Models\WebService\Response\SlipMsg\cmlResInfoSlipMsgDTLng.cs" />
+    <Compile Include="Models\WebService\Response\SlipMsg\cmlResInfoSlipMsgHDLng.cs" />
+    <Compile Include="Models\WebService\Response\SlipMsg\cmlResItemOfcmlResSlipMsgDwn.cs" />
+    <Compile Include="Models\WebService\Response\SlipMsg\cmlResSlipMsgDwn.cs" />
+    <Compile Include="Models\WebService\Response\SubDistrict\cmlResInfoSubDist.cs" />
+    <Compile Include="Models\WebService\Response\SubDistrict\cmlResInfoSubDistLng.cs" />
+    <Compile Include="Models\WebService\Response\SubDistrict\cmlResItemOfcmlResSubDistDwn.cs" />
+    <Compile Include="Models\WebService\Response\SubDistrict\cmlResSubDistDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierAddress\cmlResListOfcmlResSplAddrDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierAddress\cmlResSplAddrDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierContact\cmlResListOfcmlResSplContactDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierContact\cmlResSplContactDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierGroup\cmlResInfoSplGrp.cs" />
+    <Compile Include="Models\WebService\Response\SupplierGroup\cmlResInfoSplGrpLng.cs" />
+    <Compile Include="Models\WebService\Response\SupplierGroup\cmlResItemOfcmlResSplGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierGroup\cmlResSplGrpDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierLevel\cmlResInfoSplLev.cs" />
+    <Compile Include="Models\WebService\Response\SupplierLevel\cmlResInfoSplLevLng.cs" />
+    <Compile Include="Models\WebService\Response\SupplierLevel\cmlResItemOfcmlResSplLevelDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierLevel\cmlResSplLevelDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierShipVia\cmlResInfoSplShipVia.cs" />
+    <Compile Include="Models\WebService\Response\SupplierShipVia\cmlResInfoSplShipViaLng.cs" />
+    <Compile Include="Models\WebService\Response\SupplierShipVia\cmlResItemOfcmlResSplShipViaDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierShipVia\cmlResSplShipViaDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierType\cmlResInfoSplType.cs" />
+    <Compile Include="Models\WebService\Response\SupplierType\cmlResInfoSplTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\SupplierType\cmlResItemOfcmlResSplTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\SupplierType\cmlResSplTypeDwn.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResInfoSpl.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResInfoSplCard.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResInfoSplCredit.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResInfoSplLng.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResItemOfcmlResSplItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\Supplier\cmlResSplItemDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysConfig.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysConfigLng.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysDocApv.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysDocType.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysEdc.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysLang.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPmt.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPmtLng.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPosHW.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPosModel.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPrn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysPrnLng.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysRcvFmt.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysRcvFmtLng.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysScale.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResInfoSysScaleMap.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResItemOfcmlResSysConfigDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResItemOfcmlResSysPmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResItemOfcmlResSysPrnDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResItemOfcmlResSysRcvFmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysDocApv.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysDocType.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysEdc.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysLang.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysPosHW.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysPosModel.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysScale.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlResInfoSysScaleMap.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlTSysRcvApp.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResListOfcmlTSysRcvConfig.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResSysConfigDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResSysPmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResSysPrnDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlResSysRcvFmtDwn.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlTSysRcvApp.cs" />
+    <Compile Include="Models\WebService\Response\System\cmlTSysRcvConfig.cs" />
+    <Compile Include="Models\WebService\Response\UserDepart\cmlResInfoUsrDep.cs" />
+    <Compile Include="Models\WebService\Response\UserDepart\cmlResInfoUsrDepLng.cs" />
+    <Compile Include="Models\WebService\Response\UserDepart\cmlResItemOfcmlResUsrDepDwn.cs" />
+    <Compile Include="Models\WebService\Response\UserDepart\cmlResUsrDepDwn.cs" />
+    <Compile Include="Models\WebService\Response\UserRole\cmlResInfoUserRole.cs" />
+    <Compile Include="Models\WebService\Response\UserRole\cmlResInfoUserRoleLng.cs" />
+    <Compile Include="Models\WebService\Response\UserRole\cmlResItemOfcmlResUserRoleDwn.cs" />
+    <Compile Include="Models\WebService\Response\UserRole\cmlResUserRoleDwn.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResInfoUser.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResInfoUserGrp.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResInfoUserLng.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResItemOfcmlResUserDwn.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResTCNMUsrLogin.cs" />
+    <Compile Include="Models\WebService\Response\User\cmlResUserDwn.cs" />
+    <Compile Include="Models\WebService\Response\VatRate\cmlResInfoVatRate.cs" />
+    <Compile Include="Models\WebService\Response\VatRate\cmlResListOfcmlResInfoVatRate.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResInfoVch.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResInfoVchLng.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResInfoVchType.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResInfoVchTypeLng.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResItemOfcmlResVchDwn.cs" />
+    <Compile Include="Models\WebService\Response\Voucher\cmlResVchDwn.cs" />
+    <Compile Include="Models\WebService\Response\Warehouse\cmlResInfoWah.cs" />
+    <Compile Include="Models\WebService\Response\Warehouse\cmlResInfoWahLng.cs" />
+    <Compile Include="Models\WebService\Response\Warehouse\cmlResItemOfcmlResWahDwn.cs" />
+    <Compile Include="Models\WebService\Response\Warehouse\cmlResWahDwn.cs" />
+    <Compile Include="Models\WebService\Response\Zone\cmlResInfoZone.cs" />
+    <Compile Include="Models\WebService\Response\Zone\cmlResInfoZoneLng.cs" />
+    <Compile Include="Models\WebService\Response\Zone\cmlResItemOfcmlResZoneDwn.cs" />
+    <Compile Include="Models\WebService\Response\Zone\cmlResZoneDwn.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources-String\resGlobal_EN.Designer.cs" />
+    <Compile Include="Resources-String\resGlobal_TH.Designer.cs" />
+    <Compile Include="Resources-String\resMsgRemind_EN.Designer.cs" />
+    <Compile Include="Resources-String\resMsgRemind_TH.Designer.cs" />
+    <Compile Include="Class\cDatabaseSP.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources-String\resGlobal_EN.resx" />
+    <EmbeddedResource Include="Resources-String\resGlobal_TH.resx" />
+    <EmbeddedResource Include="Resources-String\resMsgRemind_EN.resx" />
+    <EmbeddedResource Include="Resources-String\resMsgRemind_TH.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

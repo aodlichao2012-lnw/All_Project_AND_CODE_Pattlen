@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MQReceivePrc.Models.Database
+{
+    public class cmlTCNMPos
+    {
+        public string FTPosCode { get; set; }
+        public string FTPosType { get; set; }
+        public string FTPosRegNo { get; set; }
+        public string FTSmgCode { get; set; }
+        public string FTPosStaRorW { get; set; }
+        public string FTPosStaPrnEJ { get; set; }
+        public string FTPosStaVatSend { get; set; }
+        public string FTPosStaUse { get; set; }
+        public string FTPosStaShift { get; set; }
+        public Nullable<DateTime> FDDateUpd { get; set; }
+        public string FTTimeUpd { get; set; }
+        public string FTWhoUpd { get; set; }
+        public Nullable<DateTime> FDDateIns { get; set; }
+        public string FTTimeIns { get; set; }
+        public string FTWhoIns { get; set; }
+
+    }
+}

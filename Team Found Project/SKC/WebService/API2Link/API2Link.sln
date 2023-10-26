@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API2Link", "API2Link\API2Link.csproj", "{AD907E4E-16B2-403C-94C6-C87521C60629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD907E4E-16B2-403C-94C6-C87521C60629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD907E4E-16B2-403C-94C6-C87521C60629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD907E4E-16B2-403C-94C6-C87521C60629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD907E4E-16B2-403C-94C6-C87521C60629}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BDD3D99-3888-4AB6-9618-44A36C9662A7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.0.104:8080/tfs/adaposv5collections
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = API2Link\\API2Link.csproj
+		SccProjectName1 = API2Link
+		SccLocalPath1 = API2Link
+	EndGlobalSection
+EndGlobal

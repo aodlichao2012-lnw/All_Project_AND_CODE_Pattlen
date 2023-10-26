@@ -1,0 +1,67 @@
+@using System.Web.Http
+@using System.Web.Http.Description
+@using API2Wallet.Areas.HelpPage.Models
+@using API2Wallet.Areas.HelpPage.ModelDescriptions
+@model HelpPageApiModel
+
+@{
+    ApiDescription description = Model.ApiDescription;
+}
+<h1>@description.HttpMethod.Method @description.RelativePath</h1>
+<div>
+    @*<p>@description.Documentation</p>*@           @**[Pong][Set Document][2018-07-20] - comment.*@
+    <p>@Html.Raw(description.Documentation)</p>     @**[Pong][Set Document][2018-07-20] - support tab br. (new line).*@
+
+    <h2>Request Information</h2>
+
+    <h3>URI Parameters</h3>
+    @Html.DisplayFor(m => m.UriParameters, "Parameters")
+
+    <h3>Body Parameters</h3>
+
+    @if (Model.RequestModelDescription != null)
+    {
+        @Html.DisplayFor(m => m.RequestModelDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.RequestModelDescription })
+        if (Model.RequestBodyParameters != null)
+        {
+            @Html.DisplayFor(m => m.RequestBodyParameters, "Parameters")
+        }
+    }
+    else
+    {
+        <p>None.</p>
+    }
+
+    @if (Model.SampleRequests.Count > 0)
+    {
+        <h3>Request Formats</h3>
+        @Html.DisplayFor(m => m.SampleRequests, "Samples")
+    }
+
+    <h2>Response Information</h2>
+
+    <h3>Resource Description</h3>
+
+    @*<p>@description.ResponseDescription.Documentation</p>*@           @**[Pong][Set Document][2018-07-20] - comment.*@
+    <p>@Html.Raw(description.ResponseDescription.Documentation)</p>     @**[Pong][Set Document][2018-07-20] - support tab br. (new line).*@
+
+    @if (Model.ResourceDescription != null)
+    {
+        @Html.DisplayFor(m => m.ResourceDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.ResourceDescription })
+        if (Model.ResourceProperties != null)
+        {
+            @Html.DisplayFor(m => m.ResourceProperties, "Parameters")
+        }
+    }
+    else
+    {
+        <p>None.</p>
+    }
+
+    @if (Model.SampleResponses.Count > 0)
+    {
+        <h3>Response Formats</h3>
+        @Html.DisplayFor(m => m.SampleResponses, "Samples")
+    }
+
+</div>

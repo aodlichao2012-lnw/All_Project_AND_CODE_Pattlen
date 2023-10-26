@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Stimulsoft.Reports.Net</id>
+    <version>2020.2.1</version>
+    <title>Stimulsoft Reports.Net</title>
+    <authors>Stimulsoft</authors>
+    <owners>Stimulsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://www.stimulsoft.com/en/licensing/reports</licenseUrl>
+    <projectUrl>https://www.stimulsoft.com/en/products/reports-net</projectUrl>
+    <iconUrl>https://www.stimulsoft.com/images/products/nuget/net.png</iconUrl>
+    <description>Stimulsoft Reports.Net is a .NET based reporting tool which helps you create flexible and feature rich reports. All reports are created in a report designer with handy and user-friendly interface. Using Stimulsoft Reports.Net you can create reports on the basis of various data sources. Created reports can be used both in Windows Forms and ASP.NET. Rendered reports can be exported to different formats.</description>
+    <summary>Reporting tool which helps you create flexible and feature rich reports in WinForms applications.</summary>
+    <releaseNotes>You can check the release notes for this version here:
+https://www.stimulsoft.com/en/changes/reports-net?build=2020.2.1</releaseNotes>
+    <copyright>Copyright (C) 2003-2019 Stimulsoft, All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>stimulsoft report reports reporting tool generator net framework sql xml json data barcode qr-code charts export pdf excel</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Stimulsoft.Reports.Engine" version="[2020.2.1]" />
+      </group>
+      <group targetFramework=".NETCoreApp3.0">
+        <dependency id="System.Data.Odbc" version="4.6.0" />
+        <dependency id="System.Data.OleDb" version="4.6.0" />
+        <dependency id="System.Data.SqlClient" version="4.7.0" />
+        <dependency id="Stimulsoft.Reports.Engine" version="[2020.2.1]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

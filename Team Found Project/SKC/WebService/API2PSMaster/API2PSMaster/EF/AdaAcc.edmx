@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdaAccModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TCNTPdtTnfDT">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+            <PropertyRef Name="FNXtdSeqNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FTXthDocNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FNXtdSeqNo" Type="int" Nullable="false" />
+          <Property Name="FTPdtCode" Type="varchar" MaxLength="20" />
+          <Property Name="FTXtdPdtName" Type="varchar" MaxLength="100" />
+          <Property Name="FTXtdStkCode" Type="varchar" MaxLength="20" />
+          <Property Name="FCXtdStkFac" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTPunCode" Type="varchar" MaxLength="5" />
+          <Property Name="FTPunName" Type="varchar" MaxLength="50" />
+          <Property Name="FCXtdFactor" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdBarCode" Type="varchar" MaxLength="25" />
+          <Property Name="FTXtdVatType" Type="varchar" MaxLength="1" />
+          <Property Name="FTVatCode" Type="varchar" MaxLength="5" />
+          <Property Name="FCXtdVatRate" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdSaleType" Type="varchar" MaxLength="1" />
+          <Property Name="FCXtdSalePrice" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdQty" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdQtyAll" Type="int" />
+          <Property Name="FCXtdSetPrice" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdAmt" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdDisChgAvi" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdDisChgTxt" Type="varchar" MaxLength="20" />
+          <Property Name="FCXtdDis" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdNet" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdNetAfHD" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdNetEx" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdVat" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdVatable" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdWhtAmt" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdWhtCode" Type="varchar" MaxLength="5" />
+          <Property Name="FCXtdWhtRate" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdCostIn" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdCostEx" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdStaPdt" Type="varchar" MaxLength="1" />
+          <Property Name="FCXtdQtyLef" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtdQtyRfn" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdStaPrcStk" Type="varchar" MaxLength="1" />
+          <Property Name="FTXtdStaAlwDis" Type="varchar" MaxLength="1" />
+          <Property Name="FNXtdPdtLevel" Type="int" />
+          <Property Name="FTXtdPdtParent" Type="varchar" MaxLength="20" />
+          <Property Name="FCXtdQtySet" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXtdPdtStaSet" Type="varchar" MaxLength="1" />
+          <Property Name="FTXtdRmk" Type="varchar" MaxLength="200" />
+          <Property Name="FDLastUpdOn" Type="datetime" />
+          <Property Name="FTLastUpdBy" Type="varchar" MaxLength="20" />
+          <Property Name="FDCreateOn" Type="datetime" />
+          <Property Name="FTCreateBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfDTSrn">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+            <PropertyRef Name="FNXtdSeqNo" />
+            <PropertyRef Name="FTPdtCode" />
+            <PropertyRef Name="FTSrnCode" />
+          </Key>
+          <Property Name="FTBchCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FTXthDocNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FNXtdSeqNo" Type="bigint" Nullable="false" />
+          <Property Name="FTPdtCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTSrnCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FDXtdSDate" Type="datetime" />
+          <Property Name="FCPtsCost" Type="numeric" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfHD">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FTXthDocNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTShpCode" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthTnfType" Type="varchar" MaxLength="1" />
+          <Property Name="FNXthDocType" Type="int" />
+          <Property Name="FDXthDocDate" Type="datetime" />
+          <Property Name="FTXthVATInOrEx" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthCshOrCrd" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthOther" Type="varchar" MaxLength="100" />
+          <Property Name="FTDptCode" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthBchFrm" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthBchTo" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthShopFrm" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthShopTo" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthWhFrm" Type="varchar" MaxLength="5" />
+          <Property Name="FTXthWhTo" Type="varchar" MaxLength="5" />
+          <Property Name="FTUsrCode" Type="varchar" MaxLength="20" />
+          <Property Name="FTSpnCode" Type="varchar" MaxLength="20" />
+          <Property Name="FTXthApvCode" Type="varchar" MaxLength="20" />
+          <Property Name="FTSplCode" Type="varchar" MaxLength="20" />
+          <Property Name="FTXthRefExt" Type="varchar" MaxLength="20" />
+          <Property Name="FDXthRefExtDate" Type="datetime" />
+          <Property Name="FTXthRefInt" Type="varchar" MaxLength="20" />
+          <Property Name="FDXthRefIntDate" Type="datetime" />
+          <Property Name="FNXthDocPrint" Type="int" />
+          <Property Name="FTRteCode" Type="varchar" MaxLength="5" />
+          <Property Name="FCXthRteFac" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTVatCode" Type="varchar" MaxLength="5" />
+          <Property Name="FCXthVATRate" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthTotal" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXtVatNoDisChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatNoDisChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthVatDisChgAvi" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatDisChgAvi" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXthDisChgTxt" Type="varchar" MaxLength="10" />
+          <Property Name="FCXthDis" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthRefAEAmt" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthVatAfDisChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatAfDisChg" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthAfDisChgAE" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXthWpCode" Type="varchar" MaxLength="5" />
+          <Property Name="FCXthVat" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthVatable" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthGrandB4Wht" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthWpTax" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthGrand" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthRnd" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXthGndText" Type="varchar" MaxLength="200" />
+          <Property Name="FCXthPaid" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FCXthLeft" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="FTXthStaRefund" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthRmk" Type="varchar" MaxLength="200" />
+          <Property Name="FTXthStaDoc" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthStaApv" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthStaPrcStk" Type="varchar" MaxLength="1" />
+          <Property Name="FTXthStaPaid" Type="varchar" MaxLength="1" />
+          <Property Name="FNXthStaDocAct" Type="int" />
+          <Property Name="FNXthStaRef" Type="int" />
+          <Property Name="FTRsnCode" Type="varchar" MaxLength="5" />
+          <Property Name="FDLastUpdOn" Type="datetime" />
+          <Property Name="FTLastUpdBy" Type="varchar" MaxLength="20" />
+          <Property Name="FDCreateOn" Type="datetime" />
+          <Property Name="FTCreateBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfHDRef">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FTXthDocNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTXphDstPaid" Type="varchar" MaxLength="1" />
+          <Property Name="FNXphCrTerm" Type="int" />
+          <Property Name="FDXphDueDate" Type="datetime" />
+          <Property Name="FDXphBillDue" Type="datetime" />
+          <Property Name="FTXphCtrName" Type="varchar" MaxLength="100" />
+          <Property Name="FDXphTnfDate" Type="datetime" />
+          <Property Name="FTXphRefTnfID" Type="varchar" MaxLength="20" />
+          <Property Name="FTXphRefVehID" Type="varchar" MaxLength="50" />
+          <Property Name="FTXphRefInvNo" Type="varchar" MaxLength="30" />
+          <Property Name="FTXphQtyAndTypeUnit" Type="varchar" MaxLength="30" />
+          <Property Name="FNXphShipAdd" Type="bigint" />
+          <Property Name="FNXphTaxAdd" Type="bigint" />
+          <Property Name="FTViaCode" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityContainer Name="AdaAccModelStoreContainer">
+          <EntitySet Name="TCNTPdtTnfDT" EntityType="Self.TCNTPdtTnfDT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCNTPdtTnfDTSrn" EntityType="Self.TCNTPdtTnfDTSrn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCNTPdtTnfHD" EntityType="Self.TCNTPdtTnfHD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCNTPdtTnfHDRef" EntityType="Self.TCNTPdtTnfHDRef" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdaAccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AdaAccEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TCNTPdtTnfDTs" EntityType="AdaAccModel.TCNTPdtTnfDT" />
+          <EntitySet Name="TCNTPdtTnfDTSrns" EntityType="AdaAccModel.TCNTPdtTnfDTSrn" />
+          <EntitySet Name="TCNTPdtTnfHDs" EntityType="AdaAccModel.TCNTPdtTnfHD" />
+          <EntitySet Name="TCNTPdtTnfHDRefs" EntityType="AdaAccModel.TCNTPdtTnfHDRef" />
+        </EntityContainer>
+        <EntityType Name="TCNTPdtTnfDT">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+            <PropertyRef Name="FNXtdSeqNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthDocNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FNXtdSeqNo" Type="Int32" Nullable="false" />
+          <Property Name="FTPdtCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTXtdPdtName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FTXtdStkCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdStkFac" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTPunCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTPunName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdFactor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdBarCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FTXtdVatType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTVatCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdVatRate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdSaleType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdSalePrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdQty" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdQtyAll" Type="Int32" />
+          <Property Name="FCXtdSetPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdAmt" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdDisChgAvi" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdDisChgTxt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdDis" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdNet" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdNetAfHD" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdNetEx" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdVat" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdVatable" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdWhtAmt" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdWhtCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdWhtRate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdCostIn" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdCostEx" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdStaPdt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdQtyLef" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtdQtyRfn" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdStaPrcStk" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXtdStaAlwDis" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FNXtdPdtLevel" Type="Int32" />
+          <Property Name="FTXtdPdtParent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FCXtdQtySet" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXtdPdtStaSet" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXtdRmk" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FDLastUpdOn" Type="DateTime" Precision="3" />
+          <Property Name="FTLastUpdBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FDCreateOn" Type="DateTime" Precision="3" />
+          <Property Name="FTCreateBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfDTSrn">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+            <PropertyRef Name="FNXtdSeqNo" />
+            <PropertyRef Name="FTPdtCode" />
+            <PropertyRef Name="FTSrnCode" />
+          </Key>
+          <Property Name="FTBchCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthDocNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FNXtdSeqNo" Type="Int64" Nullable="false" />
+          <Property Name="FTPdtCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTSrnCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FDXtdSDate" Type="DateTime" Precision="3" />
+          <Property Name="FCPtsCost" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfHD">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthDocNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTShpCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthTnfType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FNXthDocType" Type="Int32" />
+          <Property Name="FDXthDocDate" Type="DateTime" Precision="3" />
+          <Property Name="FTXthVATInOrEx" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthCshOrCrd" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthOther" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FTDptCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthBchFrm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthBchTo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthShopFrm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthShopTo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthWhFrm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthWhTo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTUsrCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTSpnCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthApvCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTSplCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthRefExt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FDXthRefExtDate" Type="DateTime" Precision="3" />
+          <Property Name="FTXthRefInt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FDXthRefIntDate" Type="DateTime" Precision="3" />
+          <Property Name="FNXthDocPrint" Type="Int32" />
+          <Property Name="FTRteCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FCXthRteFac" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTVatCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FCXthVATRate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthTotal" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXtVatNoDisChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatNoDisChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthVatDisChgAvi" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatDisChgAvi" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXthDisChgTxt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FCXthDis" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthRefAEAmt" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthVatAfDisChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthNoVatAfDisChg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthAfDisChgAE" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXthWpCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FCXthVat" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthVatable" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthGrandB4Wht" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthWpTax" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthGrand" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthRnd" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXthGndText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FCXthPaid" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FCXthLeft" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FTXthStaRefund" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthRmk" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthStaDoc" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthStaApv" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthStaPrcStk" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthStaPaid" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FNXthStaDocAct" Type="Int32" />
+          <Property Name="FNXthStaRef" Type="Int32" />
+          <Property Name="FTRsnCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FDLastUpdOn" Type="DateTime" Precision="3" />
+          <Property Name="FTLastUpdBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FDCreateOn" Type="DateTime" Precision="3" />
+          <Property Name="FTCreateBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TCNTPdtTnfHDRef">
+          <Key>
+            <PropertyRef Name="FTBchCode" />
+            <PropertyRef Name="FTXthDocNo" />
+          </Key>
+          <Property Name="FTBchCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FTXthDocNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTXphDstPaid" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FNXphCrTerm" Type="Int32" />
+          <Property Name="FDXphDueDate" Type="DateTime" Precision="3" />
+          <Property Name="FDXphBillDue" Type="DateTime" Precision="3" />
+          <Property Name="FTXphCtrName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FDXphTnfDate" Type="DateTime" Precision="3" />
+          <Property Name="FTXphRefTnfID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTXphRefVehID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FTXphRefInvNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FTXphQtyAndTypeUnit" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FNXphShipAdd" Type="Int64" />
+          <Property Name="FNXphTaxAdd" Type="Int64" />
+          <Property Name="FTViaCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdaAccModelStoreContainer" CdmEntityContainer="AdaAccEntities" >
+          <EntitySetMapping Name="TCNTPdtTnfDTs">
+            <EntityTypeMapping TypeName="AdaAccModel.TCNTPdtTnfDT">
+              <MappingFragment StoreEntitySet="TCNTPdtTnfDT">
+                <ScalarProperty Name="FTCreateBy" ColumnName="FTCreateBy" />
+                <ScalarProperty Name="FDCreateOn" ColumnName="FDCreateOn" />
+                <ScalarProperty Name="FTLastUpdBy" ColumnName="FTLastUpdBy" />
+                <ScalarProperty Name="FDLastUpdOn" ColumnName="FDLastUpdOn" />
+                <ScalarProperty Name="FTXtdRmk" ColumnName="FTXtdRmk" />
+                <ScalarProperty Name="FTXtdPdtStaSet" ColumnName="FTXtdPdtStaSet" />
+                <ScalarProperty Name="FCXtdQtySet" ColumnName="FCXtdQtySet" />
+                <ScalarProperty Name="FTXtdPdtParent" ColumnName="FTXtdPdtParent" />
+                <ScalarProperty Name="FNXtdPdtLevel" ColumnName="FNXtdPdtLevel" />
+                <ScalarProperty Name="FTXtdStaAlwDis" ColumnName="FTXtdStaAlwDis" />
+                <ScalarProperty Name="FTXtdStaPrcStk" ColumnName="FTXtdStaPrcStk" />
+                <ScalarProperty Name="FCXtdQtyRfn" ColumnName="FCXtdQtyRfn" />
+                <ScalarProperty Name="FCXtdQtyLef" ColumnName="FCXtdQtyLef" />
+                <ScalarProperty Name="FTXtdStaPdt" ColumnName="FTXtdStaPdt" />
+                <ScalarProperty Name="FCXtdCostEx" ColumnName="FCXtdCostEx" />
+                <ScalarProperty Name="FCXtdCostIn" ColumnName="FCXtdCostIn" />
+                <ScalarProperty Name="FCXtdWhtRate" ColumnName="FCXtdWhtRate" />
+                <ScalarProperty Name="FTXtdWhtCode" ColumnName="FTXtdWhtCode" />
+                <ScalarProperty Name="FCXtdWhtAmt" ColumnName="FCXtdWhtAmt" />
+                <ScalarProperty Name="FCXtdVatable" ColumnName="FCXtdVatable" />
+                <ScalarProperty Name="FCXtdVat" ColumnName="FCXtdVat" />
+                <ScalarProperty Name="FCXtdNetEx" ColumnName="FCXtdNetEx" />
+                <ScalarProperty Name="FCXtdNetAfHD" ColumnName="FCXtdNetAfHD" />
+                <ScalarProperty Name="FCXtdNet" ColumnName="FCXtdNet" />
+                <ScalarProperty Name="FCXtdChg" ColumnName="FCXtdChg" />
+                <ScalarProperty Name="FCXtdDis" ColumnName="FCXtdDis" />
+                <ScalarProperty Name="FTXtdDisChgTxt" ColumnName="FTXtdDisChgTxt" />
+                <ScalarProperty Name="FCXtdDisChgAvi" ColumnName="FCXtdDisChgAvi" />
+                <ScalarProperty Name="FCXtdAmt" ColumnName="FCXtdAmt" />
+                <ScalarProperty Name="FCXtdSetPrice" ColumnName="FCXtdSetPrice" />
+                <ScalarProperty Name="FCXtdQtyAll" ColumnName="FCXtdQtyAll" />
+                <ScalarProperty Name="FCXtdQty" ColumnName="FCXtdQty" />
+                <ScalarProperty Name="FCXtdSalePrice" ColumnName="FCXtdSalePrice" />
+                <ScalarProperty Name="FTXtdSaleType" ColumnName="FTXtdSaleType" />
+                <ScalarProperty Name="FCXtdVatRate" ColumnName="FCXtdVatRate" />
+                <ScalarProperty Name="FTVatCode" ColumnName="FTVatCode" />
+                <ScalarProperty Name="FTXtdVatType" ColumnName="FTXtdVatType" />
+                <ScalarProperty Name="FTXtdBarCode" ColumnName="FTXtdBarCode" />
+                <ScalarProperty Name="FCXtdFactor" ColumnName="FCXtdFactor" />
+                <ScalarProperty Name="FTPunName" ColumnName="FTPunName" />
+                <ScalarProperty Name="FTPunCode" ColumnName="FTPunCode" />
+                <ScalarProperty Name="FCXtdStkFac" ColumnName="FCXtdStkFac" />
+                <ScalarProperty Name="FTXtdStkCode" ColumnName="FTXtdStkCode" />
+                <ScalarProperty Name="FTXtdPdtName" ColumnName="FTXtdPdtName" />
+                <ScalarProperty Name="FTPdtCode" ColumnName="FTPdtCode" />
+                <ScalarProperty Name="FNXtdSeqNo" ColumnName="FNXtdSeqNo" />
+                <ScalarProperty Name="FTXthDocNo" ColumnName="FTXthDocNo" />
+                <ScalarProperty Name="FTBchCode" ColumnName="FTBchCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCNTPdtTnfDTSrns">
+            <EntityTypeMapping TypeName="AdaAccModel.TCNTPdtTnfDTSrn">
+              <MappingFragment StoreEntitySet="TCNTPdtTnfDTSrn">
+                <ScalarProperty Name="FCPtsCost" ColumnName="FCPtsCost" />
+                <ScalarProperty Name="FDXtdSDate" ColumnName="FDXtdSDate" />
+                <ScalarProperty Name="FTSrnCode" ColumnName="FTSrnCode" />
+                <ScalarProperty Name="FTPdtCode" ColumnName="FTPdtCode" />
+                <ScalarProperty Name="FNXtdSeqNo" ColumnName="FNXtdSeqNo" />
+                <ScalarProperty Name="FTXthDocNo" ColumnName="FTXthDocNo" />
+                <ScalarProperty Name="FTBchCode" ColumnName="FTBchCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCNTPdtTnfHDs">
+            <EntityTypeMapping TypeName="AdaAccModel.TCNTPdtTnfHD">
+              <MappingFragment StoreEntitySet="TCNTPdtTnfHD">
+                <ScalarProperty Name="FTCreateBy" ColumnName="FTCreateBy" />
+                <ScalarProperty Name="FDCreateOn" ColumnName="FDCreateOn" />
+                <ScalarProperty Name="FTLastUpdBy" ColumnName="FTLastUpdBy" />
+                <ScalarProperty Name="FDLastUpdOn" ColumnName="FDLastUpdOn" />
+                <ScalarProperty Name="FTRsnCode" ColumnName="FTRsnCode" />
+                <ScalarProperty Name="FNXthStaRef" ColumnName="FNXthStaRef" />
+                <ScalarProperty Name="FNXthStaDocAct" ColumnName="FNXthStaDocAct" />
+                <ScalarProperty Name="FTXthStaPaid" ColumnName="FTXthStaPaid" />
+                <ScalarProperty Name="FTXthStaPrcStk" ColumnName="FTXthStaPrcStk" />
+                <ScalarProperty Name="FTXthStaApv" ColumnName="FTXthStaApv" />
+                <ScalarProperty Name="FTXthStaDoc" ColumnName="FTXthStaDoc" />
+                <ScalarProperty Name="FTXthRmk" ColumnName="FTXthRmk" />
+                <ScalarProperty Name="FTXthStaRefund" ColumnName="FTXthStaRefund" />
+                <ScalarProperty Name="FCXthLeft" ColumnName="FCXthLeft" />
+                <ScalarProperty Name="FCXthPaid" ColumnName="FCXthPaid" />
+                <ScalarProperty Name="FTXthGndText" ColumnName="FTXthGndText" />
+                <ScalarProperty Name="FCXthRnd" ColumnName="FCXthRnd" />
+                <ScalarProperty Name="FCXthGrand" ColumnName="FCXthGrand" />
+                <ScalarProperty Name="FCXthWpTax" ColumnName="FCXthWpTax" />
+                <ScalarProperty Name="FCXthGrandB4Wht" ColumnName="FCXthGrandB4Wht" />
+                <ScalarProperty Name="FCXthVatable" ColumnName="FCXthVatable" />
+                <ScalarProperty Name="FCXthVat" ColumnName="FCXthVat" />
+                <ScalarProperty Name="FTXthWpCode" ColumnName="FTXthWpCode" />
+                <ScalarProperty Name="FCXthAfDisChgAE" ColumnName="FCXthAfDisChgAE" />
+                <ScalarProperty Name="FCXthNoVatAfDisChg" ColumnName="FCXthNoVatAfDisChg" />
+                <ScalarProperty Name="FCXthVatAfDisChg" ColumnName="FCXthVatAfDisChg" />
+                <ScalarProperty Name="FCXthRefAEAmt" ColumnName="FCXthRefAEAmt" />
+                <ScalarProperty Name="FCXthChg" ColumnName="FCXthChg" />
+                <ScalarProperty Name="FCXthDis" ColumnName="FCXthDis" />
+                <ScalarProperty Name="FTXthDisChgTxt" ColumnName="FTXthDisChgTxt" />
+                <ScalarProperty Name="FCXthNoVatDisChgAvi" ColumnName="FCXthNoVatDisChgAvi" />
+                <ScalarProperty Name="FCXthVatDisChgAvi" ColumnName="FCXthVatDisChgAvi" />
+                <ScalarProperty Name="FCXthNoVatNoDisChg" ColumnName="FCXthNoVatNoDisChg" />
+                <ScalarProperty Name="FCXtVatNoDisChg" ColumnName="FCXtVatNoDisChg" />
+                <ScalarProperty Name="FCXthTotal" ColumnName="FCXthTotal" />
+                <ScalarProperty Name="FCXthVATRate" ColumnName="FCXthVATRate" />
+                <ScalarProperty Name="FTVatCode" ColumnName="FTVatCode" />
+                <ScalarProperty Name="FCXthRteFac" ColumnName="FCXthRteFac" />
+                <ScalarProperty Name="FTRteCode" ColumnName="FTRteCode" />
+                <ScalarProperty Name="FNXthDocPrint" ColumnName="FNXthDocPrint" />
+                <ScalarProperty Name="FDXthRefIntDate" ColumnName="FDXthRefIntDate" />
+                <ScalarProperty Name="FTXthRefInt" ColumnName="FTXthRefInt" />
+                <ScalarProperty Name="FDXthRefExtDate" ColumnName="FDXthRefExtDate" />
+                <ScalarProperty Name="FTXthRefExt" ColumnName="FTXthRefExt" />
+                <ScalarProperty Name="FTSplCode" ColumnName="FTSplCode" />
+                <ScalarProperty Name="FTXthApvCode" ColumnName="FTXthApvCode" />
+                <ScalarProperty Name="FTSpnCode" ColumnName="FTSpnCode" />
+                <ScalarProperty Name="FTUsrCode" ColumnName="FTUsrCode" />
+                <ScalarProperty Name="FTXthWhTo" ColumnName="FTXthWhTo" />
+                <ScalarProperty Name="FTXthWhFrm" ColumnName="FTXthWhFrm" />
+                <ScalarProperty Name="FTXthShopTo" ColumnName="FTXthShopTo" />
+                <ScalarProperty Name="FTXthShopFrm" ColumnName="FTXthShopFrm" />
+                <ScalarProperty Name="FTXthBchTo" ColumnName="FTXthBchTo" />
+                <ScalarProperty Name="FTXthBchFrm" ColumnName="FTXthBchFrm" />
+                <ScalarProperty Name="FTDptCode" ColumnName="FTDptCode" />
+                <ScalarProperty Name="FTXthOther" ColumnName="FTXthOther" />
+                <ScalarProperty Name="FTXthCshOrCrd" ColumnName="FTXthCshOrCrd" />
+                <ScalarProperty Name="FTXthVATInOrEx" ColumnName="FTXthVATInOrEx" />
+                <ScalarProperty Name="FDXthDocDate" ColumnName="FDXthDocDate" />
+                <ScalarProperty Name="FNXthDocType" ColumnName="FNXthDocType" />
+                <ScalarProperty Name="FTXthTnfType" ColumnName="FTXthTnfType" />
+                <ScalarProperty Name="FTShpCode" ColumnName="FTShpCode" />
+                <ScalarProperty Name="FTXthDocNo" ColumnName="FTXthDocNo" />
+                <ScalarProperty Name="FTBchCode" ColumnName="FTBchCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCNTPdtTnfHDRefs">
+            <EntityTypeMapping TypeName="AdaAccModel.TCNTPdtTnfHDRef">
+              <MappingFragment StoreEntitySet="TCNTPdtTnfHDRef">
+                <ScalarProperty Name="FTViaCode" ColumnName="FTViaCode" />
+                <ScalarProperty Name="FNXphTaxAdd" ColumnName="FNXphTaxAdd" />
+                <ScalarProperty Name="FNXphShipAdd" ColumnName="FNXphShipAdd" />
+                <ScalarProperty Name="FTXphQtyAndTypeUnit" ColumnName="FTXphQtyAndTypeUnit" />
+                <ScalarProperty Name="FTXphRefInvNo" ColumnName="FTXphRefInvNo" />
+                <ScalarProperty Name="FTXphRefVehID" ColumnName="FTXphRefVehID" />
+                <ScalarProperty Name="FTXphRefTnfID" ColumnName="FTXphRefTnfID" />
+                <ScalarProperty Name="FDXphTnfDate" ColumnName="FDXphTnfDate" />
+                <ScalarProperty Name="FTXphCtrName" ColumnName="FTXphCtrName" />
+                <ScalarProperty Name="FDXphBillDue" ColumnName="FDXphBillDue" />
+                <ScalarProperty Name="FDXphDueDate" ColumnName="FDXphDueDate" />
+                <ScalarProperty Name="FNXphCrTerm" ColumnName="FNXphCrTerm" />
+                <ScalarProperty Name="FTXphDstPaid" ColumnName="FTXphDstPaid" />
+                <ScalarProperty Name="FTXthDocNo" ColumnName="FTXthDocNo" />
+                <ScalarProperty Name="FTBchCode" ColumnName="FTBchCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

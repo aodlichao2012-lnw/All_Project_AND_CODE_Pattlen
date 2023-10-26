@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Stimulsoft.Reports.Engine</id>
+    <version>2020.2.1</version>
+    <title>Stimulsoft Reports Engine</title>
+    <authors>Stimulsoft</authors>
+    <owners>Stimulsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://www.stimulsoft.com/en/licensing/reports</licenseUrl>
+    <projectUrl>https://www.stimulsoft.com/en/products</projectUrl>
+    <iconUrl>https://www.stimulsoft.com/images/products/nuget/engine.png</iconUrl>
+    <description>The engine is a part of the reporting tool that renders reports from getting data from the source, building bands, calculating aggregate functions, charting, applying styles, conditions, filtering, sorting, and more. Also, the report engine has algorithms for exporting reports to various formats such as PDF, Rich Text, Excel, and others. The engine supports .NET and .NET Core frameworks.</description>
+    <summary>The report engine is the main executable component of the reporting tool, its basis.</summary>
+    <releaseNotes>You can check the release notes for this version here:
+https://www.stimulsoft.com/en/changes/ultimate?build=2020.2.1</releaseNotes>
+    <copyright>Copyright (C) 2003-2019 Stimulsoft, All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>stimulsoft report reports reporting tool engine generator net framework export pdf excel html data</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETCoreApp3.0">
+        <dependency id="Microsoft.CSharp" version="4.6.0" />
+        <dependency id="Microsoft.Win32.Registry" version="4.6.0" />
+        <dependency id="System.CodeDom" version="4.6.0" />
+        <dependency id="System.Data.Odbc" version="4.6.0" />
+        <dependency id="System.Data.OleDb" version="4.6.0" />
+        <dependency id="System.Data.SqlClient" version="4.7.0" />
+        <dependency id="System.Drawing.Common" version="4.6.1" />
+        <dependency id="System.Resources.Extensions" version="4.7.0" />
+        <dependency id="System.Reflection.Emit" version="4.6.0" />
+        <dependency id="System.Reflection.Emit.Lightweight" version="4.6.0" />
+        <dependency id="System.Text.Encoding.CodePages" version="4.6.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
