@@ -1,0 +1,141 @@
+﻿using ais_web2.Models;
+using Jose;
+using Microsoft.Ajax.Utilities;
+using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using Oracle.DataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Linq;
+using System.Security.Principal;
+using System.Threading;
+using System.Web;
+using System.Web.Mvc;
+
+namespace ais_web2.Controllers
+{
+    public class FrmSearchNumberController : Controller
+    {
+        string Agenids = string.Empty;
+        [Obsolete]
+        public ActionResult Index()
+        {
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+                Agenids = HttpContext.Request.Cookies["Agen"].Value;
+                Module1.Agent_Id = Agenids;
+            }
+
+            DateTime datet = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), new CultureInfo("en-US"));
+            CultureInfo cultureInfo = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            string[] jwt = HttpContext.Request.Cookies.AllKeys;
+            string StrSql = string.Empty;
+            foreach (string key in jwt)
+            {
+                if (key != "null" && key != "ASP.NET_SessionId" && key.Contains("Ag") != true && key.Contains("editv") != true && key.Contains("EXTENSION") != true)
+                {
+                    List<string> userjson = Module1.Instance.GetFromToken(key);
+
+                    if (datet <= Convert.ToDateTime(userjson[2].ToString()))
+                    {
+                        WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
+                        StrSql = "SELECT * FROM PREDIC_AGENTS";
+                        StrSql += " WHERE (LOGIN ='" + userjson[0] + "')";
+                        DataSet ds = Module1.Instance.CommandSet(StrSql, "Login_agent");
+                        if (ds != null)
+                            if (ds.Tables["Login_agent"].Rows.Count != 0)
+                            {
+                                return View();
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                    }
+                }
+            }
+            return null;
+        }
+        private int i;
+        private string Today = "";
+        private string strday;
+        private string strmm;
+        private string stryy;
+        private int z;
+        [Obsolete]
+        [HttpGet]
+        public string FrmSearchNumber_Load()
+        {
+            strday = Strings.Format(Convert.ToDateTime(DateTime.Now).ToString("dd"));
+            strmm = Strings.Format(Convert.ToDateTime(DateTime.Now).ToString("MMM"));
+            stryy = Strings.Format(Convert.ToDateTime(DateTime.Now).ToString("yy"));
+            Today = strday + "-" + strmm + "-" + stryy;
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+                Agenids = HttpContext.Request.Cookies["Agen"].Value;
+                Module1.Agent_Id = Agenids;
+            }
+            var dt = new DataTable();
+            string sqlselect = "";
+            sqlselect = " select anumber as เบอร์โทรศัพท์ ,agent_id," + " lead_call_date,service_01,service_02," + " service_03,service_04,service_05,service_06," + " service_07,service_08,service_09," + " service_10,service_14,cust_name as ชื่อ,cust_sname as นามสกุล ,birth_day," + " birth_dd,birth_mm,birth_yyyy,cust_sex," + " decode(res_code,'01','สมัคร','02','ติดต่อกลับ','03','ไม่สนใจ','04','ไม่สามารถติดต่อได้ในขณะนี้','05','สายว่างไม่มีผู้รับ','06','ยังไม่เปิดใช้บริการ','07','ระงับบริการชั่วคราว') as สถานะ" + " from MAS_LEADS_TRANS  WHERE AGENT_ID = :AGENT_ID AND TO_DATE(LEAD_CALL_DATE,'DD-MM-YYYY')= to_date(:LEAD_CALL_DATE,'DD-MM-YYYY') ";
+            OracleDataReader da = Module1.Instance.CommanDataread(sqlselect , new string[] { Module1.Agent_Id  , Today }  ,new string[] { ":AGENT_ID" , ":LEAD_CALL_DATE" });
+            List<Telclass2> telclassList = new List<Telclass2>();
+
+            while (da.Read())
+            {
+                Telclass2 Telclassss = new Telclass2();
+                Telclassss.anumber = da["เบอร์โทรศัพท์"].ToString();
+                Telclassss.cust_name = da["ชื่อ"].ToString();
+                Telclassss.cust_sname = da["นามสกุล"].ToString();
+                Telclassss.cust_sex = da["CUST_SEX"].ToString();
+                Telclassss.service_01 = da["SERVICE_01"].ToString().IsNullOrWhiteSpace()? "ไม่ได้สมัคร" : da["SERVICE_01"].ToString();
+                Telclassss.service_02 = da["SERVICE_02"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_02"].ToString();;
+                Telclassss.service_03 = da["SERVICE_03"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_03"].ToString();;
+                Telclassss.service_04 = da["SERVICE_04"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_04"].ToString();;
+                Telclassss.service_05 = da["SERVICE_05"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_05"].ToString();;
+                Telclassss.service_06 = da["SERVICE_06"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_06"].ToString();;
+                Telclassss.service_07 = da["SERVICE_07"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_07"].ToString();;
+                Telclassss.service_08 = da["SERVICE_08"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_08"].ToString();;
+                Telclassss.service_09 = da["SERVICE_09"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_09"].ToString();;
+                Telclassss.service_10 = da["SERVICE_10"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_10"].ToString();;
+                Telclassss.service_14 = da["SERVICE_14"].ToString().IsNullOrWhiteSpace() ? "ไม่ได้สมัคร" : da["SERVICE_14"].ToString();;
+                Telclassss.lead_call_date = da["LEAD_CALL_DATE"].ToString();
+                Telclassss.status = da["สถานะ"].ToString();
+                telclassList.Add(Telclassss);
+            }
+            da.Close();
+            return JsonConvert.SerializeObject(telclassList);
+        }
+        [HttpPost]
+        private string btnEdit_Click(Telclass telclass)
+        {
+            List<string> list = new List<string>();
+            list.Add(telclass.anumber);
+            list.Add(telclass.res_code);
+            return JsonConvert.SerializeObject(list);
+        }
+    }
+    public class Telclass2
+    {
+        public string anumber { get; set; }
+        public string cust_name;
+        public string cust_sname { get; set; }
+        public string cust_sex { get; set; }
+        public string service_01 { get; set; }
+        public string service_02 { get; set; }
+        public string service_03 { get; set; }
+        public string service_04 { get; set; }
+        public string service_05 { get; set; }
+        public string service_06 { get; set; }
+        public string service_07 { get; set; }
+        public string service_08 { get; set; }
+        public string service_09 { get; set; }
+        public string service_10 { get; set; }
+        public string service_14 { get; set; }
+        public string lead_call_date { get; set; }
+        public string status { get; set; }
+    }
+}

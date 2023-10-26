@@ -1,0 +1,790 @@
+﻿$(document).ready(function (e) {
+    $("#reload").hide()
+    $("#btn_add_ser").hide()
+
+    $("#btn_search").on('click', function (e) {
+        window.location.href = '/FrmSearchNumber/Index';
+    })
+
+    $("#btn_Report").on('click', function (e) {
+        window.location.href = '/FrmReportTel/Index';
+    })
+    $(function () {
+        $('#date1').datetimepicker({
+            format: "DD/MM/YYYY"
+        });
+    });
+
+
+
+    function clearCookie(cookieName) {
+        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+    function clearAllCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieParts = cookies[i].split("=");
+            var cookieName = cookieParts[0];
+            clearCookie(cookieName);
+        }
+    }
+
+    // Usage
+
+    function fuclogout() {
+        clearAllCookies();
+        window.location.href = '/FrmLogin/Index'
+    }
+
+    function getfucLoad() {
+        //var tables = $('#tb_1').DataTable().data()
+        //var model = new FormData();
+        //model.append("agent_id", tables[0].test)
+        $("#sms_select").hide()
+        $.ajax({
+            url: '/FrmDetail/LoadEdit',
+            type: "GET",
+            data: null,
+            contentType: 'text/plain',
+            success: function (e) {
+
+                let valutf8 = decodeURIComponent(e);
+                let values = JSON.parse(valutf8)
+                $("#select_st").val(values.cboStatus)
+                $("#txt_tel").val(values.txtTel_No)
+                $("#cname").val(values.txtName)
+                $("#csname").val(valutf8.txtSName)
+                $("#sex").val(values.cboSex)
+                $("#date_tel").val(values.txtDate_Tel)
+                $("#cbocity").val(values.cbocity)
+                /*   $("#status").text(e)*/
+                if (values.cboStatus === "สมัคร") {
+                
+                    $("#btn_add_ser").show()
+                } else {
+                    $("#btn_add_ser").hide()
+                }
+            }
+        })
+    }
+
+
+    function fucsave() {
+
+        let SERVICE2_ = "#lbSERVICE_";
+        let service = $("[id]").filter(function (e) {
+            return this.id === SERVICE2_
+        })
+        let datas = new FormData();
+        for (i = 0; i < service.prevObject.length; i++) {
+
+            if (service.prevObject[i].id.includes("lbSERVICE_") === true) {
+                console.log(service.prevObject[i].id.replace('lb', ''))
+                datas.append(service.prevObject[i].id.replace('lb',''), service.prevObject[i].checked)
+            }
+
+        }
+
+        let reson = $("#select_st").val()
+        let cname = $("#cname").val()
+        let cbocity = $("#cbocity").val()
+        let csname = $("#csname").val()
+        let txt_tel = $("#txt_tel").val()
+        let date1 = $("#date1").val().split('/')
+        let year = date1[2]
+        let mouth = date1[1]
+        let day = date1[0]
+
+        datas.append("txtYear", year)
+        datas.append("cboMouth", mouth)
+        datas.append("cboStatus", reson)
+        datas.append("cboDate", day)
+        datas.append("txtName", cname)
+        datas.append("txtSName", csname)
+        datas.append("txtTel_No", txt_tel)
+        datas.append("cbocity", cbocity)
+
+        $.ajax({
+            url: '/FrmDetail/btnSave_Click',
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            data: datas
+            , success: function (e) {
+                alert(e)
+                $("#sms_select").hide()
+            }
+        })
+    }
+    function loadser_sms() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieParts = cookies[i].split("=");
+            var cookieName = cookieParts[0];
+            var cookie_values = cookieParts[1];
+            $("#btn_add_ser").css("display", "block")
+            //} else {
+            //    $("#btn_add_ser").css("display", "none")
+            //}
+        }
+    }
+
+    function fuc_ser_remove_confirm() {
+        let SERVICE_ = "#SERVICE_";
+        var checkedCount = $("input[type='checkbox']:checked").length;
+        var checkedvalues = $("input[type='checkbox']:checked");
+        let data1 = new FormData();
+        let visible_data = '';
+        visible_data += "'"
+        for (i = 0; i < checkedCount; i++) {
+            let service_var = checkedvalues[i].id
+            let variable_service_ = "#" + service_var;
+            $(variable_service_).hide();
+            $("#lbsersh" + service_var).hide();
+            $("#lbser" + service_var).hide();
+            visible_data += "" + service_var + "" + ','
+        }
+        /*        alert(visible_data)*/
+        visible_data += "'"
+        data1.append("VISIBLE", visible_data)
+        data1.append("txtTel_No", $("#txt_tel").val())
+        $.ajax({
+            url: '/FrmDetail/SetVisible',
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            data: data1,
+            success: function (e) {
+                alert(e);
+                if (e === "") {
+
+                }
+                else {
+                  /*  window.location.reload();*/
+                }
+            }
+        })
+    }
+    let column_name_ser;
+    function fuc_edit_sms(sms) {
+        $("#reload").show()
+        let datas = null;
+        if ($("#txt_tel").val() == null) {
+            datas = null
+        } else {
+            datas = $("#txt_tel").val()
+            alert("กรุณารอสักครู่")
+        }
+        $.ajax({
+            url: '/FrmDetail/list_sms?txt_tel=' + datas,
+            type: 'GET',
+            data: datas
+            , success: function (e) {
+                let values = JSON.parse(e)
+                let htmls = ``
+                column_name_ser = Object.keys(values[0])
+                //if (sms === "#sms") {
+                //    chkk = "SERVICE_"
+                //}
+                //else if (sms === "#sms3") {
+                //    chkk = "SERVICE2_"
+                //}
+                for (i = 0; i < column_name_ser.length; i++) {
+                    if (i <= 10) {
+                        if (i === 0) {
+                            htmls += `<div style="padding:1%;" >`
+                        }
+                        if (values[0][i] !== "1" || values[0][i] !== 1) {
+                            htmls += ` <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        }
+                        else {
+                            htmls += `  <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" checked="checked"  class="input" /> `
+                        }
+                        if (i === 10) {
+                            htmls += `</div>`
+                        }
+                    }
+                    else if (i <= 20) {
+                        if (i === 11) {
+                            htmls += `<div style="padding:1%;" >`
+                        }
+                        if (values[0][i] !== "1" || values[0][i] !== 1) {
+                            htmls += ` <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        }
+                        else {
+                            htmls += `  <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" checked="checked"  class="input" /> `
+                        }
+                        if (i === 20) {
+                            htmls += `</div>`
+                        }
+                    } else if (i <= 30) {
+                        if (i === 21) {
+                            htmls += `<div style="padding:1%;" >`
+                        }
+                        if (values[0][i] !== "1" || values[0][i] !== 1) {
+                            htmls += ` <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        }
+                        else {
+                            htmls += `  <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" checked="checked"  class="input" /> `
+                        }
+                        if (i === 30) {
+                            htmls += `</div>`
+                        }
+                    }
+                    else if (i <= 39) {
+                        if (i === 31) {
+                            htmls += `<div style="padding:1%;" >`
+                        }
+                        if (values[0][i] !== "1" || values[0][i] !== 1) {
+                            htmls += ` <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        }
+                        else {
+                            htmls += `  <label id="lbser` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label>  <input type="checkbox" style="padding-left:5px;"  id="` + column_name_ser[i] + `" placeholder="" checked="checked"  class="input" /> `
+                        }
+                        if (i === 39) {
+                            htmls += `</div>`
+                        }
+                    }
+
+                }
+                $(sms).html(htmls)
+                /*  $("#sms2").html(htmls2)*/
+                $("#reload").hide()
+            }
+        })
+    }
+    function fuc_insert_ser() {
+        let datas = null;
+        if ($("#txt_tel").val() == null) {
+            datas = null
+        } else {
+            datas = $("#txt_tel").val()
+            alert("กรุณารอสักครู่")
+        }
+        $.ajax({
+            url: '/FrmDetail/SetVisible_remove?txt_tel=' + datas,
+            type: 'GET'
+            , data: datas
+            , success: function (e) {
+                let htmls2 = ``
+                let values = JSON.parse(e)
+                let column_name_ser = Object.keys(values[0])
+                for (i = 0; i < column_name_ser.length; i++) {
+                    if (i <= 10) {
+                        if (i === 0) {
+                            htmls2 += `<div style="padding:1%;" >`
+                        }
+                            htmls2 += `<label style="padding:1%;"> <label id="lbsersh1` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label></label>   <input type="checkbox" id="add` + column_name_ser[i] + `" placeholder="" class="input" />  `
+
+                        if (i === 9) {
+                            htmls2 += `</div style="padding:1%;" >`
+                        }
+                    }
+                    else if (i <= 20) {
+                        if (i == 10) {
+                            htmls2 += `<div style="padding:1%;" >`
+                        }
+                            htmls2 += ` <label style="padding:1%;"> <label id="lbsersh1` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="add` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        if (i == 19) {
+                            htmls2 += `</div>`
+                        }
+                    } else if (i <= 30) {
+                        if (i === 20) {
+                            htmls2 += `<div style="padding:1%;" >`
+                        }
+                            htmls2 += ` <label style="padding:1%;"> <label id="lbsersh1` + i + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="add` + column_name_ser[i] + `" placeholder="" class="input" />  `
+
+                        if (i === 29) {
+                            htmls2 += `</div>`
+                        }
+                    }
+                    else if (i <= 39) {
+                        if (i === 30) {
+                            htmls2 += `<div style="padding:1%;" >`
+                        }
+                            htmls2 += ` <label style="padding:1%;"> <label id="lbsersh1` + i + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="add` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                        if (i === 39) {
+                            htmls2 += `</div>`
+                        }
+
+                    }
+                    htmls2 += ``
+                }
+                $("#sms_select").html(htmls2)
+                $("#sms_select").show()
+            }
+
+        })
+      
+
+    }
+
+    function fuc_insert_ser_confirm() {
+        let SERVICE_ = "#SERVICE_";
+        var checkedCount = $("input[type='checkbox']:checked").length;
+        var checkedvalues = $("input[type='checkbox']:checked");
+        let data1 = new FormData();
+        let visible_data = '';
+        visible_data += "'"
+        for (i = 0; i < checkedCount; i++) {
+            let service_var = checkedvalues[i].id
+           let variable_service_ = `#` + service_var;
+            $(variable_service_).show();
+            $("#lbsersh" + service_var).hide();
+            $("#lbser" + service_var).show();
+            visible_data += "" + service_var.replace(`add` , ``) + "" + ','
+        }
+        /*        alert(visible_data)*/
+        visible_data += "'"
+        data1.append("VISIBLE", visible_data)
+        data1.append("txtTel_No", $("#txt_tel").val())
+        $.ajax({
+            url: '/FrmDetail/SetVisible_Enable',
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            data: data1,
+            success: function (e) {
+                alert(e);
+                window.location.reload();
+            }
+        })
+    }
+
+    function fuc_sms_ser_show(sms) {
+        let htmls2 = ``
+        let chkk;
+
+        for (i = 0; i < 39; i++) {
+            //if (sms === "#sms2") {
+            //    chkk = "SERVICE_"
+            //}
+            //else if (sms === "#sms3") {
+            //    chkk = "SERVICE2_"
+            //}
+      
+            let nameid = column_name_ser[i]
+            let checkeds = $("#" + nameid + "")
+            if (i <= 10) {
+                if (i === 0) {
+                    htmls2 += `<div style="padding:1%;" >`
+                }
+                if (checkeds.prop("checked")) {
+                    htmls2 += `<label style="padding:1%;"> <label id="lbsersh` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label></label>   <input type="checkbox" id="lb` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                }
+
+                if (i === 9) {
+                    htmls2 += `</div style="padding:1%;" >`
+                }
+            }
+            else if (i <= 20) {
+                if (i == 10) {
+                    htmls2 += `<div style="padding:1%;" >`
+                }
+                if (checkeds.prop("checked")) {
+                    htmls2 += ` <label style="padding:1%;"> <label id="lbsersh` + column_name_ser[i] + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="lb` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                }
+
+                if (i == 19) {
+                    htmls2 += `</div>`
+                }
+            } else if (i <= 30) {
+                if (i === 20) {
+                    htmls2 += `<div style="padding:1%;" >`
+                }
+                if (checkeds.prop("checked")) {
+                    htmls2 += ` <label style="padding:1%;"> <label id="lbsersh` + i + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="lb` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                }
+
+                if (i === 29) {
+                    htmls2 += `</div>`
+                }
+            }
+            else if (i <= 39) {
+                if (i === 30) {
+                    htmls2 += `<div style="padding:1%;" >`
+                }
+                if (checkeds.prop("checked")) {
+                    htmls2 += ` <label style="padding:1%;"> <label id="lbsersh` + i + `" > บริการ ` + column_name_ser[i] + ` </label></label>  <input type="checkbox" id="lb` + column_name_ser[i] + `" placeholder="" class="input" />  `
+                }
+
+                if (i === 39) {
+                    htmls2 += `</div>`
+                }
+
+            }
+            htmls2 += ``
+        }
+        $(sms).html(htmls2)
+    }
+
+    /*    $(document).on('load', setInterval(getfuc, 1000))*/
+    $(document).on('load', setInterval(getfucLoad, 100000))
+    $(document).on('load', getfucLoad())
+    /*  $(document).ready( loadser_sms() )*/
+    /*    $(document).on('load', getfucEdit)*/
+    $("#btn_logout").on('click', function (e) { fuclogout() })
+    $("#btn_save").on('click', function (e) { fucsave() })
+    $("#btn_add_ser").on('click', function (e) { fuc_edit_sms("#sms") })
+    $("#btn_ser_add").on('click', function (e) { fuc_insert_ser()})
+    $("#btn_sms_add_save").on('click', function (e) { fuc_insert_ser_confirm()})
+
+
+    $("#btn_sms_save").on('click', function (e) {
+        fuc_sms_ser_show("#sms2")
+    })
+    $("#btn_ser_remove").on('click', function (e) {
+
+        fuc_ser_remove_confirm();
+        /* fuc_edit_sms("#sms3")*/
+    })
+
+
+    $("#btn_ser_remove_save").on('click',
+        function (e) {
+            let cons = confirm("คุณต้องการลบใช่หรือไม่ ?");
+            if (con) {
+                fuc_ser_remove_confirm()
+            } else {
+
+            }
+        }
+        )
+   
+
+
+
+
+    let table;
+    let htmls;
+    let table_sub;
+    let table_sub2;
+
+    function cbostatus() {
+        $.ajax({
+            url: '/FrmReportTel/FrmReportTel_Load',
+            type: 'GET',
+            data: null,
+            success: function (e) {
+                table = JSON.parse(e)
+                table_sub = JSON.parse(table[1])
+                htmls += '   <select name="" id="select_reson" style="width:100%;" >'
+                for (i = 0; i < table_sub.length; i++) {
+                    if (table_sub[i] != "undefined") {
+                        htmls += '<option '
+                        htmls += 'value="' + table_sub[i].RES_CODE + '" >'
+                        htmls += table_sub[i].RES_NAME
+                        htmls += '</option >'
+                    } else {
+                        alert("ไม่มี object ")
+                    }
+                }
+                htmls += '</select>'
+                $("#select_reson").html(htmls);
+            }
+        })
+    }
+    function sum(table) {
+        if (table[0].SUM != "") {
+            $("#Label8").text(table[0].SUM)
+            $("#lblS021").text(table[0].SER12)
+            $("#lblS011").text(table[0].SER13)
+        }
+
+    }
+    function tableload(tables) {
+
+        $("#Label4").text(tables.length)
+        $('#tb_1').DataTable().destroy();
+        $('#tb_1').DataTable({
+            columns: [
+                { data: 'ANUMBER', title: 'เบอร์โทรศัพท์' },
+                { data: 'CUST_NAME', title: 'ชื่อ' },
+                { data: 'CUST_SNAME', title: 'นามสกุล' },
+                { data: 'SERVICE_01', title: 'Service' },
+                { data: 'SERVICE_02', title: 'Service' },
+                { data: 'SERVICE_03', title: 'Service' },
+                { data: 'SERVICE_04', title: 'Service' },
+                { data: 'SERVICE_05', title: 'Service' },
+                { data: 'SERVICE_06', title: 'Service' },
+                { data: 'SERVICE_07', title: 'Service' },
+                { data: 'SERVICE_08', title: 'Service' },
+                { data: 'SERVICE_09', title: 'Service' },
+                { data: 'SERVICE_10', title: 'Service' },
+                { data: 'SERVICE_11', title: 'Service' },
+                { data: 'SERVICE_12', title: 'Service' },
+                { data: 'SERVICE_13', title: 'Service' },
+                { data: 'SERVICE_14', title: 'Service' },
+                { data: 'SERVICE_15', title: 'Service' },
+                { data: 'SERVICE_16', title: 'Service' },
+                { data: 'SERVICE_17', title: 'Service' },
+                { data: 'SERVICE_18', title: 'Service' },
+                { data: 'SERVICE_19', title: 'Service' },
+                { data: 'SERVICE_20', title: 'Service' },
+                { data: 'SERVICE_21', title: 'Service' },
+                { data: 'SERVICE_22', title: 'Service' },
+                { data: 'SERVICE_23', title: 'Service' },
+                { data: 'SERVICE_24', title: 'Service' },
+                { data: 'SERVICE_25', title: 'Service' },
+                { data: 'SERVICE_26', title: 'Service' },
+                { data: 'SERVICE_27', title: 'Service' },
+                { data: 'SERVICE_28', title: 'Service' },
+                { data: 'SERVICE_29', title: 'Service' },
+                { data: 'SERVICE_30', title: 'Service' },
+                { data: 'SERVICE_31', title: 'Service' },
+                { data: 'SERVICE_32', title: 'Service' },
+                { data: 'SERVICE_33', title: 'Service' },
+                { data: 'SERVICE_34', title: 'Service' },
+                { data: 'SERVICE_35', title: 'Service' },
+                { data: 'SERVICE_36', title: 'Service' },
+                { data: 'SERVICE_37', title: 'Service' },
+                { data: 'SERVICE_38', title: 'Service' },
+                { data: 'SERVICE_39', title: 'Service' },
+                { data: 'SERVICE_40', title: 'Service' }
+            ],
+            data: tables
+        }).draw()
+    }
+
+
+    function btnreport_click() {
+        let reson = $("#select_reson").val()
+        let date = $("#date_reson").val()
+        let datas = new FormData();
+        datas.append("res_code", reson)
+        datas.append("Day", date)
+        $.ajax({
+            url: '/FrmReportTel/btnReport_Click',
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            data: datas,
+            success: function (e) {
+                if (e === "ไม่มีข้อมูลที่คุณค้นหา") {
+                    alert("ไม่มีข้อมูลที่คุณค้นหา")
+                }
+                //else if (JSON.parse(e)[0].RES_CODE == "01") {
+                //  let table3 =   JSON.parse(e)
+                //     sum(table3)
+                //    console.log("0111111111")
+                //    tableload(table3)
+                //}
+                else {
+                    table = JSON.parse(e)
+
+                    table_sub = JSON.parse(table[0])
+                    table_sub2 = JSON.parse(table[1])
+                    tableload(table_sub2)
+                    sum(table_sub)
+                }
+            }
+        })
+    }
+
+    function clearCookie(cookieName) {
+        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+    function clearAllCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieParts = cookies[i].split("=");
+            var cookieName = cookieParts[0];
+            clearCookie(cookieName);
+        }
+    }
+
+    function fuclogout() {
+        clearAllCookies();
+        window.location.href = '/FrmLogin/Index'
+    }
+
+    function fucback() {
+        window.location.href = '/FrmDetail/Index'
+    }
+
+    //function getfuc() {
+    //    //var tables = $('#tb_1').DataTable().data()
+    //    //var model = new FormData();
+    //    //model.append("agent_id", tables[0].test)
+
+    //    $.ajax({
+    //        url: '@Url.Action("FrmStatus_Load", "FrmStatus")',
+    //        type: "GET",
+    //        data: null,
+    //        success: function (e) {
+    //            $("#status").text(e)
+    //        }
+    //    })
+    //}
+    //$(document).on('load', setInterval(getfuc, 5000))
+    $(document).on('load', cbostatus())
+    /*$(document).on('load', tableload(table))*/
+    $("#btn_report").on('click', function (e) { btnreport_click() })
+    $("#btn_logout").on('click', function (e) { fuclogout() })
+    $("#btn_back").on('click', function (e) { fucback() })
+
+
+    $(document).ready(function () {
+        let tables;
+        var data = [
+            {
+                anumber: '',
+                status: '',
+                cust_name: '',
+                cust_sname: '',
+                cust_sex: '',
+                service_01: '',
+                service_02: '',
+                service_03: '',
+                service_04: '',
+                service_05: '',
+                service_06: '',
+                service_07: '',
+                service_08: '',
+                service_09: '',
+                service_10: '',
+                service_14: '',
+                lead_call_date: '',
+            }
+            // เพิ่มข้อมูลอื่น ๆ ที่คุณต้องการ
+        ];
+        function gettable() {
+            tables = $("#tb_2").DataTable({
+                ajax: {
+                    url: '/FrmSearchNumber/FrmSearchNumber_Load',
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'anumber', Title: 'หมายเลข        ' },
+                    { data: 'status', Title: 'สถานะ        ' },
+                    { data: 'cust_name', Title: 'ชื่อ            ' },
+                    { data: 'cust_sname', Title: 'นามสกุล        ' },
+                    { data: 'cust_sex', Title: 'เพศ' },
+                    { data: 'service_01', Title: 'service        ' },
+                    { data: 'service_02', Title: 'service        ' },
+                    { data: 'service_03', Title: 'service        ' },
+                    { data: 'service_04', Title: 'service        ' },
+                    { data: 'service_05', Title: 'service        ' },
+                    { data: 'service_06', Title: 'service        ' },
+                    { data: 'service_07', Title: 'service        ' },
+                    { data: 'service_08', Title: 'service        ' },
+                    { data: 'service_09', Title: 'service        ' },
+                    { data: 'service_10', Title: 'service        ' },
+                    { data: 'service_14', Title: 'service        ' },
+                    { data: 'lead_call_date', Title: 'lead_call_date        ' }
+
+                ]
+            });
+        }
+
+        /* var table;*/
+        //$.ajax({
+        //    url: '/FrmSearchNumber/FrmSearchNumber_Load',
+        //    type: 'GET',
+        //    data: null,
+        //    success: function (e) {
+        //        table = JSON.parse(e)
+        //        gettable(table)
+        //    }
+        //})
+        //function gettable(table) {
+        //    console.log(table)
+        //    tables.row.add(table).draw();
+        //}
+        function clearCookie(cookieName) {
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+        function clearAllCookies() {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookieParts = cookies[i].split("=");
+                var cookieName = cookieParts[0];
+                clearCookie(cookieName);
+            }
+        }
+        function fuclogout() {
+            clearAllCookies()
+            window.location.href = '/FrmLogin/Index'
+        }
+
+
+
+        //function getfuc() {
+        //    //var tables = $('#tb_1').DataTable().data()
+        //    //var model = new FormData();
+        //    //model.append("agent_id", tables[0].test)
+
+        //    $.ajax({
+        //        url: '@Url.Action("FrmStatus_Load", "FrmStatus")',
+        //        type: "GET",
+        //        data: null,
+        //        success: function (e) {
+        //            $("#status").text(e)
+        //        }
+        //    })
+        //}
+        //$(document).on('load', setInterval(getfuc, 1000))
+        $(document).on('load', gettable())
+
+
+
+
+
+        $("#btn_logout").on('click', fuclogout)
+
+        //$('#tb_1 tbody').on('click', 'tr', function () {
+        //    if ($(this).hasClass('selected')) {
+        //        $(this).removeClass('selected');
+        //    } else {
+        //        tables.$('tr.selected').removeClass('selected');
+        //        $(this).addClass('selected');
+        //        alert("5555555")
+        //        console.log(tables.columns)
+        //    }
+        //});
+        tables.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+
+                classList.add('new-background-color2');
+                classList.remove('new-background-color');
+
+
+
+            }
+            else {
+
+
+                /* tables.rows('.selected').nodes().each((row) => row.classList.remove('selected'));*/
+                classList.add('selected');
+
+
+                classList.add('new-background-color');
+                classList.remove('new-background-color2');
+
+                var rowData = $('#tb_1').DataTable().rows('.new-background-color').data()[0];
+
+
+            }
+        });
+        $("#btn_edit").on('click', function (e) {
+            let datas = new FormData();
+            datas.append('anumber', $('#tb_2').DataTable().rows('.new-background-color').data()[0].anumber)
+            $.ajax({
+                url: '/FrmDetail/FrmDetail_Load',
+                type: 'POST',
+                data: datas,
+                contentType: false,
+                processData: false,
+                success: function (e) {
+                    window.location.href = '/FrmDetail/Index'
+                }
+            })
+        })
+    })
+
+
+
+})

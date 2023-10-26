@@ -1,0 +1,14 @@
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Model_Helper.dll.config
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Model_Helper.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Model_Helper.pdb
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Dapper.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\jose-jwt.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Newtonsoft.Json.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Oracle.ManagedDataAccess.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Dapper.xml
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\bin\Release\Newtonsoft.Json.xml
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\obj\Release\Model_Helper.csproj.AssemblyReference.cache
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\obj\Release\Model_Helper.csproj.CoreCompileInputs.cache
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\obj\Release\Model_Helper.csproj.CopyComplete
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\obj\Release\Model_Helper.dll
+D:\work\Program_v4.8\ais_web2\work\WebApplication1\Model_Helper\obj\Release\Model_Helper.pdb

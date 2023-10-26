@@ -1,0 +1,7 @@
+: 25-10-2566 17:29:50: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 17:43:13: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 17:48:30: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 17:52:45: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 17:53:54: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 17:57:01: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.
+: 25-10-2566 18:03:20: = Error ที่ Comman_Ex_save : Object reference not set to an instance of an object.

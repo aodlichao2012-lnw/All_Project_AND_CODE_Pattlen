@@ -1,0 +1,17 @@
+﻿$(document).ready(function (e) {
+    function getfuc() {
+
+
+        $.ajax({
+            url: '/FrmStatus/FrmStatus_Load',
+            type: "GET",
+            data: null,
+            success: function (e) {
+                $("#status").text(e)
+            }
+        })
+    }
+
+    $(document).on('load', setInterval(getfuc, 1000))
+})
+

@@ -1,0 +1,578 @@
+﻿using Antlr.Runtime.Tree;
+using Jose;
+using Newtonsoft.Json;
+using Oracle.DataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI.WebControls;
+
+namespace ais_web3.Models
+{
+    public class Module2 : ICahce
+    {
+
+        private Module2()
+        {
+
+        }
+        public static Module2 Module2s = null;
+
+        public static Module2 Instance
+        {
+            get
+            {
+                if (Module2s == null)
+                    Module2s = new Module2();
+                return Module2s;
+            }
+        }
+        public static Dictionary<string, object> KeyValuePairs { get; set; }
+
+        // Public Const strConnect As String = "Provider=OraOLEDB.Oracle;Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;" 'base จริง
+        // Public Const strConnect As String = "Provider=OraOLEDB.Oracle;Data Source=ORAIEC2;User ID=PREGOW;Password=RIUD7D;"
+        // Public Connect As New OracleClient.OracleConnection
+        [Obsolete]
+        public OracleConnection Connect;
+        [Obsolete]
+        public static OracleConnection Conn2;
+        [Obsolete]
+        public OracleConnection ConnORAOCC;
+        [Obsolete]
+        public OracleCommand com;
+        [Obsolete]
+        public OracleCommand Cmd;
+        public DataSet ds;
+        public DataTable dt;
+        [Obsolete]
+        public OracleDataAdapter da;
+        public OracleDataReader dr;
+        public string agent = "";
+        // Public agent_id As String = ""
+        public static string Agent_Id { get; set; }
+        public static string EXTENSION { get; set; }
+        public int Group_Id;
+        public int Log_Ext;
+        public string strUsername = "";
+        public string strPassword = "";
+        public string Phone_no = "";
+        public string Lead_code = "";
+        public string Lead_seq = "";
+        public string leadcode;
+        public string statusedit;
+        public string leadname = "";
+        public string level_id = "";
+        public string status2;
+        public string namelead = ""; // เก็บชื่อ lead ของ frmshowtel
+        public string statustel = ""; // เก็บสถานะ cbo ในฟอร์ม frmreporttel
+        public string statusfrm = ""; // เก็บ status ว่ามาจากฟอร์มไหน
+        public string Birth_day = "";
+        public string Birth_MM = "";
+        public string sex = "";
+        public int year = 0;
+        public string Type { get; set; }
+        public string strOperr { get; set; }
+        public string Log_Id { get; set; }
+        public static string Agent_Ip { get; set; }
+        public string Channel_No = "";
+        public string status_Edit = "";
+        public string status_CheckAux = "";
+        public int Call_Count = 0;
+        public static string strDB = "";
+        public static string strConn { get; set; }
+        public Dictionary<string, object> keyValuePairs;
+        public object Caching_set(string key, object o)
+        {
+
+            KeyValuePairs.Add(key, o);
+
+            return o;
+        }
+        public object Caching_Get(string key)
+        {
+            object keyValues2 = KeyValuePairs[key];
+            return keyValues2;
+        }
+
+
+        [Obsolete]
+        public void Connectdb()
+        {
+
+            // 'Dim strConnect As String = "Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;" 'base จริง
+            WriteLog.instance.Log("Connectdb");
+            // '  Dim strConnect As String = "Data Source=DTACIVR;User ID=YUMT;Password=PASSTB;"   '' Base สำรอง
+            if (strDB == "Production")
+            {
+
+                strConn = " Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;";
+            }
+            else if (strDB == "Backup")
+            {
+                strConn = " Data Source=SHINIVR3;User ID=PREGOV;Password=PASSTB;Connection Timeout=500000;";
+            }
+            else
+            {
+                strConn = " Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;";
+            }
+
+
+            // Dim strConnect As String = "Data Source=ORAIEC2;User ID=PREGOW;Password=RIUD7D;"
+
+            try
+            {
+                Connect = new OracleConnection(strConn);
+                WriteLog.instance.Log("    Connect = new OracleConnection(strConn);");
+                {
+
+                    if (Connect.State == ConnectionState.Open)
+                        Connect.Close();
+
+                    Connect.Open();
+                    WriteLog.instance.Log("  Connect.Open();");
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
+            }
+        }
+
+        [Obsolete]
+        public static void Connectdb2()
+        {
+
+            // 'Dim strConnect As String = "Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;" 'base จริง
+            WriteLog.instance.Log("Connectdb");
+            // '  Dim strConnect As String = "Data Source=DTACIVR;User ID=YUMT;Password=PASSTB;"   '' Base สำรอง
+            if (strDB == "Production")
+            {
+
+                strConn = " Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;";
+            }
+            else if (strDB == "Backup")
+            {
+                strConn = " Data Source=SHINIVR3;User ID=PREGOV;Password=PASSTB;Connection Timeout=500000;";
+            }
+            else
+            {
+                strConn = " Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;";
+            }
+
+
+            // Dim strConnect As String = "Data Source=ORAIEC2;User ID=PREGOW;Password=RIUD7D;"
+
+            try
+            {
+                Conn2 = new OracleConnection(strConn);
+                WriteLog.instance.Log("    Connect = new OracleConnection(strConn);");
+                {
+
+                    if (Conn2.State == ConnectionState.Open)
+                        Conn2.Close();
+
+                    Conn2.Open();
+                    WriteLog.instance.Log("  Connect.Open();");
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
+            }
+        }
+
+        [Obsolete]
+        public DataTable Comman(string sQL)
+        {
+            try
+            {
+                dt = new DataTable();
+                //if (Connect.State == ConnectionState.Open)
+                //    Connect.Close(); 
+
+                //Connect.Open();
+
+                Connectdb();
+
+                OracleCommand cmd = new OracleCommand(sQL, Connect);
+                try
+                {
+                    dr = cmd.ExecuteReader();
+                }
+                catch
+                {
+                    return null;
+                }
+                if (!string.IsNullOrEmpty(sQL))
+                {
+                    while (dr.Read())
+                    {
+                        dt.Load(dr);
+                        return dt;
+                    }
+
+                }
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        [Obsolete]
+        public static DataTable Comman_Static(string sQL, string[] input = null, string[] parameter = null)
+        {
+            try
+            {
+                string Paraname = string.Empty;
+                OracleDataAdapter dr2;
+                DataTable dt = new DataTable();
+                Connectdb2();
+                try
+                {
+                    OracleCommand command = new OracleCommand(sQL, Conn2);
+                    OracleParameter oracleParameter = null;
+                    if(input != null)
+                    if (input.Length > 0)
+                    {
+                        int i = 0;
+                        foreach (string s in parameter)
+                        {
+                             oracleParameter = new OracleParameter();
+                            oracleParameter.Value = input[i];
+                            oracleParameter.ParameterName = s;
+                                Paraname += s + ",";
+                            oracleParameter.DbType = DbType.String;
+                            oracleParameter.Direction = ParameterDirection.Input;
+                           
+                            command.Parameters.Add(oracleParameter);
+                            i++;
+                        }
+                    }
+                    if (input != null)
+                    {
+                        if (input.Length == 2)
+                        {
+                            if (Paraname.Split(',')[0] == ":UNVIST")
+                            {
+                                command.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                OracleDataReader sqls = command.ExecuteReader();
+                                //dr2 = new OracleDataAdapter(sqls, Conn2);
+                                int d = sqls.FieldCount;
+                                if (sqls.HasRows)
+                                {
+                                    dt.Load(sqls);
+                                }
+                                return dt;
+                            }
+                        }
+                        else
+                        {
+                            OracleDataReader sqls = command.ExecuteReader();
+                            //dr2 = new OracleDataAdapter(sqls, Conn2);
+                            int d = sqls.FieldCount;
+                            if (sqls.HasRows)
+                            {
+                                dt.Load(sqls);
+                            }
+                            return dt;
+                        }
+                    }
+                    else
+                    {
+                        OracleDataReader sqls = command.ExecuteReader();
+                        //dr2 = new OracleDataAdapter(sqls, Conn2);
+                        int d = sqls.FieldCount;
+                        if (sqls.HasRows)
+                        {
+                            dt.Load(sqls);
+                        }
+                        return dt;
+                    }
+                      
+                    return dt;
+                }
+                catch
+                {
+                    return null;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        [Obsolete]
+        public DataTable Commandt(string sQL)
+        {
+            try
+            {
+                dt = new DataTable();
+                //if (Connect.State == ConnectionState.Open)
+                //    Connect.Close(); 
+
+                //Connect.Open();
+
+                Connectdb();
+
+                OracleDataAdapter da = new OracleDataAdapter(sQL, Connect);
+                if (!string.IsNullOrEmpty(sQL))
+                {
+                    da.Fill(dt);
+                    return dt;
+                }
+                return dt;
+            }
+            catch
+            {
+                Connectdb();
+                return null;
+            }
+
+        }
+
+        [Obsolete]
+        public OracleDataReader CommanDataread(string sQL, string[] input = null, string[] parameter = null)
+        {
+            try
+            {
+                Connectdb();
+                //if (Connect.State == ConnectionState.Open)
+                //    Connect.Close(); 
+
+                //Connect.Open();
+                OracleCommand Cmd = new OracleCommand();
+                Cmd.Connection = Connect;
+                Cmd.CommandText = sQL;
+
+                if (input.Length > 0)
+                {
+                    int i = 0;
+                    OracleParameter parameter1 = null;
+                    foreach (string s in input)
+                    {
+                        parameter1 = new OracleParameter();
+                        parameter1.Value = s;
+                        parameter1.ParameterName += parameter[i];
+                        Cmd.Parameters.Add(parameter1);
+                        i++;
+                    }
+               
+                }
+                dr = Cmd.ExecuteReader();
+                return dr;
+            }
+            catch
+            {
+                Connectdb();
+                return null;
+            }
+
+
+        }
+
+        [Obsolete]
+        public OracleDataAdapter CommanDataApt(string sQL)
+        {
+            try
+            {
+                Connectdb();
+                //if (Connect.State == ConnectionState.Open)
+                //    Connect.Close(); 
+
+                //Connect.Open();
+                OracleDataAdapter da = new OracleDataAdapter(sQL, Connect);
+
+                return da;
+            }
+            catch
+            {
+                Connectdb();
+                return null;
+            }
+
+
+        }
+
+        [Obsolete]
+        public int CommanEx(string sQL , string[] input = null , string[] parameter = null)
+        {
+            try
+            {
+                dt = new DataTable();
+                Connectdb();
+                OracleCommand Cmd = new OracleCommand(sQL, Connect);
+                Cmd.Connection = Connect;
+                Cmd.CommandText = sQL;
+                
+                if (input != null)
+                {
+                    int i = 0;
+                    OracleParameter parameter1 = null;
+                    foreach (string s in input)
+                    {
+                        parameter1 = new OracleParameter();
+                        parameter1.Value = s;
+                        parameter1.ParameterName = parameter[i];
+                        Cmd.Parameters.Add(parameter1);
+                        i++;
+                    }
+
+                }
+              int e =  Cmd.ExecuteNonQuery();
+                return e;
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
+
+        [Obsolete]
+        public DataSet CommandSet(string sQL, string table)
+        {
+            try
+            {
+                DataSet ds2 = new DataSet();
+
+                //Connect = new OracleConnection(strConn);
+                //Connect.Open();
+                Connectdb();
+
+                OracleDataAdapter da = new OracleDataAdapter(sQL, Connect);
+                da.Fill(ds2, table);
+                return ds2;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        public List<string> GetFromToken(string jwt)
+        {
+            string pass = string.Empty;
+            string passarr = string.Empty;
+            string userarr = string.Empty;
+            string date = string.Empty;
+            string user = string.Empty;
+            string userfromcookie = string.Empty;
+            string[] loginacc = null;
+            if (jwt.Contains(";"))
+            {
+                loginacc = jwt.Split(';');
+                user = JWT.Decode(loginacc[0]);
+            }
+            else
+            {
+                userfromcookie = JWT.Decode(jwt);
+                userarr = userfromcookie.Split(':')[1].Split(',')[0].Replace(@"""", "");
+            }
+
+            if (loginacc != null)
+            {
+                if (loginacc.Length > 1)
+                {
+                    pass = JWT.Decode(loginacc[1]);
+                    passarr = pass.Split(':')[1].Split(',')[0].Replace(@"""", "");
+                    date = pass.Split(':')[2].Split(',')[0].Replace("}", "").Replace(@"""", "");
+
+
+                }
+
+            }
+            else
+            {
+                date = userfromcookie.Split(',')[1].Replace("}", "").Replace(@"""", "").Replace("exp:", "");
+            }
+
+
+
+            List<string> tokens = new List<string>();
+            tokens.Add(userarr);
+            tokens.Add(passarr);
+            tokens.Add(date);
+
+
+            return tokens;
+        }
+
+        [Obsolete]
+        public static DataTable Comman_Static2(string sQL)
+        {
+            try
+            {
+                OracleDataAdapter dr2;
+                DataTable dt = new DataTable();
+                Connectdb2();
+                try
+                {
+                    dr2 = new OracleDataAdapter(sQL, Conn2);
+                }
+                catch
+                {
+                    return null;
+                }
+                if (!string.IsNullOrEmpty(sQL))
+                {
+
+                    dr2.Fill(dt);
+
+                }
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        [Obsolete]
+        public static DataTable Comman_Static3(string sQL)
+        {
+            try
+            {
+                OracleDataAdapter dr2;
+                DataTable dt = new DataTable();
+                Connectdb2();
+                try
+                {
+                    dr2 = new OracleDataAdapter(sQL, Conn2);
+                }
+                catch
+                {
+                    return null;
+                }
+                if (!string.IsNullOrEmpty(sQL))
+                {
+
+                    dr2.Fill(dt);
+
+                }
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+    }
+    public interface ICahce
+    {
+        object Caching_set(string username, object password);
+        object Caching_Get(string username);
+    }
+}

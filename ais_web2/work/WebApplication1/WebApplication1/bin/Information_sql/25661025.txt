@@ -1,0 +1,16 @@
+: 25-10-2566 12:01:56: = select * from MAS_LEADS_TRANS where anumber = '009090003576'
+: 25-10-2566 12:01:57: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 12:02:27: = select * from MAS_LEADS_TRANS where anumber = '009090003577'
+: 25-10-2566 12:02:28: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:47:44: = select * from MAS_LEADS_TRANS where anumber = '009090003578'
+: 25-10-2566 13:47:44: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:49:26: = select * from MAS_LEADS_TRANS where anumber = '009090003579'
+: 25-10-2566 13:49:26: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:50:46: = select * from MAS_LEADS_TRANS where anumber = '009090003580'
+: 25-10-2566 13:50:46: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:52:08: = select * from MAS_LEADS_TRANS where anumber = '009090003581'
+: 25-10-2566 13:52:08: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:53:48: = select * from MAS_LEADS_TRANS where anumber = '009090003582'
+: 25-10-2566 13:53:48: = Data Source=ORAIEC23;User Id=PREGOV;
+: 25-10-2566 13:55:35: = select * from MAS_LEADS_TRANS where anumber = '009090003583'
+: 25-10-2566 13:55:35: = Data Source=ORAIEC23;User Id=PREGOV;

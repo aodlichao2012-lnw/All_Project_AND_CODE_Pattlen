@@ -1,0 +1,4 @@
+: 05-10-2566 12:16:07: = Error ที่ Comman_Ex_save : ORA-00904: "CITY_CODE": invalid identifier
+: 05-10-2566 12:49:19: = Error ที่ Comman_Ex_save : ORA-00904: "CITY_CODE": invalid identifier
+: 05-10-2566 12:49:28: = Error ที่ Comman_Ex_save : ORA-00904: "CITY_CODE": invalid identifier
+: 05-10-2566 12:51:45: = Error ที่ Comman_Ex_save : ORA-00904: "CITY_CODE": invalid identifier

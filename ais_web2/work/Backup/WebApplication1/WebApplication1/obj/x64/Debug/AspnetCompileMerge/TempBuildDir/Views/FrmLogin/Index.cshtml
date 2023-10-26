@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    string a = string.Empty;
+}
+<style>
+    .row1 {
+        width: 25%;
+        display: inline-block;
+        padding: 4px,7px,2px,4px;
+        flex-wrap: wrap;
+    }
+</style>
+<div>
+    <div >
+        <img id="loadingLogin"src="~/Content/Image/loading-buffering.gif" width="100" height="100" />
+    </div>
+    <div>
+        <div class="row1">
+            Username :
+        </div>
+        <div class="row1">
+            <input type="text" name="name" id="txtUsername" autocomplete="off" value="" />
+        </div>
+    </div>
+    <div>
+        <div class="row1">
+            Password :
+        </div>
+        <div class="row1">
+            <input type="password" name="name" value="" autocomplete="off" id="txtPassword" />
+        </div>
+    </div>
+    <div>
+        <div class="row1">
+            Database :
+        </div>
+        <div class="row1">
+            <input type="checkbox" name="name" id="Cbo_Database" value="Backup" />
+            เลือกใช้ Database สำรอง
+        </div>
+        <div class="row1">
+            <div id="status"></div>
+            <div id="strDB"></div>
+
+        </div> 
+        
+        <div class="row1">
+         <input type="button" value="เข้าสู่ระบบ" id="btnlogin" />
+
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script>
+    $("#loadingLogin").hide()
+</script>
+
+<script src="~/Hidden/login.js"></script>

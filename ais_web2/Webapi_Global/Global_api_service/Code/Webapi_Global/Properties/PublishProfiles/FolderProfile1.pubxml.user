@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\work\Program_v4.8\ais_web2\Webapi_Global\Global_api_service\Code\Webapi_Global\bin\Release\net7.0\publish\</_PublishTargetUrl>
+    <History>True|2023-10-18T07:29:47.2075530Z;True|2023-10-18T14:28:09.8510304+07:00;True|2023-10-18T14:23:40.5181295+07:00;True|2023-10-18T14:15:54.2579933+07:00;True|2023-10-18T14:12:32.7947037+07:00;True|2023-10-18T14:11:52.4148536+07:00;True|2023-10-18T14:11:36.4870671+07:00;True|2023-10-18T14:08:55.0915094+07:00;True|2023-10-18T14:03:19.1670553+07:00;True|2023-10-18T13:45:20.2787124+07:00;True|2023-10-18T13:35:52.7074528+07:00;True|2023-10-17T14:03:21.0470552+07:00;True|2023-10-17T13:57:34.3456793+07:00;True|2023-10-17T13:55:00.1166641+07:00;True|2023-10-17T13:45:55.9003476+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

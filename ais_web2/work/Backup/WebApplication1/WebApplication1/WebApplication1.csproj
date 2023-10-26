@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C614865-EBDB-4E63-AC2E-B043AE1F0EF0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44389</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="jose-jwt, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.4.1.0\lib\net472\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.5.0.17\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.13.1\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FrmDetailController.cs" />
+    <Compile Include="Controllers\FrmLoginController.cs" />
+    <Compile Include="Controllers\FrmReportTelController.cs" />
+    <Compile Include="Controllers\FrmSearchNumberController.cs" />
+    <Compile Include="Controllers\FrmStatusController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CallIVR_Phone.cs" />
+    <Compile Include="Models\Interface\IModules.cs" />
+    <Compile Include="Models\Module1.cs" />
+    <Compile Include="Models\Telclass.cs" />
+    <Compile Include="Models\WriteLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\build\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\build\js\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\build\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-144x144.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-192x192.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-36x36.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-48x48.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-72x72.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\android-chrome-96x96.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-114x114.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-120x120.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-144x144.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-152x152.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-180x180.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-57x57.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-60x60.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-72x72.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-76x76.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon-precomposed.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\apple-touch-icon.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\base.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\browserconfig.xml" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\content.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\css\base.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\css\prettify-1.0.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\favicon-16x16.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\favicon-32x32.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\favicon-96x96.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\favicon.ico" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\js\base.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\js\prettify-1.0.min.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\mstile-144x144.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\mstile-150x150.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\mstile-310x150.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\mstile-310x310.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\mstile-70x70.png" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\nav.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\toc.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\Gruntfile.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\index.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\less\bootstrap-datetimepicker-build.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\nuget\NuGet.exe" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\sass\bootstrap-datetimepicker-build.css" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\tasks\bump_version.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\publicApiSpec.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\base.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\compile.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\index.js" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\t1.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\t2.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\t3.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\t4.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\t5.html" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\timezoneDataHelper.js" />
+    <Content Include="Content\Datetime-Picker-jQuery-Moment\css\datetimepicker.css" />
+    <Content Include="Content\Datetime-Picker-jQuery-Moment\index.html" />
+    <Content Include="Content\Datetime-Picker-jQuery-Moment\js\datetimepicker.js" />
+    <Content Include="Content\datetimepicker-master\build\jquery.datetimepicker.full.js" />
+    <Content Include="Content\datetimepicker-master\build\jquery.datetimepicker.full.min.js" />
+    <Content Include="Content\datetimepicker-master\build\jquery.datetimepicker.min.css" />
+    <Content Include="Content\datetimepicker-master\build\jquery.datetimepicker.min.js" />
+    <Content Include="Content\datetimepicker-master\index.html" />
+    <Content Include="Content\datetimepicker-master\jquery.datetimepicker.css" />
+    <Content Include="Content\datetimepicker-master\jquery.datetimepicker.js" />
+    <Content Include="Content\datetimepicker-master\jquery.js" />
+    <Content Include="Content\datetimepicker-master\karma.conf.js" />
+    <Content Include="Content\datetimepicker-master\MIT-LICENSE.txt" />
+    <Content Include="Content\datetimepicker-master\screen\1.png" />
+    <Content Include="Content\datetimepicker-master\screen\2.png" />
+    <Content Include="Content\datetimepicker-master\screen\3.1.png" />
+    <Content Include="Content\datetimepicker-master\screen\3.png" />
+    <Content Include="Content\datetimepicker-master\screen\4.png" />
+    <Content Include="Content\datetimepicker-master\screen\5.png" />
+    <Content Include="Content\datetimepicker-master\screen\6.png" />
+    <Content Include="Content\datetimepicker-master\tests\app.css" />
+    <Content Include="Content\datetimepicker-master\tests\index.html" />
+    <Content Include="Content\datetimepicker-master\tests\input_in_container_fixed_to_bottom_of_viewport.html" />
+    <Content Include="Content\datetimepicker-master\tests\input_in_container_fixed_to_top_of_viewport.html" />
+    <Content Include="Content\datetimepicker-master\tests\tests\bootstrap.js" />
+    <Content Include="Content\datetimepicker-master\tests\tests\destroy.js" />
+    <Content Include="Content\datetimepicker-master\tests\tests\events.js" />
+    <Content Include="Content\datetimepicker-master\tests\tests\init.js" />
+    <Content Include="Content\datetimepicker-master\tests\tests\methods.js" />
+    <Content Include="Content\datetimepicker-master\tests\tests\options.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Hidden\all_page1.css" />
+    <Content Include="Hidden\login.js" />
+    <Content Include="Hidden\main.css" />
+    <Content Include="Hidden\main.js" />
+    <Content Include="Hidden\report.css" />
+    <Content Include="Hidden\Search_number.js" />
+    <Content Include="Hidden\showtel.js" />
+    <Content Include="Hidden\status.js" />
+    <Content Include="Hidden\StyleSheet1.css" />
+    <Content Include="Hidden\vfs_fonts.js" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\bootstrap.5.2.3\bootstrap.png" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js" />
+    <Content Include="app.config" />
+    <Content Include="Content\Datetime-Picker-jQuery-Moment\.gitignore" />
+    <Content Include="Content\Datetime-Picker-jQuery-Moment\README.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\.gitattributes" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\.gitignore" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\.jscs.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\.travis.yml" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\bower.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\component.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\composer.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\CONTRIBUTING.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\ChangeLog.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\ContributorsGuide.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Events.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Extras.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\FAQ.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Functions.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\index.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Installing.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Options.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\theme\manifest.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Version 4 Changelog.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\docs\Version 4 Contributors guide.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\ISSUE_TEMPLATE" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\LICENSE" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\mkdocs.yml" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\package.json" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\PULL_REQUEST_TEMPLATE" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\README.md" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\less\bootstrap-datetimepicker-build.less" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\less\_bootstrap-datetimepicker.less" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\nuget\Bootstrap.v3.Datetimepicker.CSS.nuspec" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\nuget\Bootstrap.v3.Datetimepicker.nuspec" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\nuget\install.ps1" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\sass\bootstrap-datetimepicker-build.css.map" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\sass\bootstrap-datetimepicker-build.scss" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\src\sass\_bootstrap-datetimepicker.scss" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\out\.gitignore" />
+    <Content Include="Content\Date-Time-Picker-Bootstrap-4\test\screen-capture\pic\.gitignore" />
+    <Content Include="Content\datetimepicker-master\.gitignore" />
+    <Content Include="Content\datetimepicker-master\.travis.yml" />
+    <Content Include="Content\datetimepicker-master\bower.json" />
+    <Content Include="Content\datetimepicker-master\datetimepicker.jquery.json" />
+    <Content Include="Content\datetimepicker-master\doc.tpl" />
+    <Content Include="Content\datetimepicker-master\package-lock.json" />
+    <Content Include="Content\datetimepicker-master\package.json" />
+    <Content Include="Content\datetimepicker-master\pull_request_template.md" />
+    <Content Include="Content\datetimepicker-master\README.md" />
+    <Content Include="Content\datetimepicker-master\yarn.lock" />
+    <Content Include="Hidden\THSarabunNew-Bold.ttf" />
+    <Content Include="Hidden\THSarabunNew-BoldItalic.ttf" />
+    <Content Include="Hidden\THSarabunNew-Italic.ttf" />
+    <Content Include="Hidden\THSarabunNew.ttf" />
+    <Content Include="Hidden\THSarabunNew.zip" />
+    <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="packages\jQuery.3.4.1\Tools\jquery-3.4.1.intellisense.js" />
+    <None Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.1\NET.icon.png" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.1\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="packages\bootstrap.5.2.3\.signature.p7s" />
+    <Content Include="packages\bootstrap.5.2.3\bootstrap.5.2.3.nupkg" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js.map" />
+    <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="packages\jQuery.3.4.1\jQuery.3.4.1.nupkg" />
+    <Content Include="packages\jQuery.3.4.1\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\uninstall.ps1" />
+    <Content Include="packages\jQuery.Validation.1.17.0\.signature.p7s" />
+    <Content Include="packages\jQuery.Validation.1.17.0\jQuery.Validation.1.17.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Microsoft.AspNet.Mvc.5.2.9.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\Microsoft.AspNet.Razor.3.2.9.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Microsoft.AspNet.WebPages.3.2.9.nupkg" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\.signature.p7s" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Microsoft.jQuery.Unobtrusive.Validation.3.2.11.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.1\Microsoft.Web.Infrastructure.2.0.1.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
+    <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="text\TextFile1.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\FrmDetail\Index.cshtml" />
+    <Content Include="Views\FrmLogin\Index.cshtml" />
+    <Content Include="Views\FrmReportTel\Index.cshtml" />
+    <Content Include="Views\FrmSearchNumber\Index.cshtml" />
+    <Content Include="Views\FrmStatus\Index.cshtml" />
+    <Content Include="Views\FrmDetail\View.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IVRCall_Dll_Agen\IVRCall_Dll_Agen.csproj">
+      <Project>{da7a7689-4147-4083-8ac2-e2303ca56e29}</Project>
+      <Name>IVRCall_Dll_Agen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49802</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44389/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.13.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.13.1\build\Selenium.WebDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.BinFix.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.4.13.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.13.1\build\Selenium.WebDriver.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

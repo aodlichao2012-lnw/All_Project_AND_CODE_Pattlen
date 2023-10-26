@@ -1,0 +1,125 @@
+: 11-09-2566 16:46:18: = Connectdb
+: 11-09-2566 16:46:18: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 16:46:18: =   Connect.Open();
+: 11-09-2566 16:46:20: = Connectdb
+: 11-09-2566 16:46:20: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 16:46:20: =   Connect.Open();
+: 11-09-2566 16:48:56: = Connectdb
+: 11-09-2566 16:48:56: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 16:48:56: =   Connect.Open();
+: 11-09-2566 16:48:56: = Connectdb
+: 11-09-2566 16:48:56: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 16:48:56: =   Connect.Open();
+: 12-09-2566 16:24:08: = Connectdb
+: 12-09-2566 16:24:08: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:24:08: =   Connect.Open();
+: 12-09-2566 16:24:08: = Connectdb
+: 12-09-2566 16:24:08: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:24:08: =   Connect.Open();
+: 12-09-2566 16:26:35: = Connectdb
+: 12-09-2566 16:26:35: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:26:36: =   Connect.Open();
+: 12-09-2566 16:27:27: = Connectdb
+: 12-09-2566 16:27:31: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:27:32: =   Connect.Open();
+: 12-09-2566 16:30:18: = Connectdb
+: 12-09-2566 16:30:18: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:30:18: =   Connect.Open();
+: 12-09-2566 16:33:06: = Connectdb
+: 12-09-2566 16:33:06: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:33:07: =   Connect.Open();
+: 12-09-2566 16:35:12: = Connectdb
+: 12-09-2566 16:35:13: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:35:13: =   Connect.Open();
+: 12-09-2566 16:35:13: = Connectdb
+: 12-09-2566 16:35:13: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:35:13: =   Connect.Open();
+: 12-09-2566 16:40:34: = Connectdb
+: 12-09-2566 16:40:34: =     Connect = new OracleConnection(strConn);
+: 12-09-2566 16:40:34: =   Connect.Open();
+: 26-09-2566 16:02:22: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:02:22: =   Connect.Open();
+: 26-09-2566 16:02:22: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:02:22: =   Connect.Open();
+: 26-09-2566 16:02:23: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:02:23: =   Connect.Open();
+: 26-09-2566 16:02:23: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:02:23: =   Connect.Open();
+: 26-09-2566 16:02:23: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:02:23: =   Connect.Open();
+: 26-09-2566 16:22:21: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:22:21: =   Connect.Open();
+: 26-09-2566 16:22:21: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:22:21: =   Connect.Open();
+: 26-09-2566 16:22:26: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:22:26: =   Connect.Open();
+: 26-09-2566 16:22:46: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:22:46: =   Connect.Open();
+: 26-09-2566 16:22:48: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:22:48: =   Connect.Open();
+: 26-09-2566 16:28:01: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:28:01: =   Connect.Open();
+: 26-09-2566 16:28:01: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:28:01: =   Connect.Open();
+: 26-09-2566 16:28:12: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:28:12: =   Connect.Open();
+: 26-09-2566 16:28:50: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:28:50: =   Connect.Open();
+: 26-09-2566 16:28:53: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:28:53: =   Connect.Open();
+: 26-09-2566 16:45:01: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:45:01: =   Connect.Open();
+: 26-09-2566 16:45:01: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:45:01: =   Connect.Open();
+: 26-09-2566 16:47:28: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:47:28: =   Connect.Open();
+: 26-09-2566 16:47:28: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:47:28: =   Connect.Open();
+: 26-09-2566 16:49:48: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:49:48: =   Connect.Open();
+: 26-09-2566 16:49:48: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:49:48: =   Connect.Open();
+: 26-09-2566 16:49:58: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:49:58: =   Connect.Open();
+: 26-09-2566 16:49:58: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:49:58: =   Connect.Open();
+: 26-09-2566 16:49:58: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:49:58: =   Connect.Open();
+: 26-09-2566 16:50:47: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:50:47: =   Connect.Open();
+: 26-09-2566 16:50:47: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:50:47: =   Connect.Open();
+: 26-09-2566 16:50:57: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:50:57: =   Connect.Open();
+: 26-09-2566 16:50:57: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:50:57: =   Connect.Open();
+: 26-09-2566 16:54:13: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:54:13: =   Connect.Open();
+: 26-09-2566 16:54:13: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:54:13: =   Connect.Open();
+: 26-09-2566 16:54:36: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:54:36: =   Connect.Open();
+: 26-09-2566 16:54:36: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:54:36: =   Connect.Open();
+: 26-09-2566 16:54:36: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:54:36: =   Connect.Open();
+: 26-09-2566 16:55:48: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:55:48: =   Connect.Open();
+: 26-09-2566 16:55:48: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:55:48: =   Connect.Open();
+: 26-09-2566 16:56:09: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:56:09: =   Connect.Open();
+: 26-09-2566 16:56:16: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:56:16: =   Connect.Open();
+: 26-09-2566 16:56:18: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:56:18: =   Connect.Open();
+: 26-09-2566 16:58:20: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:58:20: =   Connect.Open();
+: 26-09-2566 16:58:20: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:58:20: =   Connect.Open();
+: 26-09-2566 16:58:28: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:58:28: =   Connect.Open();
+: 26-09-2566 16:58:28: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:58:28: =   Connect.Open();
+: 26-09-2566 16:58:29: =     Connect = new OracleConnection(strConn);
+: 26-09-2566 16:58:29: =   Connect.Open();

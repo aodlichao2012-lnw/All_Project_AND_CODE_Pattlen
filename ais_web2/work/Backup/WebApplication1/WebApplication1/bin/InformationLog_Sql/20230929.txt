@@ -1,0 +1,39 @@
+: 29-09-2023 17:16:57: = Login begin
+: 29-09-2023 17:16:57: =  int i = 0;
+: 29-09-2023 17:16:57: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:16:57: =   Connect.Open();
+: 29-09-2023 17:16:57: = SELECT * FROM PREDIC_AGENTS WHERE (LOGIN = 'joy' ) and (PASSWORD= 'joy' )
+: 29-09-2023 17:16:57: =    Module2.Instance.Connect.Close();
+: 29-09-2023 17:16:57: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 29-09-2023 17:16:57: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 29-09-2023 17:16:57: =  AgenID 999
+: 29-09-2023 17:16:57: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 29-09-2023 17:16:57: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 29-09-2023 17:16:57: =  ; 
+: 29-09-2023 17:16:57: = UPDATE CNFG_AGENT_INFO   SET  TERMINAL_IP   = '172.21.130.228' , STATUS_ID = 5 ,CALL_COUNT = 0,LOGON_EXT = 5, LOGIN_TIME   = sysdate  WHERE AGENT_ID = '999'
+: 29-09-2023 17:16:57: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:16:57: =   Connect.Open();
+: 29-09-2023 17:16:57: =        UpdateCNFG_Agent_Info();
+: 29-09-2023 17:17:02: =  login by user AD AUTHORITY
+: 29-09-2023 17:17:02: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:02: =   Connect.Open();
+: 29-09-2023 17:17:02: = SELECT * FROM PREDIC_AGENTS WHERE (LOGIN = :userjson )
+: 29-09-2023 17:17:05: =  SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC
+: 29-09-2023 17:17:05: = SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC 
+: 29-09-2023 17:17:05: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:05: = SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
+                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED WHERE MAS_SERV_USED.is_active = '1'
+: 29-09-2023 17:17:05: =   Connect.Open();
+: 29-09-2023 17:17:05: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:05: =   Connect.Open();
+: 29-09-2023 17:17:05: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:05: =   Connect.Open();
+: 29-09-2023 17:17:05: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:05: =   Connect.Open();
+: 29-09-2023 17:17:06: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:06: =   Connect.Open();
+: 29-09-2023 17:17:06: =  select anumber as เบอร์โทรศัพท์ ,agent_id, lead_call_date,service_21,service_11, service_12,service_13,cust_name as ชื่อ,cust_sname as นามสกุล ,birth_day, birth_dd,birth_mm,birth_yyyy,cust_sex, decode(res_code,'01','สมัคร','02','ติดต่อกลับ','03','ไม่สนใจ','04','ไม่สามารถติดต่อได้ในขณะนี้','05','สายว่างไม่มีผู้รับ','06','ยังไม่เปิดใช้บริการ','07','ระงับบริการชั่วคราว' , '09' ,'สายไม่ว่าง' ,'11' ,'สายหลุด/เงียบ (ก่อนสนทนา)' , '12' , 'สายหลุด (ขณะสนทนา)' , '13' ,'สัญญาณเงียบ (ขณะสนทนา)' , '14','สัญญาณมีปัญหา (เสียงซ่าส์ ตี๊ดๆ)' , '15' ,'เครือข่ายอื่นๆ' , '16' , 'ไม่อนุญาตให้นำเสนอ (No consent)') as สถานะ from MAS_LEADS_TRANS  WHERE AGENT_ID = :AGENT_ID AND TO_DATE(LEAD_CALL_DATE,'DD-MM-YYYY')= to_date(:LEAD_CALL_DATE,'DD-MM-YYYY') 
+: 29-09-2023 17:17:06: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 29-09-2023 17:17:06: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 29-09-2023 17:17:06: =     Connect = new OracleConnection(strConn);
+: 29-09-2023 17:17:06: =   Connect.Open();

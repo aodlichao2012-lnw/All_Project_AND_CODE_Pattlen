@@ -1,0 +1,577 @@
+: 03-10-2023 16:43:51: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:43:52: = Input ::AGENT_ID
+: 03-10-2023 16:43:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:43:54: = Input ::AGENT_ID
+: 03-10-2023 16:48:33: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;
+: 03-10-2023 16:48:33: = Input ::AGENT_ID
+: 03-10-2023 16:48:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:34: = Input ::AGENT_ID
+: 03-10-2023 16:48:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:36: = Input ::AGENT_ID
+: 03-10-2023 16:48:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:38: = Input ::AGENT_ID
+: 03-10-2023 16:48:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:41: = Input ::AGENT_ID
+: 03-10-2023 16:48:42: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:43: = Input ::AGENT_ID
+: 03-10-2023 16:48:45: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:45: = Input ::AGENT_ID
+: 03-10-2023 16:48:47: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:47: = Input ::AGENT_ID
+: 03-10-2023 16:48:49: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:49: = Input ::AGENT_ID
+: 03-10-2023 16:48:51: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:51: = Input ::AGENT_ID
+: 03-10-2023 16:48:53: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:53: = Input ::AGENT_ID
+: 03-10-2023 16:48:55: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:55: = Input ::AGENT_ID
+: 03-10-2023 16:48:57: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:57: = Input ::AGENT_ID
+: 03-10-2023 16:48:59: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:48:59: = Input ::AGENT_ID
+: 03-10-2023 16:49:01: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:01: = Input ::AGENT_ID
+: 03-10-2023 16:49:03: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:03: = Input ::AGENT_ID
+: 03-10-2023 16:49:04: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:05: = Input ::AGENT_ID
+: 03-10-2023 16:49:06: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:07: = Input ::AGENT_ID
+: 03-10-2023 16:49:09: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:09: = Input ::AGENT_ID
+: 03-10-2023 16:49:11: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:11: = Input ::AGENT_ID
+: 03-10-2023 16:49:13: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:13: = Input ::AGENT_ID
+: 03-10-2023 16:49:15: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:15: = Input ::AGENT_ID
+: 03-10-2023 16:49:17: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:17: = Input ::AGENT_ID
+: 03-10-2023 16:49:19: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:19: = Input ::AGENT_ID
+: 03-10-2023 16:49:21: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:21: = Input ::AGENT_ID
+: 03-10-2023 16:49:23: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:23: = Input ::AGENT_ID
+: 03-10-2023 16:49:25: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:25: = Input ::AGENT_ID
+: 03-10-2023 16:49:27: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:27: = Input ::AGENT_ID
+: 03-10-2023 16:49:28: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:29: = Input ::AGENT_ID
+: 03-10-2023 16:49:31: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:31: = Input ::AGENT_ID
+: 03-10-2023 16:49:33: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:33: = Input ::AGENT_ID
+: 03-10-2023 16:49:35: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:35: = Input ::AGENT_ID
+: 03-10-2023 16:49:37: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:37: = Input ::AGENT_ID
+: 03-10-2023 16:49:39: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:39: = Input ::AGENT_ID
+: 03-10-2023 16:49:41: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:41: = Input ::AGENT_ID
+: 03-10-2023 16:49:43: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:43: = Input ::AGENT_ID
+: 03-10-2023 16:49:45: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:45: = Input ::AGENT_ID
+: 03-10-2023 16:49:47: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:47: = Input ::AGENT_ID
+: 03-10-2023 16:49:49: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:49: = Input ::AGENT_ID
+: 03-10-2023 16:49:51: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:51: = Input ::AGENT_ID
+: 03-10-2023 16:49:53: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:53: = Input ::AGENT_ID
+: 03-10-2023 16:49:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:55: = Input ::AGENT_ID
+: 03-10-2023 16:49:56: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:57: = Input ::AGENT_ID
+: 03-10-2023 16:49:59: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:49:59: = Input ::AGENT_ID
+: 03-10-2023 16:50:01: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:01: = Input ::AGENT_ID
+: 03-10-2023 16:50:03: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:03: = Input ::AGENT_ID
+: 03-10-2023 16:50:05: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:05: = Input ::AGENT_ID
+: 03-10-2023 16:50:07: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:07: = Input ::AGENT_ID
+: 03-10-2023 16:50:09: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:09: = Input ::AGENT_ID
+: 03-10-2023 16:50:11: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:11: = Input ::AGENT_ID
+: 03-10-2023 16:50:13: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:13: = Input ::AGENT_ID
+: 03-10-2023 16:50:15: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 16:50:15: = Input ::AGENT_ID
+: 03-10-2023 17:08:00: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;
+: 03-10-2023 17:08:00: = Input ::AGENT_ID
+: 03-10-2023 17:08:02: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:02: = Input ::AGENT_ID
+: 03-10-2023 17:08:04: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:04: = Input ::AGENT_ID
+: 03-10-2023 17:08:06: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:06: = Input ::AGENT_ID
+: 03-10-2023 17:08:08: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:08: = Input ::AGENT_ID
+: 03-10-2023 17:08:10: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:10: = Input ::AGENT_ID
+: 03-10-2023 17:08:12: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:12: = Input ::AGENT_ID
+: 03-10-2023 17:08:14: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:14: = Input ::AGENT_ID
+: 03-10-2023 17:08:16: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:16: = Input ::AGENT_ID
+: 03-10-2023 17:08:18: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:18: = Input ::AGENT_ID
+: 03-10-2023 17:08:20: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:20: = Input ::AGENT_ID
+: 03-10-2023 17:08:22: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:22: = Input ::AGENT_ID
+: 03-10-2023 17:08:24: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:24: = Input ::AGENT_ID
+: 03-10-2023 17:08:26: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:26: = Input ::AGENT_ID
+: 03-10-2023 17:08:28: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:28: = Input ::AGENT_ID
+: 03-10-2023 17:08:30: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:30: = Input ::AGENT_ID
+: 03-10-2023 17:08:32: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:32: = Input ::AGENT_ID
+: 03-10-2023 17:08:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:34: = Input ::AGENT_ID
+: 03-10-2023 17:08:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:36: = Input ::AGENT_ID
+: 03-10-2023 17:08:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:38: = Input ::AGENT_ID
+: 03-10-2023 17:08:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:40: = Input ::AGENT_ID
+: 03-10-2023 17:08:42: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:42: = Input ::AGENT_ID
+: 03-10-2023 17:08:44: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:44: = Input ::AGENT_ID
+: 03-10-2023 17:08:46: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:46: = Input ::AGENT_ID
+: 03-10-2023 17:08:48: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:48: = Input ::AGENT_ID
+: 03-10-2023 17:08:50: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:50: = Input ::AGENT_ID
+: 03-10-2023 17:08:52: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:52: = Input ::AGENT_ID
+: 03-10-2023 17:08:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:54: = Input ::AGENT_ID
+: 03-10-2023 17:08:56: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:56: = Input ::AGENT_ID
+: 03-10-2023 17:08:58: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:08:58: = Input ::AGENT_ID
+: 03-10-2023 17:09:00: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:09:00: = Input ::AGENT_ID
+: 03-10-2023 17:09:02: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:09:02: = Input ::AGENT_ID
+: 03-10-2023 17:19:49: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;
+: 03-10-2023 17:19:49: = Input ::AGENT_ID
+: 03-10-2023 17:19:51: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:19:51: = Input ::AGENT_ID
+: 03-10-2023 17:19:53: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:19:53: = Input ::AGENT_ID
+: 03-10-2023 17:19:55: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:19:55: = Input ::AGENT_ID
+: 03-10-2023 17:19:57: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:19:57: = Input ::AGENT_ID
+: 03-10-2023 17:19:59: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:00: = Input ::AGENT_ID
+: 03-10-2023 17:20:01: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:01: = Input ::AGENT_ID
+: 03-10-2023 17:20:03: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:03: = Input ::AGENT_ID
+: 03-10-2023 17:20:05: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:05: = Input ::AGENT_ID
+: 03-10-2023 17:20:07: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:07: = Input ::AGENT_ID
+: 03-10-2023 17:20:09: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:09: = Input ::AGENT_ID
+: 03-10-2023 17:20:11: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:11: = Input ::AGENT_ID
+: 03-10-2023 17:20:13: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:13: = Input ::AGENT_ID
+: 03-10-2023 17:20:16: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:16: = Input ::AGENT_ID
+: 03-10-2023 17:20:18: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:18: = Input ::AGENT_ID
+: 03-10-2023 17:20:20: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:20: = Input ::AGENT_ID
+: 03-10-2023 17:20:22: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:22: = Input ::AGENT_ID
+: 03-10-2023 17:20:25: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:25: = Input ::AGENT_ID
+: 03-10-2023 17:20:32: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:32: = Input ::AGENT_ID
+: 03-10-2023 17:20:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:34: = Input ::AGENT_ID
+: 03-10-2023 17:20:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:36: = Input ::AGENT_ID
+: 03-10-2023 17:20:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:38: = Input ::AGENT_ID
+: 03-10-2023 17:20:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:40: = Input ::AGENT_ID
+: 03-10-2023 17:20:42: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:42: = Input ::AGENT_ID
+: 03-10-2023 17:20:44: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:44: = Input ::AGENT_ID
+: 03-10-2023 17:20:46: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:46: = Input ::AGENT_ID
+: 03-10-2023 17:20:48: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:48: = Input ::AGENT_ID
+: 03-10-2023 17:20:50: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:50: = Input ::AGENT_ID
+: 03-10-2023 17:20:52: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:52: = Input ::AGENT_ID
+: 03-10-2023 17:20:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:54: = Input ::AGENT_ID
+: 03-10-2023 17:20:56: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:56: = Input ::AGENT_ID
+: 03-10-2023 17:20:58: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:20:58: = Input ::AGENT_ID
+: 03-10-2023 17:21:00: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:00: = Input ::AGENT_ID
+: 03-10-2023 17:21:02: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:02: = Input ::AGENT_ID
+: 03-10-2023 17:21:04: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:04: = Input ::AGENT_ID
+: 03-10-2023 17:21:06: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:06: = Input ::AGENT_ID
+: 03-10-2023 17:21:08: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:08: = Input ::AGENT_ID
+: 03-10-2023 17:21:10: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:10: = Input ::AGENT_ID
+: 03-10-2023 17:21:12: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:12: = Input ::AGENT_ID
+: 03-10-2023 17:21:14: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:14: = Input ::AGENT_ID
+: 03-10-2023 17:21:16: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:16: = Input ::AGENT_ID
+: 03-10-2023 17:21:17: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:18: = Input ::AGENT_ID
+: 03-10-2023 17:21:20: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:20: = Input ::AGENT_ID
+: 03-10-2023 17:21:22: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:22: = Input ::AGENT_ID
+: 03-10-2023 17:21:24: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:24: = Input ::AGENT_ID
+: 03-10-2023 17:21:26: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:26: = Input ::AGENT_ID
+: 03-10-2023 17:21:28: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:28: = Input ::AGENT_ID
+: 03-10-2023 17:21:30: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:30: = Input ::AGENT_ID
+: 03-10-2023 17:21:32: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:32: = Input ::AGENT_ID
+: 03-10-2023 17:21:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:34: = Input ::AGENT_ID
+: 03-10-2023 17:21:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:36: = Input ::AGENT_ID
+: 03-10-2023 17:21:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:38: = Input ::AGENT_ID
+: 03-10-2023 17:21:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:40: = Input ::AGENT_ID
+: 03-10-2023 17:21:42: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:42: = Input ::AGENT_ID
+: 03-10-2023 17:21:44: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:44: = Input ::AGENT_ID
+: 03-10-2023 17:21:46: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:46: = Input ::AGENT_ID
+: 03-10-2023 17:21:48: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:48: = Input ::AGENT_ID
+: 03-10-2023 17:21:50: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:50: = Input ::AGENT_ID
+: 03-10-2023 17:21:52: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:52: = Input ::AGENT_ID
+: 03-10-2023 17:21:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:54: = Input ::AGENT_ID
+: 03-10-2023 17:21:56: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:56: = Input ::AGENT_ID
+: 03-10-2023 17:21:58: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:21:58: = Input ::AGENT_ID
+: 03-10-2023 17:22:00: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:00: = Input ::AGENT_ID
+: 03-10-2023 17:22:02: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:02: = Input ::AGENT_ID
+: 03-10-2023 17:22:04: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:04: = Input ::AGENT_ID
+: 03-10-2023 17:22:06: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:06: = Input ::AGENT_ID
+: 03-10-2023 17:22:08: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:08: = Input ::AGENT_ID
+: 03-10-2023 17:22:10: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:10: = Input ::AGENT_ID
+: 03-10-2023 17:22:12: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:12: = Input ::AGENT_ID
+: 03-10-2023 17:22:14: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:14: = Input ::AGENT_ID
+: 03-10-2023 17:22:17: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:17: = Input ::AGENT_ID
+: 03-10-2023 17:22:25: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:25: = Input ::AGENT_ID
+: 03-10-2023 17:22:26: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:27: = Input ::AGENT_ID
+: 03-10-2023 17:22:28: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:29: = Input ::AGENT_ID
+: 03-10-2023 17:22:30: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:30: = Input ::AGENT_ID
+: 03-10-2023 17:22:32: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:32: = Input ::AGENT_ID
+: 03-10-2023 17:22:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:34: = Input ::AGENT_ID
+: 03-10-2023 17:22:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:36: = Input ::AGENT_ID
+: 03-10-2023 17:22:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:38: = Input ::AGENT_ID
+: 03-10-2023 17:22:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:40: = Input ::AGENT_ID
+: 03-10-2023 17:22:44: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:44: = Input ::AGENT_ID
+: 03-10-2023 17:22:50: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:50: = Input ::AGENT_ID
+: 03-10-2023 17:22:52: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:52: = Input ::AGENT_ID
+: 03-10-2023 17:22:54: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:55: = Input ::AGENT_ID
+: 03-10-2023 17:22:57: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 17:22:57: = Input ::AGENT_ID
+: 03-10-2023 18:18:31: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;
+: 03-10-2023 18:18:31: = Input ::AGENT_ID
+: 03-10-2023 18:18:33: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;Connection Timeout=500000;
+: 03-10-2023 18:18:34: = Input ::AGENT_ID
+: 03-10-2023 18:18:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:36: = Input ::AGENT_ID
+: 03-10-2023 18:18:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:38: = Input ::AGENT_ID
+: 03-10-2023 18:18:41: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:41: = Input ::AGENT_ID
+: 03-10-2023 18:18:43: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:43: = Input ::AGENT_ID
+: 03-10-2023 18:18:45: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:45: = Input ::AGENT_ID
+: 03-10-2023 18:18:47: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:47: = Input ::AGENT_ID
+: 03-10-2023 18:18:49: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:49: = Input ::AGENT_ID
+: 03-10-2023 18:18:51: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:51: = Input ::AGENT_ID
+: 03-10-2023 18:18:53: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:53: = Input ::AGENT_ID
+: 03-10-2023 18:18:55: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:55: = Input ::AGENT_ID
+: 03-10-2023 18:18:58: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:18:58: = Input ::AGENT_ID
+: 03-10-2023 18:19:00: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:00: = Input ::AGENT_ID
+: 03-10-2023 18:19:02: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:02: = Input ::AGENT_ID
+: 03-10-2023 18:19:04: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:04: = Input ::AGENT_ID
+: 03-10-2023 18:19:06: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:06: = Input ::AGENT_ID
+: 03-10-2023 18:19:08: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:08: = Input ::AGENT_ID
+: 03-10-2023 18:19:10: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:10: = Input ::AGENT_ID
+: 03-10-2023 18:19:12: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:12: = Input ::AGENT_ID
+: 03-10-2023 18:19:14: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:14: = Input ::AGENT_ID
+: 03-10-2023 18:19:16: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:16: = Input ::AGENT_ID
+: 03-10-2023 18:19:18: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:18: = Input ::AGENT_ID
+: 03-10-2023 18:19:20: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:20: = Input ::AGENT_ID
+: 03-10-2023 18:19:22: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:22: = Input ::AGENT_ID
+: 03-10-2023 18:19:25: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:25: = Input ::AGENT_ID
+: 03-10-2023 18:19:27: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:27: = Input ::AGENT_ID
+: 03-10-2023 18:19:29: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:29: = Input ::AGENT_ID
+: 03-10-2023 18:19:30: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:31: = Input ::AGENT_ID
+: 03-10-2023 18:19:32: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:32: = Input ::AGENT_ID
+: 03-10-2023 18:19:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:19:34: = Input ::AGENT_ID
+: 03-10-2023 18:25:15: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:25:16: = Input ::AGENT_ID
+: 03-10-2023 18:25:18: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:25:18: = Input ::AGENT_ID
+: 03-10-2023 18:25:20: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:25:20: = Input ::AGENT_ID
+: 03-10-2023 18:25:22: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:25:22: = Input ::AGENT_ID
+: 03-10-2023 18:37:34: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:34: = Input ::AGENT_ID
+: 03-10-2023 18:37:36: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:36: = Input ::AGENT_ID
+: 03-10-2023 18:37:38: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:38: = Input ::AGENT_ID
+: 03-10-2023 18:37:40: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:40: = Input ::AGENT_ID
+: 03-10-2023 18:37:42: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:42: = Input ::AGENT_ID
+: 03-10-2023 18:37:44: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:44: = Input ::AGENT_ID
+: 03-10-2023 18:37:46: = Error ที่ Connect3 Static_Cookie.strConn : Data Source=ORAIEC23;User ID=PREGOV;Password=CORRGOV;
+: 03-10-2023 18:37:46: = Input ::AGENT_ID
+: 03-10-2023 19:35:51: = Error ที่ Connect : Network Transport: TCP transport address connect failure
+: 03-10-2023 19:35:51: = ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล Network Transport: TCP transport address connect failureผลการตรวจสอบ
+: 03-10-2023 19:36:43: = Error ที่ Connect : Network Transport: TCP transport address connect failure
+: 03-10-2023 19:36:43: = ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล Network Transport: TCP transport address connect failureผลการตรวจสอบ
+: 03-10-2023 19:38:56: = Input ::AGENT_ID
+: 03-10-2023 19:38:58: = Input ::AGENT_ID
+: 03-10-2023 19:39:00: = Input ::AGENT_ID
+: 03-10-2023 19:39:02: = Input ::AGENT_ID
+: 03-10-2023 19:39:04: = Input ::AGENT_ID
+: 03-10-2023 19:39:06: = Input ::AGENT_ID
+: 03-10-2023 19:39:08: = Input ::AGENT_ID
+: 03-10-2023 19:39:10: = Input ::AGENT_ID
+: 03-10-2023 19:39:12: = Input ::AGENT_ID
+: 03-10-2023 19:39:14: = Input ::AGENT_ID
+: 03-10-2023 19:39:16: = Input ::AGENT_ID
+: 03-10-2023 19:39:18: = Input ::AGENT_ID
+: 03-10-2023 19:43:28: = Input ::AGENT_ID
+: 03-10-2023 19:43:30: = Input ::AGENT_ID
+: 03-10-2023 19:43:34: = Input ::AGENT_ID
+: 03-10-2023 19:45:52: = Error ที่ Connect : Network Transport: TCP transport address connect failure
+: 03-10-2023 19:45:52: = ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล Network Transport: TCP transport address connect failureผลการตรวจสอบ
+: 03-10-2023 19:47:25: = Error ที่ Connect : Network Transport: TCP transport address connect failure
+: 03-10-2023 19:47:25: = ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล Network Transport: TCP transport address connect failureผลการตรวจสอบ
+: 03-10-2023 19:52:19: = Input ::AGENT_ID
+: 03-10-2023 19:52:21: = Input ::AGENT_ID
+: 03-10-2023 19:52:23: = Input ::AGENT_ID
+: 03-10-2023 19:52:25: = Input ::AGENT_ID
+: 03-10-2023 19:52:27: = Input ::AGENT_ID
+: 03-10-2023 19:56:23: = Input ::AGENT_ID
+: 03-10-2023 19:59:25: = setcboStatus :Object reference not set to an instance of an object.
+: 03-10-2023 19:59:25: = setcboStatus :SELECT * FROM MAS_REASON ORDER BY RES_CODE ASC 
+: 03-10-2023 19:59:27: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:30: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:31: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:33: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:35: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:37: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:38: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:40: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:42: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:44: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:46: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:47: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:49: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:51: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 19:59:52: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-10-2023 20:03:48: = Input ::AGENT_ID
+: 03-10-2023 20:03:54: = Input ::AGENT_ID
+: 03-10-2023 20:03:56: = Input ::AGENT_ID
+: 03-10-2023 20:03:58: = Input ::AGENT_ID
+: 03-10-2023 20:04:00: = Input ::AGENT_ID
+: 03-10-2023 20:04:02: = Input ::AGENT_ID
+: 03-10-2023 20:04:04: = Input ::AGENT_ID
+: 03-10-2023 20:04:06: = Input ::AGENT_ID
+: 03-10-2023 20:06:43: = Input ::AGENT_ID
+: 03-10-2023 20:06:47: = Input ::AGENT_ID
+: 03-10-2023 20:06:49: = Index FrmDetail :One or more errors occurred.
+: 03-10-2023 20:06:49: = Index FrmDetail :
+: 03-10-2023 20:06:49: = Input ::AGENT_ID
+: 03-10-2023 20:07:40: = Index FrmDetail :One or more errors occurred.
+: 03-10-2023 20:07:40: = Index FrmDetail :
+: 03-10-2023 20:08:51: = Input ::AGENT_ID
+: 03-10-2023 20:08:54: = Input ::AGENT_ID
+: 03-10-2023 20:08:56: = Input ::AGENT_ID
+: 03-10-2023 20:08:59: = Input ::AGENT_ID
+: 03-10-2023 20:17:45: = Input ::AGENT_ID
+: 03-10-2023 20:17:49: = Input ::AGENT_ID
+: 03-10-2023 20:17:57: = Input ::AGENT_ID
+: 03-10-2023 20:17:59: = Input ::AGENT_ID
+: 03-10-2023 20:18:01: = Input ::AGENT_ID
+: 03-10-2023 20:19:46: = Input ::AGENT_ID
+: 03-10-2023 20:51:42: = Input ::AGENT_ID
+: 03-10-2023 20:51:42: = Input ::AGENT_ID
+: 03-10-2023 20:51:44: = Input ::AGENT_ID
+: 03-10-2023 20:51:46: = Input ::AGENT_ID
+: 03-10-2023 20:51:49: = Input ::AGENT_ID
+: 03-10-2023 20:51:51: = Input ::AGENT_ID
+: 03-10-2023 20:51:53: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:10: = Input ::AGENT_ID
+: 03-10-2023 20:52:14: = Input ::AGENT_ID
+: 03-10-2023 20:52:21: = Input ::AGENT_ID
+: 03-10-2023 20:52:23: = Input ::AGENT_ID
+: 03-10-2023 20:52:25: = Input ::AGENT_ID
+: 03-10-2023 20:52:28: = Input ::AGENT_ID
+: 03-10-2023 20:52:30: = Input ::AGENT_ID
+: 03-10-2023 20:52:34: = Input ::AGENT_ID
+: 03-10-2023 20:52:41: = Input ::AGENT_ID
+: 03-10-2023 20:52:43: = Input ::AGENT_ID
+: 03-10-2023 20:52:45: = Input ::AGENT_ID
+: 03-10-2023 20:52:47: = Input ::AGENT_ID
+: 03-10-2023 20:52:50: = Input ::AGENT_ID
+: 03-10-2023 20:52:52: = Input ::AGENT_ID
+: 03-10-2023 20:53:10: = Input ::AGENT_ID
+: 03-10-2023 20:53:13: = Input ::AGENT_ID
+: 03-10-2023 20:53:22: = Input ::AGENT_ID
+: 03-10-2023 20:53:27: = Input ::AGENT_ID
+: 03-10-2023 20:53:29: = Input ::AGENT_ID
+: 03-10-2023 20:53:31: = Input ::AGENT_ID
+: 03-10-2023 20:53:33: = Input ::AGENT_ID
+: 03-10-2023 20:53:36: = Input ::AGENT_ID
+: 03-10-2023 20:53:38: = Input ::AGENT_ID
+: 03-10-2023 20:53:40: = Input ::AGENT_ID
+: 03-10-2023 20:53:42: = Input ::AGENT_ID
+: 03-10-2023 20:53:44: = Input ::AGENT_ID
+: 03-10-2023 20:53:46: = Input ::AGENT_ID
+: 03-10-2023 20:53:48: = Input ::AGENT_ID
+: 03-10-2023 20:53:50: = Input ::AGENT_ID
+: 03-10-2023 20:53:53: = Input ::AGENT_ID
+: 03-10-2023 20:53:55: = Input ::AGENT_ID
+: 03-10-2023 20:53:57: = Input ::AGENT_ID
+: 03-10-2023 20:53:59: = Input ::AGENT_ID
+: 03-10-2023 20:54:01: = Input ::AGENT_ID
+: 03-10-2023 20:54:03: = Input ::AGENT_ID
+: 03-10-2023 20:54:06: = Input ::AGENT_ID
+: 03-10-2023 20:54:08: = Input ::AGENT_ID
+: 03-10-2023 20:54:10: = Input ::AGENT_ID
+: 03-10-2023 20:54:12: = Input ::AGENT_ID
+: 03-10-2023 20:54:14: = Input ::AGENT_ID
+: 03-10-2023 20:54:16: = Input ::AGENT_ID
+: 03-10-2023 20:54:19: = Input ::AGENT_ID
+: 03-10-2023 20:54:20: = Input ::AGENT_ID
+: 03-10-2023 20:54:23: = Input ::AGENT_ID
+: 03-10-2023 20:54:25: = Input ::AGENT_ID
+: 03-10-2023 20:54:27: = Input ::AGENT_ID
+: 03-10-2023 20:54:29: = Input ::AGENT_ID
+: 03-10-2023 20:54:31: = Input ::AGENT_ID
+: 03-10-2023 20:54:33: = Input ::AGENT_ID
+: 03-10-2023 20:54:36: = Input ::AGENT_ID
+: 03-10-2023 21:24:02: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:06: = Input ::AGENT_ID
+: 03-10-2023 21:24:09: = Input ::AGENT_ID
+: 03-10-2023 21:24:11: = Input ::AGENT_ID
+: 03-10-2023 21:24:13: = Input ::AGENT_ID

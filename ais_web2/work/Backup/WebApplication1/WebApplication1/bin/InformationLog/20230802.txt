@@ -1,0 +1,425 @@
+: 28-08-2023 14:38:19: = Login begin
+: 28-08-2023 14:38:19: =  int i = 0;
+: 28-08-2023 14:38:19: = Connectdb
+: 28-08-2023 14:38:19: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:19: =   Connect.Open();
+: 28-08-2023 14:38:19: =    Module2.Instance.Connect.Close();
+: 28-08-2023 14:38:19: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 28-08-2023 14:38:19: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 28-08-2023 14:38:19: =  AgenID 16
+: 28-08-2023 14:38:19: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:38:19: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:38:19: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:38:19: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:38:19: =  ; 
+: 28-08-2023 14:38:19: = Connectdb
+: 28-08-2023 14:38:19: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:20: =   Connect.Open();
+: 28-08-2023 14:38:20: =        UpdateCNFG_Agent_Info();
+: 28-08-2023 14:38:22: =  login by user AD AUTHORITY
+: 28-08-2023 14:38:22: = Connectdb
+: 28-08-2023 14:38:22: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:22: =   Connect.Open();
+: 28-08-2023 14:38:25: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:38:25: = Connectdb
+: 28-08-2023 14:38:26: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:26: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:26: =   Connect.Open();
+: 28-08-2023 14:38:26: =   Connect.Open();
+: 28-08-2023 14:38:27: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:38:27: = Connectdb
+: 28-08-2023 14:38:27: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:28: =   Connect.Open();
+: 28-08-2023 14:38:29: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:38:29: = Connectdb
+: 28-08-2023 14:38:57: = Login begin
+: 28-08-2023 14:38:57: =  int i = 0;
+: 28-08-2023 14:38:57: = Connectdb
+: 28-08-2023 14:38:57: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:57: =   Connect.Open();
+: 28-08-2023 14:38:58: =    Module2.Instance.Connect.Close();
+: 28-08-2023 14:38:58: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 28-08-2023 14:38:58: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 28-08-2023 14:38:58: =  AgenID 16
+: 28-08-2023 14:38:58: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:38:58: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:38:58: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:38:58: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:38:58: =  ; 
+: 28-08-2023 14:38:58: = Connectdb
+: 28-08-2023 14:38:58: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:38:58: =   Connect.Open();
+: 28-08-2023 14:38:58: =        UpdateCNFG_Agent_Info();
+: 28-08-2023 14:38:59: =  login by user AD AUTHORITY
+: 28-08-2023 14:38:59: = Connectdb
+: 28-08-2023 14:38:59: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:00: =   Connect.Open();
+: 28-08-2023 14:39:03: = Connectdb
+: 28-08-2023 14:39:03: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:03: = Connectdb
+: 28-08-2023 14:39:03: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:03: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:03: =   Connect.Open();
+: 28-08-2023 14:39:03: =   Connect.Open();
+: 28-08-2023 14:39:05: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:05: = Connectdb
+: 28-08-2023 14:39:05: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:05: =   Connect.Open();
+: 28-08-2023 14:39:06: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:06: = Connectdb
+: 28-08-2023 14:39:07: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:07: =   Connect.Open();
+: 28-08-2023 14:39:08: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:08: = Connectdb
+: 28-08-2023 14:39:08: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:09: =   Connect.Open();
+: 28-08-2023 14:39:10: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:10: = Connectdb
+: 28-08-2023 14:39:10: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:10: =   Connect.Open();
+: 28-08-2023 14:39:12: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:12: = Connectdb
+: 28-08-2023 14:39:12: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:13: =   Connect.Open();
+: 28-08-2023 14:39:14: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:14: = Connectdb
+: 28-08-2023 14:39:14: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:15: =   Connect.Open();
+: 28-08-2023 14:39:24: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:24: = Connectdb
+: 28-08-2023 14:39:24: = Login begin
+: 28-08-2023 14:39:24: =  int i = 0;
+: 28-08-2023 14:39:24: = Connectdb
+: 28-08-2023 14:39:24: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:24: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:24: =   Connect.Open();
+: 28-08-2023 14:39:24: =   Connect.Open();
+: 28-08-2023 14:39:24: =    Module2.Instance.Connect.Close();
+: 28-08-2023 14:39:24: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 28-08-2023 14:39:24: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 28-08-2023 14:39:24: =  AgenID 16
+: 28-08-2023 14:39:24: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:39:24: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:39:24: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:39:24: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:39:24: =  ; 
+: 28-08-2023 14:39:24: = Connectdb
+: 28-08-2023 14:39:24: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:24: =   Connect.Open();
+: 28-08-2023 14:39:25: =        UpdateCNFG_Agent_Info();
+: 28-08-2023 14:39:27: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:27: = Connectdb
+: 28-08-2023 14:39:27: =  login by user AD AUTHORITY
+: 28-08-2023 14:39:27: = Connectdb
+: 28-08-2023 14:39:27: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:27: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:27: =   Connect.Open();
+: 28-08-2023 14:39:28: =   Connect.Open();
+: 28-08-2023 14:39:31: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:31: = Connectdb
+: 28-08-2023 14:39:31: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:31: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:32: =   Connect.Open();
+: 28-08-2023 14:39:32: =   Connect.Open();
+: 28-08-2023 14:39:43: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:43: = Connectdb
+: 28-08-2023 14:39:43: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:43: =   Connect.Open();
+: 28-08-2023 14:39:45: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:45: = Connectdb
+: 28-08-2023 14:39:45: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:45: =   Connect.Open();
+: 28-08-2023 14:39:47: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:47: = Connectdb
+: 28-08-2023 14:39:47: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:47: =   Connect.Open();
+: 28-08-2023 14:39:48: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:48: = Connectdb
+: 28-08-2023 14:39:48: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:49: =   Connect.Open();
+: 28-08-2023 14:39:50: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:50: = Connectdb
+: 28-08-2023 14:39:50: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:50: =   Connect.Open();
+: 28-08-2023 14:39:52: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:52: = Connectdb
+: 28-08-2023 14:39:52: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:52: =   Connect.Open();
+: 28-08-2023 14:39:54: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:54: = Connectdb
+: 28-08-2023 14:39:54: =  login by user AD AUTHORITY
+: 28-08-2023 14:39:54: = Connectdb
+: 28-08-2023 14:39:54: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:54: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:54: =   Connect.Open();
+: 28-08-2023 14:39:54: =   Connect.Open();
+: 28-08-2023 14:39:56: = Connectdb
+: 28-08-2023 14:39:56: = Connectdb
+: 28-08-2023 14:39:56: = Connectdb
+: 28-08-2023 14:39:56: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:56: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:57: =   Connect.Open();
+: 28-08-2023 14:39:57: =   Connect.Open();
+: 28-08-2023 14:39:57: =   Connect.Open();
+: 28-08-2023 14:39:58: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:39:58: = Connectdb
+: 28-08-2023 14:39:58: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:39:59: =   Connect.Open();
+: 28-08-2023 14:40:00: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:00: = Connectdb
+: 28-08-2023 14:40:00: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:00: = Connectdb
+: 28-08-2023 14:40:00: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:00: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:01: =   Connect.Open();
+: 28-08-2023 14:40:01: =   Connect.Open();
+: 28-08-2023 14:40:02: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:02: = Connectdb
+: 28-08-2023 14:40:02: = Connectdb
+: 28-08-2023 14:40:02: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:02: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:03: =   Connect.Open();
+: 28-08-2023 14:40:03: =   Connect.Open();
+: 28-08-2023 14:40:04: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:04: = Connectdb
+: 28-08-2023 14:40:04: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:04: = Connectdb
+: 28-08-2023 14:40:04: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:04: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:04: =   Connect.Open();
+: 28-08-2023 14:40:04: =   Connect.Open();
+: 28-08-2023 14:40:06: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:06: = Connectdb
+: 28-08-2023 14:40:06: = Connectdb
+: 28-08-2023 14:40:06: = Connectdb
+: 28-08-2023 14:40:06: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:06: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:06: =   Connect.Open();
+: 28-08-2023 14:40:06: =   Connect.Open();
+: 28-08-2023 14:40:06: = Connectdb
+: 28-08-2023 14:40:06: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:07: =   Connect.Open();
+: 28-08-2023 14:40:07: =   Connect.Open();
+: 28-08-2023 14:40:08: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:08: = Connectdb
+: 28-08-2023 14:40:08: =  login by user AD AUTHORITY
+: 28-08-2023 14:40:08: = Connectdb
+: 28-08-2023 14:40:08: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:08: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:08: =   Connect.Open();
+: 28-08-2023 14:40:08: =   Connect.Open();
+: 28-08-2023 14:40:09: =   Connect.Open();
+: 28-08-2023 14:40:10: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:10: = Connectdb
+: 28-08-2023 14:40:10: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:10: = Connectdb
+: 28-08-2023 14:40:10: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:10: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:10: =   Connect.Open();
+: 28-08-2023 14:40:11: =   Connect.Open();
+: 28-08-2023 14:40:12: = Connectdb
+: 28-08-2023 14:40:12: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:12: = Connectdb
+: 28-08-2023 14:40:12: = Connectdb
+: 28-08-2023 14:40:12: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:12: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:13: =   Connect.Open();
+: 28-08-2023 14:40:13: =   Connect.Open();
+: 28-08-2023 14:40:13: =   Connect.Open();
+: 28-08-2023 14:40:14: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:14: = Connectdb
+: 28-08-2023 14:40:14: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:14: = Connectdb
+: 28-08-2023 14:40:14: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:14: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:15: =   Connect.Open();
+: 28-08-2023 14:40:15: =   Connect.Open();
+: 28-08-2023 14:40:16: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:16: = Connectdb
+: 28-08-2023 14:40:16: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:16: = Connectdb
+: 28-08-2023 14:40:16: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:16: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:16: =   Connect.Open();
+: 28-08-2023 14:40:17: =   Connect.Open();
+: 28-08-2023 14:40:18: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:18: = Connectdb
+: 28-08-2023 14:40:18: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:18: =   Connect.Open();
+: 28-08-2023 14:40:20: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:20: = Connectdb
+: 28-08-2023 14:40:20: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:20: = Connectdb
+: 28-08-2023 14:40:20: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:20: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:20: =   Connect.Open();
+: 28-08-2023 14:40:20: =   Connect.Open();
+: 28-08-2023 14:40:21: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:21: = Connectdb
+: 28-08-2023 14:40:21: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:21: = Connectdb
+: 28-08-2023 14:40:22: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:22: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:22: =   Connect.Open();
+: 28-08-2023 14:40:22: =   Connect.Open();
+: 28-08-2023 14:40:23: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:23: = Connectdb
+: 28-08-2023 14:40:23: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:23: = Connectdb
+: 28-08-2023 14:40:23: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:23: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:24: =   Connect.Open();
+: 28-08-2023 14:40:24: =   Connect.Open();
+: 28-08-2023 14:40:25: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:25: = Connectdb
+: 28-08-2023 14:40:25: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:25: =   Connect.Open();
+: 28-08-2023 14:40:27: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:27: = Connectdb
+: 28-08-2023 14:40:27: = Connectdb
+: 28-08-2023 14:40:28: = Connectdb
+: 28-08-2023 14:40:28: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:28: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:28: =   Connect.Open();
+: 28-08-2023 14:40:28: =   Connect.Open();
+: 28-08-2023 14:40:28: =   Connect.Open();
+: 28-08-2023 14:40:30: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:30: = Connectdb
+: 28-08-2023 14:40:30: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:30: = Connectdb
+: 28-08-2023 14:40:30: = Login begin
+: 28-08-2023 14:40:30: =  int i = 0;
+: 28-08-2023 14:40:30: = Connectdb
+: 28-08-2023 14:40:30: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:30: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:30: =   Connect.Open();
+: 28-08-2023 14:40:30: =   Connect.Open();
+: 28-08-2023 14:40:30: =   Connect.Open();
+: 28-08-2023 14:40:30: =    Module2.Instance.Connect.Close();
+: 28-08-2023 14:40:30: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 28-08-2023 14:40:30: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 28-08-2023 14:40:30: =  AgenID 16
+: 28-08-2023 14:40:30: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:40:30: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:40:30: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:40:30: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:40:30: =  ; 
+: 28-08-2023 14:40:30: = Connectdb
+: 28-08-2023 14:40:30: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:30: =   Connect.Open();
+: 28-08-2023 14:40:31: =        UpdateCNFG_Agent_Info();
+: 28-08-2023 14:40:32: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:32: = Connectdb
+: 28-08-2023 14:40:32: =  login by user AD AUTHORITY
+: 28-08-2023 14:40:32: = Connectdb
+: 28-08-2023 14:40:32: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:32: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:32: =   Connect.Open();
+: 28-08-2023 14:40:32: =   Connect.Open();
+: 28-08-2023 14:40:34: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:34: = Connectdb
+: 28-08-2023 14:40:34: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:34: = Connectdb
+: 28-08-2023 14:40:34: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:34: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:34: =   Connect.Open();
+: 28-08-2023 14:40:34: =   Connect.Open();
+: 28-08-2023 14:40:36: = Connectdb
+: 28-08-2023 14:40:36: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:36: = Connectdb
+: 28-08-2023 14:40:36: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:36: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:37: =   Connect.Open();
+: 28-08-2023 14:40:37: =   Connect.Open();
+: 28-08-2023 14:40:37: =   Connect.Open();
+: 28-08-2023 14:40:38: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:38: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:38: = Connectdb
+: 28-08-2023 14:40:38: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:38: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:38: =   Connect.Open();
+: 28-08-2023 14:40:38: =   Connect.Open();
+: 28-08-2023 14:40:40: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:40: = Connectdb
+: 28-08-2023 14:40:40: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:40: = Connectdb
+: 28-08-2023 14:40:40: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:40: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:40: =   Connect.Open();
+: 28-08-2023 14:40:40: =   Connect.Open();
+: 28-08-2023 14:40:41: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:41: = Connectdb
+: 28-08-2023 14:40:41: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:41: = Connectdb
+: 28-08-2023 14:40:41: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:41: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:42: =   Connect.Open();
+: 28-08-2023 14:40:42: =   Connect.Open();
+: 28-08-2023 14:40:43: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:43: = Connectdb
+: 28-08-2023 14:40:43: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:40:43: = Connectdb
+: 28-08-2023 14:40:43: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:43: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:40:44: =   Connect.Open();
+: 28-08-2023 14:40:44: =   Connect.Open();
+: 28-08-2023 14:41:02: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:41:02: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:41:02: = Connectdb
+: 28-08-2023 14:41:02: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:41:02: = Connectdb
+: 28-08-2023 14:41:02: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:41:02: = Connectdb
+: 28-08-2023 14:41:02: = Connectdb
+: 28-08-2023 14:41:02: = Connectdb
+: 28-08-2023 14:41:02: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:41:02: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:41:03: = Connectdb
+: 28-08-2023 14:41:03: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:41:03: =   Connect.Open();
+: 28-08-2023 14:41:04: =   Connect.Open();
+: 28-08-2023 14:41:04: =   Connect.Open();
+: 28-08-2023 14:41:04: =   Connect.Open();
+: 28-08-2023 14:41:05: =   Connect.Open();
+: 28-08-2023 14:41:05: =   Connect.Open();
+: 28-08-2023 14:42:35: = Login begin
+: 28-08-2023 14:42:35: =  int i = 0;
+: 28-08-2023 14:42:35: = Connectdb
+: 28-08-2023 14:42:35: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:35: =   Connect.Open();
+: 28-08-2023 14:42:35: =    Module2.Instance.Connect.Close();
+: 28-08-2023 14:42:35: =   if (Module2.Instance.ds.Tables["Login_agent"].Rows.Count != 0)
+: 28-08-2023 14:42:35: =    Module2.Instance.strPassword = Module2.Instance.ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+: 28-08-2023 14:42:35: =  AgenID 16
+: 28-08-2023 14:42:35: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:42:35: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:42:35: =   foreach (IPAddress myIP in myIPs.AddressList)
+: 28-08-2023 14:42:35: =           Module2.Instance. Agent_Ip = myIP.ToString();
+: 28-08-2023 14:42:35: =  ; 
+: 28-08-2023 14:42:35: = Connectdb
+: 28-08-2023 14:42:35: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:35: =   Connect.Open();
+: 28-08-2023 14:42:35: =        UpdateCNFG_Agent_Info();
+: 28-08-2023 14:42:37: =  login by user AD AUTHORITY
+: 28-08-2023 14:42:37: = Connectdb
+: 28-08-2023 14:42:37: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:37: =   Connect.Open();
+: 28-08-2023 14:42:40: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:42:40: = Connectdb
+: 28-08-2023 14:42:40: = Connectdb
+: 28-08-2023 14:42:41: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:41: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:41: =   Connect.Open();
+: 28-08-2023 14:42:41: =   Connect.Open();
+: 28-08-2023 14:42:42: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:42:42: = Connectdb
+: 28-08-2023 14:42:42: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:43: =   Connect.Open();
+: 28-08-2023 14:42:44: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:42:44: = Connectdb
+: 28-08-2023 14:42:44: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:45: =   Connect.Open();
+: 28-08-2023 14:42:46: = select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID
+: 28-08-2023 14:42:46: = Connectdb
+: 28-08-2023 14:42:46: =     Connect = new OracleConnection(strConn);
+: 28-08-2023 14:42:46: =   Connect.Open();

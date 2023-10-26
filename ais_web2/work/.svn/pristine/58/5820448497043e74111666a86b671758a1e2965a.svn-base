@@ -1,0 +1,227 @@
+﻿using ais_web2.Models;
+using Jose;
+using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using Oracle.DataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Linq;
+using System.Security.Principal;
+using System.Threading;
+using System.Web;
+using System.Web.Mvc;
+
+namespace ais_web2.Controllers
+{
+    public class FrmReportTelController : Controller
+    {
+       static string  Agenids = string.Empty;
+        [Obsolete]
+        public ActionResult Index()
+        {
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+                Agenids = HttpContext.Request.Cookies["Agen"].Value;
+                Module1.Agent_Id = Agenids;
+            }
+            DateTime datet = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), new CultureInfo("en-US"));
+            CultureInfo cultureInfo = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            string[] jwt = HttpContext.Request.Cookies.AllKeys;
+            string StrSql = string.Empty;
+            foreach (string key in jwt)
+            {
+                if (key != "null" && key != "ASP.NET_SessionId" && key.Contains("Ag") != true && key.Contains("editv") != true && key.Contains("EXTENSION") != true)
+                {
+                    List<string> userjson = Module1.Instance.GetFromToken(key);
+
+                    if (datet <= Convert.ToDateTime(userjson[2].ToString()))
+                    {
+                        WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
+                        StrSql = "SELECT * FROM PREDIC_AGENTS";
+                        StrSql += " WHERE (LOGIN ='" + userjson[0] + "')";
+                        // StrSql &= "and (IS_ACTIVE = '1')"
+                        DataSet ds = Module1.Instance.CommandSet(StrSql, "Login_agent");
+                        if (ds != null)
+                            if (ds.Tables["Login_agent"].Rows.Count != 0)
+                            {
+                                return View();
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                    }
+                }
+            }
+            return null;
+        }
+        private string sql = "";
+        [Obsolete]
+        private DataSet ds = new DataSet();
+        private DataTable dt = new DataTable();
+        private int i;
+        private string status1;
+        private int sumservice;
+        private string actionflag;
+        private int z;
+        [HttpGet]
+        [Obsolete]
+        public string FrmReportTel_Load()
+        {
+            List<string> list = new List<string>();
+            list.Add(DateTime.Now.ToString());
+            string jsondata_1 = JsonConvert.SerializeObject(setcboStatus());
+            list.Add(jsondata_1);
+            return JsonConvert.SerializeObject(list);
+        }
+        [Obsolete]
+        private DataTable setcboStatus()
+        {
+            sql = "SELECT * FROM MAS_REASON ORDER BY RES_CODE ASC ";
+            dt = Module1.Comman_Static(sql);
+
+            if (dt.Rows.Count != 0) 
+            {
+                {
+                    return dt;
+                }
+            }
+            return null;
+        }
+        [Obsolete]
+        [HttpPost]
+        public string btnReport_Click(Telclass telclass)
+        {
+            return showreport(telclass);
+
+        }
+        [Obsolete]
+        public string showreport(Telclass telclass)
+        {
+            DataTable dt3 = new DataTable();
+            string sql2 = string.Empty;
+
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+                Agenids = HttpContext.Request.Cookies["Agen"].Value;
+                Module1.Agent_Id = Agenids;
+            }
+            string Agenid = Module1.Agent_Id;
+            if(Agenid == "")
+            {
+                Agenid = Agenids;
+            }
+            try
+            {
+
+                sql2 = "select * from  MAS_LEADS_TRANS ";
+                sql2 += " where  MAS_LEADS_TRANS.AGENT_ID = '" + Agenid+ "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
+                if (telclass.Day != null)
+                {
+                    string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
+                    string mm = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[1];
+                    string yy = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[2];
+                    sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
+                }
+                else
+                {
+                    string dd = DateTime.Now.ToString("dd-MMM-yy" , new CultureInfo("en-US")).Split('-')[0];
+                    string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
+                    string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
+                    sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
+                }
+                status1 = telclass.res_code;
+            }
+            catch
+            {
+            }
+            try
+            {
+                ds.Clear();
+            }
+            catch (Exception ex)
+            {
+                WriteLog.instance.Log("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message + "ข้อผิดพลาด");
+            }
+            dt3 = Module1.Comman_Static2(sql2);
+            if (dt3.Rows.Count > 0)
+            {
+                if (status1 == "01")
+                {
+                    telclass.res_code = status1;
+                    List<string> list = new List<string>();
+                    DataTable dt2 = Service_Sum(telclass);
+                    string data01 = JsonConvert.SerializeObject(dt2);
+                    string data02 = JsonConvert.SerializeObject(dt3);
+                    list.Add(data01);
+                    list.Add(data02);
+                    return JsonConvert.SerializeObject(list);
+                }
+                else
+                {
+                    telclass.res_code = status1;
+                    List<string> list = new List<string>();
+                    DataTable dt2 = Service_Sum(telclass);
+                    string data01 = JsonConvert.SerializeObject(dt2);
+                    string data02 = JsonConvert.SerializeObject(dt3);
+                    list.Add(data01);
+                    list.Add(data02);
+                    return JsonConvert.SerializeObject(list);
+                }
+            }
+            else
+            {
+
+                return "ไม่มีข้อมูลที่คุณค้นหา";
+            }
+        }
+       
+        [HttpPost]
+        public string DataGridView1_DoubleClick(Telclass telclass)
+        {
+
+            Thread.Sleep(2000);
+            Module1.Instance.statusfrm = "1";
+            Module1.Instance.status_Edit = "Edit";
+            List<string> list = new List<string>();
+            list.Add(telclass.anumber);
+            list.Add(telclass.res_code);
+            return JsonConvert.SerializeObject(list);
+        }
+        [Obsolete]
+        private DataTable Service_Sum(Telclass telclass)
+        {
+            sumservice = Convert.ToInt32("0");
+            string Agenid = Module1.Agent_Id;
+            if (Agenid == "")
+            {
+                Agenid = Agenids;
+            }
+            sql = "Select sum(service_01) as ser01,sum(service_02) as ser02,sum(service_03)as ser03,sum(service_04)as ser04,sum(service_05)as ser05,sum(service_06)as ser06,sum(service_07)as ser07,sum(service_08)as ser08,sum(service_09)as ser09,sum(service_10)as ser10,sum(service_11)as ser11,sum(service_12)as ser12,sum(service_13)as ser13,sum(COALESCE(service_14,'0'))as ser14,sum(COALESCE(service_15,'0'))as ser15,sum(COALESCE(service_16,'0'))as ser16,sum(COALESCE(service_17,'0'))as ser17,sum(COALESCE(service_18,'0'))as ser18,sum(COALESCE(service_19,'0'))as ser19,sum(COALESCE(service_20,'0'))as ser20,sum(COALESCE(service_21,'0'))as ser21,sum(COALESCE(service_22,'0'))as ser22,sum(COALESCE(service_27,'0'))as ser27,sum(COALESCE(service_29,'0'))as ser29,sum(COALESCE(service_28,'0'))as ser28,sum(COALESCE(service_33,'0'))as ser33,sum(COALESCE(service_01,'0')+COALESCE(service_02,'0')+COALESCE(service_03,'0')+COALESCE(service_04,'0')+COALESCE(service_05,'0')+COALESCE(service_06,'0')+COALESCE(service_07,'0')+COALESCE(service_08,'0')+COALESCE(service_09,'0')+COALESCE(service_10,'0')+COALESCE(service_11,'0')+COALESCE(service_12,'0')+COALESCE(service_13,'0')+COALESCE(service_14,'0')+COALESCE(service_15,'0')+COALESCE(service_16,'0')+COALESCE(service_17,'0')+COALESCE(service_18,'0')+COALESCE(service_19,'0')+COALESCE(service_20,'0')+COALESCE(service_21,'0')+COALESCE(service_22,'0')+COALESCE(service_27,'0')+COALESCE(service_29,'0')+COALESCE(service_28,'0')+COALESCE(service_33,'0')) as sum from mas_leads_trans ";
+            sql += "where  MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' and MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "' ";
+
+            if(telclass.Day != "" && telclass.Day != null)
+            {
+                string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
+                string mm = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[1];
+                string yy = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[2];
+                sql += " And to_date(MAS_LEADS_TRANS.LEAD_CALL_DATE,'DD/MM/YYYY') = to_date('" + dd + "/" + mm + "/" + yy + "','DD/MM/YYYY')";
+            }
+            else
+            {
+                string dd = DateTime.Now.ToString("dd-MMM-yy" , new CultureInfo("en-US")).Split('-')[0];
+                string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
+                string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
+                sql += " And to_date(MAS_LEADS_TRANS.LEAD_CALL_DATE,'DD/MM/YYYY') = to_date('" + dd + "/" + mm + "/" + yy + "','DD/MM/YYYY')";
+            }
+            dt = Module1.Comman_Static3(sql);
+
+            return dt;
+
+
+        }
+    }
+}

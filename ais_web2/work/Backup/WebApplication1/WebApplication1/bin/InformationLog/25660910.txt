@@ -1,0 +1,42 @@
+: 11-09-2566 10:51:23: = Connectdb
+: 11-09-2566 10:51:23: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 10:51:23: =   Connect.Open();
+: 11-09-2566 10:51:23: = Connectdb
+: 11-09-2566 10:51:23: =     Connect = new OracleConnection(strConn);
+: 11-09-2566 10:51:23: =   Connect.Open();
+: 20-09-2566 10:09:24: = Connectdb
+: 20-09-2566 10:09:24: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:09:24: =   Connect.Open();
+: 20-09-2566 10:09:30: = Connectdb
+: 20-09-2566 10:09:30: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:09:30: =   Connect.Open();
+: 20-09-2566 10:09:31: = Connectdb
+: 20-09-2566 10:09:31: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:09:31: =   Connect.Open();
+: 20-09-2566 10:32:14: = Connectdb
+: 20-09-2566 10:32:14: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:32:15: =   Connect.Open();
+: 20-09-2566 10:32:15: = Connectdb
+: 20-09-2566 10:32:15: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:32:15: =   Connect.Open();
+: 20-09-2566 10:32:15: = Connectdb
+: 20-09-2566 10:32:15: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:32:15: =   Connect.Open();
+: 20-09-2566 10:36:42: = Connectdb
+: 20-09-2566 10:36:42: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:36:42: =   Connect.Open();
+: 20-09-2566 10:36:49: = Connectdb
+: 20-09-2566 10:36:49: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:36:49: =   Connect.Open();
+: 20-09-2566 10:36:50: = Connectdb
+: 20-09-2566 10:36:50: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:36:50: =   Connect.Open();
+: 20-09-2566 10:54:22: = Connectdb
+: 20-09-2566 10:54:22: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:54:22: =   Connect.Open();
+: 20-09-2566 10:54:22: = Connectdb
+: 20-09-2566 10:54:22: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:54:22: =   Connect.Open();
+: 20-09-2566 10:54:22: = Connectdb
+: 20-09-2566 10:54:22: =     Connect = new OracleConnection(strConn);
+: 20-09-2566 10:54:22: =   Connect.Open();

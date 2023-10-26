@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/XvD1zcu61FjoLnM1zrKssTatO0v+ZdEtPlD7L5fORW7AqYTUIzt33GOz4Bxv59kNNSd1YyaOYQCiHAb4ACESw==",
+  "success": true,
+  "projectFilePath": "D:\\work\\Program_v4.8\\ais_web2\\work\\ais_web2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.codedom.providers.dotnetcompilerplatform\\3.11.0\\microsoft.codedom.providers.dotnetcompilerplatform.3.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}

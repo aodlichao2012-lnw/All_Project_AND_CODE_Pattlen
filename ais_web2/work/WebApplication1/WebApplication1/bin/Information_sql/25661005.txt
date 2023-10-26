@@ -1,0 +1,28 @@
+: 05-10-2566 11:56:00: = select * from MAS_LEADS_TRANS where anumber = '098763455777'
+: 05-10-2566 11:56:00: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 11:56:05: = select * from MAS_LEADS_TRANS where anumber = '098763455777'
+: 05-10-2566 11:56:05: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:16:07: = select * from MAS_LEADS_TRANS where anumber = '09876545676'
+: 05-10-2566 12:16:07: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:16:36: = select * from MAS_LEADS_TRANS where anumber = '09876545676'
+: 05-10-2566 12:16:36: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:48:59: = select * from MAS_LEADS_TRANS where anumber = '09876567892'
+: 05-10-2566 12:48:59: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:49:06: = select * from MAS_LEADS_TRANS where anumber = '09876567892'
+: 05-10-2566 12:49:06: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:49:28: = select * from MAS_LEADS_TRANS where anumber = '09876567892'
+: 05-10-2566 12:49:28: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:49:33: = select * from MAS_LEADS_TRANS where anumber = '09876567892'
+: 05-10-2566 12:49:33: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 12:53:54: = select * from MAS_LEADS_TRANS where anumber = '09876567892'
+: 05-10-2566 12:53:54: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 13:06:54: = select * from MAS_LEADS_TRANS where anumber = '0987655670'
+: 05-10-2566 13:06:54: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 15:12:55: = select * from MAS_LEADS_TRANS where anumber = '0801065934'
+: 05-10-2566 15:12:55: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 15:13:03: = select * from MAS_LEADS_TRANS where anumber = '0801065931'
+: 05-10-2566 15:13:03: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 16:05:41: = select * from MAS_LEADS_TRANS where anumber = '0987655670'
+: 05-10-2566 16:05:41: = Data Source=ORAIEC23;User Id=PREGOV;
+: 05-10-2566 16:06:59: = select * from MAS_LEADS_TRANS where anumber = '0987655670'
+: 05-10-2566 16:06:59: = Data Source=ORAIEC23;User Id=PREGOV;

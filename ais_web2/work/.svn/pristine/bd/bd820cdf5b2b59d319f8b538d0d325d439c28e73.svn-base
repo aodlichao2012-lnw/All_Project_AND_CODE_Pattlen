@@ -1,0 +1,67 @@
+﻿using ais_web2.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace ais_web2.Controllers
+{
+    public class FrmStatusController : Controller
+    {
+        string Agenids = string.Empty;
+        [HttpGet]
+        public string Index()
+        {
+            return "";
+        }
+        [HttpGet]
+        [Obsolete]
+        public string FrmStatus_Load()
+        {
+            try
+            {
+                if (HttpContext.Request.Cookies["Agen"].Value != null)
+                {
+                    Agenids = HttpContext.Request.Cookies["Agen"].Value;
+                    Module1.Agent_Id = Agenids;
+                }
+            }
+            catch
+            {
+                Module1.Agent_Id = "";
+            }
+            return Get_Project();
+        }
+
+        [Obsolete]
+        public string Get_Project()
+        {
+            try
+            {
+                string SQL = "";
+                SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID";
+                // Conn.Open(SQL, Conn)
+                WriteLog.instance.Log(SQL);
+                DataTable dt2 = Module1.Comman_Static(SQL ,new string[] { Agenids} , new string[] { ":AGENT_ID" });
+                if (dt2 == null)
+                {
+                    return "Unknow";
+                }
+                if (dt2.Rows.Count > 0)
+                {
+                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                }
+                return "Unknow";
+            }
+            catch (Exception ex)
+            {
+                return "Unknow";
+            }
+        }
+    }
+}

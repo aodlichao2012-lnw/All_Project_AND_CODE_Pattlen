@@ -1,0 +1,1571 @@
+﻿using Jose;
+using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using ais_web3.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Security.Principal;
+using System.Threading;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+using Oracle.DataAccess.Client;
+using System.Text;
+
+namespace ais_web3.Controllers
+{
+    public class FrmDetailController : Controller
+    {
+        public Dictionary<string, string> keyValuePairs;
+        public FrmDetailController() { }
+        private DataSet ds = new DataSet();
+        private DataTable dt2 = new DataTable();
+        private string sql;
+        private int i;
+        private OracleDataAdapter da;
+        private OracleCommand cmd;
+        private string sqlsearch = "";
+        private string strUpdate = "";
+        private string service = "";
+        private string strRec_Code = "";
+        private string strDeny_Code = "";
+        private string strDeny = "";
+        private DateTime myDate;
+        private string mystr, myMonth;
+        private string num;
+        private int num_year = 0;
+        private int num_month;
+        private string showDay = "";
+        private Process myProcess;
+        private string strData, pAni1, sLang1; // ...AVAYA CTI
+        private string Anumber = "";
+        [HttpPost]
+        [Obsolete]
+        public string FrmDetail_Load(Telclass2 telclass)
+        {
+            return FromLoad(telclass);
+        }
+        [Obsolete]
+        private string FromLoad(Telclass2 telclass)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
+            if (telclass.status != "")
+            {
+                string json = showDataforEdit(telclass);
+                HttpContext.Response.Cookies["editv"].Value = json;
+                return json;
+            }
+            else if (telclass.status == null || telclass.status == "")
+            {
+                string json = showDataforEdit(telclass);
+                HttpContext.Response.Cookies["editv"].Value = json;
+                return json;
+            }
+            else if (telclass.status != "สมัคร")
+            {
+                if (telclass.status != "สมัคร" | telclass.status == "สายว่างไม่มีผู้รับ" | telclass.status == "ติดต่อกลับ" | telclass.status == "ไม่สนใจ")
+                {
+                    showDay = "show";
+                    return showdata2(telclass);
+                }
+                else if (telclass.status == "สมัคร" | telclass.status == "สายว่างไม่มีผู้รับ" | telclass.status == "ติดต่อกลับ" | telclass.status == "ไม่สนใจ")
+                {
+                    return showdata2(telclass);
+
+                }
+                return "";
+            }
+            return "";
+        }
+        [Obsolete]
+        private string setcboDeny(string res_code)
+        {
+            sql = "SELECT * FROM MAS_RESON_DENY WHERE RES_CODE = :RES_CODE "; // WHERE RES_STATUS = '0' "
+            DataTable dt = Module2.Comman_Static(sql, new string[] { res_code }, new string[] { ":RES_CODE" });
+            if (dt.Rows.Count != 0)
+            {
+                {
+                    return JsonConvert.SerializeObject(dt);
+                }
+            }
+            return null;
+        }
+        [Obsolete]
+        private DataTable setcboDenyByCode()
+        {
+            sql = "SELECT * FROM MAS_RESON_DENY WHERE Deny_Code = :Deny_Code ";
+            DataTable dt = Module2.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" });
+            if (dt.Rows.Count != 0)
+            {
+                return dt;
+            }
+            return null;
+        }
+        private void checkMonth(checkcbo checkcbos)
+        {
+            if (checkcbos.cboMouth == "มกราคม")
+            {
+                Module2.Instance.Birth_MM = "01";
+            }
+            else if (checkcbos.cboMouth == "กุมภาพันธ์")
+            {
+                Module2.Instance.Birth_MM = "02";
+            }
+            else if (checkcbos.cboMouth == "มีนาคม")
+            {
+                Module2.Instance.Birth_MM = "03";
+            }
+
+            else if (checkcbos.cboMouth == "เมษายน")
+            {
+                Module2.Instance.Birth_MM = "04";
+            }
+            else if (checkcbos.cboMouth == "พฤษภาคม")
+            {
+                Module2.Instance.Birth_MM = "05";
+            }
+            else if (checkcbos.cboMouth == "มิถุนายน")
+            {
+                Module2.Instance.Birth_MM = "06";
+            }
+            else if (checkcbos.cboMouth == "กรกฏาคม")
+            {
+                Module2.Instance.Birth_MM = "07";
+            }
+            else if (checkcbos.cboMouth == "สิงหาคม")
+            {
+                Module2.Instance.Birth_MM = "08";
+            }
+            else if (checkcbos.cboMouth == "กันยายน")
+            {
+                Module2.Instance.Birth_MM = "09";
+            }
+            else if (checkcbos.cboMouth == "ตุลาคม")
+            {
+                Module2.Instance.Birth_MM = "10";
+            }
+            else if (checkcbos.cboMouth == "พฤศจิกายน")
+            {
+                Module2.Instance.Birth_MM = "11";
+            }
+            else if (checkcbos.cboMouth == "ธันวาคม")
+            {
+                Module2.Instance.Birth_MM = "12";
+            }
+            else if (checkcbos.cboMouth == "")
+            {
+                Module2.Instance.Birth_MM = "00";
+
+            }
+        }
+        private string checkDay(checkcbo checkcbos)
+        {
+            if (mystr == "Sunday")
+            {
+                return "อาทิตย์";
+            }
+            else if (mystr == "Monday")
+            {
+                return "จันทร์";
+            }
+            else if (mystr == "Tuesday")
+            {
+                return "อังคาร";
+            }
+            else if (mystr == "Wednesday")
+            {
+                return "พุธ";
+            }
+            else if (mystr == "Thursday")
+            {
+                return "พฤหัสบดี";
+            }
+            else if (mystr == "Friday")
+            {
+                return "ศุกร์";
+            }
+            else if (mystr == "Saturday")
+            {
+                return "เสาร์";
+            }
+            return "";
+
+        }
+
+        [Obsolete]
+        public string showDataforEdit(Telclass2 telclass2)
+        {
+            form1 form = new form1();
+            string sqlselect = "";
+            string sDate = "";
+            string sDate2 = "";
+            sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
+            DataTable dt = Module2.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id }, new string[] { ":ANUMBER", ":AGENT_ID" });
+            if (dt.Rows.Count > 0)
+            {
+                form.txtTel_No = telclass2.anumber;
+                form.txtOper = Module2.Instance.strOperr;
+                sDate = dt.Rows[0]["LEAD_CALL_DATE"].ToString();
+                if (!string.IsNullOrEmpty(sDate))
+                {
+                    try
+                    {
+                        sDate2 = Convert.ToDateTime(sDate).ToString("dd/MM/yy");
+                    }
+                    catch
+                    {
+                        sDate2 = "";
+                    }
+                }
+                try
+                {
+                    form.txtDate_Tel = Convert.ToDateTime(sDate).ToString("dd/MM/yy");
+                }
+                catch
+                {
+                    form.txtDate_Tel = "";
+                }
+                if (dt.Rows[0]["RES_CODE"].ToString() == "01")
+                {
+                    form.cboStatus = "สมัคร";
+                    form.cboDeny = "";
+                    strDeny = "";
+                    strRec_Code = "01";
+                    if ((sDate2 ?? "") == (String.Format(Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yy")) ?? ""))
+                    {
+                        form.btnEdit = true;
+                        form.btnSave = true;
+                        form.Button1 = true;
+                    }
+                    else
+                    {
+                        form.btnEdit = false;
+                        form.btnSave = false;
+                        form.Button1 = false;
+                    }
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "02")
+                {
+                    strRec_Code = "02";
+                    form.cboStatus = "ติดต่อกลับ";
+                    form.cboDeny = "";
+                    form.strDeny = "";
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "03")
+                {
+                    strRec_Code = "03";
+                    form.cboStatus = "ไม่สนใจ";
+                    strDeny_Code = dt.Rows[i]["DENY_CODE"].ToString();
+                    setcboDenyByCode();
+                    form.btnEdit = true;
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "04")
+                {
+                    strRec_Code = "04";
+                    form.cboStatus = "ไม่สามารถติดต่อได้ในขณะนี้";
+                    form.cboDeny = "";
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "05")
+                {
+                    strRec_Code = "05";
+                    form.cboStatus = "สายว่างไม่มีผู้รับ";
+                    form.cboDeny = "";
+                    strDeny = "";
+                    form.btnEdit = true;
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "06")
+                {
+                    strRec_Code = "06";
+                    form.cboStatus = "ยังไม่เปิดใช้บริการ";
+                    form.cboDeny = "";
+                    strDeny = "";
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "07")
+                {
+                    strRec_Code = "07";
+                    form.cboStatus = "ระงับบริการชั่วคราว";
+                    form.cboDeny = "";
+                    strDeny = "";
+                }
+                if (dt.Rows[0]["RES_CODE"].ToString() == "01" | dt.Rows[0]["RES_CODE"].ToString() == "02" | dt.Rows[0]["RES_CODE"].ToString() == "03" | dt.Rows[0]["RES_CODE"].ToString() == "05")
+                {
+                    if (dt.Rows[0]["CUST_SEX"].ToString() == "M")
+                    {
+                        form.cboSex = "ชาย";
+                    }
+                    else if (dt.Rows[0]["CUST_SEX"].ToString() == "F")
+                    {
+                        form.cboSex = "หญิง";
+                    }
+                    else if (string.IsNullOrEmpty(dt.Rows[0]["CUST_SEX"].ToString()))
+                    {
+                        form.cboSex = "";
+                    }
+                    form.txtYear = dt.Rows[0]["BIRTH_YYYY"].ToString();
+                    if (dt.Rows[0]["BIRTH_DAY"].ToString() == "1")
+                    {
+                        form.cboDate = "อาทิตย์";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "2")
+                    {
+                        form.cboDate = "จันทร์";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "3")
+                    {
+                        form.cboDate = "อังคาร";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "4")
+                    {
+                        form.cboDate = "พุธ";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "5")
+                    {
+                        form.cboDate = "พฤหัสบดี";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "6")
+                    {
+                        form.cboDate = "ศุกร์";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "7")
+                    {
+                        form.cboDate = "เสาร์";
+                    }
+                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "0")
+                    {
+                        form.cboDate = "";
+                    }
+                    form.cboDeny = strDeny;
+                    form.txtName = dt.Rows[0]["CUST_NAME"].ToString();
+                    form.txtSName = dt.Rows[0]["CUST_SNAME"].ToString();
+                    form.cboDate_No = dt.Rows[0]["BIRTH_DD"].ToString();
+                    if (dt.Rows[0]["Birth_MM"].ToString() == "01")
+                    {
+                        form.cboMouth = "มกราคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "02")
+                    {
+                        form.cboMouth = "กุมภาพันธ์";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "03")
+                    {
+                        form.cboMouth = "มีนาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "04")
+                    {
+                        form.cboMouth = "เมษายน";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "05")
+                    {
+                        form.cboMouth = "พฤษภาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "5")
+                    {
+                        form.cboMouth = "พฤษภาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "06")
+                    {
+                        form.cboMouth = "มิถุนายน";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "07")
+                    {
+                        form.cboMouth = "กรกฏาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "08")
+                    {
+                        form.cboMouth = "สิงหาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "09")
+                    {
+                        form.cboMouth = "กันยายน";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "10")
+                    {
+                        form.cboMouth = "ตุลาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "11")
+                    {
+                        form.cboMouth = "พฤศจิกายน";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "12")
+                    {
+                        form.cboMouth = "ธันวาคม";
+                    }
+                    else if (dt.Rows[0]["Birth_MM"].ToString() == "00")
+                    {
+                        form.cboMouth = "";
+                    }
+                    if (dt.Rows[0]["SERVICE_01"].ToString() == "1")
+                    {
+                        form.SERVICE_0 = true;
+                        form.SERVICE_8 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_01"].ToString() == "0")
+                    {
+                        form.SERVICE_0 = false;
+                        form.SERVICE_8 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_02"].ToString() == "1")
+                    {
+                        form.SERVICE_2 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_02"].ToString() == "0")
+                    {
+                        form.SERVICE_2 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_03"].ToString() == "1")
+                    {
+                        form.SERVICE_3 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_03"].ToString() == "0")
+                    {
+                        form.SERVICE_3 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_04"].ToString() == "1")
+                    {
+                        form.SERVICE_4 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_04"].ToString() == "0")
+                    {
+                        form.SERVICE_4 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_05"].ToString() == "1")
+                    {
+                        form.SERVICE_5 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_05"].ToString() == "0")
+                    {
+                        form.SERVICE_5 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_06"].ToString() == "1")
+                    {
+                        form.SERVICE_6 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_06"].ToString() == "0")
+                    {
+                        form.SERVICE_6 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_07"].ToString() == "1")
+                    {
+                        form.SERVICE_7 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_07"].ToString() == "0")
+                    {
+                        form.SERVICE_7 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_08"].ToString() == "1")
+                    {
+                        form.SERVICE_8 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_08"].ToString() == "0")
+                    {
+                        form.SERVICE_9 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_09"].ToString() == "1")
+                    {
+                        form.SERVICE_9 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_09"].ToString() == "0")
+                    {
+                        form.SERVICE_9 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_10"].ToString() == "1")
+                    {
+                        form.SERVICE_10 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_10"].ToString() == "0")
+                    {
+                        form.SERVICE_10 = false;
+                    }
+
+                    if (dt.Rows[0]["SERVICE_11"].ToString() == "1")
+                    {
+                        form.SERVICE_11 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_11"].ToString() == "0")
+                    {
+                        form.SERVICE_11 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_12"].ToString() == "1")
+                    {
+                        form.SERVICE_12 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_12"].ToString() == "0")
+                    {
+                        form.SERVICE_12 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_13"].ToString() == "1")
+                    {
+                        form.SERVICE_13 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_13"].ToString() == "0")
+                    {
+                        form.SERVICE_13 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_14"].ToString() == "1")
+                    {
+                        form.SERVICE_14 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_14"].ToString() == "0")
+                    {
+                        form.SERVICE_14 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_16"].ToString() == "1")
+                    {
+                        form.SERVICE_16 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_16"].ToString() == "0")
+                    {
+                        form.SERVICE_16 = false;
+                    }
+                    if (dt.Rows[0]["SERVICE_29"].ToString() == "1")
+                    {
+                        form.SERVICE_29 = true;
+                    }
+                    else if (dt.Rows[0]["SERVICE_29"].ToString() == "0")
+                    {
+                        form.SERVICE_29 = false;
+                    }
+                    if (string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
+                    {
+                        form.cbocity = "";
+                    }
+                    else if (!string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
+                    {
+                        form.cbocity = dt.Rows[0]["CITY_NAME_T"].ToString();
+                    }
+                }
+                form.statustel = telclass2.status;
+                string json = JsonConvert.SerializeObject(form);
+                byte[] utf8Bytes = Encoding.UTF8.GetBytes(json);
+                string json_url_string = HttpUtility.UrlEncode(utf8Bytes);
+                return json_url_string;
+            }
+            return JsonConvert.SerializeObject(null);
+        }
+        [Obsolete]
+        public string showdata2(Telclass2 telclass2)
+        {
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+
+                Module2.Agent_Id = HttpContext.Request.Cookies["Agen"].Value;
+            }
+            string sqlselect = "";
+            form1 form = new form1();
+            sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
+            DataTable dt = Module2.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" });
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["RES_CODE"].ToString() == "01")
+                {
+                }
+
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "02")
+                {
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "03")
+                {
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "04")
+                {
+
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "05")
+                {
+
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "06")
+                {
+
+                }
+                else if (dt.Rows[0]["RES_CODE"].ToString() == "07")
+                {
+
+                }
+                if (!string.IsNullOrEmpty(dt.Rows[0]["DENY_CODE"].ToString()))
+                {
+                }
+                else if (string.IsNullOrEmpty(dt.Rows[0]["DENY_CODE"].ToString()))
+                {
+                    form.cboDeny = "";
+                }
+                if (dt.Rows[0]["CUST_SEX"].ToString() == "M")
+                {
+                    form.cboSex = "ชาย";
+                }
+                else if (dt.Rows[0]["CUST_SEX"].ToString() == "F")
+                {
+                    form.cboSex = "หญิง";
+                }
+                else if (dt.Rows[0]["CUST_SEX"].ToString() == " ")
+                {
+                    form.cboSex = "";
+                }
+                if (dt.Rows[0]["BIRTH_DAY"].ToString() == "1")
+                {
+                    form.cboDate = "อาทิตย์";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "2")
+                {
+                    form.cboDate = "จันทร์";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "3")
+                {
+                    form.cboDate = "อังคาร";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "4")
+                {
+                    form.cboDate = "พุธ";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "5")
+                {
+                    form.cboDate = "พฤหัสบดี";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "6")
+                {
+                    form.cboDate = "ศุกร์";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "7")
+                {
+                    form.cboDate = "เสาร์";
+                }
+                else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "0")
+                {
+                    form.cboDate = "";
+                }
+                if (dt.Rows[0][" Birth_MM"].ToString() == "01")
+                {
+                    form.cboMouth = "มกราคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "02")
+                {
+                    form.cboMouth = "กุมภาพันธ์";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "03")
+                {
+                    form.cboMouth = "มีนาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "04")
+                {
+                    form.cboMouth = "เมษายน";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "05")
+                {
+                    form.cboMouth = "พฤษภาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "06")
+                {
+                    form.cboMouth = "มิถุนายน";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "07")
+                {
+                    form.cboMouth = "กรกฏาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "08")
+                {
+                    form.cboMouth = "สิงหาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "09")
+                {
+                    form.cboMouth = "กันยายน";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "10")
+                {
+                    form.cboMouth = "ตุลาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "11")
+                {
+                    form.cboMouth = "พฤศจิกายน";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "12")
+                {
+                    form.cboMouth = "ธันวาคม";
+                }
+                else if (dt.Rows[0][" Birth_MM"].ToString() == "00")
+                {
+                    form.cboMouth = "";
+                }
+                form.txtYear = dt.Rows[0]["BIRTH_YYYY"].ToString();
+                if (dt.Rows[0]["SERVICE_01"].ToString() == "1")
+                {
+                    form.SERVICE_1 = true;
+                    form.SERVICE_8 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_01"].ToString() == "0")
+                {
+                    form.SERVICE_1 = false;
+                    form.SERVICE_8 = false;
+                }
+
+                if (dt.Rows[0]["SERVICE_02"].ToString() == "1")
+                {
+                    form.SERVICE_2 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_02"].ToString() == "0")
+                {
+                    form.SERVICE_2 = false;
+                }
+                if (dt.Rows[0]["SERVICE_03"].ToString() == "1")
+                {
+                    form.SERVICE_3 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_03"].ToString() == "0")
+                {
+                    form.SERVICE_3 = false;
+                }
+                if (dt.Rows[0]["SERVICE_04"].ToString() == "1")
+                {
+                    form.SERVICE_4 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_04"].ToString() == "0")
+                {
+                    form.SERVICE_4 = false;
+                }
+                if (dt.Rows[0]["SERVICE_05"].ToString() == "1")
+                {
+                    form.SERVICE_5 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_05"].ToString() == "0")
+                {
+                    form.SERVICE_5 = false;
+                }
+                if (dt.Rows[0]["SERVICE_06"].ToString() == "1")
+                {
+                    form.SERVICE_6 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_06"].ToString() == "0")
+                {
+                    form.SERVICE_6 = false;
+                }
+                if (dt.Rows[0]["SERVICE_07"].ToString() == "1")
+                {
+                    form.SERVICE_7 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_07"].ToString() == "0")
+                {
+                    form.SERVICE_7 = false;
+                }
+                if (dt.Rows[0]["SERVICE_08"].ToString() == "1")
+                {
+                    form.SERVICE_8 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_08"].ToString() == "0")
+                {
+                    form.SERVICE_8 = false;
+                }
+                if (dt.Rows[0]["SERVICE_09"].ToString() == "1")
+                {
+                    form.SERVICE_9 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_09"].ToString() == "0")
+                {
+                    form.SERVICE_9 = false;
+                }
+
+                if (dt.Rows[0]["SERVICE_10"].ToString() == "1")
+                {
+                    form.SERVICE_10 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_10"].ToString() == "0")
+                {
+                    form.SERVICE_10 = false;
+                }
+                if (dt.Rows[0]["SERVICE_11"].ToString() == "1")
+                {
+                    form.SERVICE_11 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_11"].ToString() == "0")
+                {
+                    form.SERVICE_11 = false;
+                }
+
+                if (dt.Rows[0]["SERVICE_12"].ToString() == "1")
+                {
+                    form.SERVICE_12 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_12"].ToString() == "0")
+                {
+                    form.SERVICE_12 = false;
+                }
+
+                if (dt.Rows[0]["SERVICE_13"].ToString() == "1")
+                {
+                    form.SERVICE_13 = true;
+                }
+                else if (dt.Rows[0]["SERVICE_13"].ToString() == "0")
+                {
+                    form.SERVICE_13 = false;
+                }
+
+                if (dt.Rows[0]["SERVICE_14"].ToString() == "1")
+                {
+                    form.SERVICE_14 = true;
+                }
+
+                else if (dt.Rows[0]["SERVICE_14"].ToString() == "0")
+                {
+                    form.SERVICE_14 = false;
+
+                }
+
+                if (dt.Rows[0]["SERVICE_16"].ToString() == "1")
+                {
+                    form.SERVICE_16 = true;
+                }
+
+                else if (dt.Rows[0]["SERVICE_16"].ToString() == "0")
+                {
+                    form.SERVICE_16 = false;
+
+                }
+
+
+                if (string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
+                {
+                    form.cbocity = "";
+                }
+                else if (!string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
+                {
+                    form.cbocity = dt.Rows[0]["CITY_NAME_T"].ToString();
+                }
+                form.statustel = telclass2.status;
+
+                return JsonConvert.SerializeObject(form);
+            }
+            return JsonConvert.SerializeObject(null);
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        }
+        [Obsolete]
+        private string cboStatus_SelectedIndexChanged(string cboStatus, string res_code)
+        {
+            List<string> list = new List<string>();
+            if (cboStatus == "ไม่สนใจ")
+            {
+                list.Add("เหตุผล");
+                list.Add(setcboDeny(res_code.ToString()));
+                list.Add(true.ToString());
+            }
+            else if (cboStatus == "เครือข่ายอื่นๆ")
+            {
+                list.Add("เครือข่าย");
+                list.Add("DTAC");
+                list.Add("TRUE");
+                list.Add("ไม่ระบุ");
+                list.Add(true.ToString());
+            }
+            else
+            {
+                list.Add(false.ToString());
+                list.Add("");
+                list.Add("เหตุผล");
+            }
+            return JsonConvert.SerializeObject(list);
+        }
+        [Obsolete]
+        private string showCity()
+        {
+            string searchcity;
+            Module2.Instance.Connectdb();
+            searchcity = " SELECT * FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
+            DataTable dt = Module2.Comman_Static(searchcity);
+            if (dt.Rows.Count != 0)
+            {
+                {
+                    return JsonConvert.SerializeObject(dt);
+                }
+            }
+            Module2.Instance.Connect.Close();
+            return "";
+        }
+        [Obsolete]
+        private string setcboStatus()
+        {
+            Module2.Instance.Connectdb();
+            sql = "SELECT * FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
+
+            DataTable dt = new DataTable();
+            dt = Module2.Comman_Static(sql);
+            if (dt.Rows.Count != 0)
+            {
+                {
+                    return JsonConvert.SerializeObject(dt);
+                }
+            }
+            Module2.Instance.Connect.Close();
+            return "";
+        }
+        private string cboMouth_KeyDown(string cboDate_No, string cboMouth, string txtYear)
+        {
+
+            if (cboDate_No != "" & cboMouth != "" & txtYear != "")
+            {
+                checkMonth(new Models.checkcbo() { cboDate = cboDate_No, cboMouth = cboMouth, txtYear = txtYear });
+                checkDay(new Models.checkcbo() { cboDate = cboDate_No, cboMouth = cboMouth, txtYear = txtYear });
+                return Module2.Instance.Birth_MM;
+            }
+            return "";
+        }
+
+        [Obsolete]
+        private string SetAVAL()
+        {
+            int rowUpdate;
+            strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '" + Module2.Agent_Id + "'";
+            Event_Log("SqlUpdate  Available : " + strUpdate);
+            try
+            {
+                {
+
+                    rowUpdate = Module2.Instance.CommanEx(strUpdate);
+                    // Conn.Close()
+                }
+                Event_Log("RowUpdate :  " + rowUpdate);
+                Event_Log("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                return strUpdate;
+            }
+            catch (Exception ex)
+            {
+                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
+            }
+        }
+        [Obsolete]
+        private void SelectCall_Count()
+        {
+            Module2.Instance.Connectdb();
+            sqlsearch = "";
+            sqlsearch = "SELECT CALL_COUNT FROM CNFG_AGENT_INFO WHERE  AGENT_ID = '" + Module2.Agent_Id + "' ";
+            da = new OracleDataAdapter(sqlsearch, Module2.Instance.Connect);
+            da.Fill(ds, "Call_Count");
+            Module2.Instance.Connect.Close();
+
+            if (ds.Tables["Call_Count"].Rows.Count > 0)
+            {
+                Module2.Instance.Call_Count = Convert.ToInt32(ds.Tables["Call_Count"].Rows[i]["Call_Count"].ToString());
+            }
+        }
+
+        [Obsolete]
+        private string SingOut()
+        {
+            Module2.Instance.Connectdb();
+            strUpdate = "";
+            strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' ,";
+            strUpdate += " TERMINAL_IP  = '',";
+            strUpdate += " CALL_COUNT  = 0,";
+            strUpdate += " LOGIN_TIME   = ''";
+            strUpdate += " WHERE  AGENT_ID = '" + Module2.Agent_Id + "'";
+            try
+            {
+                {
+                    var withBlock = Module2.Instance.com;
+                    withBlock.Connection = Module2.Instance.Connect;
+                    withBlock.CommandType = CommandType.Text;
+                    withBlock.CommandText = strUpdate;
+                    withBlock.ExecuteNonQuery();
+                    return "";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
+            }
+        }
+
+        [Obsolete]
+        private void btnSingout_Click(object sender, EventArgs e)
+        {
+            SingOut();
+        }
+        [HttpPost]
+        [Obsolete]
+        public string btnSave_Click(form3 form)
+        {
+            int year2;
+            string year3;
+            int age;
+            int rowInsert;
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("th-TH");
+            if (form.cboStatus == "สมัคร")
+            {
+                if (form.SERVICE_21 == false & form.SERVICE_11 == false)
+                {
+                    return "กรุณาเลือกบริการค่ะ ";
+                }
+                if (form.txtName == "" | form.cbocity == "" | form.txtYear == "")
+                {
+                    return "กรุณากรอกข้อมูลให้ครบค่ะ";
+                }
+                else if (form.SERVICE_02 == true & form.cboDate == "")
+                {
+                    return "กรุณากรอกวันเกิดลูกค้าค่ะ";
+                }
+                else
+                {
+                    year2 = int.Parse(form.txtYear);
+                    year3 = DateTime.Now.ToString("yyyy", new CultureInfo("en-US"));
+                    age = Convert.ToInt32(year3) - year2;
+
+                    if (age < 15)
+                    {
+                        return "ลูกค้าอายุน้อยกว่า 15 ปี ไม่สามารถรับบริการได้ค่ะ";
+                    }
+                    if (age > 55)
+                    {
+                        return "ลูกค้าอายุมากกว่า 55 ปี ไม่สามารถรับบริการได้ค่ะ";
+                    }
+                    if (age < 21 & form.SERVICE_03 == true)
+                    {
+                        return "ไม่สามารถรับบริการ Lotto guru ได้  เพราะปีเกิดที่ระบุไม่อยู่ในช่วงที่กำหนด";
+
+                    }
+                }
+            }
+            if (Module2.Instance.status_Edit == "")
+            {
+                sqlsearch = "";
+                sqlsearch = "INSERT INTO MAS_LEADS_TRANS(ANUMBER,LEAD_CALL_DATE,SERVICE_01,SERVICE_02,SERVICE_03,SERVICE_04,SERVICE_05,SERVICE_06,SERVICE_07,SERVICE_08,SERVICE_09,SERVICE_10,SERVICE_11,SERVICE_12,SERVICE_13,SERVICE_14,SERVICE_15,SERVICE_16,SERVICE_17,SERVICE_18,SERVICE_19,SERVICE_20,SERVICE_21,SERVICE_22,SERVICE_23,SERVICE_24,SERVICE_25,SERVICE_26,SERVICE_27,SERVICE_28,SERVICE_29,SERVICE_33,";
+                sqlsearch += "CUST_NAME,CUST_SNAME,BIRTH_DAY,BIRTH_DD, Module2.Instance.Birth_MM,BIRTH_YYYY,CUST_SEX,RES_CODE,CITY_NAME_T,OPERATION,DENY_CODE,PREDICT_STATUS,AGENT_ID)VALUES(";
+                sqlsearch += "'" + form.txtTel_No + "',";
+                sqlsearch += " sysdate,'";
+
+                // -----------------  for predictive AIS --------------------
+                sqlsearch += "0" + "','";
+
+                sqlsearch += "0" + "','"; // service_02 
+                                          // End If
+
+                // If SA11.Checked = True And SA11.Text = "Women Topic" Then
+                // sqlsearch &= "1" & "','" 'service_03
+                // Else
+                sqlsearch += "0" + "','"; // service_03 
+                                          // End If
+
+                sqlsearch += "0" + "','"; // service_04 
+                                          // End If
+
+
+                sqlsearch += "0" + "','"; // DTV News service_05
+                sqlsearch += "0" + "','"; // อ.ไพศาล service_06
+                sqlsearch += "0" + "','"; // Disney Horo service_07
+                sqlsearch += "0" + "','"; // อ.ลักษณ์ (ความรัก) service_08
+                sqlsearch += "0" + "','"; // อ.เก่งกาจ (ความรัก) service_09
+                                          // sqlsearch &= "0" & "','"  'Hot News service_10
+                                          // If SA4.Checked = True Then ' Hot News service_10
+                sqlsearch += "0" + "','";   // Hot News service_10
+                sqlsearch += "0" + "','";   // Hot News service_11
+                                            // End If
+
+                if (form.SERVICE_21 == true)
+                {
+                    sqlsearch += "1" + "','"; // service_12 SMS เสริมทรัพย์เสริมโชค
+                }
+                else if (form.SERVICE_21 == false)
+                {
+                    sqlsearch += "0" + "','"; // service_12
+                }
+
+                if (form.SERVICE_11 == true)
+                {
+                    sqlsearch += "1" + "','"; // service_13 VDO ดวง อ.เก่งกาจ
+                }
+                else if (form.SERVICE_11 == false)
+                {
+                    sqlsearch += "0" + "','"; // service_13
+                }
+
+                // If SA12.Checked = True Then
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA12.Checked = False Then
+                // sqlsearch &= "0" & "','" 'ยิปซีพยากรณ์ โดย อ.ทิพย์ service_12
+                // 'End If
+
+                // 'If SA13.Checked = True Then
+                // '    sqlsearch &= "1" & "','"
+                // 'ElseIf SA13.Checked = False Then
+                // sqlsearch &= "0" & "','" ' ฤกษ์เด่นรายวัน service_13
+                // End If
+
+                // If SA14.Checked = True Then '  เกาะกระแส  service_14
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA14.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+                if (form.SERVICE_03 == true) // Lotto guru  service_15
+                {
+                    sqlsearch += "1" + "','";
+                }
+                else if (form.SERVICE_03 == false)
+                {
+                    sqlsearch += "0" + "','";
+                }
+                // If SA2.Checked = True Then ' เคล็ดมงคลประจำวัน service_16 
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA2.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+                if (form.SERVICE_17 == true)
+                {
+                    sqlsearch += "1" + "','";
+                }
+                else if (form.SERVICE_17 == false)
+                {
+                    sqlsearch += "0" + "','"; // ยิปซีพยากรณ์ service_17
+                }
+
+                if (form.SERVICE_18 == true)
+                {
+                    sqlsearch += "1" + "','";
+                }
+                else if (form.SERVICE_19 == false)
+                {
+                    sqlsearch += "0" + "','";  // เคล็ดลับเสริมโชค service_18
+                }
+
+
+                if (form.SERVICE_19 == true)
+                {
+                    sqlsearch += "1" + "','";
+                }
+                else if (form.SERVICE_19 == false)
+                {
+                    sqlsearch += "0" + "','"; // ข่าวเด่นสายตรง service_19
+                }
+
+
+                // If SA20.Checked = True Then
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA20.Checked = False Then
+                sqlsearch += "0" + "','"; // service_20
+                                          // End If
+
+
+                // If SA21.Checked = True Then
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA21.Checked = False Then
+                sqlsearch += "0" + "','"; // service_21 SMS เสริมทรัพย์เสริมโชค อ.เทพประสิทธิ์
+                                          // End If
+
+                // If SA22.Checked = True Then
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA22.Checked = False Then
+                sqlsearch += "0" + "','"; // service_22
+                                          // End If
+
+
+
+
+                sqlsearch += "0" + "','";  // service_23
+                sqlsearch += "0" + "','"; // service_24
+                sqlsearch += "0" + "','"; // service_25
+                sqlsearch += "0" + "','"; // service_26
+
+                // If SA6.Checked = True Then 'Funny  service_27
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA6.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+
+
+
+                // If SA7.Checked = True Then 'ไพ่ยิปซี  service_29
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA7.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+
+                // If SA9.Checked = True Then 'gypsy  service_33
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA9.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+
+                // If SA10.Checked = True Then 'Funny Daily Charge  service_28
+                // sqlsearch &= "1" & "','"
+                // ElseIf SA10.Checked = False Then
+                sqlsearch += "0" + "','";
+                // End If
+
+                sqlsearch += form.txtName + "', '";
+                sqlsearch += form.txtSName + "', '";
+                sqlsearch += form.cboDate + "', '";
+                sqlsearch += form.cboDate_No + "', '";
+                sqlsearch += form.cboMouth + "', '";
+                sqlsearch += form.txtYear + "', '";
+                sqlsearch += form.cboSex + "', '";
+                sqlsearch += form.cboStatus.ToString() + "', '";
+                sqlsearch += form.cbocity + "', '";
+                if (form.cboStatus.ToString() == "15")
+                {
+                    sqlsearch += form.cboDeny + "', '";
+                }
+                else
+                {
+
+                    sqlsearch += "AIS" + "', '";
+                }
+
+                if (form.cboStatus.ToString() == "03" | form.cboStatus.ToString() == "08")
+                {
+                    sqlsearch += form.cboDeny.ToString() + "','";
+                }
+                else
+                {
+                    sqlsearch += "" + "','";
+                }
+                sqlsearch += "1" + "', '";
+                sqlsearch += Module2.Agent_Id + "')";
+
+
+            }
+            Event_Log("Sql Insert :    " + sqlsearch);
+
+
+            try
+            {
+                {
+                    rowInsert = Module2.Instance.CommanEx(sqlsearch);
+                }
+                Event_Log("RowInsert :   " + rowInsert);
+                Module2.Instance.status_Edit = "";
+                SetAVAL();
+                return "บันทึกข้อมูลเรียบร้อย";
+            }
+            catch (Exception ex)
+            {
+                return "ไม่สามารถบันทึกข้อมูลได้เนื่องจาก" + ex.Message;
+            }
+        }
+        [Obsolete]
+        public void Get_Error(string err_num, string err_des, string err_func)
+        {
+            string Err_number = err_num;
+            Log_Error("Error  :" + err_num + "**" + err_des + ":::" + err_func);
+            if (Err_number == "-2147217900" | Err_number == "3709")
+            {
+                Module2.Instance.Connectdb();
+            }
+        }
+        public void Log_Error(string msg)
+        {
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + @"\Log_Error\" + Strings.Format(DateTime.Now, "yyyyMMdd");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                var fs = new FileStream(path + "Shinee_Contara.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
+                fs.Close();
+                var sw = new StreamWriter(path, true);
+                object NextLine = Convert.ToString(DateTime.Now) + " : " + msg;
+                sw.Write((NextLine, Constants.vbCrLf).ToString());
+                sw.Close();
+            }
+            catch
+            {
+                string Err_ERR = Information.Err().Number.ToString();
+            }
+
+        }
+
+        [Obsolete]
+        private void FrmDetail_FormClosed()
+        {
+            SingOut();
+        }
+
+        [Obsolete]
+        private void FrmDetail_FormClosing()
+        {
+            SingOut();
+        }
+        public void Error_Log(string msg)
+        {
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + @"\Error_Log\" + DateTime.Now.ToString("yyyy-MM-dd"); // & Format(Now, "yyyyMMdd") 
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                var fs = new FileStream(path + "_Log_Shinee.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
+                fs.Close();
+
+                var sw = new StreamWriter(path, true);
+                object NextLine = Convert.ToString(DateTime.Now) + " :" + "  " + msg;
+                sw.Write(string.Concat(NextLine, Constants.vbCrLf));
+                sw.Close();
+            }
+
+            catch
+            {
+            }
+        }
+        public void Event_Log(string msg)
+        {
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + @"\Event_Log\" + DateTime.Now.ToString("yyyy-MM-dd");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                var fs = new FileStream(path + "_Log_Shinee.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
+                fs.Close();
+
+                var sw = new StreamWriter(path, true);
+                object NextLine = Convert.ToString(DateTime.Now) + " :" + msg;
+                sw.Write((NextLine, Constants.vbCrLf).ToString());
+                sw.Close();
+            }
+            catch
+            {
+
+            }
+        }
+        [HttpGet]
+        public string LoadEdit()
+        {
+            try
+            {
+                if (HttpContext.Request.Cookies["editv"] == null)
+                {
+                    return "";
+                }
+                return HttpContext.Request.Cookies["editv"].Value;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        [Obsolete]
+        public ActionResult Index()
+        {
+            CultureInfo cultureInfo = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            DateTime datet = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), new CultureInfo("en-US"));
+            //string jwt = HttpContext.Request.QueryString["jwt"];
+            string[] jwt = HttpContext.Request.Cookies.AllKeys;
+            string StrSql = string.Empty;
+            foreach (string key in jwt)
+            {
+                if (key != "null" && key != "ASP.NET_SessionId" && key.Contains("Ag") != true && key.Contains("editv") != true && key.Contains("EXTENSION") != true)
+                {
+                    List<string> userjson = Module2.Instance.GetFromToken(key);
+
+                    if (datet <= Convert.ToDateTime(userjson[2].ToString()))
+                    {
+                        WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
+                        StrSql = "SELECT * FROM PREDIC_AGENTS";
+                        StrSql += " WHERE (LOGIN ='" + userjson[0] + "')";
+                        ds = Module2.Instance.CommandSet(StrSql, "Login_agent");
+
+                        if (ds != null)
+                            if (ds.Tables["Login_agent"].Rows.Count != 0)
+                            {
+                                if (Session["Editv"] != null)
+                                {
+                                    return View();
+                                }
+                                return View();
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                    }
+                }
+            }
+            return null;
+        }
+
+        [HttpGet]
+        [Obsolete]
+        public string list_sms(string txt_tel )
+        {
+            DataTable dt3 = new DataTable();
+            List<string> List_sms_service = new List<string>(){
+                            "SERVICE_01" ,
+                            "SERVICE_02" ,
+                            "SERVICE_03" ,
+                            "SERVICE_04" ,
+                            "SERVICE_05" ,
+                            "SERVICE_06" ,
+                            "SERVICE_07" ,
+                            "SERVICE_08" ,
+                            "SERVICE_09" ,
+                            "SERVICE_10" ,
+                            "SERVICE_11" ,
+                            "SERVICE_12" ,
+                            "SERVICE_13" ,
+                            "SERVICE_14" ,
+                            "SERVICE_15" ,
+                            "SERVICE_16" ,
+                            "SERVICE_17" ,
+                            "SERVICE_18" ,
+                            "SERVICE_19" ,
+                            "SERVICE_20" ,
+                            "SERVICE_21" ,
+                            "SERVICE_22" ,
+                            "SERVICE_23" ,
+                            "SERVICE_24" ,
+                            "SERVICE_25" ,
+                            "SERVICE_26" ,
+                            "SERVICE_27" ,
+                            "SERVICE_28" ,
+                            "SERVICE_29" ,
+                            "SERVICE_30" ,
+                            "SERVICE_31" ,
+                            "SERVICE_32" ,
+                            "SERVICE_33" ,
+                            "SERVICE_34" ,
+                            "SERVICE_35" ,
+                            "SERVICE_36" ,
+                            "SERVICE_37" ,
+                            "SERVICE_38" ,
+                            "SERVICE_39" ,
+                            "SERVICE_40"   };
+            string sql_column_service = "";
+            if (HttpContext.Request.Cookies["Agen"] != null)
+            {
+
+                Module2.Agent_Id = HttpContext.Request.Cookies["Agen"].Value;
+            }
+            string sql = string.Empty;
+            if(txt_tel != null && txt_tel != "")
+            {
+                sql = $@"SELECT UNVISIBLE
+                        FROM MAS_LEADS_TRANS WHERE ANUMBER = :txt_tel";
+
+                 dt3 = Module2.Comman_Static(sql, new string[] { txt_tel }, new string[] { ":txt_tel" });
+            }
+         
+            if(dt3 != null)
+            {
+                if(dt3.Rows.Count > 0)
+                {
+                    foreach (var item_service in dt3.Rows[0]["UNVISIBLE"].ToString().Split(','))
+                    {
+                        if (item_service != null && item_service != "")
+                        {
+                            if (List_sms_service.Contains(item_service))
+                            {
+                                List_sms_service.Remove(item_service);
+                            };
+                        }
+                    }
+                 
+                }
+                int i = 0;
+                foreach(var item2 in List_sms_service)
+                {
+                    if (i == List_sms_service.Count - 1)
+                   sql_column_service += item2 ;  
+                    else
+                        sql_column_service += item2 + ",";
+                    i++;
+                }
+                sql = $@"SELECT {sql_column_service}
+                        FROM MAS_LEADS_TRANS WHERE AGENT_ID = :Agenid ";
+            }
+            else
+            {
+                sql = $@"SELECT *
+                        FROM MAS_LEADS_TRANS WHERE AGENT_ID = :Agenid ";
+            }
+            DataTable dt1 = Module2.Comman_Static(sql,new string[] { Module2.Agent_Id } , new string[] { ":Agenid" });
+            return JsonConvert.SerializeObject(dt1);
+        }
+
+        [HttpPost]
+        [Obsolete]
+        public string SetVisible_Enable(form2 form)
+        {
+            try
+            {
+                string sq2l = $@"SELECT UNVISIBLE FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER";
+                DataTable dt2 = Module2.Comman_Static(sq2l, new string[] { form.txtTel_No }, new string[] { ":ANUMBER" });
+                string new_unvisible = string.Empty;
+                string[] unvisible1 = dt2.Rows[0][0].ToString().Split(',');
+                string[] unvisible2 = form.VISIBLE.Replace("'", "").Split(',');
+                int i = 0;
+                int len = unvisible2.Length - 1;
+                foreach (string item in unvisible1)
+                {
+                    if (unvisible2.Any(x =>  x.Equals(item)))
+                    {
+                    }
+                    else
+                    {
+                            new_unvisible += item + ",";
+                    }
+                }
+                string sql = $@"UPDATE MAS_LEADS_TRANS SET UNVISIBLE = ('{new_unvisible}') WHERE ANUMBER = :ANUMBER";
+                int dt = Module2.Instance.CommanEx(sql, new string[] { form.txtTel_No }, new string[] { ":ANUMBER" });
+                if (dt > 0)
+                {
+                    return "บันทึกสำเร็จ";
+                }
+            }
+            catch
+            {
+                return "บันทึกไม่สำเร็จ";
+            }
+            return "กรุณาเลือกข้อมูล";
+        }
+        [HttpPost]
+        [Obsolete]
+        public string SetVisible(form2 form)
+        {
+            try
+            {
+                string sq2l = $@"SELECT UNVISIBLE FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER";
+                DataTable dt2 = Module2.Comman_Static(sq2l, new string[] { form.txtTel_No }, new string[] { ":ANUMBER" });
+
+
+                string Unvisible = form.VISIBLE.Remove(form.VISIBLE.Length - 2 , 2);
+                        string sql = $@"UPDATE MAS_LEADS_TRANS SET UNVISIBLE = ({Unvisible},{dt2.Rows[0][0].ToString()}') WHERE ANUMBER = :ANUMBER";
+                int dt = Module2.Instance.CommanEx(sql,new string[] {form.txtTel_No} , new string[] { ":ANUMBER" });
+                if(dt > 0)
+                {
+                    return "บันทึกสำเร็จ";
+                }
+                    
+                }
+            catch
+            {
+                return "บันทึกไม่สำเร็จ";
+            }
+            return "กรุณาเลือกข้อมูล";
+            
+        }
+
+        [HttpGet]
+        [Obsolete]
+        public string SetVisible_remove(string txt_tel)
+        {
+            string sq2l = $@"SELECT UNVISIBLE FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER";
+            DataTable dt2 = Module2.Comman_Static(sq2l, new string[] { txt_tel }, new string[] { ":ANUMBER" });
+            string sq22l = $@"SELECT {dt2.Rows[0][0].ToString().Remove(dt2.Rows[0][0].ToString().Length - 1 , 1)} FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER";
+
+            DataTable dt222 = Module2.Comman_Static(sq22l, new string[] { txt_tel }, new string[] { ":ANUMBER" });
+            return JsonConvert.SerializeObject(dt222);
+        }
+
+    }
+}

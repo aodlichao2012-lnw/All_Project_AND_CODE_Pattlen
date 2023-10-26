@@ -1,0 +1,953 @@
+﻿body {
+    /* Form */
+
+    position: relative;
+    width: 1366px;
+    height: 1300px;
+    background: linear-gradient(243.18deg, #FDC5C5 25.45%, rgba(242, 152, 222, 0) 100%), linear-gradient(243.43deg, #FFA5A5 32.96%, rgba(255, 255, 255, 0) 82.03%), #F39494;
+    /* OCC_LOGO_Trans 1 */
+
+    position: absolute;
+    width: 141px;
+    height: 50px;
+    left: 70px;
+    top: 36px;
+    background: url(OCC_LOGO_Trans.png);
+    /* Sign out */
+
+    position: absolute;
+    width: 75px;
+    height: 22px;
+    left: 1214px;
+    top: 61px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-decoration-line: underline;
+    color: #F84874;
+    /* Wasana Meenidnoi */
+
+    position: absolute;
+    width: 225px;
+    height: 23px;
+    right: 170px;
+    top: 61px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    color: #333333;
+    /* Apply */
+
+    position: absolute;
+    width: 256px;
+    height: 48px;
+    left: 4px;
+    top: 204px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 256px;
+    height: 48px;
+    left: 4px;
+    top: 204px;
+    background: #F84874;
+    /* Search Number */
+
+    position: absolute;
+    width: 201.41px;
+    height: 24px;
+    left: 30.35px;
+    top: 216px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+    /* Apply */
+
+    position: absolute;
+    width: 256px;
+    height: 48px;
+    left: 4px;
+    top: 264px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 256px;
+    height: 48px;
+    left: 4px;
+    top: 264px;
+    background: #F84874;
+    /* Report */
+
+    position: absolute;
+    width: 201.41px;
+    height: 24px;
+    left: 30.35px;
+    top: 276px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+    /* Group 9 */
+
+    position: absolute;
+    width: 844px;
+    height: 1133px;
+    left: 290px;
+    top: 111px;
+    /* Rectangle 6 */
+
+    position: absolute;
+    width: 842px;
+    height: 1133px;
+    left: 292px;
+    top: 111px;
+    background: #FFFFFF;
+    /* บันทึกโทร */
+
+    position: absolute;
+    width: 98px;
+    height: 36px;
+    left: 338px;
+    top: 187.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #000000;
+    /* ข้อมูลลูกค้า */
+
+    position: absolute;
+    width: 114px;
+    height: 36px;
+    left: 338px;
+    top: 618px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #000000;
+    /* เลือกบริการ */
+
+    position: absolute;
+    width: 118px;
+    height: 36px;
+    left: 336px;
+    top: 885px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Vector */
+
+    position: absolute;
+    left: 21.38%;
+    right: 16.98%;
+    top: 8.54%;
+    bottom: 87.62%;
+    background: #F84874;
+    /* OCC Telesale : 2400 */
+
+    position: absolute;
+    width: 242px;
+    height: 36px;
+    left: 314px;
+    top: 118px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 534px;
+    top: 304px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 54.91%;
+    right: 43.94%;
+    top: 24.74%;
+    bottom: 73.88%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* Group 8 */
+
+    position: absolute;
+    width: 230px;
+    height: 223px;
+    left: 533px;
+    top: 245px;
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 533px;
+    top: 420px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 533px;
+    top: 245px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* จังหวัด * */
+
+    position: absolute;
+    width: 64px;
+    height: 27px;
+    left: 343px;
+    top: 317.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 7 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 338px;
+    top: 705px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* ชื่อ */
+
+    position: absolute;
+    width: 21px;
+    height: 27px;
+    left: 343px;
+    top: 678px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 8 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 592px;
+    top: 705px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* นามสกุล */
+
+    position: absolute;
+    width: 61px;
+    height: 27px;
+    left: 597px;
+    top: 678px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Group 3 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 846px;
+    top: 705px;
+    /* Rectangle 9 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 846px;
+    top: 705px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 77.75%;
+    right: 21.11%;
+    top: 55.62%;
+    bottom: 43%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* เพศ */
+
+    position: absolute;
+    width: 29px;
+    height: 27px;
+    left: 851px;
+    top: 678px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 10 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 338px;
+    top: 795px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 40.48%;
+    right: 58.37%;
+    top: 55.62%;
+    bottom: 43%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* วันเกิด */
+
+    position: absolute;
+    width: 48px;
+    height: 27px;
+    left: 343px;
+    top: 768px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Service เสริมทรัพย์เสริมโชค */
+
+    position: absolute;
+    width: 183px;
+    height: 27px;
+    left: 395px;
+    top: 948px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Group 5 */
+
+    position: absolute;
+    width: 87px;
+    height: 48px;
+    left: 592px;
+    top: 795px;
+    /* Rectangle 11 */
+
+    position: absolute;
+    width: 87px;
+    height: 48px;
+    left: 592px;
+    top: 795px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 48.9%;
+    right: 49.96%;
+    top: 62.38%;
+    bottom: 36.23%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* Rectangle 14 */
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 343px;
+    top: 945px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* VDO ดวง อ.เก่งกาจ */
+
+    position: absolute;
+    width: 147px;
+    height: 27px;
+    left: 395px;
+    top: 993px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 15 */
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 343px;
+    top: 990px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* ข่าวด่วนสายตรง */
+
+    position: absolute;
+    width: 116px;
+    height: 27px;
+    left: 395px;
+    top: 1038px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 16 */
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 343px;
+    top: 1035px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* วันที่เกิด */
+
+    position: absolute;
+    width: 59px;
+    height: 27px;
+    left: 597px;
+    top: 768px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* เดือนเกิด */
+
+    position: absolute;
+    width: 65px;
+    height: 27px;
+    left: 712px;
+    top: 768px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* ปีเกิด */
+
+    position: absolute;
+    width: 39px;
+    height: 27px;
+    left: 943px;
+    top: 768px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Group 7 */
+
+    position: absolute;
+    width: 133px;
+    height: 48px;
+    left: 943px;
+    top: 795px;
+    /* Rectangle 12 */
+
+    position: absolute;
+    width: 133px;
+    height: 48px;
+    left: 943px;
+    top: 795px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 77.75%;
+    right: 21.11%;
+    top: 62.38%;
+    bottom: 36.23%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* Group 6 */
+
+    position: absolute;
+    width: 208px;
+    height: 48px;
+    left: 708px;
+    top: 795px;
+    /* Rectangle 13 */
+
+    position: absolute;
+    width: 208px;
+    height: 48px;
+    left: 708px;
+    top: 795px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 65.74%;
+    right: 33.12%;
+    top: 62.38%;
+    bottom: 36.23%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    left: 535px;
+    top: 362px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 54.83%;
+    right: 44.03%;
+    top: 29.23%;
+    bottom: 69.38%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* วันที่ปัจจุบัน */
+
+    position: absolute;
+    width: 83px;
+    height: 27px;
+    left: 343px;
+    top: 375.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* วันที่โทร* */
+
+    position: absolute;
+    width: 66px;
+    height: 27px;
+    left: 343px;
+    top: 433.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Group 2 */
+
+    position: absolute;
+    width: 493px;
+    height: 48px;
+    left: 533px;
+    top: 478px;
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 493px;
+    height: 48px;
+    left: 533px;
+    top: 478px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* Vector */
+
+    position: absolute;
+    left: 73.95%;
+    right: 24.91%;
+    top: 38.15%;
+    bottom: 60.46%;
+    background: #F84874;
+    transform: rotate(90deg);
+    /* สถานะ * */
+
+    position: absolute;
+    width: 60px;
+    height: 27px;
+    left: 343px;
+    top: 491.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 495px;
+    height: 48px;
+    left: 533px;
+    top: 536px;
+    background: #FAEAEE;
+    border-radius: 8px;
+    /* เหตุผล */
+
+    position: absolute;
+    width: 50px;
+    height: 27px;
+    left: 343px;
+    top: 549.75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* หมายเลขโทรศัพท์ */
+
+    position: absolute;
+    width: 125px;
+    height: 27px;
+    left: 343px;
+    top: 257px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+    /* Avalible */
+
+    position: absolute;
+    width: 73px;
+    height: 27px;
+    left: 535px;
+    top: 214px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #F84874;
+    /* Apply */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 783px;
+    top: 246px;
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 783px;
+    top: 246px;
+    background: #F84874;
+    border-radius: 8px;
+    /* Request Tel */
+
+    position: absolute;
+    width: 107px;
+    height: 24px;
+    left: 797px;
+    top: 258px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+    /* Apply */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 584px;
+    top: 1133px;
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 584px;
+    top: 1133px;
+    background: #F84874;
+    border-radius: 8px;
+    /* Save */
+
+    position: absolute;
+    width: 107px;
+    height: 24px;
+    left: 598px;
+    top: 1145px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+    /* Apply */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 896px;
+    top: 1133px;
+    /* Rectangle 2 */
+
+    box-sizing: border-box;
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 896px;
+    top: 1133px;
+    background: #FFFFFF;
+    border: 1px solid #F84874;
+    border-radius: 8px;
+    /* Edit */
+
+    position: absolute;
+    width: 107px;
+    height: 24px;
+    left: 910px;
+    top: 1145px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #F84874;
+    /* Apply */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 740px;
+    top: 1133px;
+    /* Rectangle 2 */
+
+    box-sizing: border-box;
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 740px;
+    top: 1133px;
+    background: #FFFFFF;
+    border: 1px solid #F84874;
+    border-radius: 8px;
+    /* Cancel */
+
+    position: absolute;
+    width: 107px;
+    height: 24px;
+    left: 754px;
+    top: 1145px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #F84874;
+    /* Apply */
+
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 430px;
+    top: 1133px;
+    /* Rectangle 2 */
+
+    box-sizing: border-box;
+    position: absolute;
+    width: 136px;
+    height: 48px;
+    left: 430px;
+    top: 1133px;
+    background: #FFFFFF;
+    border: 1px solid #F84874;
+    border-radius: 8px;
+    /* Clear */
+
+    position: absolute;
+    width: 107px;
+    height: 24px;
+    left: 444px;
+    top: 1145px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #F84874;
+    /* Vector 1 */
+
+    position: absolute;
+    width: 838px;
+    height: 0px;
+    left: 290px;
+    top: 1101px;
+    border: 2px solid #FAEAEE;
+    /* icon-park-solid:correct */
+
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 343px;
+    top: 941px;
+    /* Mask group */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    /* Group */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    /* Vector */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #F84874;
+    /* icon-park-solid:correct */
+
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 343px;
+    top: 985px;
+    /* Mask group */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    /* Group */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    /* Vector */
+
+    position: absolute;
+    left: 8.33%;
+    right: 8.33%;
+    top: 18.75%;
+    bottom: 18.75%;
+    background: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #F84874;
+    /* © 2023 Teleinfo Media Public Company Limited */
+
+    position: absolute;
+    width: 278px;
+    height: 18px;
+    left: 583px;
+    top: 1222px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height */
+    text-align: center;
+    color: #666666;
+}

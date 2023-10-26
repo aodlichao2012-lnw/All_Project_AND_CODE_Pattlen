@@ -1,0 +1,3345 @@
+: 19-09-2023 14:07:02: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:07:02: = Agen = 998 rescode = 01
+: 19-09-2023 14:07:02: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:07:02: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:07:02: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:07:02: = dt3.Rows.Count > 0)
+: 19-09-2023 14:07:30: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:07:30: = Agen = 998 rescode = 01
+: 19-09-2023 14:07:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:07:30: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:07:31: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:07:31: = dt3.Rows.Count > 0)
+: 19-09-2023 14:09:02: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:09:02: = Agen = 998 rescode = 01
+: 19-09-2023 14:09:02: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:09:02: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:09:02: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:09:02: = dt3.Rows.Count > 0)
+: 19-09-2023 14:19:27: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:19:27: = Agen = 998 rescode = 01
+: 19-09-2023 14:19:27: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:19:27: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:19:28: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:19:28: = dt3.Rows.Count > 0)
+: 19-09-2023 14:26:03: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:26:03: = Agen = 998 rescode = 01
+: 19-09-2023 14:26:03: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:26:03: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:26:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:26:04: = dt3.Rows.Count > 0)
+: 19-09-2023 14:27:34: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:27:34: = Agen = 998 rescode = 01
+: 19-09-2023 14:27:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:27:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:27:35: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:27:35: = dt3.Rows.Count > 0)
+: 19-09-2023 14:29:10: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:29:10: = Agen = 998 rescode = 01
+: 19-09-2023 14:29:10: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:29:10: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:29:11: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:29:11: = dt3.Rows.Count > 0)
+: 19-09-2023 14:30:24: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:30:24: = Agen = 998 rescode = 01
+: 19-09-2023 14:30:24: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:30:24: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:30:25: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:30:25: = dt3.Rows.Count > 0)
+: 19-09-2023 14:31:39: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:31:39: = Agen = 998 rescode = 01
+: 19-09-2023 14:31:39: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:31:39: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:31:40: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:31:40: = dt3.Rows.Count > 0)
+: 19-09-2023 14:33:04: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:33:04: = Agen = 998 rescode = 01
+: 19-09-2023 14:33:04: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:33:04: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:33:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:33:04: = dt3.Rows.Count > 0)
+: 19-09-2023 14:42:39: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:42:39: = Agen = 998 rescode = 01
+: 19-09-2023 14:42:39: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:42:39: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:42:40: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:42:40: = dt3.Rows.Count > 0)
+: 19-09-2023 14:43:26: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:43:26: = Agen = 998 rescode = 01
+: 19-09-2023 14:43:26: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:43:26: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:43:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:43:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:44:27: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:44:27: = Agen = 998 rescode = 01
+: 19-09-2023 14:44:27: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:44:27: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:44:27: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:44:27: = dt3.Rows.Count > 0)
+: 19-09-2023 14:50:54: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:50:54: = Agen = 998 rescode = 01
+: 19-09-2023 14:50:54: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:50:54: = Agen = 998 rescode = 01
+: 19-09-2023 14:50:54: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:54: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:50:54: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:54: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:50:55: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:55: = dt3.Rows.Count > 0)
+: 19-09-2023 14:50:55: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:57: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:50:57: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:50:57: = Agen = 998 rescode = 01
+: 19-09-2023 14:50:57: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:57: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:50:57: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:57: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:50:57: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:57: = dt3.Rows.Count > 0)
+: 19-09-2023 14:50:58: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:50:58: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:00: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:00: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:00: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:00: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:00: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:00: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:00: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:00: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:00: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:00: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:00: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:03: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:03: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:03: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:03: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:03: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:03: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:03: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:03: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:03: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:03: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:03: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:04: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:04: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:06: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:06: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:06: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:06: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:06: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:06: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:06: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:06: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:06: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:06: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:06: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:06: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:07: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:07: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:07: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:07: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:07: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:07: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:07: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:07: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:07: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:07: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:07: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:09: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:09: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:09: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:09: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:09: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:09: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:09: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:10: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:10: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:10: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:10: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:10: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:10: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:10: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:10: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:10: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:10: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:10: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:11: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:12: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:12: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:12: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:12: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:12: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:12: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:12: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:13: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:13: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:13: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:13: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:13: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:13: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:13: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:13: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:13: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:13: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:14: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:16: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:16: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:16: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:16: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:16: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:16: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:16: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:16: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:16: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:16: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:16: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:17: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:17: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:17: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:17: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:18: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:18: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:18: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:18: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:18: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:18: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:19: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:19: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:19: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:19: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:19: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:19: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:19: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:19: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:19: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:21: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:21: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:21: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:21: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:21: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:21: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:21: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:22: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:22: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:22: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:22: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:25: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:25: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:25: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:25: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:25: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:25: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:26: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:26: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:26: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:26: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:26: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:26: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:27: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:27: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:27: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:27: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:29: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:29: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:29: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:30: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:30: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:30: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:30: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:30: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:30: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:30: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:30: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:31: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:31: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:31: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:31: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:31: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:31: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:31: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:31: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:31: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:32: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:32: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:51:33: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:34: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:34: = Agen = 998 rescode = 01
+: 19-09-2023 14:51:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:51:34: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:34: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:34: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:34: = dt3.Rows.Count > 0)
+: 19-09-2023 14:51:35: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:51:35: = dt3.Rows.Count > 0)
+: 19-09-2023 14:54:29: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:54:29: = Agen = 998 rescode = 01
+: 19-09-2023 14:54:29: = Agen = 998 rescode = 01
+: 19-09-2023 14:54:29: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:29: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:29: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:29: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:30: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:30: = dt3.Rows.Count > 0)
+: 19-09-2023 14:54:30: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:30: = dt3.Rows.Count > 0)
+: 19-09-2023 14:54:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:54:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:54:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:54:33: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:54:33: = Agen = 998 rescode = 01
+: 19-09-2023 14:54:33: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:33: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:35: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:35: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:35: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:35: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:35: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:54:35: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:35: = dt3.Rows.Count > 0)
+: 19-09-2023 14:54:36: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:36: = dt3.Rows.Count > 0)
+: 19-09-2023 14:54:36: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:36: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:36: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:54:36: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:42: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:42: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:42: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:42: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:42: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:42: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:44: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:44: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:44: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:44: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:45: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:45: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:45: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:45: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:45: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:45: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:48: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:48: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:48: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:48: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:48: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:48: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:48: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:48: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:48: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:48: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:48: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:48: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:49: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:49: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:49: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:49: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:51: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:51: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:51: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:51: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:51: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:51: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:51: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:52: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:52: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:52: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:52: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:52: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:52: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:52: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:52: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:52: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:54: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:54: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:54: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:54: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:54: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:54: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:54: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:54: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:54: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:54: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:54: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:55: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:55: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:55: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:55: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:57: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:57: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:56:57: = Agen = 998 rescode = 01
+: 19-09-2023 14:56:57: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:57: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:57: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:56:58: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:58: = dt3.Rows.Count > 0)
+: 19-09-2023 14:56:58: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:56:58: = dt3.Rows.Count > 0)
+: 19-09-2023 14:57:00: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:57:00: = Agen = 998 rescode = 01
+: 19-09-2023 14:57:00: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:57:00: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:57:01: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:57:01: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:11: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:11: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:11: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:11: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:11: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:11: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:11: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:12: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:12: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:12: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:12: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:14: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:14: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:14: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:14: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:15: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:15: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:15: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:15: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:15: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:15: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:15: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:15: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:15: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:15: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:18: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:18: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:19: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:19: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:19: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:19: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:19: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:19: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:19: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:19: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:20: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:20: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:20: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:20: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:20: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:22: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:22: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:22: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:22: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:22: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:22: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:22: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:23: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:23: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:23: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:23: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:25: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:25: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:25: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:25: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:25: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:25: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:25: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:25: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:25: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:25: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:26: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:26: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:28: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:28: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:28: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:28: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:28: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:28: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:28: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:28: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:28: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:28: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:29: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:29: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:29: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:29: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:29: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:31: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:31: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:31: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:31: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:31: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:31: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:31: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:32: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:32: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:32: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:32: = dt3.Rows.Count > 0)
+: 19-09-2023 14:58:34: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:58:34: = Agen = 998 rescode = 01
+: 19-09-2023 14:58:34: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:34: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('19/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:58:35: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:58:35: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:53: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:59:53: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:53: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:53: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:54: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:54: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:56: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:59:56: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:56: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:56: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:56: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:56: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:56: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:56: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:56: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:56: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:56: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:58: = Agen = System.Web.HttpCookie
+: 19-09-2023 14:59:58: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:58: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:58: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:59: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:59: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:59: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:59: = Agen = 998 rescode = 01
+: 19-09-2023 14:59:59: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:59: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('18/Sep/23','YYYY/MM/DD')
+: 19-09-2023 14:59:59: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:59: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:59: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:59: = dt3.Rows.Count > 0)
+: 19-09-2023 14:59:59: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 19-09-2023 14:59:59: = dt3.Rows.Count > 0)
+: 25-09-2023 14:38:16: = Agen = System.Web.HttpCookie
+: 25-09-2023 14:38:16: = Agen = 998 rescode = 01
+: 25-09-2023 14:38:16: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 25-09-2023 14:38:16: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('25/Sep/23','YYYY/MM/DD')
+: 25-09-2023 14:38:17: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 25-09-2023 14:38:17: = dt3.Rows.Count > 0)
+: 25-09-2023 14:42:03: = Agen = System.Web.HttpCookie
+: 25-09-2023 14:42:03: = Agen = 998 rescode = 01
+: 25-09-2023 14:42:03: = เข้ามา dt3 = module.Comman_Static2(sql2);
+: 25-09-2023 14:42:03: = เข้ามา dt3 = คำสั่ง sqlselect  ANUMBER, CUST_NAME , CUST_SNAME , SERVICE_21 , SERVICE_11 , SERVICE_12 , SERVICE_13 from  MAS_LEADS_TRANS  where  MAS_LEADS_TRANS.AGENT_ID = '998' AND MAS_LEADS_TRANS.RES_CODE = '01' And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('25/Sep/23','YYYY/MM/DD')
+: 25-09-2023 14:42:04: = หลังจาก dt3 = module.Comman_Static2(sql2);
+: 25-09-2023 14:42:04: = dt3.Rows.Count > 0)
+: 27-09-2023 14:00:21: = strDB null
+: 27-09-2023 14:00:21: = type_db
+: 27-09-2023 14:00:21: = Production
+: 27-09-2023 14:00:34: = 26.241.150.104
+: 27-09-2023 14:00:36: = 172.21.130.228
+: 27-09-2023 14:02:01: = type_db
+: 27-09-2023 14:02:01: = Production
+: 27-09-2023 14:02:16: = strDB null
+: 27-09-2023 14:02:16: = type_db
+: 27-09-2023 14:02:16: = Production
+: 27-09-2023 14:02:25: = strDB null
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:25: = type_db
+: 27-09-2023 14:02:25: = Production
+: 27-09-2023 14:02:41: = strDB null
+: 27-09-2023 14:02:41: = type_db
+: 27-09-2023 14:02:42: = Production
+: 27-09-2023 14:02:42: = type_db
+: 27-09-2023 14:02:42: = Production
+: 27-09-2023 14:02:42: = type_db
+: 27-09-2023 14:02:42: = Production
+: 27-09-2023 14:02:43: = type_db
+: 27-09-2023 14:02:43: = Production
+: 27-09-2023 14:02:47: = strDB null
+: 27-09-2023 14:02:47: = type_db
+: 27-09-2023 14:02:47: = Production
+: 27-09-2023 14:02:52: = strDB null
+: 27-09-2023 14:02:52: = type_db
+: 27-09-2023 14:02:52: = Production
+: 27-09-2023 14:02:54: = strDB null
+: 27-09-2023 14:02:54: = type_db
+: 27-09-2023 14:02:54: = Production
+: 27-09-2023 14:02:54: = type_db
+: 27-09-2023 14:02:54: = Production
+: 27-09-2023 14:02:54: = type_db
+: 27-09-2023 14:02:54: = Production
+: 27-09-2023 14:02:57: = type_db
+: 27-09-2023 14:02:57: = Production
+: 27-09-2023 14:03:04: = strDB null
+: 27-09-2023 14:03:04: = type_db
+: 27-09-2023 14:03:04: = Production
+: 27-09-2023 14:03:06: = strDB null
+: 27-09-2023 14:03:06: = type_db
+: 27-09-2023 14:03:06: = Production
+: 27-09-2023 14:03:07: = strDB null
+: 27-09-2023 14:03:07: = type_db
+: 27-09-2023 14:03:07: = Production
+: 27-09-2023 14:03:09: = strDB null
+: 27-09-2023 14:03:09: = type_db
+: 27-09-2023 14:03:09: = Production
+: 27-09-2023 14:03:09: = type_db
+: 27-09-2023 14:03:09: = Production
+: 27-09-2023 14:03:09: = type_db
+: 27-09-2023 14:03:09: = Production
+: 27-09-2023 14:03:09: = type_db
+: 27-09-2023 14:03:09: = Production
+: 27-09-2023 14:03:13: = strDB null
+: 27-09-2023 14:03:13: = type_db
+: 27-09-2023 14:03:13: = Production
+: 27-09-2023 14:03:15: = strDB null
+: 27-09-2023 14:03:15: = type_db
+: 27-09-2023 14:03:15: = Production
+: 27-09-2023 14:03:19: = strDB null
+: 27-09-2023 14:03:19: = type_db
+: 27-09-2023 14:03:19: = Production
+: 27-09-2023 14:03:25: = strDB null
+: 27-09-2023 14:03:25: = type_db
+: 27-09-2023 14:03:25: = Production
+: 27-09-2023 14:03:25: = type_db
+: 27-09-2023 14:03:25: = Production
+: 27-09-2023 14:03:25: = type_db
+: 27-09-2023 14:03:25: = Production
+: 27-09-2023 14:03:25: = type_db
+: 27-09-2023 14:03:25: = Production
+: 27-09-2023 14:12:31: = strDB null
+: 27-09-2023 14:12:31: = type_db
+: 27-09-2023 14:12:31: = Production
+: 27-09-2023 14:12:32: = 26.241.150.104
+: 27-09-2023 14:12:32: = 172.21.130.228
+: 27-09-2023 14:12:32: = type_db
+: 27-09-2023 14:12:32: = Production
+: 27-09-2023 14:12:43: = strDB null
+: 27-09-2023 14:12:43: = type_db
+: 27-09-2023 14:12:43: = Production
+: 27-09-2023 14:12:56: = 26.241.150.104
+: 27-09-2023 14:12:58: = 172.21.130.228
+: 27-09-2023 14:14:57: = type_db
+: 27-09-2023 14:14:57: = Production
+: 27-09-2023 14:15:00: = strDB null
+: 27-09-2023 14:15:00: = type_db
+: 27-09-2023 14:15:00: = Production
+: 27-09-2023 14:15:00: = type_db
+: 27-09-2023 14:15:00: = Production
+: 27-09-2023 14:15:12: = strDB null
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:12: = type_db
+: 27-09-2023 14:15:12: = Production
+: 27-09-2023 14:15:16: = strDB null
+: 27-09-2023 14:15:16: = type_db
+: 27-09-2023 14:15:16: = Production
+: 27-09-2023 14:15:22: = strDB null
+: 27-09-2023 14:15:22: = type_db
+: 27-09-2023 14:15:22: = Production
+: 27-09-2023 14:15:28: = strDB null
+: 27-09-2023 14:15:28: = type_db
+: 27-09-2023 14:15:28: = Production
+: 27-09-2023 14:15:28: = Production
+: 27-09-2023 14:15:28: = type_db
+: 27-09-2023 14:15:28: = Production
+: 27-09-2023 14:15:28: = type_db
+: 27-09-2023 14:15:28: = Production
+: 27-09-2023 14:15:32: = strDB null
+: 27-09-2023 14:15:32: = type_db
+: 27-09-2023 14:15:32: = Production
+: 27-09-2023 14:15:37: = strDB null
+: 27-09-2023 14:15:37: = type_db
+: 27-09-2023 14:15:37: = Production
+: 27-09-2023 14:15:42: = strDB null
+: 27-09-2023 14:15:42: = type_db
+: 27-09-2023 14:15:42: = Production
+: 27-09-2023 14:15:42: = type_db
+: 27-09-2023 14:15:42: = Production
+: 27-09-2023 14:15:42: = type_db
+: 27-09-2023 14:15:42: = Production
+: 27-09-2023 14:15:42: = type_db
+: 27-09-2023 14:15:42: = Production
+: 27-09-2023 14:15:47: = strDB null
+: 27-09-2023 14:15:47: = type_db
+: 27-09-2023 14:15:47: = Production
+: 27-09-2023 14:15:52: = strDB null
+: 27-09-2023 14:15:52: = type_db
+: 27-09-2023 14:15:52: = Production
+: 27-09-2023 14:15:57: = strDB null
+: 27-09-2023 14:15:57: = type_db
+: 27-09-2023 14:15:57: = Production
+: 27-09-2023 14:15:57: = type_db
+: 27-09-2023 14:15:57: = Production
+: 27-09-2023 14:15:57: = type_db
+: 27-09-2023 14:15:57: = Production
+: 27-09-2023 14:15:57: = type_db
+: 27-09-2023 14:15:57: = Production
+: 27-09-2023 14:16:02: = strDB null
+: 27-09-2023 14:16:02: = type_db
+: 27-09-2023 14:16:02: = Production
+: 27-09-2023 14:16:07: = strDB null
+: 27-09-2023 14:16:07: = type_db
+: 27-09-2023 14:16:07: = Production
+: 27-09-2023 14:16:12: = strDB null
+: 27-09-2023 14:16:12: = type_db
+: 27-09-2023 14:16:12: = Production
+: 27-09-2023 14:16:12: = type_db
+: 27-09-2023 14:16:12: = Production
+: 27-09-2023 14:16:12: = type_db
+: 27-09-2023 14:16:12: = Production
+: 27-09-2023 14:16:12: = type_db
+: 27-09-2023 14:16:12: = Production
+: 27-09-2023 14:16:17: = strDB null
+: 27-09-2023 14:16:17: = type_db
+: 27-09-2023 14:16:17: = Production
+: 27-09-2023 14:16:22: = strDB null
+: 27-09-2023 14:16:22: = type_db
+: 27-09-2023 14:16:22: = Production
+: 27-09-2023 14:16:27: = strDB null
+: 27-09-2023 14:16:27: = type_db
+: 27-09-2023 14:16:27: = Production
+: 27-09-2023 14:16:27: = Production
+: 27-09-2023 14:16:27: = type_db
+: 27-09-2023 14:16:27: = Production
+: 27-09-2023 14:16:27: = type_db
+: 27-09-2023 14:16:27: = Production
+: 27-09-2023 14:16:32: = strDB null
+: 27-09-2023 14:16:32: = type_db
+: 27-09-2023 14:16:32: = Production
+: 27-09-2023 14:16:37: = strDB null
+: 27-09-2023 14:16:37: = type_db
+: 27-09-2023 14:16:37: = Production
+: 27-09-2023 14:16:42: = strDB null
+: 27-09-2023 14:16:42: = type_db
+: 27-09-2023 14:16:42: = Production
+: 27-09-2023 14:16:42: = type_db
+: 27-09-2023 14:16:42: = Production
+: 27-09-2023 14:16:42: = type_db
+: 27-09-2023 14:16:42: = Production
+: 27-09-2023 14:16:42: = type_db
+: 27-09-2023 14:16:42: = Production
+: 27-09-2023 14:16:47: = strDB null
+: 27-09-2023 14:16:47: = type_db
+: 27-09-2023 14:16:47: = Production
+: 27-09-2023 14:16:52: = strDB null
+: 27-09-2023 14:16:52: = type_db
+: 27-09-2023 14:16:52: = Production
+: 27-09-2023 14:16:57: = strDB null
+: 27-09-2023 14:16:57: = type_db
+: 27-09-2023 14:16:57: = Production
+: 27-09-2023 14:16:57: = type_db
+: 27-09-2023 14:16:57: = Production
+: 27-09-2023 14:16:58: = type_db
+: 27-09-2023 14:16:58: = Production
+: 27-09-2023 14:16:58: = type_db
+: 27-09-2023 14:16:58: = Production
+: 27-09-2023 14:17:03: = strDB null
+: 27-09-2023 14:17:03: = type_db
+: 27-09-2023 14:17:03: = Production
+: 27-09-2023 14:17:07: = strDB null
+: 27-09-2023 14:17:07: = type_db
+: 27-09-2023 14:17:07: = Production
+: 27-09-2023 14:17:12: = strDB null
+: 27-09-2023 14:17:12: = type_db
+: 27-09-2023 14:17:12: = Production
+: 27-09-2023 14:17:12: = type_db
+: 27-09-2023 14:17:12: = Production
+: 27-09-2023 14:17:12: = type_db
+: 27-09-2023 14:17:12: = Production
+: 27-09-2023 14:17:12: = type_db
+: 27-09-2023 14:17:12: = Production
+: 27-09-2023 14:17:17: = strDB null
+: 27-09-2023 14:17:17: = type_db
+: 27-09-2023 14:17:17: = Production
+: 27-09-2023 14:17:22: = strDB null
+: 27-09-2023 14:17:22: = type_db
+: 27-09-2023 14:17:22: = Production
+: 27-09-2023 14:17:27: = strDB null
+: 27-09-2023 14:17:27: = type_db
+: 27-09-2023 14:17:27: = Production
+: 27-09-2023 14:17:33: = strDB null
+: 27-09-2023 14:17:33: = type_db
+: 27-09-2023 14:17:33: = Production
+: 27-09-2023 14:17:38: = strDB null
+: 27-09-2023 14:17:38: = type_db
+: 27-09-2023 14:17:38: = Production
+: 27-09-2023 14:17:42: = strDB null
+: 27-09-2023 14:17:42: = type_db
+: 27-09-2023 14:17:42: = Production
+: 27-09-2023 14:17:50: = strDB null
+: 27-09-2023 14:17:50: = type_db
+: 27-09-2023 14:17:50: = Production
+: 27-09-2023 14:18:14: = type_db
+: 27-09-2023 14:18:14: = Production
+: 27-09-2023 14:18:15: = type_db
+: 27-09-2023 14:18:15: = Production
+: 27-09-2023 14:21:49: = type_db
+: 27-09-2023 14:21:49: = Backup
+: 27-09-2023 14:21:49: = 26.241.150.104
+: 27-09-2023 14:21:49: = 172.21.130.228
+: 27-09-2023 14:21:49: = type_db
+: 27-09-2023 14:21:49: = Backup
+: 27-09-2023 14:22:20: = strDB null
+: 27-09-2023 14:22:20: = type_db
+: 27-09-2023 14:22:20: = Backup
+: 27-09-2023 14:22:29: = 26.241.150.104
+: 27-09-2023 14:22:31: = 172.21.130.228
+: 27-09-2023 14:22:32: = type_db
+: 27-09-2023 14:22:32: = Backup
+: 27-09-2023 14:22:36: = strDB null
+: 27-09-2023 14:22:36: = type_db
+: 27-09-2023 14:22:36: = Backup
+: 27-09-2023 14:22:40: = 26.241.150.104
+: 27-09-2023 14:22:40: = 172.21.130.228
+: 27-09-2023 14:23:57: = type_db
+: 27-09-2023 14:23:57: = Backup
+: 27-09-2023 14:24:05: = strDB null
+: 27-09-2023 14:24:05: = type_db
+: 27-09-2023 14:24:05: = Backup
+: 27-09-2023 14:24:06: = 26.241.150.104
+: 27-09-2023 14:24:06: = 172.21.130.228
+: 27-09-2023 14:24:10: = type_db
+: 27-09-2023 14:24:10: = Backup
+: 27-09-2023 14:24:40: = type_db
+: 27-09-2023 14:24:40: = Backup
+: 27-09-2023 14:24:42: = 26.241.150.104
+: 27-09-2023 14:24:42: = 172.21.130.228
+: 27-09-2023 14:24:43: = type_db
+: 27-09-2023 14:24:43: = Backup
+: 27-09-2023 14:26:57: = type_db
+: 27-09-2023 14:26:57: = Backup
+: 27-09-2023 14:27:03: = 26.241.150.104
+: 27-09-2023 14:27:03: = 172.21.130.228
+: 27-09-2023 14:27:10: = type_db
+: 27-09-2023 14:27:10: = Backup
+: 27-09-2023 14:27:37: = type_db
+: 27-09-2023 14:27:37: = Backup
+: 27-09-2023 14:27:40: = 26.241.150.104
+: 27-09-2023 14:27:40: = 172.21.130.228
+: 27-09-2023 14:27:46: = type_db
+: 27-09-2023 14:27:46: = Backup
+: 27-09-2023 14:28:38: = type_db
+: 27-09-2023 14:28:38: = Backup
+: 27-09-2023 14:28:41: = 26.241.150.104
+: 27-09-2023 14:28:41: = 172.21.130.228
+: 27-09-2023 14:28:45: = type_db
+: 27-09-2023 14:28:45: = Backup
+: 27-09-2023 14:29:10: = strDB null
+: 27-09-2023 14:29:10: = type_db
+: 27-09-2023 14:29:10: = Backup
+: 27-09-2023 14:29:12: = 26.241.150.104
+: 27-09-2023 14:29:12: = 172.21.130.228
+: 27-09-2023 14:29:13: = type_db
+: 27-09-2023 14:29:13: = Backup
+: 27-09-2023 14:29:14: = strDB null
+: 27-09-2023 14:29:14: = type_db
+: 27-09-2023 14:29:14: = Backup
+: 27-09-2023 14:29:19: = strDB null
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:19: = type_db
+: 27-09-2023 14:29:19: = Backup
+: 27-09-2023 14:29:22: = strDB null
+: 27-09-2023 14:29:22: = type_db
+: 27-09-2023 14:29:22: = Backup
+: 27-09-2023 14:29:28: = strDB null
+: 27-09-2023 14:29:28: = type_db
+: 27-09-2023 14:29:28: = Backup
+: 27-09-2023 14:29:39: = strDB null
+: 27-09-2023 14:29:39: = type_db
+: 27-09-2023 14:29:39: = strDB null
+: 27-09-2023 14:29:39: = type_db
+: 27-09-2023 14:29:39: = Backup
+: 27-09-2023 14:29:40: = type_db
+: 27-09-2023 14:29:40: = Backup
+: 27-09-2023 14:29:40: = type_db
+: 27-09-2023 14:29:40: = Backup
+: 27-09-2023 14:29:45: = type_db
+: 27-09-2023 14:29:45: = Backup
+: 27-09-2023 14:29:50: = strDB null
+: 27-09-2023 14:29:50: = type_db
+: 27-09-2023 14:29:50: = Backup
+: 27-09-2023 14:29:50: = Backup
+: 27-09-2023 14:29:50: = Backup
+: 27-09-2023 14:29:50: = type_db
+: 27-09-2023 14:29:50: = Backup
+: 27-09-2023 14:29:53: = type_db
+: 27-09-2023 14:29:53: = Backup
+: 27-09-2023 14:29:55: = strDB null
+: 27-09-2023 14:29:55: = type_db
+: 27-09-2023 14:29:55: = Backup
+: 27-09-2023 14:30:00: = strDB null
+: 27-09-2023 14:30:00: = type_db
+: 27-09-2023 14:30:00: = Backup
+: 27-09-2023 14:30:17: = strDB null
+: 27-09-2023 14:30:17: = type_db
+: 27-09-2023 14:30:17: = Backup
+: 27-09-2023 14:30:17: = type_db
+: 27-09-2023 14:30:17: = Backup
+: 27-09-2023 14:30:17: = Backup
+: 27-09-2023 14:30:17: = Backup
+: 27-09-2023 14:30:17: = type_db
+: 27-09-2023 14:30:17: = Backup
+: 27-09-2023 14:30:21: = type_db
+: 27-09-2023 14:30:21: = Backup
+: 27-09-2023 14:30:22: = strDB null
+: 27-09-2023 14:30:22: = type_db
+: 27-09-2023 14:30:22: = Backup
+: 27-09-2023 14:30:22: = type_db
+: 27-09-2023 14:30:22: = Backup
+: 27-09-2023 14:30:23: = type_db
+: 27-09-2023 14:30:23: = Backup
+: 27-09-2023 14:30:23: = type_db
+: 27-09-2023 14:30:23: = Backup
+: 27-09-2023 14:30:25: = strDB null
+: 27-09-2023 14:30:25: = type_db
+: 27-09-2023 14:30:25: = Backup
+: 27-09-2023 14:30:30: = strDB null
+: 27-09-2023 14:30:30: = type_db
+: 27-09-2023 14:30:30: = Backup
+: 27-09-2023 14:30:34: = strDB null
+: 27-09-2023 14:30:34: = type_db
+: 27-09-2023 14:30:34: = Backup
+: 27-09-2023 14:30:34: = type_db
+: 27-09-2023 14:30:34: = Backup
+: 27-09-2023 14:30:34: = type_db
+: 27-09-2023 14:30:34: = Backup
+: 27-09-2023 14:30:34: = type_db
+: 27-09-2023 14:30:34: = Backup
+: 27-09-2023 14:30:40: = strDB null
+: 27-09-2023 14:30:40: = type_db
+: 27-09-2023 14:30:40: = Backup
+: 27-09-2023 14:30:45: = strDB null
+: 27-09-2023 14:30:45: = type_db
+: 27-09-2023 14:30:45: = Backup
+: 27-09-2023 14:30:49: = strDB null
+: 27-09-2023 14:30:49: = type_db
+: 27-09-2023 14:30:49: = Backup
+: 27-09-2023 14:30:49: = type_db
+: 27-09-2023 14:30:49: = Backup
+: 27-09-2023 14:30:49: = type_db
+: 27-09-2023 14:30:49: = Backup
+: 27-09-2023 14:30:49: = type_db
+: 27-09-2023 14:30:49: = Backup
+: 27-09-2023 14:30:55: = strDB null
+: 27-09-2023 14:30:55: = type_db
+: 27-09-2023 14:30:55: = Backup
+: 27-09-2023 14:31:00: = strDB null
+: 27-09-2023 14:31:00: = type_db
+: 27-09-2023 14:31:00: = Backup
+: 27-09-2023 14:31:04: = strDB null
+: 27-09-2023 14:31:04: = type_db
+: 27-09-2023 14:31:04: = Backup
+: 27-09-2023 14:31:04: = type_db
+: 27-09-2023 14:31:04: = Backup
+: 27-09-2023 14:31:04: = type_db
+: 27-09-2023 14:31:04: = Backup
+: 27-09-2023 14:31:05: = strDB null
+: 27-09-2023 14:31:05: = type_db
+: 27-09-2023 14:31:05: = Backup
+: 27-09-2023 14:31:09: = strDB null
+: 27-09-2023 14:31:09: = type_db
+: 27-09-2023 14:31:09: = Backup
+: 27-09-2023 14:31:16: = strDB null
+: 27-09-2023 14:31:16: = type_db
+: 27-09-2023 14:31:16: = Backup
+: 27-09-2023 14:31:22: = strDB null
+: 27-09-2023 14:31:22: = type_db
+: 27-09-2023 14:31:22: = Backup
+: 27-09-2023 14:31:27: = type_db
+: 27-09-2023 14:31:27: = Backup
+: 27-09-2023 14:31:27: = type_db
+: 27-09-2023 14:31:27: = Backup
+: 27-09-2023 14:32:43: = type_db
+: 27-09-2023 14:32:43: = Backup
+: 27-09-2023 14:32:44: = strDB null
+: 27-09-2023 14:32:44: = type_db
+: 27-09-2023 14:32:44: = Backup
+: 27-09-2023 14:32:44: = Backup
+: 27-09-2023 14:32:44: = type_db
+: 27-09-2023 14:32:44: = Backup
+: 27-09-2023 14:32:48: = type_db
+: 27-09-2023 14:32:48: = Backup
+: 27-09-2023 14:33:09: = type_db
+: 27-09-2023 14:33:09: = Backup
+: 27-09-2023 14:33:11: = type_db
+: 27-09-2023 14:33:11: = Backup
+: 27-09-2023 14:37:23: = type_db
+: 27-09-2023 14:37:23: = Backup
+: 27-09-2023 14:37:25: = 26.241.150.104
+: 27-09-2023 14:37:25: = 172.21.130.228
+: 27-09-2023 14:37:26: = type_db
+: 27-09-2023 14:37:26: = Backup
+: 27-09-2023 14:37:28: = strDB null
+: 27-09-2023 14:37:28: = type_db
+: 27-09-2023 14:37:28: = Backup
+: 27-09-2023 14:37:32: = strDB null
+: 27-09-2023 14:37:32: = type_db
+: 27-09-2023 14:37:32: = Backup
+: 27-09-2023 14:37:36: = type_db
+: 27-09-2023 14:37:36: = Backup
+: 27-09-2023 14:37:36: = type_db
+: 27-09-2023 14:37:36: = Backup
+: 27-09-2023 14:37:41: = type_db
+: 27-09-2023 14:37:41: = Backup
+: 27-09-2023 14:37:41: = type_db
+: 27-09-2023 14:37:41: = Backup
+: 27-09-2023 14:37:41: = type_db
+: 27-09-2023 14:37:41: = Backup
+: 27-09-2023 14:37:41: = type_db
+: 27-09-2023 14:37:41: = Backup
+: 27-09-2023 14:37:41: = type_db
+: 27-09-2023 14:37:41: = Backup
+: 27-09-2023 14:37:43: = strDB null
+: 27-09-2023 14:37:43: = strDB null
+: 27-09-2023 14:37:43: = type_db
+: 27-09-2023 14:37:43: = Backup
+: 27-09-2023 14:37:43: = Backup
+: 27-09-2023 14:37:50: = strDB null
+: 27-09-2023 14:37:50: = type_db
+: 27-09-2023 14:37:50: = Backup
+: 27-09-2023 14:37:50: = type_db
+: 27-09-2023 14:37:50: = Backup
+: 27-09-2023 14:37:51: = type_db
+: 27-09-2023 14:37:51: = Backup
+: 27-09-2023 14:37:57: = type_db
+: 27-09-2023 14:37:57: = Backup
+: 27-09-2023 14:37:58: = strDB null
+: 27-09-2023 14:37:58: = type_db
+: 27-09-2023 14:37:58: = Backup
+: 27-09-2023 14:37:58: = Backup
+: 27-09-2023 14:38:02: = strDB null
+: 27-09-2023 14:38:02: = type_db
+: 27-09-2023 14:38:02: = Backup
+: 27-09-2023 14:38:07: = strDB null
+: 27-09-2023 14:38:07: = type_db
+: 27-09-2023 14:38:07: = Backup
+: 27-09-2023 14:38:12: = strDB null
+: 27-09-2023 14:38:12: = type_db
+: 27-09-2023 14:38:12: = Backup
+: 27-09-2023 14:38:17: = strDB null
+: 27-09-2023 14:38:17: = type_db
+: 27-09-2023 14:38:17: = Backup
+: 27-09-2023 14:38:22: = strDB null
+: 27-09-2023 14:38:22: = type_db
+: 27-09-2023 14:38:22: = Backup
+: 27-09-2023 14:38:24: = strDB null
+: 27-09-2023 14:38:24: = type_db
+: 27-09-2023 14:38:24: = Backup
+: 27-09-2023 14:38:27: = strDB null
+: 27-09-2023 14:38:27: = type_db
+: 27-09-2023 14:38:27: = Backup
+: 27-09-2023 14:38:32: = strDB null
+: 27-09-2023 14:38:32: = type_db
+: 27-09-2023 14:38:32: = Backup
+: 27-09-2023 14:38:37: = strDB null
+: 27-09-2023 14:38:37: = type_db
+: 27-09-2023 14:38:37: = Backup
+: 27-09-2023 14:38:41: = strDB null
+: 27-09-2023 14:38:41: = type_db
+: 27-09-2023 14:38:41: = Backup
+: 27-09-2023 14:38:41: = type_db
+: 27-09-2023 14:38:41: = Backup
+: 27-09-2023 14:38:42: = type_db
+: 27-09-2023 14:38:42: = Backup
+: 27-09-2023 14:38:42: = type_db
+: 27-09-2023 14:38:42: = Backup
+: 27-09-2023 14:38:42: = type_db
+: 27-09-2023 14:38:42: = Backup
+: 27-09-2023 14:38:42: = type_db
+: 27-09-2023 14:38:42: = Backup
+: 27-09-2023 14:38:43: = strDB null
+: 27-09-2023 14:38:43: = type_db
+: 27-09-2023 14:38:43: = Backup
+: 27-09-2023 14:38:47: = strDB null
+: 27-09-2023 14:38:47: = type_db
+: 27-09-2023 14:38:47: = Backup
+: 27-09-2023 14:38:50: = strDB null
+: 27-09-2023 14:38:50: = type_db
+: 27-09-2023 14:38:50: = Backup
+: 27-09-2023 14:38:52: = strDB null
+: 27-09-2023 14:38:52: = type_db
+: 27-09-2023 14:38:52: = Backup
+: 27-09-2023 14:38:55: = strDB null
+: 27-09-2023 14:38:55: = type_db
+: 27-09-2023 14:38:55: = Backup
+: 27-09-2023 14:38:57: = strDB null
+: 27-09-2023 14:38:57: = type_db
+: 27-09-2023 14:38:57: = Backup
+: 27-09-2023 14:38:59: = strDB null
+: 27-09-2023 14:38:59: = type_db
+: 27-09-2023 14:38:59: = Backup
+: 27-09-2023 14:39:02: = strDB null
+: 27-09-2023 14:39:02: = type_db
+: 27-09-2023 14:39:02: = Backup
+: 27-09-2023 14:39:05: = strDB null
+: 27-09-2023 14:39:05: = type_db
+: 27-09-2023 14:39:05: = Backup
+: 27-09-2023 14:39:07: = strDB null
+: 27-09-2023 14:39:07: = type_db
+: 27-09-2023 14:39:07: = Backup
+: 27-09-2023 14:39:10: = strDB null
+: 27-09-2023 14:39:10: = type_db
+: 27-09-2023 14:39:10: = Backup
+: 27-09-2023 14:39:12: = strDB null
+: 27-09-2023 14:39:12: = type_db
+: 27-09-2023 14:39:12: = Backup
+: 27-09-2023 14:39:14: = strDB null
+: 27-09-2023 14:39:14: = type_db
+: 27-09-2023 14:39:14: = Backup
+: 27-09-2023 14:39:17: = strDB null
+: 27-09-2023 14:39:17: = type_db
+: 27-09-2023 14:39:17: = Backup
+: 27-09-2023 14:39:20: = strDB null
+: 27-09-2023 14:39:20: = type_db
+: 27-09-2023 14:39:20: = Backup
+: 27-09-2023 14:39:23: = strDB null
+: 27-09-2023 14:39:23: = type_db
+: 27-09-2023 14:39:23: = Backup
+: 27-09-2023 14:39:25: = strDB null
+: 27-09-2023 14:39:25: = type_db
+: 27-09-2023 14:39:25: = Backup
+: 27-09-2023 14:39:29: = strDB null
+: 27-09-2023 14:39:29: = strDB null
+: 27-09-2023 14:39:29: = type_db
+: 27-09-2023 14:39:29: = Backup
+: 27-09-2023 14:39:29: = Backup
+: 27-09-2023 14:39:32: = strDB null
+: 27-09-2023 14:39:32: = type_db
+: 27-09-2023 14:39:32: = Backup
+: 27-09-2023 14:39:35: = strDB null
+: 27-09-2023 14:39:35: = type_db
+: 27-09-2023 14:39:35: = Backup
+: 27-09-2023 14:39:38: = strDB null
+: 27-09-2023 14:39:38: = type_db
+: 27-09-2023 14:39:38: = Backup
+: 27-09-2023 14:39:40: = strDB null
+: 27-09-2023 14:39:40: = type_db
+: 27-09-2023 14:39:40: = Backup
+: 27-09-2023 14:39:43: = strDB null
+: 27-09-2023 14:39:43: = type_db
+: 27-09-2023 14:39:43: = Backup
+: 27-09-2023 14:39:45: = strDB null
+: 27-09-2023 14:39:45: = type_db
+: 27-09-2023 14:39:45: = Backup
+: 27-09-2023 14:39:48: = strDB null
+: 27-09-2023 14:39:48: = type_db
+: 27-09-2023 14:39:48: = Backup
+: 27-09-2023 14:39:50: = strDB null
+: 27-09-2023 14:39:50: = type_db
+: 27-09-2023 14:39:50: = Backup
+: 27-09-2023 14:39:53: = strDB null
+: 27-09-2023 14:39:53: = type_db
+: 27-09-2023 14:39:53: = Backup
+: 27-09-2023 14:39:55: = strDB null
+: 27-09-2023 14:39:55: = type_db
+: 27-09-2023 14:39:55: = Backup
+: 27-09-2023 14:39:58: = strDB null
+: 27-09-2023 14:39:58: = type_db
+: 27-09-2023 14:39:58: = Backup
+: 27-09-2023 14:40:00: = strDB null
+: 27-09-2023 14:40:00: = type_db
+: 27-09-2023 14:40:00: = Backup
+: 27-09-2023 14:40:03: = strDB null
+: 27-09-2023 14:40:03: = type_db
+: 27-09-2023 14:40:03: = Backup
+: 27-09-2023 14:40:03: = type_db
+: 27-09-2023 14:40:03: = Backup
+: 27-09-2023 14:40:09: = strDB null
+: 27-09-2023 14:40:09: = strDB null
+: 27-09-2023 14:40:09: = type_db
+: 27-09-2023 14:40:09: = Backup
+: 27-09-2023 14:40:14: = strDB null
+: 27-09-2023 14:40:14: = type_db
+: 27-09-2023 14:40:14: = Backup
+: 27-09-2023 14:40:14: = type_db
+: 27-09-2023 14:40:14: = Backup
+: 27-09-2023 14:40:19: = strDB null
+: 27-09-2023 14:40:19: = type_db
+: 27-09-2023 14:40:19: = Backup
+: 27-09-2023 14:40:19: = Backup
+: 27-09-2023 14:40:24: = strDB null
+: 27-09-2023 14:40:24: = type_db
+: 27-09-2023 14:40:24: = Backup
+: 27-09-2023 14:40:24: = Backup
+: 27-09-2023 14:40:29: = strDB null
+: 27-09-2023 14:40:29: = type_db
+: 27-09-2023 14:40:29: = Backup
+: 27-09-2023 14:40:29: = Backup
+: 27-09-2023 14:40:34: = strDB null
+: 27-09-2023 14:40:34: = type_db
+: 27-09-2023 14:40:34: = Backup
+: 27-09-2023 14:40:34: = type_db
+: 27-09-2023 14:40:34: = Backup
+: 27-09-2023 14:40:39: = strDB null
+: 27-09-2023 14:40:39: = type_db
+: 27-09-2023 14:40:39: = Backup
+: 27-09-2023 14:40:39: = type_db
+: 27-09-2023 14:40:39: = Backup
+: 27-09-2023 14:40:44: = strDB null
+: 27-09-2023 14:40:44: = type_db
+: 27-09-2023 14:40:44: = Backup
+: 27-09-2023 14:40:44: = type_db
+: 27-09-2023 14:40:44: = Backup
+: 27-09-2023 14:40:49: = strDB null
+: 27-09-2023 14:40:49: = type_db
+: 27-09-2023 14:40:49: = Backup
+: 27-09-2023 14:40:49: = type_db
+: 27-09-2023 14:40:49: = Backup
+: 27-09-2023 14:40:54: = strDB null
+: 27-09-2023 14:40:54: = type_db
+: 27-09-2023 14:40:54: = Backup
+: 27-09-2023 14:40:54: = Backup
+: 27-09-2023 14:40:59: = strDB null
+: 27-09-2023 14:40:59: = type_db
+: 27-09-2023 14:40:59: = Backup
+: 27-09-2023 14:40:59: = type_db
+: 27-09-2023 14:40:59: = Backup
+: 27-09-2023 14:41:04: = strDB null
+: 27-09-2023 14:41:04: = type_db
+: 27-09-2023 14:41:04: = type_db
+: 27-09-2023 14:41:04: = Backup
+: 27-09-2023 14:41:09: = strDB null
+: 27-09-2023 14:41:09: = type_db
+: 27-09-2023 14:41:09: = Backup
+: 27-09-2023 14:41:09: = type_db
+: 27-09-2023 14:41:09: = Backup
+: 27-09-2023 14:41:15: = strDB null
+: 27-09-2023 14:41:15: = type_db
+: 27-09-2023 14:41:15: = Backup
+: 27-09-2023 14:41:15: = Backup
+: 27-09-2023 14:41:19: = strDB null
+: 27-09-2023 14:41:19: = type_db
+: 27-09-2023 14:41:19: = Backup
+: 27-09-2023 14:41:19: = type_db
+: 27-09-2023 14:41:19: = Backup
+: 27-09-2023 14:41:19: = type_db
+: 27-09-2023 14:41:19: = Backup
+: 27-09-2023 14:41:24: = strDB null
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:24: = type_db
+: 27-09-2023 14:41:24: = Backup
+: 27-09-2023 14:41:27: = strDB null
+: 27-09-2023 14:41:27: = type_db
+: 27-09-2023 14:41:27: = Backup
+: 27-09-2023 14:41:34: = strDB null
+: 27-09-2023 14:41:34: = type_db
+: 27-09-2023 14:41:34: = Backup
+: 27-09-2023 14:41:41: = strDB null
+: 27-09-2023 14:41:41: = type_db
+: 27-09-2023 14:41:41: = Backup
+: 27-09-2023 14:41:41: = type_db
+: 27-09-2023 14:41:41: = Backup
+: 27-09-2023 14:41:41: = type_db
+: 27-09-2023 14:41:41: = Backup
+: 27-09-2023 14:41:41: = type_db
+: 27-09-2023 14:41:41: = Backup
+: 27-09-2023 14:41:44: = strDB null
+: 27-09-2023 14:41:44: = type_db
+: 27-09-2023 14:41:44: = Backup
+: 27-09-2023 14:41:49: = strDB null
+: 27-09-2023 14:41:49: = type_db
+: 27-09-2023 14:41:49: = Backup
+: 27-09-2023 14:41:56: = strDB null
+: 27-09-2023 14:41:56: = type_db
+: 27-09-2023 14:41:57: = Backup
+: 27-09-2023 14:41:57: = type_db
+: 27-09-2023 14:41:57: = Backup
+: 27-09-2023 14:41:57: = type_db
+: 27-09-2023 14:41:57: = Backup
+: 27-09-2023 14:42:08: = type_db
+: 27-09-2023 14:42:08: = Backup
+: 27-09-2023 14:42:13: = strDB null
+: 27-09-2023 14:42:13: = type_db
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:13: = type_db
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:13: = type_db
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:13: = type_db
+: 27-09-2023 14:42:13: = Backup
+: 27-09-2023 14:42:15: = strDB null
+: 27-09-2023 14:42:15: = type_db
+: 27-09-2023 14:42:15: = Backup
+: 27-09-2023 14:42:20: = strDB null
+: 27-09-2023 14:42:20: = type_db
+: 27-09-2023 14:42:20: = Backup
+: 27-09-2023 14:42:37: = strDB null
+: 27-09-2023 14:42:37: = type_db
+: 27-09-2023 14:42:37: = Backup
+: 27-09-2023 14:42:37: = type_db
+: 27-09-2023 14:42:37: = Backup
+: 27-09-2023 14:42:37: = type_db
+: 27-09-2023 14:42:37: = Backup
+: 27-09-2023 14:42:38: = type_db
+: 27-09-2023 14:42:38: = Backup
+: 27-09-2023 14:42:38: = type_db
+: 27-09-2023 14:42:38: = Backup
+: 27-09-2023 14:42:55: = type_db
+: 27-09-2023 14:42:55: = Backup
+: 27-09-2023 14:43:00: = strDB null
+: 27-09-2023 14:43:00: = type_db
+: 27-09-2023 14:43:00: = Backup
+: 27-09-2023 14:43:00: = type_db
+: 27-09-2023 14:43:00: = Backup
+: 27-09-2023 14:43:00: = Backup
+: 27-09-2023 14:43:00: = type_db
+: 27-09-2023 14:43:00: = Backup
+: 27-09-2023 14:43:01: = Backup
+: 27-09-2023 14:43:05: = type_db
+: 27-09-2023 14:43:05: = Backup
+: 27-09-2023 14:43:05: = type_db
+: 27-09-2023 14:43:05: = Backup
+: 27-09-2023 14:43:05: = type_db
+: 27-09-2023 14:43:05: = Backup
+: 27-09-2023 14:43:18: = type_db
+: 27-09-2023 14:43:18: = Backup
+: 27-09-2023 14:43:18: = type_db
+: 27-09-2023 14:43:18: = Backup
+: 27-09-2023 14:43:20: = strDB null
+: 27-09-2023 14:43:20: = type_db
+: 27-09-2023 14:43:20: = Backup
+: 27-09-2023 14:43:20: = type_db
+: 27-09-2023 14:43:20: = Backup
+: 27-09-2023 14:43:20: = type_db
+: 27-09-2023 14:43:20: = Backup
+: 27-09-2023 14:43:24: = strDB null
+: 27-09-2023 14:43:24: = type_db
+: 27-09-2023 14:43:24: = Backup
+: 27-09-2023 14:43:30: = type_db
+: 27-09-2023 14:43:30: = Backup
+: 27-09-2023 14:43:30: = strDB null
+: 27-09-2023 14:43:30: = type_db
+: 27-09-2023 14:43:30: = Backup
+: 27-09-2023 14:43:32: = strDB null
+: 27-09-2023 14:43:32: = type_db
+: 27-09-2023 14:43:32: = Backup
+: 27-09-2023 14:43:34: = type_db
+: 27-09-2023 14:43:34: = Backup
+: 27-09-2023 14:43:36: = strDB null
+: 27-09-2023 14:43:36: = type_db
+: 27-09-2023 14:43:36: = Backup
+: 27-09-2023 14:43:43: = strDB null
+: 27-09-2023 14:43:43: = type_db
+: 27-09-2023 14:43:43: = Backup
+: 27-09-2023 14:43:53: = strDB null
+: 27-09-2023 14:43:53: = type_db
+: 27-09-2023 14:43:53: = Backup
+: 27-09-2023 14:43:54: = Backup
+: 27-09-2023 14:43:58: = strDB null
+: 27-09-2023 14:43:58: = type_db
+: 27-09-2023 14:43:58: = Backup
+: 27-09-2023 14:44:03: = type_db
+: 27-09-2023 14:44:03: = Backup
+: 27-09-2023 14:44:04: = strDB null
+: 27-09-2023 14:44:04: = type_db
+: 27-09-2023 14:44:04: = Backup
+: 27-09-2023 14:44:08: = strDB null
+: 27-09-2023 14:44:08: = type_db
+: 27-09-2023 14:44:08: = Backup
+: 27-09-2023 14:44:14: = strDB null
+: 27-09-2023 14:44:14: = type_db
+: 27-09-2023 14:44:14: = Backup
+: 27-09-2023 14:44:18: = type_db
+: 27-09-2023 14:44:18: = Backup
+: 27-09-2023 14:44:18: = strDB null
+: 27-09-2023 14:44:18: = type_db
+: 27-09-2023 14:44:18: = Backup
+: 27-09-2023 14:44:23: = strDB null
+: 27-09-2023 14:44:23: = type_db
+: 27-09-2023 14:44:23: = Backup
+: 27-09-2023 14:44:29: = strDB null
+: 27-09-2023 14:44:29: = type_db
+: 27-09-2023 14:44:29: = Backup
+: 27-09-2023 14:44:33: = type_db
+: 27-09-2023 14:44:33: = Backup
+: 27-09-2023 14:44:34: = strDB null
+: 27-09-2023 14:44:34: = type_db
+: 27-09-2023 14:44:34: = Backup
+: 27-09-2023 14:44:38: = strDB null
+: 27-09-2023 14:44:38: = type_db
+: 27-09-2023 14:44:38: = Backup
+: 27-09-2023 14:44:45: = strDB null
+: 27-09-2023 14:44:45: = type_db
+: 27-09-2023 14:44:45: = Backup
+: 27-09-2023 14:44:48: = type_db
+: 27-09-2023 14:44:48: = Backup
+: 27-09-2023 14:44:49: = strDB null
+: 27-09-2023 14:44:49: = type_db
+: 27-09-2023 14:44:49: = Backup
+: 27-09-2023 14:44:53: = strDB null
+: 27-09-2023 14:44:53: = type_db
+: 27-09-2023 14:44:53: = Backup
+: 27-09-2023 14:45:00: = strDB null
+: 27-09-2023 14:45:00: = type_db
+: 27-09-2023 14:45:00: = Backup
+: 27-09-2023 14:45:03: = type_db
+: 27-09-2023 14:45:03: = Backup
+: 27-09-2023 14:45:05: = strDB null
+: 27-09-2023 14:45:05: = type_db
+: 27-09-2023 14:45:05: = Backup
+: 27-09-2023 14:45:08: = strDB null
+: 27-09-2023 14:45:08: = type_db
+: 27-09-2023 14:45:08: = Backup
+: 27-09-2023 14:45:15: = strDB null
+: 27-09-2023 14:45:15: = type_db
+: 27-09-2023 14:45:15: = Backup
+: 27-09-2023 14:45:18: = type_db
+: 27-09-2023 14:45:18: = Backup
+: 27-09-2023 14:45:20: = strDB null
+: 27-09-2023 14:45:20: = type_db
+: 27-09-2023 14:45:20: = Backup
+: 27-09-2023 14:45:23: = strDB null
+: 27-09-2023 14:45:23: = type_db
+: 27-09-2023 14:45:23: = Backup
+: 27-09-2023 14:45:30: = strDB null
+: 27-09-2023 14:45:30: = type_db
+: 27-09-2023 14:45:30: = Backup
+: 27-09-2023 14:45:33: = type_db
+: 27-09-2023 14:45:33: = Backup
+: 27-09-2023 14:45:35: = strDB null
+: 27-09-2023 14:45:35: = type_db
+: 27-09-2023 14:45:35: = Backup
+: 27-09-2023 14:45:38: = strDB null
+: 27-09-2023 14:45:38: = type_db
+: 27-09-2023 14:45:38: = Backup
+: 27-09-2023 14:45:44: = strDB null
+: 27-09-2023 14:45:44: = type_db
+: 27-09-2023 14:45:44: = Backup
+: 27-09-2023 14:45:48: = type_db
+: 27-09-2023 14:45:48: = Backup
+: 27-09-2023 14:46:22: = type_db
+: 27-09-2023 14:46:22: = Backup
+: 27-09-2023 14:46:34: = strDB null
+: 27-09-2023 14:46:34: = strDB null
+: 27-09-2023 14:46:34: = type_db
+: 27-09-2023 14:46:34: = Backup
+: 27-09-2023 14:46:34: = Backup
+: 27-09-2023 14:46:35: = type_db
+: 27-09-2023 14:46:35: = Backup
+: 27-09-2023 14:46:35: = Backup
+: 27-09-2023 14:46:39: = strDB null
+: 27-09-2023 14:46:39: = type_db
+: 27-09-2023 14:46:39: = Backup
+: 27-09-2023 14:46:41: = 26.241.150.104
+: 27-09-2023 14:46:41: = 172.21.130.228
+: 27-09-2023 14:46:42: = type_db
+: 27-09-2023 14:46:42: = Backup
+: 27-09-2023 14:46:50: = strDB null
+: 27-09-2023 14:46:50: = type_db
+: 27-09-2023 14:46:50: = Backup
+: 27-09-2023 14:46:52: = 26.241.150.104
+: 27-09-2023 14:46:52: = 172.21.130.228
+: 27-09-2023 14:46:53: = type_db
+: 27-09-2023 14:46:53: = Backup
+: 27-09-2023 14:47:12: = strDB null
+: 27-09-2023 14:47:12: = type_db
+: 27-09-2023 14:47:12: = Backup
+: 27-09-2023 14:47:23: = 26.241.150.104
+: 27-09-2023 14:47:25: = 172.21.130.228
+: 27-09-2023 14:47:29: = type_db
+: 27-09-2023 14:47:29: = Backup
+: 27-09-2023 14:49:04: = strDB null
+: 27-09-2023 14:49:04: = type_db
+: 27-09-2023 14:49:04: = Backup
+: 27-09-2023 14:49:14: = 26.241.150.104
+: 27-09-2023 14:49:16: = 172.21.130.228
+: 27-09-2023 14:49:51: = type_db
+: 27-09-2023 14:49:51: = Backup
+: 27-09-2023 14:50:26: = strDB null
+: 27-09-2023 14:50:26: = type_db
+: 27-09-2023 14:50:26: = Backup
+: 27-09-2023 14:50:36: = 26.241.150.104
+: 27-09-2023 14:50:38: = 172.21.130.228
+: 27-09-2023 14:50:46: = type_db
+: 27-09-2023 14:50:46: = Backup
+: 27-09-2023 14:52:47: = type_db
+: 27-09-2023 14:52:47: = Backup
+: 27-09-2023 14:52:56: = 26.241.150.104
+: 27-09-2023 14:52:58: = 172.21.130.228
+: 27-09-2023 14:53:10: = type_db
+: 27-09-2023 14:53:10: = Backup
+: 27-09-2023 14:54:08: = type_db
+: 27-09-2023 14:54:08: = Backup
+: 27-09-2023 14:54:14: = 26.241.150.104
+: 27-09-2023 14:54:14: = 172.21.130.228
+: 27-09-2023 14:54:34: = type_db
+: 27-09-2023 14:54:34: = Backup
+: 27-09-2023 14:55:47: = type_db
+: 27-09-2023 14:55:47: = Backup
+: 27-09-2023 14:55:49: = 26.241.150.104
+: 27-09-2023 14:55:49: = 172.21.130.228
+: 27-09-2023 14:55:55: = type_db
+: 27-09-2023 14:55:55: = Backup
+: 27-09-2023 14:56:48: = type_db
+: 27-09-2023 14:56:48: = Backup
+: 27-09-2023 14:56:50: = 26.241.150.104
+: 27-09-2023 14:56:50: = 172.21.130.228
+: 27-09-2023 14:56:57: = type_db
+: 27-09-2023 14:56:57: = Backup
+: 28-09-2023 14:01:18: = type_db
+: 28-09-2023 14:01:18: = Backup
+: 28-09-2023 14:01:18: = 26.241.150.104
+: 28-09-2023 14:01:18: = 172.21.130.228
+: 28-09-2023 14:01:18: = type_db
+: 28-09-2023 14:01:18: = Backup
+: 28-09-2023 14:01:20: = strDB null
+: 28-09-2023 14:01:20: = type_db
+: 28-09-2023 14:01:20: = Backup
+: 28-09-2023 14:01:24: = strDB null
+: 28-09-2023 14:01:24: = type_db
+: 28-09-2023 14:01:24: = Backup
+: 28-09-2023 14:01:24: = type_db
+: 28-09-2023 14:01:24: = Backup
+: 28-09-2023 14:01:24: = type_db
+: 28-09-2023 14:01:24: = Backup
+: 28-09-2023 14:01:25: = type_db
+: 28-09-2023 14:01:25: = Backup
+: 28-09-2023 14:01:25: = type_db
+: 28-09-2023 14:01:25: = Backup
+: 28-09-2023 14:01:25: = type_db
+: 28-09-2023 14:01:25: = Backup
+: 28-09-2023 14:01:28: = strDB null
+: 28-09-2023 14:01:28: = type_db
+: 28-09-2023 14:01:28: = Backup
+: 28-09-2023 14:01:28: = type_db
+: 28-09-2023 14:01:28: = Backup
+: 28-09-2023 14:01:28: = type_db
+: 28-09-2023 14:01:28: = Backup
+: 28-09-2023 14:01:29: = type_db
+: 28-09-2023 14:01:29: = Backup
+: 28-09-2023 14:01:29: = type_db
+: 28-09-2023 14:01:29: = Backup
+: 28-09-2023 14:01:33: = strDB null
+: 28-09-2023 14:01:33: = type_db
+: 28-09-2023 14:01:33: = Backup
+: 28-09-2023 14:01:38: = strDB null
+: 28-09-2023 14:01:38: = type_db
+: 28-09-2023 14:01:39: = Backup
+: 28-09-2023 14:01:39: = type_db
+: 28-09-2023 14:01:39: = Backup
+: 28-09-2023 14:01:41: = strDB null
+: 28-09-2023 14:01:41: = type_db
+: 28-09-2023 14:01:41: = Backup
+: 28-09-2023 14:01:44: = strDB null
+: 28-09-2023 14:01:44: = type_db
+: 28-09-2023 14:01:44: = Backup
+: 28-09-2023 14:01:44: = type_db
+: 28-09-2023 14:01:44: = Backup
+: 28-09-2023 14:01:44: = type_db
+: 28-09-2023 14:01:44: = Backup
+: 28-09-2023 14:01:44: = type_db
+: 28-09-2023 14:01:44: = Backup
+: 28-09-2023 14:01:44: = type_db
+: 28-09-2023 14:01:44: = Backup
+: 28-09-2023 14:01:45: = type_db
+: 28-09-2023 14:01:45: = Backup
+: 28-09-2023 14:01:48: = strDB null
+: 28-09-2023 14:01:48: = type_db
+: 28-09-2023 14:01:48: = Backup
+: 28-09-2023 14:01:54: = strDB null
+: 28-09-2023 14:01:54: = type_db
+: 28-09-2023 14:01:54: = Backup
+: 28-09-2023 14:02:01: = strDB null
+: 28-09-2023 14:02:01: = type_db
+: 28-09-2023 14:02:01: = Backup
+: 28-09-2023 14:02:06: = strDB null
+: 28-09-2023 14:02:06: = type_db
+: 28-09-2023 14:02:06: = Backup
+: 28-09-2023 14:02:11: = strDB null
+: 28-09-2023 14:02:11: = type_db
+: 28-09-2023 14:02:11: = Backup
+: 28-09-2023 14:02:16: = strDB null
+: 28-09-2023 14:02:16: = type_db
+: 28-09-2023 14:02:16: = Backup
+: 28-09-2023 14:02:21: = strDB null
+: 28-09-2023 14:02:21: = type_db
+: 28-09-2023 14:02:21: = Backup
+: 28-09-2023 14:02:26: = strDB null
+: 28-09-2023 14:02:26: = type_db
+: 28-09-2023 14:02:26: = Backup
+: 28-09-2023 14:02:30: = strDB null
+: 28-09-2023 14:02:30: = type_db
+: 28-09-2023 14:02:30: = Backup
+: 28-09-2023 14:02:36: = strDB null
+: 28-09-2023 14:02:36: = type_db
+: 28-09-2023 14:02:36: = Backup
+: 28-09-2023 14:02:40: = strDB null
+: 28-09-2023 14:02:40: = type_db
+: 28-09-2023 14:02:40: = Backup
+: 28-09-2023 14:02:46: = strDB null
+: 28-09-2023 14:02:46: = type_db
+: 28-09-2023 14:02:46: = Backup
+: 28-09-2023 14:02:51: = strDB null
+: 28-09-2023 14:02:51: = type_db
+: 28-09-2023 14:02:51: = Backup
+: 28-09-2023 14:02:56: = strDB null
+: 28-09-2023 14:02:56: = type_db
+: 28-09-2023 14:02:56: = Backup
+: 28-09-2023 14:03:01: = strDB null
+: 28-09-2023 14:03:01: = type_db
+: 28-09-2023 14:03:01: = Backup
+: 28-09-2023 14:03:06: = strDB null
+: 28-09-2023 14:03:06: = type_db
+: 28-09-2023 14:03:06: = Backup
+: 28-09-2023 14:03:11: = strDB null
+: 28-09-2023 14:03:11: = type_db
+: 28-09-2023 14:03:11: = Backup
+: 28-09-2023 14:03:16: = strDB null
+: 28-09-2023 14:03:16: = type_db
+: 28-09-2023 14:03:16: = Backup
+: 28-09-2023 14:03:21: = strDB null
+: 28-09-2023 14:03:21: = type_db
+: 28-09-2023 14:03:21: = Backup
+: 28-09-2023 14:03:26: = strDB null
+: 28-09-2023 14:03:26: = type_db
+: 28-09-2023 14:03:26: = Backup
+: 28-09-2023 14:03:31: = strDB null
+: 28-09-2023 14:03:31: = type_db
+: 28-09-2023 14:03:31: = Backup
+: 28-09-2023 14:03:36: = strDB null
+: 28-09-2023 14:03:36: = type_db
+: 28-09-2023 14:03:36: = Backup
+: 28-09-2023 14:03:42: = strDB null
+: 28-09-2023 14:03:42: = type_db
+: 28-09-2023 14:03:42: = Backup
+: 28-09-2023 14:03:46: = strDB null
+: 28-09-2023 14:03:46: = type_db
+: 28-09-2023 14:03:46: = Backup
+: 28-09-2023 14:03:51: = strDB null
+: 28-09-2023 14:03:51: = type_db
+: 28-09-2023 14:03:51: = Backup
+: 28-09-2023 14:03:56: = strDB null
+: 28-09-2023 14:03:56: = type_db
+: 28-09-2023 14:03:56: = Backup
+: 28-09-2023 14:04:01: = strDB null
+: 28-09-2023 14:04:01: = type_db
+: 28-09-2023 14:04:01: = Backup
+: 28-09-2023 14:04:06: = strDB null
+: 28-09-2023 14:04:06: = type_db
+: 28-09-2023 14:04:06: = Backup
+: 28-09-2023 14:04:11: = strDB null
+: 28-09-2023 14:04:11: = type_db
+: 28-09-2023 14:04:11: = Backup
+: 28-09-2023 14:04:16: = strDB null
+: 28-09-2023 14:04:16: = type_db
+: 28-09-2023 14:04:16: = Backup
+: 28-09-2023 14:04:21: = strDB null
+: 28-09-2023 14:04:21: = type_db
+: 28-09-2023 14:04:21: = Backup
+: 28-09-2023 14:04:27: = strDB null
+: 28-09-2023 14:04:27: = type_db
+: 28-09-2023 14:04:27: = Backup
+: 28-09-2023 14:25:06: = type_db
+: 28-09-2023 14:25:06: = Backup
+: 28-09-2023 14:25:06: = 26.241.150.104
+: 28-09-2023 14:25:06: = 172.21.130.228
+: 28-09-2023 14:25:06: = type_db
+: 28-09-2023 14:25:06: = Backup
+: 28-09-2023 14:25:08: = strDB null
+: 28-09-2023 14:25:08: = type_db
+: 28-09-2023 14:25:08: = Backup
+: 28-09-2023 14:25:11: = strDB null
+: 28-09-2023 14:25:11: = type_db
+: 28-09-2023 14:25:11: = Backup
+: 28-09-2023 14:25:11: = type_db
+: 28-09-2023 14:25:11: = Backup
+: 28-09-2023 14:25:11: = type_db
+: 28-09-2023 14:25:11: = Backup
+: 28-09-2023 14:25:11: = type_db
+: 28-09-2023 14:25:11: = Backup
+: 28-09-2023 14:25:12: = type_db
+: 28-09-2023 14:25:12: = Backup
+: 28-09-2023 14:25:13: = strDB null
+: 28-09-2023 14:25:13: = type_db
+: 28-09-2023 14:25:13: = Backup
+: 28-09-2023 14:25:17: = strDB null
+: 28-09-2023 14:25:17: = type_db
+: 28-09-2023 14:25:17: = Backup
+: 28-09-2023 14:25:17: = type_db
+: 28-09-2023 14:25:17: = Backup
+: 28-09-2023 14:25:17: = type_db
+: 28-09-2023 14:25:17: = Backup
+: 28-09-2023 14:25:17: = type_db
+: 28-09-2023 14:25:17: = Backup
+: 28-09-2023 14:25:18: = type_db
+: 28-09-2023 14:25:18: = Backup
+: 28-09-2023 14:25:22: = strDB null
+: 28-09-2023 14:25:22: = type_db
+: 28-09-2023 14:25:22: = Backup
+: 28-09-2023 14:25:27: = strDB null
+: 28-09-2023 14:25:27: = type_db
+: 28-09-2023 14:25:27: = Backup
+: 28-09-2023 14:25:27: = type_db
+: 28-09-2023 14:25:27: = Backup
+: 28-09-2023 14:25:27: = type_db
+: 28-09-2023 14:25:27: = Backup
+: 28-09-2023 14:25:29: = strDB null
+: 28-09-2023 14:25:29: = type_db
+: 28-09-2023 14:25:29: = Backup
+: 28-09-2023 14:25:32: = strDB null
+: 28-09-2023 14:25:32: = type_db
+: 28-09-2023 14:25:32: = Backup
+: 28-09-2023 14:25:32: = type_db
+: 28-09-2023 14:25:32: = Backup
+: 28-09-2023 14:25:32: = type_db
+: 28-09-2023 14:25:32: = Backup
+: 28-09-2023 14:25:32: = type_db
+: 28-09-2023 14:25:32: = Backup
+: 28-09-2023 14:25:32: = type_db
+: 28-09-2023 14:25:32: = Backup
+: 28-09-2023 14:25:33: = type_db
+: 28-09-2023 14:25:33: = Backup
+: 28-09-2023 14:25:35: = strDB null
+: 28-09-2023 14:25:35: = type_db
+: 28-09-2023 14:25:35: = Backup
+: 28-09-2023 14:25:38: = strDB null
+: 28-09-2023 14:25:38: = type_db
+: 28-09-2023 14:25:38: = Backup
+: 28-09-2023 14:25:43: = strDB null
+: 28-09-2023 14:25:43: = type_db
+: 28-09-2023 14:25:43: = Backup
+: 28-09-2023 14:25:48: = strDB null
+: 28-09-2023 14:25:48: = type_db
+: 28-09-2023 14:25:48: = Backup
+: 28-09-2023 14:25:53: = strDB null
+: 28-09-2023 14:25:53: = type_db
+: 28-09-2023 14:25:53: = Backup
+: 28-09-2023 14:25:58: = type_db
+: 28-09-2023 14:25:58: = Backup
+: 28-09-2023 14:26:43: = strDB null
+: 28-09-2023 14:26:43: = type_db
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = type_db
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = type_db
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = type_db
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = type_db
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:43: = Backup
+: 28-09-2023 14:26:44: = type_db
+: 28-09-2023 14:26:44: = Backup
+: 28-09-2023 14:26:45: = strDB null
+: 28-09-2023 14:26:45: = type_db
+: 28-09-2023 14:26:45: = Backup
+: 28-09-2023 14:26:48: = strDB null
+: 28-09-2023 14:26:48: = type_db
+: 28-09-2023 14:26:48: = Backup
+: 28-09-2023 14:26:50: = strDB null
+: 28-09-2023 14:26:50: = type_db
+: 28-09-2023 14:26:50: = Backup
+: 28-09-2023 14:26:53: = strDB null
+: 28-09-2023 14:26:53: = type_db
+: 28-09-2023 14:26:53: = Backup
+: 28-09-2023 14:26:55: = strDB null
+: 28-09-2023 14:26:55: = type_db
+: 28-09-2023 14:26:55: = Backup
+: 28-09-2023 14:26:58: = strDB null
+: 28-09-2023 14:26:58: = type_db
+: 28-09-2023 14:26:58: = Backup
+: 28-09-2023 14:26:58: = type_db
+: 28-09-2023 14:26:58: = Backup
+: 28-09-2023 14:26:58: = type_db
+: 28-09-2023 14:26:58: = Backup
+: 28-09-2023 14:27:00: = strDB null
+: 28-09-2023 14:27:00: = type_db
+: 28-09-2023 14:27:00: = Backup
+: 28-09-2023 14:27:03: = strDB null
+: 28-09-2023 14:27:03: = type_db
+: 28-09-2023 14:27:03: = Backup
+: 28-09-2023 14:27:05: = strDB null
+: 28-09-2023 14:27:05: = type_db
+: 28-09-2023 14:27:05: = Backup
+: 28-09-2023 14:27:08: = strDB null
+: 28-09-2023 14:27:08: = type_db
+: 28-09-2023 14:27:08: = Backup
+: 28-09-2023 14:27:10: = strDB null
+: 28-09-2023 14:27:10: = type_db
+: 28-09-2023 14:27:10: = Backup
+: 28-09-2023 14:27:13: = strDB null
+: 28-09-2023 14:27:13: = type_db
+: 28-09-2023 14:27:13: = type_db
+: 28-09-2023 14:27:13: = Backup
+: 28-09-2023 14:27:14: = type_db
+: 28-09-2023 14:27:14: = Backup
+: 28-09-2023 14:27:15: = strDB null
+: 28-09-2023 14:27:15: = type_db
+: 28-09-2023 14:27:15: = Backup
+: 28-09-2023 14:27:19: = strDB null
+: 28-09-2023 14:27:19: = type_db
+: 28-09-2023 14:27:19: = Backup
+: 28-09-2023 14:27:20: = strDB null
+: 28-09-2023 14:27:20: = type_db
+: 28-09-2023 14:27:20: = Backup
+: 28-09-2023 14:27:24: = strDB null
+: 28-09-2023 14:27:24: = type_db
+: 28-09-2023 14:27:24: = Backup
+: 28-09-2023 14:27:25: = strDB null
+: 28-09-2023 14:27:25: = type_db
+: 28-09-2023 14:27:25: = Backup
+: 28-09-2023 14:27:28: = strDB null
+: 28-09-2023 14:27:28: = strDB null
+: 28-09-2023 14:27:28: = type_db
+: 28-09-2023 14:27:28: = Backup
+: 28-09-2023 14:27:28: = Backup
+: 28-09-2023 14:27:29: = type_db
+: 28-09-2023 14:27:29: = Backup
+: 28-09-2023 14:27:30: = strDB null
+: 28-09-2023 14:27:30: = type_db
+: 28-09-2023 14:27:30: = Backup
+: 28-09-2023 14:27:34: = strDB null
+: 28-09-2023 14:27:34: = type_db
+: 28-09-2023 14:27:34: = Backup
+: 28-09-2023 14:27:34: = type_db
+: 28-09-2023 14:27:34: = Backup
+: 28-09-2023 14:27:39: = strDB null
+: 28-09-2023 14:27:39: = type_db
+: 28-09-2023 14:27:39: = Backup
+: 28-09-2023 14:27:39: = type_db
+: 28-09-2023 14:27:39: = Backup
+: 28-09-2023 14:27:43: = strDB null
+: 28-09-2023 14:27:44: = type_db
+: 28-09-2023 14:27:44: = Backup
+: 28-09-2023 14:27:44: = Backup
+: 28-09-2023 14:27:44: = type_db
+: 28-09-2023 14:27:44: = Backup
+: 28-09-2023 14:27:45: = strDB null
+: 28-09-2023 14:27:45: = type_db
+: 28-09-2023 14:27:45: = Backup
+: 28-09-2023 14:27:50: = strDB null
+: 28-09-2023 14:27:50: = strDB null
+: 28-09-2023 14:27:50: = type_db
+: 28-09-2023 14:27:50: = Backup
+: 28-09-2023 14:27:50: = Backup
+: 28-09-2023 14:27:55: = strDB null
+: 28-09-2023 14:27:55: = type_db
+: 28-09-2023 14:27:55: = Backup
+: 28-09-2023 14:27:55: = type_db
+: 28-09-2023 14:27:55: = Backup
+: 28-09-2023 14:27:59: = strDB null
+: 28-09-2023 14:27:59: = type_db
+: 28-09-2023 14:27:59: = Backup
+: 28-09-2023 14:27:59: = Backup
+: 28-09-2023 14:27:59: = type_db
+: 28-09-2023 14:27:59: = Backup
+: 28-09-2023 14:28:01: = strDB null
+: 28-09-2023 14:28:01: = type_db
+: 28-09-2023 14:28:01: = Backup
+: 28-09-2023 14:28:05: = strDB null
+: 28-09-2023 14:28:05: = type_db
+: 28-09-2023 14:28:05: = type_db
+: 28-09-2023 14:28:05: = Backup
+: 28-09-2023 14:28:09: = strDB null
+: 28-09-2023 14:28:09: = type_db
+: 28-09-2023 14:28:09: = type_db
+: 28-09-2023 14:28:09: = Backup
+: 28-09-2023 14:28:12: = strDB null
+: 28-09-2023 14:28:12: = type_db
+: 28-09-2023 14:28:12: = Backup
+: 28-09-2023 14:28:12: = type_db
+: 28-09-2023 14:28:12: = Backup
+: 28-09-2023 14:28:12: = type_db
+: 28-09-2023 14:28:12: = Backup
+: 28-09-2023 14:28:12: = type_db
+: 28-09-2023 14:28:12: = Backup
+: 28-09-2023 14:28:12: = type_db
+: 28-09-2023 14:28:12: = Backup
+: 28-09-2023 14:28:13: = type_db
+: 28-09-2023 14:28:13: = Backup
+: 28-09-2023 14:28:18: = strDB null
+: 28-09-2023 14:28:18: = type_db
+: 28-09-2023 14:28:18: = Backup
+: 28-09-2023 14:28:23: = strDB null
+: 28-09-2023 14:28:23: = type_db
+: 28-09-2023 14:28:23: = Backup
+: 28-09-2023 14:28:28: = strDB null
+: 28-09-2023 14:28:28: = type_db
+: 28-09-2023 14:28:28: = Backup
+: 28-09-2023 14:28:33: = strDB null
+: 28-09-2023 14:28:33: = type_db
+: 28-09-2023 14:28:33: = Backup
+: 28-09-2023 14:28:39: = strDB null
+: 28-09-2023 14:28:39: = type_db
+: 28-09-2023 14:28:39: = Backup
+: 28-09-2023 14:28:43: = strDB null
+: 28-09-2023 14:28:43: = type_db
+: 28-09-2023 14:28:43: = Backup
+: 28-09-2023 14:28:48: = strDB null
+: 28-09-2023 14:28:48: = type_db
+: 28-09-2023 14:28:48: = Backup
+: 28-09-2023 14:28:53: = strDB null
+: 28-09-2023 14:28:53: = type_db
+: 28-09-2023 14:28:53: = Backup
+: 28-09-2023 14:28:58: = strDB null
+: 28-09-2023 14:28:58: = type_db
+: 28-09-2023 14:28:58: = Backup
+: 28-09-2023 14:29:03: = strDB null
+: 28-09-2023 14:29:03: = type_db
+: 28-09-2023 14:29:03: = Backup
+: 28-09-2023 14:29:08: = strDB null
+: 28-09-2023 14:29:08: = type_db
+: 28-09-2023 14:29:08: = Backup
+: 28-09-2023 14:29:13: = strDB null
+: 28-09-2023 14:29:13: = type_db
+: 28-09-2023 14:29:13: = Backup
+: 28-09-2023 14:29:13: = Backup
+: 28-09-2023 14:29:17: = strDB null
+: 28-09-2023 14:29:17: = type_db
+: 28-09-2023 14:29:17: = Backup
+: 28-09-2023 14:29:17: = type_db
+: 28-09-2023 14:29:17: = Backup
+: 28-09-2023 14:29:17: = type_db
+: 28-09-2023 14:29:17: = Backup
+: 28-09-2023 14:29:17: = type_db
+: 28-09-2023 14:29:17: = Backup
+: 28-09-2023 14:29:18: = type_db
+: 28-09-2023 14:29:18: = Backup
+: 28-09-2023 14:29:22: = strDB null
+: 28-09-2023 14:29:22: = type_db
+: 28-09-2023 14:29:22: = Backup
+: 28-09-2023 14:29:27: = strDB null
+: 28-09-2023 14:29:27: = type_db
+: 28-09-2023 14:29:27: = Backup
+: 28-09-2023 14:29:32: = strDB null
+: 28-09-2023 14:29:32: = type_db
+: 28-09-2023 14:29:32: = type_db
+: 28-09-2023 14:29:32: = Backup
+: 28-09-2023 14:29:32: = type_db
+: 28-09-2023 14:29:32: = Backup
+: 28-09-2023 14:29:37: = strDB null
+: 28-09-2023 14:29:37: = type_db
+: 28-09-2023 14:29:37: = Backup
+: 28-09-2023 14:29:42: = strDB null
+: 28-09-2023 14:29:42: = type_db
+: 28-09-2023 14:29:42: = Backup
+: 28-09-2023 14:29:47: = strDB null
+: 28-09-2023 14:29:47: = type_db
+: 28-09-2023 14:29:47: = Backup
+: 28-09-2023 14:29:47: = Backup
+: 28-09-2023 14:29:47: = type_db
+: 28-09-2023 14:29:47: = Backup
+: 28-09-2023 14:29:55: = strDB null
+: 28-09-2023 14:29:55: = type_db
+: 28-09-2023 14:29:55: = Backup
+: 28-09-2023 14:29:57: = strDB null
+: 28-09-2023 14:29:57: = type_db
+: 28-09-2023 14:29:57: = Backup
+: 28-09-2023 14:30:02: = strDB null
+: 28-09-2023 14:30:02: = strDB null
+: 28-09-2023 14:30:02: = type_db
+: 28-09-2023 14:30:02: = Backup
+: 28-09-2023 14:30:02: = Backup
+: 28-09-2023 14:30:02: = type_db
+: 28-09-2023 14:30:02: = Backup
+: 28-09-2023 14:30:07: = strDB null
+: 28-09-2023 14:30:07: = type_db
+: 28-09-2023 14:30:07: = Backup
+: 28-09-2023 14:30:12: = strDB null
+: 28-09-2023 14:30:12: = type_db
+: 28-09-2023 14:30:12: = Backup
+: 28-09-2023 14:30:17: = strDB null
+: 28-09-2023 14:30:17: = type_db
+: 28-09-2023 14:30:17: = type_db
+: 28-09-2023 14:30:17: = Backup
+: 28-09-2023 14:30:17: = type_db
+: 28-09-2023 14:30:17: = Backup
+: 28-09-2023 14:30:22: = strDB null
+: 28-09-2023 14:30:22: = type_db
+: 28-09-2023 14:30:22: = Backup
+: 28-09-2023 14:30:27: = strDB null
+: 28-09-2023 14:30:27: = type_db
+: 28-09-2023 14:30:27: = Backup
+: 28-09-2023 14:30:32: = strDB null
+: 28-09-2023 14:30:32: = type_db
+: 28-09-2023 14:30:32: = Backup
+: 28-09-2023 14:30:32: = type_db
+: 28-09-2023 14:30:32: = Backup
+: 28-09-2023 14:30:33: = strDB null
+: 28-09-2023 14:30:33: = type_db
+: 28-09-2023 14:30:33: = Backup
+: 28-09-2023 14:30:38: = strDB null
+: 28-09-2023 14:30:38: = type_db
+: 28-09-2023 14:30:38: = Backup
+: 28-09-2023 14:30:42: = strDB null
+: 28-09-2023 14:30:42: = type_db
+: 28-09-2023 14:30:42: = Backup
+: 28-09-2023 14:30:44: = strDB null
+: 28-09-2023 14:30:44: = type_db
+: 28-09-2023 14:30:44: = Backup
+: 28-09-2023 14:30:45: = strDB null
+: 28-09-2023 14:30:45: = type_db
+: 28-09-2023 14:30:45: = Backup
+: 28-09-2023 14:30:45: = type_db
+: 28-09-2023 14:30:45: = Backup
+: 28-09-2023 14:30:45: = type_db
+: 28-09-2023 14:30:45: = Backup
+: 28-09-2023 14:30:45: = type_db
+: 28-09-2023 14:30:45: = Backup
+: 28-09-2023 14:30:46: = type_db
+: 28-09-2023 14:30:46: = Backup
+: 28-09-2023 14:30:50: = strDB null
+: 28-09-2023 14:30:50: = type_db
+: 28-09-2023 14:30:50: = Backup
+: 28-09-2023 14:30:55: = strDB null
+: 28-09-2023 14:30:55: = type_db
+: 28-09-2023 14:30:55: = Backup
+: 28-09-2023 14:31:00: = strDB null
+: 28-09-2023 14:31:00: = type_db
+: 28-09-2023 14:31:00: = Backup
+: 28-09-2023 14:31:06: = strDB null
+: 28-09-2023 14:31:06: = type_db
+: 28-09-2023 14:31:06: = Backup
+: 28-09-2023 14:31:11: = strDB null
+: 28-09-2023 14:31:11: = type_db
+: 28-09-2023 14:31:11: = Backup
+: 28-09-2023 14:31:16: = strDB null
+: 28-09-2023 14:31:16: = type_db
+: 28-09-2023 14:31:16: = Backup
+: 28-09-2023 14:31:22: = strDB null
+: 28-09-2023 14:31:22: = type_db
+: 28-09-2023 14:31:22: = Backup
+: 28-09-2023 14:31:27: = strDB null
+: 28-09-2023 14:31:27: = type_db
+: 28-09-2023 14:31:27: = Backup
+: 28-09-2023 14:31:32: = strDB null
+: 28-09-2023 14:31:32: = type_db
+: 28-09-2023 14:31:32: = Backup
+: 28-09-2023 14:31:37: = strDB null
+: 28-09-2023 14:31:37: = type_db
+: 28-09-2023 14:31:37: = Backup
+: 28-09-2023 14:31:42: = strDB null
+: 28-09-2023 14:31:42: = type_db
+: 28-09-2023 14:31:42: = Backup
+: 28-09-2023 14:31:47: = strDB null
+: 28-09-2023 14:31:47: = type_db
+: 28-09-2023 14:31:47: = Backup
+: 28-09-2023 14:31:52: = strDB null
+: 28-09-2023 14:31:52: = type_db
+: 28-09-2023 14:31:52: = Backup
+: 28-09-2023 14:31:57: = strDB null
+: 28-09-2023 14:31:57: = type_db
+: 28-09-2023 14:31:57: = Backup
+: 28-09-2023 14:32:02: = strDB null
+: 28-09-2023 14:32:02: = type_db
+: 28-09-2023 14:32:02: = Backup
+: 28-09-2023 14:32:07: = strDB null
+: 28-09-2023 14:32:07: = type_db
+: 28-09-2023 14:32:07: = Backup
+: 28-09-2023 14:32:12: = strDB null
+: 28-09-2023 14:32:12: = type_db
+: 28-09-2023 14:32:12: = Backup
+: 28-09-2023 14:32:17: = strDB null
+: 28-09-2023 14:32:17: = type_db
+: 28-09-2023 14:32:17: = Backup
+: 28-09-2023 14:32:22: = strDB null
+: 28-09-2023 14:32:22: = type_db
+: 28-09-2023 14:32:22: = Backup
+: 28-09-2023 14:32:27: = strDB null
+: 28-09-2023 14:32:27: = type_db
+: 28-09-2023 14:32:27: = Backup
+: 28-09-2023 14:32:32: = strDB null
+: 28-09-2023 14:32:32: = type_db
+: 28-09-2023 14:32:32: = Backup
+: 28-09-2023 14:32:37: = strDB null
+: 28-09-2023 14:32:37: = type_db
+: 28-09-2023 14:32:37: = Backup
+: 28-09-2023 14:32:42: = strDB null
+: 28-09-2023 14:32:42: = type_db
+: 28-09-2023 14:32:42: = Backup
+: 28-09-2023 14:32:47: = strDB null
+: 28-09-2023 14:32:47: = type_db
+: 28-09-2023 14:32:47: = Backup
+: 28-09-2023 14:32:53: = strDB null
+: 28-09-2023 14:32:53: = type_db
+: 28-09-2023 14:32:53: = Backup
+: 28-09-2023 14:32:58: = strDB null
+: 28-09-2023 14:32:58: = type_db
+: 28-09-2023 14:32:58: = Backup
+: 28-09-2023 14:33:03: = strDB null
+: 28-09-2023 14:33:03: = type_db
+: 28-09-2023 14:33:03: = Backup
+: 28-09-2023 14:33:09: = strDB null
+: 28-09-2023 14:33:09: = type_db
+: 28-09-2023 14:33:09: = Backup
+: 28-09-2023 14:33:14: = strDB null
+: 28-09-2023 14:33:14: = type_db
+: 28-09-2023 14:33:14: = Backup
+: 28-09-2023 14:33:19: = strDB null
+: 28-09-2023 14:33:19: = type_db
+: 28-09-2023 14:33:19: = Backup
+: 28-09-2023 14:33:24: = strDB null
+: 28-09-2023 14:33:24: = type_db
+: 28-09-2023 14:33:24: = Backup
+: 28-09-2023 14:33:30: = strDB null
+: 28-09-2023 14:33:30: = type_db
+: 28-09-2023 14:33:30: = Backup
+: 28-09-2023 14:33:35: = strDB null
+: 28-09-2023 14:33:35: = type_db
+: 28-09-2023 14:33:35: = Backup
+: 28-09-2023 14:33:40: = strDB null
+: 28-09-2023 14:33:40: = type_db
+: 28-09-2023 14:33:40: = Backup
+: 28-09-2023 14:33:45: = strDB null
+: 28-09-2023 14:33:45: = type_db
+: 28-09-2023 14:33:45: = Backup
+: 28-09-2023 14:33:50: = strDB null
+: 28-09-2023 14:33:50: = type_db
+: 28-09-2023 14:33:50: = Backup
+: 28-09-2023 14:33:55: = strDB null
+: 28-09-2023 14:33:55: = type_db
+: 28-09-2023 14:33:55: = Backup
+: 28-09-2023 14:34:00: = strDB null
+: 28-09-2023 14:34:00: = type_db
+: 28-09-2023 14:34:00: = Backup
+: 28-09-2023 14:34:05: = strDB null
+: 28-09-2023 14:34:05: = type_db
+: 28-09-2023 14:34:05: = Backup
+: 28-09-2023 14:34:10: = strDB null
+: 28-09-2023 14:34:10: = type_db
+: 28-09-2023 14:34:10: = Backup
+: 28-09-2023 14:34:16: = strDB null
+: 28-09-2023 14:34:16: = type_db
+: 28-09-2023 14:34:16: = Backup
+: 28-09-2023 14:34:20: = strDB null
+: 28-09-2023 14:34:20: = type_db
+: 28-09-2023 14:34:20: = Backup
+: 28-09-2023 14:34:25: = strDB null
+: 28-09-2023 14:34:25: = type_db
+: 28-09-2023 14:34:25: = Backup
+: 28-09-2023 14:34:30: = strDB null
+: 28-09-2023 14:34:30: = type_db
+: 28-09-2023 14:34:30: = Backup
+: 28-09-2023 14:34:35: = strDB null
+: 28-09-2023 14:34:35: = type_db
+: 28-09-2023 14:34:35: = Backup
+: 28-09-2023 14:34:40: = strDB null
+: 28-09-2023 14:34:40: = type_db
+: 28-09-2023 14:34:40: = Backup
+: 28-09-2023 14:34:45: = strDB null
+: 28-09-2023 14:34:45: = type_db
+: 28-09-2023 14:34:45: = Backup
+: 28-09-2023 14:34:50: = strDB null
+: 28-09-2023 14:34:50: = type_db
+: 28-09-2023 14:34:50: = Backup
+: 28-09-2023 14:34:55: = strDB null
+: 28-09-2023 14:34:55: = type_db
+: 28-09-2023 14:34:55: = Backup
+: 28-09-2023 14:35:00: = strDB null
+: 28-09-2023 14:35:00: = type_db
+: 28-09-2023 14:35:00: = Backup
+: 28-09-2023 14:35:05: = strDB null
+: 28-09-2023 14:35:05: = type_db
+: 28-09-2023 14:35:05: = Backup
+: 28-09-2023 14:35:10: = strDB null
+: 28-09-2023 14:35:10: = type_db
+: 28-09-2023 14:35:10: = Backup
+: 28-09-2023 14:35:16: = strDB null
+: 28-09-2023 14:35:16: = type_db
+: 28-09-2023 14:35:16: = Backup
+: 28-09-2023 14:35:20: = strDB null
+: 28-09-2023 14:35:20: = type_db
+: 28-09-2023 14:35:20: = Backup
+: 28-09-2023 14:35:25: = strDB null
+: 28-09-2023 14:35:25: = type_db
+: 28-09-2023 14:35:25: = Backup
+: 28-09-2023 14:35:30: = strDB null
+: 28-09-2023 14:35:30: = type_db
+: 28-09-2023 14:35:30: = Backup
+: 28-09-2023 14:35:35: = strDB null
+: 28-09-2023 14:35:35: = type_db
+: 28-09-2023 14:35:35: = Backup
+: 28-09-2023 14:35:40: = strDB null
+: 28-09-2023 14:35:40: = type_db
+: 28-09-2023 14:35:40: = Backup
+: 28-09-2023 14:35:45: = strDB null
+: 28-09-2023 14:35:45: = type_db
+: 28-09-2023 14:35:45: = Backup
+: 28-09-2023 14:35:50: = strDB null
+: 28-09-2023 14:35:50: = type_db
+: 28-09-2023 14:35:50: = Backup
+: 28-09-2023 14:35:55: = strDB null
+: 28-09-2023 14:35:55: = type_db
+: 28-09-2023 14:35:55: = Backup
+: 28-09-2023 14:36:00: = strDB null
+: 28-09-2023 14:36:00: = type_db
+: 28-09-2023 14:36:00: = Backup
+: 28-09-2023 14:36:05: = strDB null
+: 28-09-2023 14:36:05: = type_db
+: 28-09-2023 14:36:05: = Backup
+: 28-09-2023 14:36:10: = strDB null
+: 28-09-2023 14:36:10: = type_db
+: 28-09-2023 14:36:10: = Backup
+: 28-09-2023 14:36:15: = strDB null
+: 28-09-2023 14:36:15: = type_db
+: 28-09-2023 14:36:15: = Backup
+: 28-09-2023 14:36:20: = strDB null
+: 28-09-2023 14:36:20: = type_db
+: 28-09-2023 14:36:20: = Backup
+: 28-09-2023 14:36:26: = strDB null
+: 28-09-2023 14:36:26: = type_db
+: 28-09-2023 14:36:26: = Backup
+: 28-09-2023 14:36:30: = strDB null
+: 28-09-2023 14:36:30: = type_db
+: 28-09-2023 14:36:30: = Backup
+: 28-09-2023 14:36:35: = strDB null
+: 28-09-2023 14:36:35: = type_db
+: 28-09-2023 14:36:35: = Backup
+: 28-09-2023 14:36:40: = strDB null
+: 28-09-2023 14:36:40: = type_db
+: 28-09-2023 14:36:40: = Backup
+: 28-09-2023 14:36:45: = strDB null
+: 28-09-2023 14:36:45: = type_db
+: 28-09-2023 14:36:45: = Backup
+: 28-09-2023 14:36:50: = strDB null
+: 28-09-2023 14:36:50: = type_db
+: 28-09-2023 14:36:50: = Backup
+: 28-09-2023 14:36:55: = strDB null
+: 28-09-2023 14:36:55: = type_db
+: 28-09-2023 14:36:55: = Backup
+: 28-09-2023 14:37:00: = strDB null
+: 28-09-2023 14:37:00: = type_db
+: 28-09-2023 14:37:00: = Backup
+: 28-09-2023 14:37:05: = strDB null
+: 28-09-2023 14:37:05: = type_db
+: 28-09-2023 14:37:05: = Backup
+: 28-09-2023 14:37:10: = strDB null
+: 28-09-2023 14:37:10: = type_db
+: 28-09-2023 14:37:10: = Backup
+: 28-09-2023 14:37:16: = strDB null
+: 28-09-2023 14:37:16: = type_db
+: 28-09-2023 14:37:16: = Backup
+: 28-09-2023 14:37:21: = strDB null
+: 28-09-2023 14:37:21: = type_db
+: 28-09-2023 14:37:21: = Backup
+: 28-09-2023 14:37:26: = strDB null
+: 28-09-2023 14:37:26: = type_db
+: 28-09-2023 14:37:26: = Backup
+: 28-09-2023 14:37:31: = strDB null
+: 28-09-2023 14:37:31: = type_db
+: 28-09-2023 14:37:31: = Backup
+: 28-09-2023 14:37:36: = strDB null
+: 28-09-2023 14:37:36: = type_db
+: 28-09-2023 14:37:36: = Backup
+: 28-09-2023 14:37:41: = strDB null
+: 28-09-2023 14:37:41: = type_db
+: 28-09-2023 14:37:41: = Backup
+: 28-09-2023 14:37:46: = strDB null
+: 28-09-2023 14:37:46: = type_db
+: 28-09-2023 14:37:46: = Backup
+: 28-09-2023 14:37:51: = strDB null
+: 28-09-2023 14:37:51: = type_db
+: 28-09-2023 14:37:51: = Backup
+: 28-09-2023 14:37:56: = strDB null
+: 28-09-2023 14:37:56: = type_db
+: 28-09-2023 14:37:56: = Backup
+: 28-09-2023 14:37:58: = strDB null
+: 28-09-2023 14:37:58: = type_db
+: 28-09-2023 14:37:58: = Backup
+: 28-09-2023 14:38:01: = strDB null
+: 28-09-2023 14:38:01: = type_db
+: 28-09-2023 14:38:01: = Backup
+: 28-09-2023 14:38:01: = type_db
+: 28-09-2023 14:38:01: = Backup
+: 28-09-2023 14:38:01: = type_db
+: 28-09-2023 14:38:01: = Backup
+: 28-09-2023 14:38:02: = type_db
+: 28-09-2023 14:38:02: = Backup
+: 28-09-2023 14:38:02: = type_db
+: 28-09-2023 14:38:02: = Backup
+: 28-09-2023 14:38:07: = strDB null
+: 28-09-2023 14:38:07: = type_db
+: 28-09-2023 14:38:07: = Backup
+: 28-09-2023 14:38:12: = strDB null
+: 28-09-2023 14:38:12: = type_db
+: 28-09-2023 14:38:12: = Backup
+: 28-09-2023 14:38:16: = strDB null
+: 28-09-2023 14:38:16: = type_db
+: 28-09-2023 14:38:16: = Backup
+: 28-09-2023 14:38:16: = type_db
+: 28-09-2023 14:38:16: = Backup
+: 28-09-2023 14:38:17: = strDB null
+: 28-09-2023 14:38:17: = type_db
+: 28-09-2023 14:38:17: = Backup
+: 28-09-2023 14:38:23: = strDB null
+: 28-09-2023 14:38:23: = type_db
+: 28-09-2023 14:38:23: = Backup
+: 28-09-2023 14:38:28: = strDB null
+: 28-09-2023 14:38:28: = type_db
+: 28-09-2023 14:38:28: = Backup
+: 28-09-2023 14:38:31: = strDB null
+: 28-09-2023 14:38:31: = type_db
+: 28-09-2023 14:38:31: = Backup
+: 28-09-2023 14:38:31: = type_db
+: 28-09-2023 14:38:31: = Backup
+: 28-09-2023 14:38:31: = type_db
+: 28-09-2023 14:38:31: = Backup
+: 28-09-2023 14:38:37: = strDB null
+: 28-09-2023 14:38:37: = type_db
+: 28-09-2023 14:38:37: = Backup
+: 28-09-2023 14:38:43: = strDB null
+: 28-09-2023 14:38:43: = type_db
+: 28-09-2023 14:38:43: = Backup
+: 28-09-2023 14:38:46: = strDB null
+: 28-09-2023 14:38:46: = type_db
+: 28-09-2023 14:38:46: = Backup
+: 28-09-2023 14:38:46: = Backup
+: 28-09-2023 14:38:46: = type_db
+: 28-09-2023 14:38:46: = Backup
+: 28-09-2023 14:38:52: = strDB null
+: 28-09-2023 14:38:52: = type_db
+: 28-09-2023 14:38:52: = Backup
+: 28-09-2023 14:38:57: = strDB null
+: 28-09-2023 14:38:57: = type_db
+: 28-09-2023 14:38:57: = Backup
+: 28-09-2023 14:38:59: = strDB null
+: 28-09-2023 14:38:59: = type_db
+: 28-09-2023 14:38:59: = Backup
+: 28-09-2023 14:39:01: = strDB null
+: 28-09-2023 14:39:01: = type_db
+: 28-09-2023 14:39:01: = Backup
+: 28-09-2023 14:39:01: = type_db
+: 28-09-2023 14:39:01: = Backup
+: 28-09-2023 14:39:03: = strDB null
+: 28-09-2023 14:39:03: = type_db
+: 28-09-2023 14:39:03: = Backup
+: 28-09-2023 14:39:03: = type_db
+: 28-09-2023 14:39:03: = Backup
+: 28-09-2023 14:39:03: = type_db
+: 28-09-2023 14:39:03: = Backup
+: 28-09-2023 14:39:03: = type_db
+: 28-09-2023 14:39:03: = Backup
+: 28-09-2023 14:39:04: = type_db
+: 28-09-2023 14:39:04: = Backup
+: 28-09-2023 14:39:08: = strDB null
+: 28-09-2023 14:39:08: = type_db
+: 28-09-2023 14:39:08: = Backup
+: 28-09-2023 14:39:13: = strDB null
+: 28-09-2023 14:39:13: = type_db
+: 28-09-2023 14:39:13: = Backup
+: 28-09-2023 14:39:18: = strDB null
+: 28-09-2023 14:39:18: = strDB null
+: 28-09-2023 14:39:18: = type_db
+: 28-09-2023 14:39:18: = Backup
+: 28-09-2023 14:39:18: = Backup
+: 28-09-2023 14:39:18: = type_db
+: 28-09-2023 14:39:18: = Backup
+: 28-09-2023 14:56:02: = type_db
+: 28-09-2023 14:56:02: = Backup
+: 28-09-2023 14:56:03: = 26.241.150.104
+: 28-09-2023 14:56:03: = 172.21.130.228
+: 28-09-2023 14:56:03: = type_db
+: 28-09-2023 14:56:03: = Backup
+: 28-09-2023 14:56:05: = strDB null
+: 28-09-2023 14:56:05: = type_db
+: 28-09-2023 14:56:05: = Backup
+: 28-09-2023 14:56:09: = strDB null
+: 28-09-2023 14:56:09: = type_db
+: 28-09-2023 14:56:09: = Backup
+: 28-09-2023 14:56:09: = type_db
+: 28-09-2023 14:56:09: = Backup
+: 28-09-2023 14:56:09: = type_db
+: 28-09-2023 14:56:09: = Backup
+: 28-09-2023 14:56:09: = type_db
+: 28-09-2023 14:56:09: = Backup
+: 28-09-2023 14:56:10: = type_db
+: 28-09-2023 14:56:10: = Backup
+: 28-09-2023 14:56:13: = strDB null
+: 28-09-2023 14:56:13: = type_db
+: 28-09-2023 14:56:13: = Backup
+: 28-09-2023 14:56:19: = strDB null
+: 28-09-2023 14:56:19: = type_db
+: 28-09-2023 14:56:19: = Backup
+: 28-09-2023 14:56:24: = strDB null
+: 28-09-2023 14:56:24: = type_db
+: 28-09-2023 14:56:24: = Backup
+: 28-09-2023 14:56:29: = strDB null
+: 28-09-2023 14:56:29: = type_db
+: 28-09-2023 14:56:29: = Backup
+: 28-09-2023 14:56:34: = strDB null
+: 28-09-2023 14:56:34: = type_db
+: 28-09-2023 14:56:34: = Backup
+: 28-09-2023 14:56:39: = strDB null
+: 28-09-2023 14:56:39: = type_db
+: 28-09-2023 14:56:39: = Backup
+: 28-09-2023 14:56:44: = strDB null
+: 28-09-2023 14:56:44: = type_db
+: 28-09-2023 14:56:44: = Backup
+: 28-09-2023 14:56:49: = strDB null
+: 28-09-2023 14:56:49: = type_db
+: 28-09-2023 14:56:49: = Backup
+: 28-09-2023 14:56:52: = strDB null
+: 28-09-2023 14:56:52: = type_db
+: 28-09-2023 14:56:52: = Backup
+: 28-09-2023 14:56:55: = strDB null
+: 28-09-2023 14:56:55: = type_db
+: 28-09-2023 14:56:55: = Backup
+: 28-09-2023 14:56:59: = strDB null
+: 28-09-2023 14:56:59: = type_db
+: 28-09-2023 14:56:59: = Backup
+: 28-09-2023 14:57:05: = strDB null
+: 28-09-2023 14:57:05: = type_db
+: 28-09-2023 14:57:05: = Backup
+: 28-09-2023 14:57:10: = strDB null
+: 28-09-2023 14:57:10: = type_db
+: 28-09-2023 14:57:10: = Backup
+: 28-09-2023 14:57:15: = strDB null
+: 28-09-2023 14:57:15: = type_db
+: 28-09-2023 14:57:15: = Backup
+: 28-09-2023 14:57:20: = strDB null
+: 28-09-2023 14:57:20: = type_db
+: 28-09-2023 14:57:20: = Backup
+: 28-09-2023 14:57:25: = strDB null
+: 28-09-2023 14:57:25: = type_db
+: 28-09-2023 14:57:25: = Backup
+: 28-09-2023 14:57:30: = strDB null
+: 28-09-2023 14:57:30: = type_db
+: 28-09-2023 14:57:30: = Backup
+: 28-09-2023 14:57:35: = strDB null
+: 28-09-2023 14:57:35: = type_db
+: 28-09-2023 14:57:35: = Backup
+: 28-09-2023 14:57:40: = strDB null
+: 28-09-2023 14:57:40: = type_db
+: 28-09-2023 14:57:40: = Backup
+: 28-09-2023 14:57:45: = strDB null
+: 28-09-2023 14:57:45: = type_db
+: 28-09-2023 14:57:45: = Backup
+: 28-09-2023 14:57:50: = strDB null
+: 28-09-2023 14:57:50: = type_db
+: 28-09-2023 14:57:50: = Backup
+: 28-09-2023 14:57:55: = strDB null
+: 28-09-2023 14:57:55: = type_db
+: 28-09-2023 14:57:55: = Backup
+: 28-09-2023 14:58:00: = strDB null
+: 28-09-2023 14:58:00: = type_db
+: 28-09-2023 14:58:00: = Backup
+: 28-09-2023 14:58:05: = strDB null
+: 28-09-2023 14:58:05: = type_db
+: 28-09-2023 14:58:05: = Backup
+: 28-09-2023 14:58:07: = strDB null
+: 28-09-2023 14:58:07: = type_db
+: 28-09-2023 14:58:07: = Backup
+: 28-09-2023 14:58:10: = strDB null
+: 28-09-2023 14:58:10: = type_db
+: 28-09-2023 14:58:10: = Backup
+: 28-09-2023 14:58:10: = type_db
+: 28-09-2023 14:58:10: = Backup
+: 28-09-2023 14:58:10: = type_db
+: 28-09-2023 14:58:10: = Backup
+: 28-09-2023 14:58:10: = type_db
+: 28-09-2023 14:58:10: = Backup
+: 28-09-2023 14:58:11: = type_db
+: 28-09-2023 14:58:11: = Backup
+: 28-09-2023 14:58:16: = strDB null
+: 28-09-2023 14:58:16: = type_db
+: 28-09-2023 14:58:16: = Backup
+: 28-09-2023 14:58:21: = strDB null
+: 28-09-2023 14:58:21: = type_db
+: 28-09-2023 14:58:21: = Backup
+: 28-09-2023 14:58:26: = strDB null
+: 28-09-2023 14:58:26: = type_db
+: 28-09-2023 14:58:26: = Backup
+: 28-09-2023 14:58:31: = strDB null
+: 28-09-2023 14:58:31: = type_db
+: 28-09-2023 14:58:31: = Backup
+: 28-09-2023 14:58:35: = strDB null
+: 28-09-2023 14:58:35: = type_db
+: 28-09-2023 14:58:35: = Backup
+: 28-09-2023 14:58:40: = type_db
+: 28-09-2023 14:58:40: = Backup
+: 28-09-2023 14:58:44: = strDB null
+: 28-09-2023 14:58:44: = type_db
+: 28-09-2023 14:58:44: = Backup
+: 28-09-2023 14:58:45: = strDB null
+: 28-09-2023 14:58:45: = type_db
+: 28-09-2023 14:58:45: = Backup
+: 28-09-2023 14:58:49: = strDB null
+: 28-09-2023 14:58:49: = type_db
+: 28-09-2023 14:58:49: = Backup
+: 28-09-2023 14:58:51: = strDB null
+: 28-09-2023 14:58:51: = type_db
+: 28-09-2023 14:58:51: = Backup
+: 28-09-2023 14:58:54: = strDB null
+: 28-09-2023 14:58:54: = type_db
+: 28-09-2023 14:58:54: = Backup
+: 28-09-2023 14:58:56: = strDB null
+: 28-09-2023 14:58:56: = type_db
+: 28-09-2023 14:58:56: = Backup
+: 28-09-2023 14:58:59: = strDB null
+: 28-09-2023 14:58:59: = type_db
+: 28-09-2023 14:58:59: = Backup
+: 28-09-2023 14:59:01: = strDB null
+: 28-09-2023 14:59:01: = type_db
+: 28-09-2023 14:59:01: = Backup
+: 28-09-2023 14:59:04: = strDB null
+: 28-09-2023 14:59:04: = type_db
+: 28-09-2023 14:59:04: = Backup
+: 28-09-2023 14:59:06: = strDB null
+: 28-09-2023 14:59:06: = type_db
+: 28-09-2023 14:59:06: = Backup
+: 28-09-2023 14:59:09: = strDB null
+: 28-09-2023 14:59:09: = type_db
+: 28-09-2023 14:59:09: = Backup
+: 28-09-2023 14:59:11: = strDB null
+: 28-09-2023 14:59:11: = type_db
+: 28-09-2023 14:59:11: = Backup
+: 28-09-2023 14:59:14: = strDB null
+: 28-09-2023 14:59:14: = type_db
+: 28-09-2023 14:59:14: = Backup
+: 28-09-2023 14:59:16: = strDB null
+: 28-09-2023 14:59:16: = type_db
+: 28-09-2023 14:59:16: = Backup
+: 28-09-2023 14:59:19: = strDB null
+: 28-09-2023 14:59:19: = type_db
+: 28-09-2023 14:59:19: = Backup
+: 28-09-2023 14:59:21: = strDB null
+: 28-09-2023 14:59:21: = type_db
+: 28-09-2023 14:59:21: = Backup
+: 28-09-2023 14:59:24: = strDB null
+: 28-09-2023 14:59:24: = type_db
+: 28-09-2023 14:59:24: = Backup
+: 28-09-2023 14:59:26: = strDB null
+: 28-09-2023 14:59:26: = type_db
+: 28-09-2023 14:59:26: = Backup
+: 28-09-2023 14:59:29: = strDB null
+: 28-09-2023 14:59:29: = type_db
+: 28-09-2023 14:59:29: = Backup
+: 28-09-2023 14:59:31: = strDB null
+: 28-09-2023 14:59:31: = type_db
+: 28-09-2023 14:59:31: = Backup
+: 28-09-2023 14:59:34: = strDB null
+: 28-09-2023 14:59:34: = type_db
+: 28-09-2023 14:59:34: = Backup
+: 28-09-2023 14:59:36: = strDB null
+: 28-09-2023 14:59:36: = type_db
+: 28-09-2023 14:59:36: = Backup
+: 28-09-2023 14:59:39: = strDB null
+: 28-09-2023 14:59:39: = type_db
+: 28-09-2023 14:59:39: = Backup
+: 28-09-2023 14:59:41: = strDB null
+: 28-09-2023 14:59:41: = type_db
+: 28-09-2023 14:59:41: = Backup
+: 28-09-2023 14:59:44: = strDB null
+: 28-09-2023 14:59:44: = type_db
+: 28-09-2023 14:59:44: = Backup
+: 28-09-2023 14:59:46: = strDB null
+: 28-09-2023 14:59:46: = type_db
+: 28-09-2023 14:59:46: = Backup
+: 28-09-2023 14:59:49: = strDB null
+: 28-09-2023 14:59:49: = type_db
+: 28-09-2023 14:59:49: = Backup
+: 28-09-2023 14:59:51: = strDB null
+: 28-09-2023 14:59:51: = type_db
+: 28-09-2023 14:59:51: = Backup
+: 28-09-2023 14:59:55: = strDB null
+: 28-09-2023 14:59:55: = type_db
+: 28-09-2023 14:59:55: = Backup
+: 28-09-2023 14:59:56: = strDB null
+: 28-09-2023 14:59:56: = type_db
+: 28-09-2023 14:59:56: = Backup
+: 29-09-2023 14:00:02: = strDB null
+: 29-09-2023 14:00:02: = type_db
+: 29-09-2023 14:00:02: = type_db
+: 29-09-2023 14:00:02: = Production
+: 29-09-2023 14:00:02: = Production
+: 29-09-2023 14:00:05: = strDB null
+: 29-09-2023 14:00:05: = type_db
+: 29-09-2023 14:00:05: = Production
+: 29-09-2023 14:00:05: = type_db
+: 29-09-2023 14:00:05: = Production
+: 29-09-2023 14:00:05: = Production
+: 29-09-2023 14:00:08: = strDB null
+: 29-09-2023 14:00:08: = type_db
+: 29-09-2023 14:00:08: = Production
+: 29-09-2023 14:00:08: = Production
+: 29-09-2023 14:00:08: = type_db
+: 29-09-2023 14:00:08: = Production
+: 29-09-2023 14:00:11: = strDB null
+: 29-09-2023 14:00:11: = type_db
+: 29-09-2023 14:00:11: = Production
+: 29-09-2023 14:00:11: = type_db
+: 29-09-2023 14:00:11: = type_db
+: 29-09-2023 14:00:11: = Production
+: 29-09-2023 14:00:14: = strDB null
+: 29-09-2023 14:00:14: = strDB null
+: 29-09-2023 14:00:14: = type_db
+: 29-09-2023 14:00:14: = Production
+: 29-09-2023 14:00:14: = Production
+: 29-09-2023 14:00:15: = Production
+: 29-09-2023 14:00:17: = strDB null
+: 29-09-2023 14:00:17: = strDB null
+: 29-09-2023 14:00:17: = type_db
+: 29-09-2023 14:00:17: = Production
+: 29-09-2023 14:00:17: = type_db
+: 29-09-2023 14:00:17: = Production
+: 29-09-2023 14:00:18: = Production
+: 29-09-2023 14:00:20: = strDB null
+: 29-09-2023 14:00:20: = type_db
+: 29-09-2023 14:00:20: = Production
+: 29-09-2023 14:00:21: = Production
+: 29-09-2023 14:00:21: = Production
+: 29-09-2023 14:00:23: = strDB null
+: 29-09-2023 14:00:23: = strDB null
+: 29-09-2023 14:00:23: = type_db
+: 29-09-2023 14:00:23: = Production
+: 29-09-2023 14:00:24: = type_db
+: 29-09-2023 14:00:24: = Production
+: 29-09-2023 14:00:24: = Production
+: 29-09-2023 14:00:27: = strDB null
+: 29-09-2023 14:00:27: = type_db
+: 29-09-2023 14:00:27: = Production
+: 29-09-2023 14:00:27: = type_db
+: 29-09-2023 14:00:27: = Production
+: 29-09-2023 14:00:27: = type_db
+: 29-09-2023 14:00:27: = Production
+: 29-09-2023 14:00:29: = strDB null
+: 29-09-2023 14:00:29: = type_db
+: 29-09-2023 14:00:29: = Production
+: 29-09-2023 14:00:29: = type_db
+: 29-09-2023 14:00:29: = Production
+: 29-09-2023 14:00:30: = Production
+: 29-09-2023 14:00:32: = strDB null
+: 29-09-2023 14:00:32: = type_db
+: 29-09-2023 14:00:32: = type_db
+: 29-09-2023 14:00:32: = Production
+: 29-09-2023 14:00:32: = type_db
+: 29-09-2023 14:00:32: = Production
+: 29-09-2023 14:00:36: = strDB null
+: 29-09-2023 14:00:36: = type_db
+: 29-09-2023 14:00:36: = Production
+: 29-09-2023 14:00:36: = type_db
+: 29-09-2023 14:00:36: = Production
+: 29-09-2023 14:00:36: = type_db
+: 29-09-2023 14:00:36: = Production
+: 29-09-2023 14:00:39: = strDB null
+: 29-09-2023 14:00:39: = type_db
+: 29-09-2023 14:00:39: = Production
+: 29-09-2023 14:00:39: = type_db
+: 29-09-2023 14:00:39: = Production
+: 29-09-2023 14:00:39: = type_db
+: 29-09-2023 14:00:39: = Production
+: 29-09-2023 14:00:42: = strDB null
+: 29-09-2023 14:00:42: = type_db
+: 29-09-2023 14:00:42: = Production
+: 29-09-2023 14:00:42: = type_db
+: 29-09-2023 14:00:42: = type_db
+: 29-09-2023 14:00:42: = Production
+: 29-09-2023 14:00:45: = strDB null
+: 29-09-2023 14:00:45: = type_db
+: 29-09-2023 14:00:45: = Production
+: 29-09-2023 14:00:45: = Production
+: 29-09-2023 14:00:45: = type_db
+: 29-09-2023 14:00:45: = Production
+: 29-09-2023 14:00:48: = strDB null
+: 29-09-2023 14:00:48: = type_db
+: 29-09-2023 14:00:48: = Production
+: 29-09-2023 14:00:48: = type_db
+: 29-09-2023 14:00:48: = Production
+: 29-09-2023 14:00:48: = type_db
+: 29-09-2023 14:00:48: = Production
+: 29-09-2023 14:00:51: = strDB null
+: 29-09-2023 14:00:51: = type_db
+: 29-09-2023 14:00:51: = Production
+: 29-09-2023 14:00:51: = strDB null
+: 29-09-2023 14:00:51: = type_db
+: 29-09-2023 14:00:51: = type_db
+: 29-09-2023 14:00:51: = Production
+: 29-09-2023 14:00:54: = strDB null
+: 29-09-2023 14:00:54: = strDB null
+: 29-09-2023 14:00:54: = type_db
+: 29-09-2023 14:00:54: = Production
+: 29-09-2023 14:00:54: = type_db
+: 29-09-2023 14:00:54: = Production
+: 29-09-2023 14:00:54: = Production
+: 29-09-2023 14:00:57: = strDB null
+: 29-09-2023 14:00:57: = type_db
+: 29-09-2023 14:00:57: = Production
+: 29-09-2023 14:00:57: = type_db
+: 29-09-2023 14:00:57: = Production
+: 29-09-2023 14:00:57: = type_db
+: 29-09-2023 14:00:57: = Production
+: 29-09-2023 14:01:00: = strDB null
+: 29-09-2023 14:01:00: = strDB null
+: 29-09-2023 14:01:00: = type_db
+: 29-09-2023 14:01:00: = Production
+: 29-09-2023 14:01:00: = Production
+: 29-09-2023 14:01:00: = type_db
+: 29-09-2023 14:01:00: = Production
+: 29-09-2023 14:01:03: = strDB null
+: 29-09-2023 14:01:03: = strDB null
+: 29-09-2023 14:01:03: = type_db
+: 29-09-2023 14:01:03: = Production
+: 29-09-2023 14:01:03: = Production
+: 29-09-2023 14:01:03: = type_db
+: 29-09-2023 14:01:03: = Production
+: 29-09-2023 14:01:06: = strDB null
+: 29-09-2023 14:01:06: = strDB null
+: 29-09-2023 14:01:06: = type_db
+: 29-09-2023 14:01:06: = Production
+: 29-09-2023 14:01:06: = Production
+: 29-09-2023 14:01:06: = Production
+: 29-09-2023 14:01:09: = strDB null
+: 29-09-2023 14:01:09: = type_db
+: 29-09-2023 14:01:09: = Production
+: 29-09-2023 14:01:09: = type_db
+: 29-09-2023 14:01:09: = Production
+: 29-09-2023 14:01:09: = Production
+: 29-09-2023 14:01:12: = strDB null
+: 29-09-2023 14:01:12: = type_db
+: 29-09-2023 14:01:12: = Production
+: 29-09-2023 14:01:12: = type_db
+: 29-09-2023 14:01:12: = Production
+: 29-09-2023 14:01:12: = Production
+: 29-09-2023 14:01:15: = strDB null
+: 29-09-2023 14:01:15: = type_db
+: 29-09-2023 14:01:15: = Production
+: 29-09-2023 14:01:15: = Production
+: 29-09-2023 14:01:18: = strDB null
+: 29-09-2023 14:01:18: = strDB null
+: 29-09-2023 14:01:18: = type_db
+: 29-09-2023 14:01:18: = Production
+: 29-09-2023 14:01:18: = type_db
+: 29-09-2023 14:01:18: = Production
+: 29-09-2023 14:01:18: = Production
+: 29-09-2023 14:01:21: = strDB null
+: 29-09-2023 14:01:21: = type_db
+: 29-09-2023 14:01:21: = Production
+: 29-09-2023 14:01:21: = Production
+: 29-09-2023 14:01:21: = Production
+: 29-09-2023 14:01:24: = strDB null
+: 29-09-2023 14:01:24: = type_db
+: 29-09-2023 14:01:24: = Production
+: 29-09-2023 14:01:24: = type_db
+: 29-09-2023 14:01:24: = Production
+: 29-09-2023 14:01:24: = Production
+: 29-09-2023 14:01:27: = strDB null
+: 29-09-2023 14:01:27: = strDB null
+: 29-09-2023 14:01:27: = type_db
+: 29-09-2023 14:01:27: = Production
+: 29-09-2023 14:01:27: = Production
+: 29-09-2023 14:01:27: = type_db
+: 29-09-2023 14:01:27: = Production
+: 29-09-2023 14:01:32: = strDB null
+: 29-09-2023 14:01:32: = type_db
+: 29-09-2023 14:01:32: = Production
+: 29-09-2023 14:01:32: = type_db
+: 29-09-2023 14:01:32: = Production
+: 29-09-2023 14:01:32: = type_db
+: 29-09-2023 14:01:32: = Production
+: 29-09-2023 14:01:32: = Production
+: 29-09-2023 14:01:35: = strDB null
+: 29-09-2023 14:01:35: = type_db
+: 29-09-2023 14:01:35: = Production
+: 29-09-2023 14:01:36: = type_db
+: 29-09-2023 14:01:36: = Production
+: 29-09-2023 14:01:36: = type_db
+: 29-09-2023 14:01:36: = Production
+: 29-09-2023 14:01:39: = strDB null
+: 29-09-2023 14:01:39: = type_db
+: 29-09-2023 14:01:39: = Production
+: 29-09-2023 14:01:40: = type_db
+: 29-09-2023 14:01:40: = Production
+: 29-09-2023 14:01:40: = Production
+: 29-09-2023 14:01:40: = type_db
+: 29-09-2023 14:01:40: = Production
+: 29-09-2023 14:01:44: = strDB null
+: 29-09-2023 14:01:44: = strDB null
+: 29-09-2023 14:01:44: = type_db
+: 29-09-2023 14:01:44: = Production
+: 29-09-2023 14:01:44: = type_db
+: 29-09-2023 14:01:44: = Production
+: 29-09-2023 14:01:45: = type_db
+: 29-09-2023 14:01:45: = Production
+: 29-09-2023 14:01:45: = Production
+: 29-09-2023 14:01:48: = strDB null
+: 29-09-2023 14:01:48: = type_db
+: 29-09-2023 14:01:48: = Production
+: 29-09-2023 14:01:48: = type_db
+: 29-09-2023 14:01:48: = Production
+: 29-09-2023 14:01:49: = Production
+: 29-09-2023 14:01:49: = type_db
+: 29-09-2023 14:01:49: = Production
+: 29-09-2023 14:01:52: = strDB null
+: 29-09-2023 14:01:52: = type_db
+: 29-09-2023 14:01:52: = Production
+: 29-09-2023 14:01:52: = type_db
+: 29-09-2023 14:01:52: = Production
+: 29-09-2023 14:01:52: = type_db
+: 29-09-2023 14:01:52: = Production
+: 29-09-2023 14:01:56: = strDB null
+: 29-09-2023 14:01:56: = type_db
+: 29-09-2023 14:01:56: = type_db
+: 29-09-2023 14:01:56: = Production
+: 29-09-2023 14:01:57: = Production
+: 29-09-2023 14:01:57: = Production
+: 29-09-2023 14:02:00: = strDB null
+: 29-09-2023 14:02:00: = type_db
+: 29-09-2023 14:02:00: = Production
+: 29-09-2023 14:02:00: = Production
+: 29-09-2023 14:02:00: = Production
+: 29-09-2023 14:02:03: = strDB null
+: 29-09-2023 14:02:03: = type_db
+: 29-09-2023 14:02:03: = Production
+: 29-09-2023 14:02:04: = type_db
+: 29-09-2023 14:02:04: = Production
+: 29-09-2023 14:02:04: = type_db
+: 29-09-2023 14:02:04: = Production
+: 29-09-2023 14:02:07: = strDB null
+: 29-09-2023 14:02:07: = strDB null
+: 29-09-2023 14:02:07: = type_db
+: 29-09-2023 14:02:07: = Production
+: 29-09-2023 14:02:07: = type_db
+: 29-09-2023 14:02:07: = Production
+: 29-09-2023 14:02:08: = Production
+: 29-09-2023 14:02:08: = Production
+: 29-09-2023 14:02:08: = type_db
+: 29-09-2023 14:02:08: = Production
+: 29-09-2023 14:02:08: = type_db
+: 29-09-2023 14:02:08: = Production
+: 29-09-2023 14:02:11: = strDB null
+: 29-09-2023 14:02:11: = strDB null
+: 29-09-2023 14:02:11: = type_db
+: 29-09-2023 14:02:11: = Production
+: 29-09-2023 14:02:12: = Object reference not set to an instance of an object.
+: 29-09-2023 14:02:17: = strDB null
+: 29-09-2023 14:02:17: = strDB null
+: 29-09-2023 14:02:17: = strDB null
+: 29-09-2023 14:02:18: = Object reference not set to an instance of an object.
+: 29-09-2023 14:02:18: = Object reference not set to an instance of an object.
+: 29-09-2023 14:02:18: = Object reference not set to an instance of an object.
+: 29-09-2023 14:56:05: = strDB null
+: 29-09-2023 14:56:05: = type_db
+: 29-09-2023 14:56:05: = Production
+: 29-09-2023 14:56:06: = 26.241.150.104
+: 29-09-2023 14:56:06: = 172.21.130.228
+: 29-09-2023 14:56:06: = type_db
+: 29-09-2023 14:56:06: = Production
+: 29-09-2023 14:56:08: = strDB null
+: 29-09-2023 14:56:08: = type_db
+: 29-09-2023 14:56:08: = Production
+: 29-09-2023 14:56:14: = strDB null
+: 29-09-2023 14:56:14: = type_db
+: 29-09-2023 14:56:14: = Production
+: 29-09-2023 14:56:14: = type_db
+: 29-09-2023 14:56:14: = Production
+: 29-09-2023 14:56:14: = type_db
+: 29-09-2023 14:56:14: = Production
+: 29-09-2023 14:56:14: = type_db
+: 29-09-2023 14:56:14: = Production
+: 29-09-2023 14:56:15: = type_db
+: 29-09-2023 14:56:15: = Production
+: 29-09-2023 14:56:16: = strDB null
+: 29-09-2023 14:56:16: = type_db
+: 29-09-2023 14:56:16: = Production
+: 29-09-2023 14:56:16: = type_db
+: 29-09-2023 14:56:16: = Production
+: 29-09-2023 14:56:19: = strDB null
+: 29-09-2023 14:56:19: = type_db
+: 29-09-2023 14:56:19: = Production
+: 29-09-2023 14:56:19: = type_db
+: 29-09-2023 14:56:19: = Production
+: 29-09-2023 14:56:22: = strDB null
+: 29-09-2023 14:56:22: = type_db
+: 29-09-2023 14:56:22: = Production
+: 29-09-2023 14:56:22: = type_db
+: 29-09-2023 14:56:22: = Production
+: 29-09-2023 14:56:22: = type_db
+: 29-09-2023 14:56:22: = Production
+: 29-09-2023 14:56:22: = type_db
+: 29-09-2023 14:56:23: = Production
+: 29-09-2023 14:56:23: = type_db
+: 29-09-2023 14:56:23: = Production
+: 29-09-2023 14:56:23: = type_db
+: 29-09-2023 14:56:23: = Production
+: 29-09-2023 14:56:24: = strDB null
+: 29-09-2023 14:56:24: = type_db
+: 29-09-2023 14:56:24: = Production
+: 29-09-2023 14:56:27: = strDB null
+: 29-09-2023 14:56:27: = type_db
+: 29-09-2023 14:56:27: = Production
+: 29-09-2023 14:56:30: = strDB null
+: 29-09-2023 14:56:30: = type_db
+: 29-09-2023 14:56:30: = type_db
+: 29-09-2023 14:56:30: = Production
+: 29-09-2023 14:56:30: = type_db
+: 29-09-2023 14:56:30: = Production
+: 29-09-2023 14:56:33: = strDB null
+: 29-09-2023 14:56:33: = type_db
+: 29-09-2023 14:56:33: = Production
+: 29-09-2023 14:56:33: = type_db
+: 29-09-2023 14:56:33: = Production
+: 29-09-2023 14:56:37: = strDB null
+: 29-09-2023 14:56:37: = type_db
+: 29-09-2023 14:56:37: = type_db
+: 29-09-2023 14:56:37: = Production
+: 29-09-2023 14:56:40: = strDB null
+: 29-09-2023 14:56:40: = type_db
+: 29-09-2023 14:56:40: = Production
+: 29-09-2023 14:56:40: = type_db
+: 29-09-2023 14:56:40: = Production
+: 29-09-2023 14:56:40: = type_db
+: 29-09-2023 14:56:40: = Production
+: 29-09-2023 14:56:40: = type_db
+: 29-09-2023 14:56:40: = Production
+: 29-09-2023 14:56:40: = type_db
+: 29-09-2023 14:56:40: = Production
+: 29-09-2023 14:56:41: = type_db
+: 29-09-2023 14:56:41: = Production
+: 29-09-2023 14:56:42: = strDB null
+: 29-09-2023 14:56:42: = type_db
+: 29-09-2023 14:56:42: = Production
+: 29-09-2023 14:56:45: = strDB null
+: 29-09-2023 14:56:45: = type_db
+: 29-09-2023 14:56:45: = Production
+: 29-09-2023 14:56:47: = strDB null
+: 29-09-2023 14:56:47: = type_db
+: 29-09-2023 14:56:47: = type_db
+: 29-09-2023 14:56:48: = Production
+: 29-09-2023 14:56:50: = strDB null
+: 29-09-2023 14:56:50: = type_db
+: 29-09-2023 14:56:50: = Production
+: 29-09-2023 14:56:52: = strDB null
+: 29-09-2023 14:56:52: = type_db
+: 29-09-2023 14:56:52: = Production
+: 29-09-2023 14:56:52: = type_db
+: 29-09-2023 14:56:52: = Production
+: 29-09-2023 14:56:52: = type_db
+: 29-09-2023 14:56:52: = Production
+: 29-09-2023 14:56:56: = strDB null
+: 29-09-2023 14:56:56: = type_db
+: 29-09-2023 14:56:56: = Production
+: 29-09-2023 14:56:56: = type_db
+: 29-09-2023 14:56:56: = Production
+: 29-09-2023 14:56:56: = type_db
+: 29-09-2023 14:56:56: = Production
+: 29-09-2023 14:56:57: = type_db
+: 29-09-2023 14:56:57: = Production
+: 29-09-2023 14:56:57: = type_db
+: 29-09-2023 14:56:57: = Production
+: 29-09-2023 14:56:57: = type_db
+: 29-09-2023 14:56:57: = Production
+: 29-09-2023 14:56:59: = strDB null
+: 29-09-2023 14:56:59: = type_db
+: 29-09-2023 14:56:59: = Production
+: 29-09-2023 14:57:02: = strDB null
+: 29-09-2023 14:57:02: = type_db
+: 29-09-2023 14:57:02: = Production
+: 29-09-2023 14:57:02: = type_db
+: 29-09-2023 14:57:02: = Production
+: 29-09-2023 14:57:04: = strDB null
+: 29-09-2023 14:57:04: = strDB null
+: 29-09-2023 14:57:04: = type_db
+: 29-09-2023 14:57:05: = Production
+: 29-09-2023 14:57:05: = Production
+: 29-09-2023 14:57:05: = Production
+: 29-09-2023 14:57:09: = strDB null
+: 29-09-2023 14:57:09: = type_db
+: 29-09-2023 14:57:09: = Production
+: 29-09-2023 14:57:09: = type_db
+: 29-09-2023 14:57:09: = Production
+: 29-09-2023 14:57:09: = type_db
+: 29-09-2023 14:57:09: = Production
+: 29-09-2023 14:57:09: = type_db
+: 29-09-2023 14:57:09: = Production
+: 29-09-2023 14:57:09: = type_db
+: 29-09-2023 14:57:09: = Production
+: 29-09-2023 14:57:10: = type_db
+: 29-09-2023 14:57:10: = Production
+: 29-09-2023 14:57:11: = strDB null
+: 29-09-2023 14:57:11: = type_db
+: 29-09-2023 14:57:11: = Production
+: 29-09-2023 14:57:14: = strDB null
+: 29-09-2023 14:57:14: = type_db
+: 29-09-2023 14:57:14: = Production
+: 29-09-2023 14:57:16: = strDB null
+: 29-09-2023 14:57:16: = type_db
+: 29-09-2023 14:57:16: = Production
+: 29-09-2023 14:57:19: = strDB null
+: 29-09-2023 14:57:19: = type_db
+: 29-09-2023 14:57:19: = type_db
+: 29-09-2023 14:57:19: = Production
+: 29-09-2023 14:57:22: = strDB null
+: 29-09-2023 14:57:22: = type_db
+: 29-09-2023 14:57:22: = Production
+: 29-09-2023 14:57:25: = strDB null
+: 29-09-2023 14:57:25: = type_db
+: 29-09-2023 14:57:25: = Production
+: 29-09-2023 14:57:25: = type_db
+: 29-09-2023 14:57:25: = Production
+: 29-09-2023 14:57:25: = type_db
+: 29-09-2023 14:57:25: = Production
+: 29-09-2023 14:57:27: = strDB null
+: 29-09-2023 14:57:27: = type_db
+: 29-09-2023 14:57:27: = Production
+: 29-09-2023 14:57:28: = type_db
+: 29-09-2023 14:57:28: = Production
+: 29-09-2023 14:57:32: = strDB null
+: 29-09-2023 14:57:32: = type_db
+: 29-09-2023 14:57:32: = Production
+: 29-09-2023 14:57:32: = type_db
+: 29-09-2023 14:57:32: = Production
+: 29-09-2023 14:57:32: = type_db
+: 29-09-2023 14:57:32: = Production
+: 29-09-2023 14:57:32: = type_db
+: 29-09-2023 14:57:32: = Production
+: 29-09-2023 14:57:32: = type_db
+: 29-09-2023 14:57:32: = Production
+: 29-09-2023 14:57:33: = type_db
+: 29-09-2023 14:57:33: = Production
+: 29-09-2023 14:57:34: = strDB null
+: 29-09-2023 14:57:34: = type_db
+: 29-09-2023 14:57:34: = Production
+: 29-09-2023 14:57:37: = strDB null
+: 29-09-2023 14:57:37: = type_db
+: 29-09-2023 14:57:37: = Production
+: 29-09-2023 14:57:37: = type_db
+: 29-09-2023 14:57:37: = Production
+: 29-09-2023 14:57:40: = strDB null
+: 29-09-2023 14:57:40: = type_db
+: 29-09-2023 14:57:40: = Production
+: 29-09-2023 14:57:40: = type_db
+: 29-09-2023 14:57:40: = Production
+: 29-09-2023 14:57:44: = strDB null
+: 29-09-2023 14:57:44: = type_db
+: 29-09-2023 14:57:44: = Production
+: 29-09-2023 14:57:44: = type_db
+: 29-09-2023 14:57:44: = Production
+: 29-09-2023 14:57:44: = type_db
+: 29-09-2023 14:57:44: = Production
+: 29-09-2023 14:57:44: = type_db
+: 29-09-2023 14:57:44: = Production
+: 29-09-2023 14:57:45: = type_db
+: 29-09-2023 14:57:45: = Production
+: 29-09-2023 14:57:45: = type_db
+: 29-09-2023 14:57:45: = Production
+: 29-09-2023 14:57:47: = strDB null
+: 29-09-2023 14:57:47: = type_db
+: 29-09-2023 14:57:47: = Production
+: 29-09-2023 14:57:50: = strDB null
+: 29-09-2023 14:57:50: = type_db
+: 29-09-2023 14:57:50: = Production
+: 29-09-2023 14:57:52: = strDB null
+: 29-09-2023 14:57:52: = type_db
+: 29-09-2023 14:57:52: = Production
+: 29-09-2023 14:57:52: = type_db
+: 29-09-2023 14:57:52: = Production
+: 29-09-2023 14:57:56: = strDB null
+: 29-09-2023 14:57:56: = type_db
+: 29-09-2023 14:57:56: = Production
+: 29-09-2023 14:57:56: = Production
+: 29-09-2023 14:57:58: = strDB null
+: 29-09-2023 14:57:58: = type_db
+: 29-09-2023 14:57:58: = Production
+: 29-09-2023 14:57:58: = type_db
+: 29-09-2023 14:57:58: = Production
+: 29-09-2023 14:58:02: = strDB null
+: 29-09-2023 14:58:02: = type_db
+: 29-09-2023 14:58:02: = Production
+: 29-09-2023 14:58:02: = type_db
+: 29-09-2023 14:58:02: = Production
+: 29-09-2023 14:58:05: = strDB null
+: 29-09-2023 14:58:05: = type_db
+: 29-09-2023 14:58:05: = Production
+: 29-09-2023 14:58:05: = type_db
+: 29-09-2023 14:58:05: = Production
+: 29-09-2023 14:58:08: = strDB null
+: 29-09-2023 14:58:08: = type_db
+: 29-09-2023 14:58:08: = Production
+: 29-09-2023 14:58:08: = type_db
+: 29-09-2023 14:58:08: = Production
+: 29-09-2023 14:58:08: = type_db
+: 29-09-2023 14:58:08: = Production
+: 29-09-2023 14:58:08: = type_db
+: 29-09-2023 14:58:08: = Production
+: 29-09-2023 14:58:08: = type_db
+: 29-09-2023 14:58:08: = Production
+: 29-09-2023 14:58:09: = type_db
+: 29-09-2023 14:58:09: = Production
+: 29-09-2023 14:58:10: = strDB null
+: 29-09-2023 14:58:10: = type_db
+: 29-09-2023 14:58:10: = Production
+: 29-09-2023 14:58:13: = strDB null
+: 29-09-2023 14:58:13: = type_db
+: 29-09-2023 14:58:13: = Production
+: 29-09-2023 14:58:13: = type_db
+: 29-09-2023 14:58:13: = Production
+: 29-09-2023 14:58:16: = strDB null
+: 29-09-2023 14:58:16: = type_db
+: 29-09-2023 14:58:16: = Production
+: 29-09-2023 14:58:16: = type_db
+: 29-09-2023 14:58:16: = Production
+: 29-09-2023 14:58:19: = strDB null
+: 29-09-2023 14:58:19: = type_db
+: 29-09-2023 14:58:20: = Production
+: 29-09-2023 14:58:20: = type_db
+: 29-09-2023 14:58:20: = Production
+: 29-09-2023 14:58:23: = strDB null
+: 29-09-2023 14:58:23: = type_db
+: 29-09-2023 14:58:23: = Production
+: 29-09-2023 14:58:23: = type_db
+: 29-09-2023 14:58:23: = Production
+: 29-09-2023 14:58:23: = type_db
+: 29-09-2023 14:58:23: = Production
+: 29-09-2023 14:58:23: = type_db
+: 29-09-2023 14:58:23: = Production
+: 29-09-2023 14:58:23: = type_db
+: 29-09-2023 14:58:23: = Production
+: 29-09-2023 14:58:24: = type_db
+: 29-09-2023 14:58:24: = Production
+: 29-09-2023 14:58:25: = strDB null
+: 29-09-2023 14:58:25: = type_db
+: 29-09-2023 14:58:25: = Production
+: 29-09-2023 14:58:28: = strDB null
+: 29-09-2023 14:58:28: = type_db
+: 29-09-2023 14:58:28: = Production
+: 29-09-2023 14:58:30: = strDB null
+: 29-09-2023 14:58:30: = type_db
+: 29-09-2023 14:58:30: = Production
+: 29-09-2023 14:58:32: = strDB null
+: 29-09-2023 14:58:32: = type_db
+: 29-09-2023 14:58:32: = Production
+: 29-09-2023 14:58:34: = strDB null
+: 29-09-2023 14:58:34: = type_db
+: 29-09-2023 14:58:34: = Production
+: 29-09-2023 14:58:37: = strDB null
+: 29-09-2023 14:58:37: = type_db
+: 29-09-2023 14:58:37: = Production
+: 29-09-2023 14:58:37: = type_db
+: 29-09-2023 14:58:37: = Production
+: 29-09-2023 14:58:40: = strDB null
+: 29-09-2023 14:58:40: = type_db
+: 29-09-2023 14:58:40: = Production
+: 29-09-2023 14:58:43: = strDB null
+: 29-09-2023 14:58:43: = type_db
+: 29-09-2023 14:58:43: = Production
+: 29-09-2023 14:58:43: = type_db
+: 29-09-2023 14:58:43: = Production
+: 29-09-2023 14:58:43: = type_db
+: 29-09-2023 14:58:43: = Production
+: 29-09-2023 14:58:43: = Production
+: 29-09-2023 14:58:43: = type_db
+: 29-09-2023 14:58:43: = Production
+: 29-09-2023 14:58:47: = strDB null
+: 29-09-2023 14:58:47: = type_db
+: 29-09-2023 14:58:47: = Production
+: 29-09-2023 14:58:47: = type_db
+: 29-09-2023 14:58:47: = Production
+: 29-09-2023 14:58:47: = type_db
+: 29-09-2023 14:58:47: = Production
+: 29-09-2023 14:58:47: = type_db
+: 29-09-2023 14:58:47: = Production
+: 29-09-2023 14:58:47: = type_db
+: 29-09-2023 14:58:47: = Production
+: 29-09-2023 14:58:48: = type_db
+: 29-09-2023 14:58:48: = Production
+: 29-09-2023 14:58:49: = strDB null
+: 29-09-2023 14:58:49: = type_db
+: 29-09-2023 14:58:49: = Production
+: 29-09-2023 14:58:52: = strDB null
+: 29-09-2023 14:58:52: = type_db
+: 29-09-2023 14:58:52: = Production
+: 29-09-2023 14:58:55: = strDB null
+: 29-09-2023 14:58:55: = type_db
+: 29-09-2023 14:58:55: = Production
+: 29-09-2023 14:58:55: = Production
+: 29-09-2023 14:58:58: = strDB null
+: 29-09-2023 14:58:58: = type_db
+: 29-09-2023 14:58:58: = Production
+: 29-09-2023 14:58:58: = type_db
+: 29-09-2023 14:58:58: = Production
+: 29-09-2023 14:59:01: = strDB null
+: 29-09-2023 14:59:01: = type_db
+: 29-09-2023 14:59:01: = Production
+: 29-09-2023 14:59:01: = type_db
+: 29-09-2023 14:59:01: = Production
+: 29-09-2023 14:59:01: = Production
+: 29-09-2023 14:59:06: = strDB null
+: 29-09-2023 14:59:06: = type_db
+: 29-09-2023 14:59:06: = Production
+: 29-09-2023 14:59:06: = type_db
+: 29-09-2023 14:59:06: = Production
+: 29-09-2023 14:59:06: = type_db
+: 29-09-2023 14:59:06: = Production
+: 29-09-2023 14:59:06: = type_db
+: 29-09-2023 14:59:06: = Production
+: 29-09-2023 14:59:06: = type_db
+: 29-09-2023 14:59:06: = Production
+: 29-09-2023 14:59:07: = type_db
+: 29-09-2023 14:59:07: = Production
+: 29-09-2023 14:59:08: = strDB null
+: 29-09-2023 14:59:08: = type_db
+: 29-09-2023 14:59:08: = Production
+: 29-09-2023 14:59:11: = strDB null
+: 29-09-2023 14:59:11: = type_db
+: 29-09-2023 14:59:11: = Production
+: 29-09-2023 14:59:13: = strDB null
+: 29-09-2023 14:59:13: = type_db
+: 29-09-2023 14:59:13: = Production
+: 29-09-2023 14:59:15: = strDB null
+: 29-09-2023 14:59:15: = type_db
+: 29-09-2023 14:59:15: = Production
+: 29-09-2023 14:59:17: = strDB null
+: 29-09-2023 14:59:17: = type_db
+: 29-09-2023 14:59:17: = Production
+: 29-09-2023 14:59:19: = strDB null
+: 29-09-2023 14:59:19: = type_db
+: 29-09-2023 14:59:19: = Production
+: 29-09-2023 14:59:19: = type_db
+: 29-09-2023 14:59:19: = Production
+: 29-09-2023 14:59:23: = strDB null
+: 29-09-2023 14:59:23: = type_db
+: 29-09-2023 14:59:23: = Production
+: 29-09-2023 14:59:25: = strDB null
+: 29-09-2023 14:59:25: = type_db
+: 29-09-2023 14:59:26: = Production
+: 29-09-2023 14:59:26: = type_db
+: 29-09-2023 14:59:26: = Production
+: 29-09-2023 14:59:28: = strDB null
+: 29-09-2023 14:59:28: = type_db
+: 29-09-2023 14:59:28: = Production
+: 29-09-2023 14:59:31: = strDB null
+: 29-09-2023 14:59:31: = type_db
+: 29-09-2023 14:59:31: = Production
+: 29-09-2023 14:59:31: = type_db
+: 29-09-2023 14:59:31: = Production
+: 29-09-2023 14:59:33: = strDB null
+: 29-09-2023 14:59:33: = type_db
+: 29-09-2023 14:59:33: = Production
+: 29-09-2023 14:59:33: = type_db
+: 29-09-2023 14:59:33: = Production
+: 29-09-2023 14:59:37: = strDB null
+: 29-09-2023 14:59:37: = type_db
+: 29-09-2023 14:59:37: = Production
+: 29-09-2023 14:59:37: = type_db
+: 29-09-2023 14:59:37: = Production
+: 29-09-2023 14:59:40: = strDB null
+: 29-09-2023 14:59:40: = type_db
+: 29-09-2023 14:59:40: = Production
+: 29-09-2023 14:59:40: = type_db
+: 29-09-2023 14:59:40: = Production
+: 29-09-2023 14:59:40: = type_db
+: 29-09-2023 14:59:40: = Production
+: 29-09-2023 14:59:40: = type_db
+: 29-09-2023 14:59:40: = Production
+: 29-09-2023 14:59:40: = type_db
+: 29-09-2023 14:59:40: = Production
+: 29-09-2023 14:59:41: = type_db
+: 29-09-2023 14:59:41: = Production
+: 29-09-2023 14:59:42: = strDB null
+: 29-09-2023 14:59:42: = type_db
+: 29-09-2023 14:59:42: = Production
+: 29-09-2023 14:59:45: = strDB null
+: 29-09-2023 14:59:45: = type_db
+: 29-09-2023 14:59:45: = Production
+: 29-09-2023 14:59:45: = type_db
+: 29-09-2023 14:59:45: = Production
+: 29-09-2023 14:59:48: = strDB null
+: 29-09-2023 14:59:48: = strDB null
+: 29-09-2023 14:59:48: = type_db
+: 29-09-2023 14:59:48: = Production
+: 29-09-2023 14:59:48: = Production
+: 29-09-2023 14:59:48: = Production
+: 29-09-2023 14:59:52: = strDB null
+: 29-09-2023 14:59:52: = type_db
+: 29-09-2023 14:59:52: = Production
+: 29-09-2023 14:59:52: = type_db
+: 29-09-2023 14:59:52: = Production
+: 29-09-2023 14:59:52: = type_db
+: 29-09-2023 14:59:52: = Production
+: 29-09-2023 14:59:52: = type_db
+: 29-09-2023 14:59:52: = Production
+: 29-09-2023 14:59:52: = type_db
+: 29-09-2023 14:59:52: = Production
+: 29-09-2023 14:59:53: = type_db
+: 29-09-2023 14:59:53: = Production
+: 29-09-2023 14:59:54: = strDB null
+: 29-09-2023 14:59:54: = type_db
+: 29-09-2023 14:59:54: = Production
+: 29-09-2023 14:59:57: = strDB null
+: 29-09-2023 14:59:57: = type_db
+: 29-09-2023 14:59:57: = Production

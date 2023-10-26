@@ -1,0 +1,22 @@
+25-10-2566 12:01:57 , Result = success , Type = Save ,= txtTel_No :009090003576 , txtName :  , txtSName :  , cboDate :  , cboMouth :  , txtYear :  , cboSex : N , cboStatus : 03 , cbocity :0100
+25-10-2566 12:02:28 , Result = success , Type = Save ,= txtTel_No :009090003577 , txtName : rrrr , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2517 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:47:45 , Result = success , Type = Save ,= txtTel_No :009090003578 , txtName : wwwww , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2517 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:49:26 , Result = success , Type = Save ,= txtTel_No :009090003579 , txtName : vvvvv , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2523 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:50:47 , Result = success , Type = Save ,= txtTel_No :009090003580 , txtName : ccccc , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2550 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:52:08 , Result = success , Type = Save ,= txtTel_No :009090003581 , txtName : bbbb , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2517 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:53:49 , Result = success , Type = Save ,= txtTel_No :009090003582 , txtName : bbbbbbb , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2516 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 13:55:35 , Result = success , Type = Save ,= txtTel_No :009090003583 , txtName :  , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2516 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:28:34 , Result = success , Type = Save ,= txtTel_No :00909000353 , txtName : cccc , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2526 , cboSex : N , cboStatus : 01 , cbocity :0400
+25-10-2566 17:29:50 , Result = success , Type = Save ,= txtTel_No :00909000354 , txtName : bbbbbbb , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2529 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:34:28 , Result = success , Type = Save ,= txtTel_No :00909000355 , txtName : vvvvvvv , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2526 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:37:52 , Result = success , Type = Save ,= txtTel_No :00909000356 , txtName : WWW , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2535 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:43:13 , Result = success , Type = Save ,= txtTel_No :00909000357 , txtName : ccccccc , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2520 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:45:08 , Result = success , Type = Save ,= txtTel_No :00909000358 , txtName : bbbbbb , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2529 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:48:30 , Result = success , Type = Save ,= txtTel_No :00909000360 , txtName : nnnnnnnn , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2526 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:49:58 , Result = success , Type = Save ,= txtTel_No :00909000360 , txtName : ccccccc , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2532 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:52:45 , Result = success , Type = Save ,= txtTel_No :00909000361 , txtName : vvvvvv , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2526 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:53:54 , Result = success , Type = Save ,= txtTel_No :00909000361 , txtName : qqqqqq , txtSName : qqqq , cboDate :  , cboMouth :  , txtYear : 2532 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 17:57:01 , Result = success , Type = Save ,= txtTel_No :00909000361 , txtName : xxxx , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2540 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 18:03:20 , Result = success , Type = Save ,= txtTel_No :00909000361 , txtName : rrrrrrrr , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2529 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 18:05:14 , Result = success , Type = Save ,= txtTel_No :00909000361 , txtName : aaaaaa , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2526 , cboSex : N , cboStatus : 01 , cbocity :0100
+25-10-2566 18:21:46 , Result = success , Type = Save ,= txtTel_No :00909000362 , txtName : xxxxxxx , txtSName :  , cboDate :  , cboMouth :  , txtYear : 2521 , cboSex : N , cboStatus : 01 , cbocity :0100

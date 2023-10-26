@@ -1,0 +1,10 @@
+E:\Program\Project_P'Wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\bin\Release\IVRCall_Dll_Agen.dll
+E:\Program\Project_P'Wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\bin\Release\IVRCall_Dll_Agen.pdb
+E:\Program\Project_P'Wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\ResolveAssemblyReference.cache
+E:\Program\Project_P'Wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\IVRCall_Dll_Agen.dll
+E:\Program\Project_P'Wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\IVRCall_Dll_Agen.pdb
+E:\Program\VB_2005\Project_P'wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\bin\Release\IVRCall_Dll_Agen.dll
+E:\Program\VB_2005\Project_P'wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\bin\Release\IVRCall_Dll_Agen.pdb
+E:\Program\VB_2005\Project_P'wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\ResolveAssemblyReference.cache
+E:\Program\VB_2005\Project_P'wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\IVRCall_Dll_Agen.dll
+E:\Program\VB_2005\Project_P'wit\IVRCall_Dll_Agen\20110524\IVRCall_Dll_Agen\obj\Release\IVRCall_Dll_Agen.pdb

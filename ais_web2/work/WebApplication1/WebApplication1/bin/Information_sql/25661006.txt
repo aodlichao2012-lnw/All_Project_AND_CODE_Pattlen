@@ -1,0 +1,8 @@
+: 06-10-2566 16:37:23: = select * from MAS_LEADS_TRANS where anumber = '009090003454'
+: 06-10-2566 16:37:23: = Data Source=ORAIEC23;User Id=PREGOV;
+: 06-10-2566 16:40:45: = select * from MAS_LEADS_TRANS where anumber = '009090003456'
+: 06-10-2566 16:40:45: = Data Source=ORAIEC23;User Id=PREGOV;
+: 06-10-2566 16:43:27: = select * from MAS_LEADS_TRANS where anumber = '009090003450'
+: 06-10-2566 16:43:27: = Data Source=ORAIEC23;User Id=PREGOV;
+: 06-10-2566 16:46:25: = select * from MAS_LEADS_TRANS where anumber = '009090003434'
+: 06-10-2566 16:46:25: = Data Source=ORAIEC23;User Id=PREGOV;
