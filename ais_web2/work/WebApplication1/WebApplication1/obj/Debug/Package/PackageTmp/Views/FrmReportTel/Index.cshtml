@@ -37,7 +37,7 @@
         border: 0;
         border-radius: 0.25em;
         background: initial;
-        background-color: #FAEAFE !important;
+        background-color: #fff !important;
         color: #fff;
         font-size: 1em;
         width: 100%;
@@ -45,7 +45,7 @@
         grid-row: 2;
         align-self: center;
         justify-self: center;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
+        box-shadow: 0px 4px 4px rgb(149 149 149 / 75%);
     }
 
     .sweet-content {
@@ -63,8 +63,8 @@
     }
 
     .sweet-confirm {
-        width: 50%;
-        height: auto;
+        width: 136px;
+        height: 48px;
         font-family: Arial;
         font-size: 25px;
         background: #F84874 !important;
@@ -229,22 +229,22 @@
                         <span class="Label_">จำนวนเบอร์โทร   <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel" class="Label_"> 0 </span> เบอร์</span>
                         <span class="Label_">จำนวนรวม <span id="Label8_today"> 0 </span> บริการ</span>
                         <div></div>
-                        <div>
+                        <div  data-show="1">
                             <span class="Label_" id="label_ser1_today"> </span>
                             <span style="padding-left: 10px;"></span>
                             <span id="Label9_today">  </span> 
                         </div>
-                        <div>
+                        <div  data-show="2">
                             <span class="Label_" id="label_ser2_today"></span>
                             <span style="padding-left: 10px;"></span>
                             <span id="Label10_today">  </span>
                         </div>
-                        <div>
+                        <div  data-show="3">
                             <span class="Label_" id="label_ser3_today"> </span>
                             <span style="padding-left: 10px;"></span>
                             <span id="Label11_today"> </span>
                         </div>
-                        <div>
+                        <div  data-show="4">
                             <span class="Label_" id="label_ser4_today">
                             </span>
                             <span style="padding-left: 10px;"></span>
@@ -271,7 +271,8 @@
 
             <div class="grp_1">
                 <span class="dateinput_l lable1">วันที่</span>
-                <input type="date" placeholder="placeholder" id="date_reson" class="inputdate_s select1" />
+                <input type="text" placeholder="placeholder" id="date_reson" class="inputdate_s select1" />
+                <img src="~/Hidden/icons8-calendar-24.png" class="svg3" />
             </div>
             <div class="grp2">
                 <span class="lable1 status_l2"> สถานะ</span>
@@ -287,24 +288,24 @@
             <div class="group3">
                 <div class="total_l" id="total_l">
 
-                    <span class="Label_">จำนวนรวม <span id="Label8"> 0 </span> บริการ</span>
+                    <span class="Label_">จำนวนรวมสมัคร <span id="Label8"> 0 </span> บริการ</span>
                     <div> <span class="Label_" id="label_ser1"></span> <span style="padding-left: 10px;"></span>  <span id="Label9"> </span> <span style="margin-left:30px;"></span><span class="Label_" id="label_ser2"> </span><span style="padding-left: 20px;"></span>   <span id="Label10">  </span> </div> 
                     <div> <span class="Label_" id="label_ser3"> </span> <span style=" margin-left: -32px;"></span>  <span id="Label11"> </span> <span style="margin-left:30px;"></span><span class="Label_" id="label_ser4"> </span> <span style="padding-left: 20px;"></span>   <span id="Label12"> </span> </div>
                     <div style="margin-top:20px;"></div>
-                    <div><span class="Label_" id=""> ผลการค้นหา สถานะ :</span> <span style="padding-left: 15px;"></span>  <span id="Labelstatus"> 0 </span>     <span style="padding-left: 10px;font-size:14px;"></span><span class="Label_">จำนวนเบอร์โทร </span>  <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel2" class="Label_"> 0 </span> เบอร์</div>
+                    <div><span class="Label_" id=""> ผลการค้นหา สถานะ :</span> <span style="padding-left: 15px;"></span>  <span id="Labelstatus"> 0 </span> <span id="">วันที่ <span style="margin-left:10px;">@DateTime.Now.ToString("dd MMMM yyyy" , new System.Globalization.CultureInfo("th-TH"))</span></span>    <span style="padding-left: 10px;font-size:14px;"></span><span class="Label_">จำนวนเบอร์โทร </span>  <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel2" class="Label_"> 0 </span> เบอร์</div>
 
                 </div>
                 <div style="margin-left:100px;">
                     <table class="tb_1" id="tb_1">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th data-table="1"></th>
+                                <th data-table="2"></th>
+                                <th data-table="3"></th>
+                                <th data-table="4"></th>
+                                <th data-table="5"></th>
+                                <th data-table="6"></th>
+                                <th data-table="7"></th>
 
 
                             </tr>

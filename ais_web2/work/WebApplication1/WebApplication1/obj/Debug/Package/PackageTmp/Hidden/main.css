@@ -1,6 +1,10 @@
 ﻿
 
 @media screen and (min-width: 0px) {
+    .svg3 {
+        width: 15px;
+        margin-left: -37px
+    }
     .total_l_today {
         padding: 6px;
         position: absolute;
@@ -435,6 +439,7 @@
         line-height: 24px;
         letter-spacing: 0em;
         text-align: left;
+        font-family:Arial;
     }
 
     .grp_1 {
@@ -827,7 +832,7 @@
         height: 40px;
         border-radius: 8px;
         background: #FAEAFE;
-        color: #666666 !important;
+        color: #333333 !important;
     }
 
     .cbocity_1 {
@@ -1170,6 +1175,7 @@
     }
 
     .inputdate_s {
+        font-size: 14px;
         width: 230px;
         margin-top: 28px;
         margin-left: 50px;
@@ -1300,6 +1306,10 @@
 }
 
 @media screen and (min-width: 1400px) {
+    .svg3 {
+        width: 15px;
+        margin-left: -37px
+    }
     .total_l_today {
         padding: 6px;
         position: absolute;
@@ -1699,6 +1709,7 @@
         line-height: 24px;
         letter-spacing: 0em;
         text-align: left;
+        font-family: Arial;
     }
 
     .grp_1 {
@@ -2086,7 +2097,7 @@
         height: 40px;
         border-radius: 8px;
         background: #FAEAFE;
-        color: #666666 !important;
+        color: #333333 !important;
     }
 
     .cbocity_1 {
@@ -2449,6 +2460,7 @@
     }
 
     .inputdate_s {
+        font-size: 14px;
         width: 230px;
         margin-top: 28px;
         margin-left: 50px;

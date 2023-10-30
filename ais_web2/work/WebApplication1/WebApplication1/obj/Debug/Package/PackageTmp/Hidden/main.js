@@ -92,7 +92,7 @@ $("#valid4").hide()
 $("#valid5").hide()
 
 const currentDate = new Date();
-const year = currentDate.getFullYear();
+const year = parseInt( currentDate.getFullYear()) + 543;
 // Get the current month (0-11, where 0 is January and 11 is December)
 const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are zero-based
 // Get the current day of the month
@@ -100,6 +100,7 @@ const day = (currentDate.getDate()).toString().padStart(2, '0');
 
 $("#current_date").val(`` + day + `/` + month + `/` + year + ``)
 $("#date_tel").val(`` + day + `/` + month + `/` + year + ``)
+$("#date_reson").val(`` + day + `/` + month + `/` + year + ``)
 
 $("#button_save2").hide()
 function alert2(txt) {
@@ -317,6 +318,11 @@ $("#button_Report").on('click', function (e) {
 })
 
 $('#current_date').datetimepicker({
+    format: 'd/m/Y',
+    formatDate: 'd/m/Y',
+
+});
+$("#date_reson").datetimepicker({
     format: 'd/m/Y',
     formatDate: 'd/m/Y',
 
@@ -978,17 +984,29 @@ function sum2(table, table2, table_sub3) {
                 $("#label_ser1_today").text(table_sub3[0].SER_NAME)
                 $("#Label9_today").text("0 บริการ")
             }
+            else {
+                $("div[data-show='1']").remove();
+            }
             if ( table_sub3[1].IS_ACTIVE == 1) {
                 $("#label_ser2_today").text(table_sub3[1].SER_NAME)
                 $("#Label10_today").text("0 บริการ")
+            }
+            else {
+                $("div[data-show='2']").remove();
             }
             if (table_sub3[2].IS_ACTIVE == 1) {
                 $("#label_ser3_today").text(table_sub3[2].SER_NAME)
                 $("#Label11_today").text("0 บริการ")
             }
+            else {
+                $("div[data-show='3']").remove();
+            }
             if (table_sub3[3].IS_ACTIVE == 1) {
                 $("#label_ser4_today").text(table_sub3[3].SER_NAME)
                 $("#Label12_today").text("0 บริการ")
+            }
+            else {
+                $("div[data-show='4']").remove();
             }
             $("#Label8_today").text("0")
         }
@@ -1001,17 +1019,29 @@ function sum2(table, table2, table_sub3) {
                 $("#label_ser1_today").text(table_sub3[0].SER_NAME)
                 $("#Label9_today").text(table[0].SER13 + " บริการ")
             }
+            else {
+                $("div[data-show='1']").remove();
+            }
             if (table[i].SER11 != null && table_sub3[1].IS_ACTIVE == 1) {
                 $("#label_ser2_today").text(table_sub3[1].SER_NAME)
                 $("#Label10_today").text(table[0].SER11 + " บริการ")
+            }
+            else {
+                $("div[data-show='2']").remove();
             }
             if (table[i].SER21 != null && table_sub3[2].IS_ACTIVE == 1) {
                 $("#label_ser3_today").text(table_sub3[2].SER_NAME)
                 $("#Label11_today").text(table[0].SER21 +" บริการ")
             }
+            else {
+                $("div[data-show='3']").remove();
+            }
             if (table[i].SER12 != null && table_sub3[3].IS_ACTIVE == 1) {
                 $("#label_ser4_today").text(table_sub3[3].SER_NAME)
                 $("#Label12_today").text(table[0].SER12 + " บริการ")
+            }
+            else {
+                $("div[data-show='4']").remove();
             }
 
 
@@ -1067,6 +1097,8 @@ function tableload(tables, table_sub3) {
                     { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
 
                 );
+            } else {
+                $("th[data-table='" + i + "']").remove()
             }
         }
 
@@ -1130,12 +1162,14 @@ function tableload(tables, table_sub3) {
                 );
         for (var i = 0; i < table_sub3.length; i++) {
             if (table_sub3[i].IS_ACTIVE == 1) {
-                    columns.push(
+                columns.push(
 
-                        { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
+                    { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
 
-                    );
-                }
+                );
+            } else {
+                $("th[data-table='" + i + "']").remove()
+            }
             }
             $('#tb_1').DataTable({
                 searching: false,
@@ -1185,7 +1219,7 @@ function tableload(tables, table_sub3) {
     }
     function btnreport_click() {
         let reson = $("#select_reson").val()
-        let date = $("#date_reson").val()
+        let date =  $("#date_reson").val() 
         let datas = new FormData();
         if (reson === "" || reson == null) {
             reson = "01"

@@ -376,16 +376,16 @@ namespace ais_web3.Controllers
                     sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
                     if (telclass.Day != null)
                     {
-                        string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
-                        string mm = Convert.ToDateTime(telclass.Day, new CultureInfo("en-En")).ToString("dd-MMM-yy").Split('-')[1];
-                        string yy = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[2];
+                        string dd = telclass.Day.Split('/')[0];
+                        string mm = telclass.Day.Split('/')[1];
+                        string yy = (Convert.ToInt32(telclass.Day.Split('/')[2] )- 543).ToString().Substring(2, 2);
                         sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
                     }
                     else
                     {
                         string dd = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[0];
                         string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
-                        string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
+                        string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2]; 
                         sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
                     }
                     status1 = telclass.res_code;

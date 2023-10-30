@@ -1109,10 +1109,10 @@ namespace Model_Helper
 
             if (telclass.Day != "" && telclass.Day != null)
             {
-                string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
-                string mm = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[1];
-                string yy = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[2];
-                sql2 += " And to_date(MAS_LEADS_TRANS.LEAD_CALL_DATE,'dd/MM/yyyy') = to_date('" + dd + "/" + mm + "/" + yy + "','dd/MM/yyyy')";
+                string dd = telclass.Day.Split('/')[0];
+                string mm = telclass.Day.Split('/')[1];
+                string yy = (Convert.ToInt32(telclass.Day.Split('/')[2]) - 543).ToString().Substring(2, 2);
+                sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
             }
             else
             {

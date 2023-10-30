@@ -1272,9 +1272,8 @@ namespace ais_web3.Controllers
                 else
                 {
                     year2 = int.Parse(form.txtYear);
-                    year3 = DateTime.Now.ToString("yyyy", new CultureInfo("en-US"));
+                    year3 = DateTime.Now.ToString("yyyy", new CultureInfo("th-TH"));
                     age = Convert.ToInt32(year3) - year2;
-                    age = age + 543;
                     //if (age < 15)
                     //{
                     //    return "ลูกค้าอายุน้อยกว่า 15 ปี ไม่สามารถรับบริการได้ค่ะ";
