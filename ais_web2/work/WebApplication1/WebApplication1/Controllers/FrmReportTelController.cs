@@ -252,22 +252,83 @@ namespace ais_web3.Controllers
             return showreport(telclass);
 
         }
+        public string list_Service()
+        {
+            string sql = string.Empty;
+            DataTable dt1 = null;
+            try
+            {
+                sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
+                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ";
+
+
+                module.Comman_Static(sql, null, null, ref dt1);
+
+                return JsonConvert.SerializeObject(dt1);
+            }
+            catch
+            {
+                return "";
+            }
+            finally
+            {
+
+            }
+
+
+
+        }
 
         [HttpPost]
         public string showreportToday()
         {
+            string Agens = string.Empty;
             if (HttpContext.Request.Cookies["Agen"] != null)
             {
-                string Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
-                Module2.Agent_Id = Agens;
+                Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
             }
-            string Agenid = Module2.Agent_Id;
-            if (Agenid == "")
-            {
-                Agenid = Agenids;
-            }
-            DataTable dt2 = Service_Sum(new Telclass() { res_code = "01" , agent_id =Agenid});
-            return JsonConvert.SerializeObject(dt2);
+
+            string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
+                     "" +
+                     " CASE " +
+                     "   WHEN SERVICE_21 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_21 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_21" +
+                       ", CASE " +
+                     "   WHEN SERVICE_11 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_11 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_11" +
+                     " ,  CASE " +
+                     "   WHEN SERVICE_12 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_12 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_12" +
+                     " ,  CASE " +
+                     "   WHEN SERVICE_13 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_13 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_13" +
+                     "   from  MAS_LEADS_TRANS " +
+                     " LEFT JOIN MAS_REASON ON MAS_REASON.RES_CODE = MAS_LEADS_TRANS.RES_CODE LEFT JOIN MAS_RESON_DENY ON MAS_RESON_DENY.DENY_CODE = MAS_LEADS_TRANS.DENY_CODE" +
+                     " ";
+           sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agens + "' AND MAS_LEADS_TRANS.RES_CODE = '01'";
+         
+                string dd = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[0];
+                string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
+                string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
+                sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
+            Thread.Sleep(1000);
+            DataTable  dt3 = module.Comman_Static2(sql2);
+            List<string> json_list = new List<string>();
+            //DataTable dt2 = Service_Sum(new Telclass() { res_code = "01", agent_id = Agenid });
+            List<string> list = new List<string>();
+            DataTable dt2 =module. Service_Sum(new Telclass() { res_code = "01", agent_id = Agens });
+            string data01 = JsonConvert.SerializeObject(dt2);
+            string data02 = JsonConvert.SerializeObject(dt3);
+            list.Add(data01);
+            list.Add(data02);
+            list.Add(list_Service());
+            return JsonConvert.SerializeObject(list);
+
+
         }
         public string showreport(Telclass telclass)
         {
@@ -308,8 +369,11 @@ namespace ais_web3.Controllers
                         "   WHEN SERVICE_13 = 1 THEN 'สมัคร'" +
                         "   WHEN SERVICE_13 = 0 THEN 'ไม่ได้สมัคร'" +
                         "   END AS SERVICE_13" +
-                        "   from  MAS_LEADS_TRANS  LEFT JOIN MAS_REASON ON MAS_REASON.RES_CODE = MAS_LEADS_TRANS.RES_CODE LEFT JOIN MAS_RESON_DENY ON MAS_RESON_DENY.DENY_CODE = MAS_LEADS_TRANS.DENY_CODE";
-                    sql2 += " where  MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
+                        "   from  MAS_LEADS_TRANS  " +
+
+                        "LEFT JOIN MAS_REASON ON MAS_REASON.RES_CODE = MAS_LEADS_TRANS.RES_CODE LEFT JOIN MAS_RESON_DENY ON MAS_RESON_DENY.DENY_CODE = MAS_LEADS_TRANS.DENY_CODE" +
+                        " ";
+                    sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
                     if (telclass.Day != null)
                     {
                         string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
@@ -341,9 +405,9 @@ namespace ais_web3.Controllers
                 }
                 try
                 {
-
+                    telclass.agent_id = Agenid;
                     Thread.Sleep(1000);
-                    dt3 = module.Comman_Static2(sql2);
+                    dt3 = module.Comman_Static4(sql2);
                     if (dt3 != null)
                     {
                         if (dt3.Rows != null)
@@ -354,22 +418,24 @@ namespace ais_web3.Controllers
                                 {
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
-                                    DataTable dt2 = Service_Sum(telclass);
+                                    DataTable dt2 = module.Service_Sum2(telclass);
                                     string data01 = JsonConvert.SerializeObject(dt2);
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
+                                    list.Add(list_Service());
                                     return JsonConvert.SerializeObject(list);
                                 }
                                 else
                                 {
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
-                                    DataTable dt2 = Service_Sum(telclass);
+                                    DataTable dt2 = module. Service_Sum3(telclass);
                                     string data01 = JsonConvert.SerializeObject(dt2);
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
+                                    list.Add(list_Service());
                                     return JsonConvert.SerializeObject(list);
                                 }
                             }
@@ -421,50 +487,7 @@ namespace ais_web3.Controllers
             return JsonConvert.SerializeObject(list);
         }
 
-        private DataTable Service_Sum(Telclass telclass)
-        {
         
-            string sql = string.Empty;
-            try
-            {
-                sumservice = Convert.ToInt32("0");
-                string Agenid = Module2.Agent_Id;
-                if (Agenid == "")
-                {
-                    Agenid = Agenids;
-                }
-                sql = "Select sum(service_21) as ser01 ,sum(service_11) as ser02 ,sum(service_12) as ser03 ,sum(service_13) as ser04 , sum(COALESCE(service_21,'0')+COALESCE(service_11,'0')+COALESCE(service_12,'0') + (CASE WHEN service_13 = null THEN '0' ELSE service_13 END )) AS    sum from mas_leads_trans";
-                sql += " where  MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' and MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "' ";
-
-                if (telclass.Day != "" && telclass.Day != null)
-                {
-                    string dd = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[0];
-                    string mm = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[1];
-                    string yy = Convert.ToDateTime(telclass.Day).ToString("dd-MMM-yy").Split('-')[2];
-                    sql += " And to_date(MAS_LEADS_TRANS.LEAD_CALL_DATE,'dd/MM/yyyy') = to_date('" + dd + "/" + mm + "/" + yy + "','dd/MM/yyyy')";
-                }
-                else
-                {
-                    string dd = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[0];
-                    string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
-                    string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
-                    sql += " And to_date(MAS_LEADS_TRANS.LEAD_CALL_DATE,'dd/MM/yyyy') = to_date('" + dd + "/" + mm + "/" + yy + "','dd/MM/yyyy')";
-                }
-              DataTable  dt = module.Comman_Static3(sql);
-
-                return dt;
-            }
-            catch(Exception ex)
-            {
-                WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                WriteLog.instance.Log("Service_Sum :" + sql);
-                return null;
-            }
-          
-
-
-        }
-
         [HttpPost]
         public string Send_localstoreless(localstoreless localstoreless)
         {
