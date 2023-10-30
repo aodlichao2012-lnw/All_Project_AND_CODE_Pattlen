@@ -374,7 +374,8 @@ namespace Model_Helper_famework
 
         public object DataTableTooject(DataTable dt)
         {
-            return dt;
+            object objectExport = dt;
+            return objectExport;
         }
     }
 }
