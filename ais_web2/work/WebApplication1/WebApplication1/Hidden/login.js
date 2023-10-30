@@ -43,7 +43,6 @@ $("#btnlogin").on('click', function (e) {
 
 $("#Cbo_Database").on('change', function () {
     var cbocheck = $("#Cbo_Database")
-    console.log(cbocheck.val())
     var table = new FormData();
     if (cbocheck.val() === "Backup") {
         table.append("checkbox_DB_Backup", true)
@@ -61,7 +60,6 @@ $("#Cbo_Database").on('change', function () {
         data: table,
         success: function (e) {
             var msg = JSON.parse(e)
-            console.log(msg)
             alert2(msg)
             //$("#status").text(msg[0])
             //$("#strDB").text(msg[1])

@@ -5,8 +5,7 @@ $('#tb_2 tbody').on('click', 'td', function () {
     var button = row.find('button');
     var status = button.data('status');
     var anumber = button.data('anumber');
-    console.log(status)
-    console.log(anumber)
+
     let datas = new FormData();
     datas.append('status', status)
     datas.append('anumber', anumber)
@@ -42,9 +41,7 @@ $("#button_Serach_from_SearchNumber").on('click', function (e) {
             type: 'GET',
             data: null,
             success: function (e) {
-                console.log(e)
                 let data_json = JSON.parse(e)
-                console.log(data_json)
                     tables =   $("#tb_2").DataTable({
                     searching: false,
                         lengthChange: false,

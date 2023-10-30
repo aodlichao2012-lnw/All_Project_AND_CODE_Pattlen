@@ -120,12 +120,10 @@ function fucshowtel3(is_time) {
 
     if (is_time == false) {
 
-        console.log("clear")
         $("#txt_tel").val(``)
 
         /*        }*/
     } else if (is_time == true) {
-        console.log("ค้นหาหมายเลข")
 /*        if (telephone_update != $("#txt_tel").val() ||  $("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() == "กำลังค้นหาหมายเลขโทรศัพท์ ....") {*/
            let ajax_ =  $.ajax({
                 url: "/FrmDetail/GetPhone"
@@ -140,11 +138,11 @@ function fucshowtel3(is_time) {
 
                         $("#txt_tel").val(e)
                         telephone_update = e
-                        console.log("ajax = " + e)
+
                     } else if (status_busy == 'is_Busy') {
                         $("#txt_tel").val(e)
                     }
-                    console.log("busy is :" + status_busy)
+
                 }
            })
            
@@ -171,9 +169,7 @@ $("#year_thai").on('click', function (e) {
 })
 function fucsave() {
 
-    console.log($("#date_num").val());
-    console.log($("#date_thai").val());
-    console.log($("#year_thai").val());
+
 
     if ($("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() === "กำลังค้นหาหมายเลขโทรศัพท์ ....") {
         alert2("ไม่สามารถบันทึกได้ เนื่องจากไม่มี เบอร์โทรศัพท์ กรุณากรอกหมายเลขโทรศัพท์")
@@ -231,11 +227,11 @@ function fucsave() {
             return this.id === SERVICE2_
         })
         let datas = new FormData();
-        console.log(service)
+
         for (i = 0; i < service.prevObject.length; i++) {
 
             if (service.prevObject[i].id.includes("SERVICE_") === true) {
-                console.log(service.prevObject[i].id)
+
                 datas.append(service.prevObject[i].id, service.prevObject[i].checked)
             }
 
@@ -272,7 +268,7 @@ function fucsave() {
         datas.append("cboSex", sex2)
         datas.append("strDenycode", reson_code)
         datas.append("txtDate_Tel", date_tel)
-        console.log(datas)
+
         /*    datas.append("cboDeny", current_date)*/
 
        let ajax_ =  $.ajax({

@@ -54,7 +54,6 @@ function Cache_item() {
                     htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
                 }
                 htmls += ` </select>`
-                console.log(htmls)
                 $("#cbocity").html(htmls)
             }
 
@@ -73,7 +72,6 @@ function Cache_item() {
                     }
                 }
                 htmls += ` </select >`
-                console.log(htmls)
                 $("#select_st").html(htmls)
 
             }
@@ -348,7 +346,6 @@ function fuc_select_status() {
         , type: "GET",
         data: null,
         success: function (e) {
-            console.log(e)
             if (e === null) {
                 Cache_item()
             }
@@ -372,7 +369,6 @@ function fuc_select_status() {
                         }
                     }
                     htmls += ` </select >`
-                    console.log(htmls)
                     $("#select_st").html(htmls)
 
                     clearInterval()
@@ -408,7 +404,6 @@ function fuc_select_status_2() {
                     htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
                 }
                 htmls += ` </select>`
-                console.log(htmls)
                 $("#cbocity").html(htmls)
             } else {
                 fuc_select_status_2()
@@ -594,7 +589,6 @@ function getfucLoad() {
                     //$("#cbocity").text(values.cbocity_name)
                     //$("#cbocity").val(values.cbocity)
                     $("#cbocity").append(`<option value="` + values.cbocity + `" selected>` + values.cbocity_name + `</option>`)
-                    console.log(values.cbocity)
                     /*   $("#status").text(e)*/
                     cbostatus2 = values.cboStatus;
                     if (values.cboStatus === "สมัคร") {
@@ -643,7 +637,6 @@ function fuc_edit_Service(Service) {
         , success: function (e) {
             if (e !== null) {
                 let values = JSON.parse(e)
-                console.log(values)
                 let htmls = ``
                 for (i = 0; i < values.length; i++) {
                     if (i <= 10) {
@@ -738,7 +731,6 @@ function fuc_insert_ser() {
                     // ตรวจสอบเงื่อนไขของข้อมูลในแต่ละคอลัมน์
                     // ในตัวอย่างนี้เราจะตรวจสอบคอลัมน์ที่ 2 (index 1)
                     var columnValue = data.IS_ACTIVE;
-                    console.log(columnValue)// เปลี่ยนตามคอลัมน์ที่คุณต้องการ
                     if (columnValue == 'เปิดให้ใช้บริการ') {
                         // กำหนดพื้นหลัง (background color) สำหรับแถวนี้
                         $(row).css('background-color', 'lightgreen');
@@ -800,7 +792,6 @@ $("#Service_select tbody").on('input', 'td', function (e) {
     }
 })
 function button_ser_save(value, id) {
-    console.log("Save : " + id + " : " + value)
     let ajax_ = $.ajax({
         url: '/FrmDetail/Save_service?id=' + id + "&values=" + value,
         type: 'GET',
@@ -858,7 +849,6 @@ function fuc_Service_ser_show(Service) {
     let htmls2 = ``;
     let nameid = column_name_id_ser.split(',')
     let name = column_name_ser.split(',')
-    console.log(name)
 
     htmls2 += `<div style="" >`
     for (i = 0; i < name.length - 1; i++) {
@@ -1091,7 +1081,10 @@ function tableload(tables, table_sub3) {
                 { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
                 );
         for (var i = 0; i < table_sub3.length; i++) {
+
             if (table_sub3[i].IS_ACTIVE == 1) {
+                console.log(table_sub3[i].SER_ID)
+                console.log(table_sub3[i].SER_NAME)
                 columns.push(
 
                     { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
@@ -1249,9 +1242,7 @@ function tableload(tables, table_sub3) {
                     table_sub = JSON.parse(table[0])
                     table_sub2 = JSON.parse(table[1])
                     table_sub3 = JSON.parse(table[2])
-                    console.log(table_sub)
-                    console.log(table_sub2)
-                    console.log(table_sub3)
+
                     tableload(table_sub2, table_sub3)
                     sum(table_sub, table_sub2, table_sub3)
               /*      sum2(table_sub, table_sub2, table_sub3)*/
