@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Office.Interop.Excel;
 using Microsoft.SqlServer.Server;
 using OfficeOpenXml;
 using OpenQA.Selenium;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -330,8 +332,8 @@ namespace Model_Helper_famework
         #region ฟังก์ชั้น คัดลอกและวางรูปภาพลงในสเต็ปโดยตรง
 
         private PictureBox pictureBox;
-        private Button copyButton;
-        private Button pasteButton;
+        private System.Windows.Forms.Button copyButton;
+        private System.Windows.Forms.Button pasteButton;
 
         public void ImageCopyPasteApp()
         {
@@ -342,13 +344,13 @@ namespace Model_Helper_famework
                 BorderStyle = BorderStyle.Fixed3D
             };
 
-            copyButton = new Button
+            copyButton = new System.Windows.Forms.Button
             {
                 Text = "Copy Image",
                 Dock = DockStyle.Top
             };
 
-            pasteButton = new Button
+            pasteButton = new System.Windows.Forms.Button
             {
                 Text = "Paste Image",
                 Dock = DockStyle.Top
@@ -372,10 +374,26 @@ namespace Model_Helper_famework
         }
         #endregion
 
-        public object DataTableTooject(DataTable dt)
+        public object DataTableTooject(System.Data.DataTable dt)
         {
-            object objectExport = dt;
-            return objectExport;
+           List< ViewModel> modelList = new List< ViewModel>();
+            int i = 0;
+            foreach (System.Data.DataTable dt2 in dt.Rows) {
+                ViewModel model = new ViewModel();
+                foreach (var property in model.GetType().GetProperties())
+                {
+                    foreach (System.Data.DataTable dt3 in dt.Columns)
+                        if ((property.Name.Contains(dt.Columns[i].ColumnName)))
+                        {
+                            property.SetValue(model, dt2.Rows[i][dt3.Columns[i].ColumnName], null);
+                        }
+                }
+                modelList.Add(model);
+                i++;
+
+            }
+
+            return modelList;
         }
     }
 }
