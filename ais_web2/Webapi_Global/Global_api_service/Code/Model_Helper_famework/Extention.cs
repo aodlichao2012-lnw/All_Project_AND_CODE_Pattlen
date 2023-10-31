@@ -374,18 +374,20 @@ namespace Model_Helper_famework
         }
         #endregion
 
-        public List<ViewModel> DataTableTooject(System.Data.DataTable dt)
+        #region เปลี่ยนจาก Datatable เป็น object
+        public List<T> DataTableTooject<T>(System.Data.DataTable dt) where T : new()
         {
-           List< ViewModel> modelList = new List< ViewModel>();
+            List<T> modelList = new List<T>();
             int i = 0;
-            foreach (System.Data.DataTable dt2 in dt.Rows) {
-                ViewModel model = new ViewModel();
+            foreach (var dt2 in dt.Rows)
+            {
+                T model =  new T();
                 foreach (var property in model.GetType().GetProperties())
                 {
-                    foreach (System.Data.DataTable dt3 in dt.Columns)
+                    foreach (var dt3 in dt.Columns)
                         if ((property.Name.Contains(dt.Columns[i].ColumnName)))
                         {
-                            property.SetValue(model, dt2.Rows[i][dt3.Columns[i].ColumnName], null);
+                            property.SetValue(model, dt.Rows[i][dt.Columns[i].ColumnName], null);
                         }
                 }
                 modelList.Add(model);
@@ -393,6 +395,7 @@ namespace Model_Helper_famework
             }
             return modelList;
         }
+        #endregion
     }
 }
 
