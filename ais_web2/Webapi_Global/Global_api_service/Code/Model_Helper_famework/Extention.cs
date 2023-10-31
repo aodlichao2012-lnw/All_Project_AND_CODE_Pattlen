@@ -374,7 +374,7 @@ namespace Model_Helper_famework
         }
         #endregion
 
-        public object DataTableTooject(System.Data.DataTable dt)
+        public List<ViewModel> DataTableTooject(System.Data.DataTable dt)
         {
            List< ViewModel> modelList = new List< ViewModel>();
             int i = 0;
