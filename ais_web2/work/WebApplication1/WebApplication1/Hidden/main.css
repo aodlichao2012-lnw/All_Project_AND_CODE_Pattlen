@@ -875,6 +875,7 @@
 
     .tel1 {
         /*         height: 30px;*/
+        font-size: 30px !important;
         margin-top: 10px;
         margin-left: 92px;
     }
@@ -937,7 +938,7 @@
         width: 278px;
         height: 18px;
         left: 84px;
-        top: -274px;
+        top: -192px;
         font-style: normal;
         font-weight: 300;
         font-size: 12px;
@@ -2174,6 +2175,7 @@
 
     .tel1 {
         /*         height: 30px;*/
+        font-size: 25px !important;
         margin-top: 10px;
         margin-left: 92px;
     }
@@ -2236,7 +2238,7 @@
         width: 278px;
         height: 18px;
         left: 84px;
-        top: -274px;
+        top: -192px;
         font-style: normal;
         font-weight: 300;
         font-size: 12px;

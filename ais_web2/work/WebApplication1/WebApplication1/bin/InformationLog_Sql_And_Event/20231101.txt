@@ -1,0 +1,73 @@
+: 01-11-2023 07:49:24: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:24: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:26: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:26: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:29: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:29: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:31: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:31: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:34: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:34: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:36: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:36: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:40: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:40: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:44: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:44: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:47: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:47: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:49:50: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:49:50: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:50:36: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:50:36: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 07:53:30: = Index FrmDetail :Index was outside the bounds of the array.
+: 01-11-2023 07:53:30: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 01-11-2023 08:00:50: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 08:00:55: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:25:38: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:25:43: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:25:48: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:25:54: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:25:58: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:26:02: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:26:09: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:26:10: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 09:26:14: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 13:41:57: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 01-11-2023 15:09:07: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:09: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:12: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:15: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:17: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:19: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:19: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:23: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:31: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:32: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:32: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:09:32: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:05: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:08: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:08: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:09: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:09: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:12: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:12: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:15: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:15: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:18: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:21: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:24: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:24: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:27: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:27: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:30: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:10:32: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:22:49: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:22:52: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:22:54: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:22:57: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:22:59: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:23:02: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:23:02: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated
+: 01-11-2023 15:23:05: = Error ที่ Comman_Static2 : ORA-01756: quoted string not properly terminated

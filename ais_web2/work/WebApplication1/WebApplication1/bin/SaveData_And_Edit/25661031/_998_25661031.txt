@@ -1,0 +1,1 @@
+31-10-2566 14:13:33 , Result = success , Type = Save ,= txtTel_No :00909000359 , txtName : aaa , txtSName :  , cboDate :  , cboMouth :  , txtYear : - , cboSex : N , cboStatus : 01 , cbocity :-

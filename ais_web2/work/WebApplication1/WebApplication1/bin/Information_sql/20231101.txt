@@ -1,0 +1,31 @@
+: 01-11-2023 07:49:24: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:24: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:26: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:26: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:28: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:28: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:31: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:31: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:34: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:34: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:36: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:36: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:40: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:40: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:44: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:44: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:47: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:47: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:50: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:49:50: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:50:07: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:50:08: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:50:59: = Could not find a part of the path 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:53:14: = Could not find file 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 07:53:15: = Could not find file 'D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Log_Save_AgenID\20231101\_998_20231101.txt'.
+: 01-11-2023 08:00:48: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'
+: 01-11-2023 08:00:50: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'
+: 01-11-2023 08:00:55: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'
+: 01-11-2023 09:25:35: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'
+: 01-11-2023 09:25:38: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'
+: 01-11-2023 09:25:43: = UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' , TERMINAL_IP  = '', CALL_COUNT  = 0, LOGON_EXT  = 0, LOGIN_TIME   = '' WHERE  AGENT_ID = '997'

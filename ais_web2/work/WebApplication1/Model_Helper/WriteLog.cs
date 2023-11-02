@@ -107,8 +107,11 @@ namespace Model_Helper
                 {
               
                     string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\Log_Save_AgenID\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";
-        
-                    using (StreamReader steam = new StreamReader(path + "_" + Cookie_AgenId + "_" + Datetimes+".txt",true))
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                using (StreamReader steam = new StreamReader(path + "_" + Cookie_AgenId + "_" + Datetimes+".txt",true))
                     {
 
                     messages = steam.ReadToEnd( );
@@ -139,7 +142,7 @@ namespace Model_Helper
                 }
                 using (StreamWriter steam = new StreamWriter(path + "_" + Cookie_AgenId + "_" + Datetimes+".txt",true))
                     {
-                     steam.WriteLine(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") +" , Result = " + result+ " , Type = " +type+" ," + "="+ $@" txtTel_No :{Model.txtTel_No} , txtName : {Model.txtName} , txtSName : {Model.txtSName} , cboDate : {Model.cboDate} , cboMouth : {Model.cboMouth} , txtYear : {Model.txtYear} , cboSex : { Model.cboSex} , cboStatus : {Model.cboStatus.ToString().Replace(" ", "")} , cbocity :{  Model.cbocity}" );
+                     steam.WriteLine(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") +" , connection String = '" +HttpContext.Current.Request.Cookies["strConn"].Value.ToString() + "' , type = " + HttpContext.Current.Request.Cookies["type_db"].Value + " , Result = " + result+ ", Production or Backup = " + HttpContext.Current.Request.Cookies["strDB"].Value + " , Type = " +type+" ," + "="+ $@" txtTel_No :{Model.txtTel_No} , txtName : {Model.txtName} , txtSName : {Model.txtSName} , cboDate : {Model.cboDate} , cboMouth : {Model.cboMouth} , txtYear : {Model.txtYear} , cboSex : { Model.cboSex} , cboStatus : {Model.cboStatus.ToString().Replace(" ", "")} , cbocity :{  Model.cbocity}" );
 
                 }
 
@@ -162,7 +165,10 @@ namespace Model_Helper
                 {
               
                     string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\Log_Save_AgenID\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";
-        
+                    if(!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
                     using (StreamReader steam = new StreamReader(path + "_" + Cookie_AgenId + "_" + Datetimes+".txt",true))
                     {
 

@@ -68,15 +68,14 @@ namespace ais_web3.Controllers
         private string Anumber = "";
         static string tel_phone;
 
-        [HttpPost]
-        public string FrmDetail_Load(Telclass2 telclass)
-        {
+        //[HttpPost]
+        //public string FrmDetail_Load(Telclass2 telclass)
+        //{
 
-            if (telclass.anumber == "" && telclass.anumber == null)
-                GetPhone();
+        //        GetPhone();
 
-            return FromLoad(telclass);
-        }
+        //    return FromLoad(telclass);
+        //}
 
      
         private string FromLoad(Telclass2 telclass)
@@ -258,7 +257,7 @@ namespace ais_web3.Controllers
             {
                 if (HttpContext.Request.Cookies["Agen"] != null)
                 {
-                    string Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
                     Module2.Agent_Id = Agens;
                 }
                 DataTable dt = null;
@@ -653,7 +652,7 @@ namespace ais_web3.Controllers
 
                 if (HttpContext.Request.Cookies["Agen"] != null)
                 {
-                    string Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
                     Module2.Agent_Id = Agens;
                 }
                 string sqlselect = "";
@@ -1124,7 +1123,7 @@ namespace ais_web3.Controllers
 
         private string SetAVAL()
         {
-            string Agen_id = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('"')[1];
+            string Agen_id = HttpContext.Request.Cookies["Agen"].Value;
             int rowUpdate;
             strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '"+ Agen_id + "' ";
             Event_Log("SqlUpdate  Available : " + strUpdate);
@@ -1180,7 +1179,7 @@ namespace ais_web3.Controllers
                     
                     if (HttpContext.Request.Cookies["Agen"] != null)
                     {
-                        string Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('"')[1].Replace("}", "");
+                        string Agens = HttpContext.Request.Cookies["Agen"].Value;
                         Module2.Agent_Id = Agens;
 
 
@@ -1195,14 +1194,8 @@ namespace ais_web3.Controllers
                         try
                         {
                             {
-                            WriteLog.instance.LogSql(strUpdate);
                                 module.Comman_Static(strUpdate, null, null, ref dt);
-                                //var withBlock = new OracleCommand(null, Module2.Connect);
-                                //withBlock.Parameters.Add(":Agent_Id", Module2.Agent_Id);
-                                //withBlock.Connection = Module2.Connect;
-                                //withBlock.CommandType = CommandType.Text;
-                                //withBlock.CommandText = strUpdate;
-                                //withBlock.ExecuteNonQuery();
+    
                                 message = "200";
                             string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
                             foreach (string item in list_cookie)
@@ -1261,19 +1254,29 @@ namespace ais_web3.Controllers
                 int age;
                 int rowInsert = 0;
                 int day_no = 0;
-                if (Module2.Agent_Id == null || Module2.Agent_Id == "")
+                if (HttpContext.Request.Cookies["Agen"] != null)
                 {
-                    Module2.Agent_Id = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                    Module2.Agent_Id = Agens;
                 }
+                string Agenid = Module2.Agent_Id;
                 if (form.txtYear == null)
                 {
                     form.txtYear = string.Empty;
                 }
                 else
                 {
-                    year2 = int.Parse(form.txtYear);
-                    year3 = DateTime.Now.ToString("yyyy", new CultureInfo("th-TH"));
-                    age = Convert.ToInt32(year3) - year2;
+                    if(form.txtYear != "-")
+                    {
+                        year2 = int.Parse(form.txtYear);
+                        year3 = DateTime.Now.ToString("yyyy", new CultureInfo("th-TH"));
+                        age = Convert.ToInt32(year3) - year2;
+                    }
+                    else
+                    {
+                        age = 0;
+                    }
+               
                     //if (age < 15)
                     //{
                     //    return "ลูกค้าอายุน้อยกว่า 15 ปี ไม่สามารถรับบริการได้ค่ะ";
@@ -1755,7 +1758,7 @@ namespace ais_web3.Controllers
                         sqlsearch += "" + "','";
                     }
                     sqlsearch += "1" + "', '";
-                    sqlsearch += Module2.Agent_Id + "')";
+                    sqlsearch += Agenid + "')";
 
 
                 }
@@ -2045,7 +2048,7 @@ namespace ais_web3.Controllers
                         if (HttpContext.Request.Cookies["editv"] == null || HttpContext.Request.Cookies["editv"].Value == null || HttpContext.Request.Cookies["editv"].Expires.Year == 1870)
                         {
                             rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity  }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity"  });
-                            WriteLog.instance.Log_Get_information_SaveData_And_Edit("success" , "Save",Module2.Agent_Id , DateTime.Now.ToString("yyyyMMdd") , form);
+                            //WriteLog.instance.Log_Get_information_SaveData_And_Edit("success" , "Save",Module2.Agent_Id , DateTime.Now.ToString("yyyyMMdd") , form);
                             Module2.Instance.status_Edit = "";
                             Module2.Instance.cbocity = form.cbocity;
                             if (rowInsert == -1)
@@ -2055,12 +2058,15 @@ namespace ais_web3.Controllers
                             //SetAVAL();
                             Clear_edit();
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip , form.txtTel_No);
+                            string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            module.CommanEx_Save(sqlClear_);
+                            HttpContext.Response.Cookies["Isave"].Value = "save";
                             return "บันทึกข้อมูลเรียบร้อย";
                         }
                         else
                         {
                             rowInsert = module.CommanEx_Save(sqlsearch);
-                            WriteLog.instance.Log_Get_information_SaveData_And_Edit("success", "Edit", Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
+                            //WriteLog.instance.Log_Get_information_SaveData_And_Edit("success", "Edit", Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
                             Module2.Instance.status_Edit = "";
                             Module2.Instance.cbocity = form.cbocity;
                             //SetAVAL();
@@ -2070,8 +2076,13 @@ namespace ais_web3.Controllers
                             }
                             Clear_edit();
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip, form.txtTel_No);
+                            string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            module.CommanEx_Save(sqlClear_);
+                            HttpContext.Response.Cookies["Isave"].Value = "save";
                             return "บันทึกข้อมูลเรียบร้อย";
                         }
+
+
 
                     }
                 }
@@ -2203,7 +2214,7 @@ namespace ais_web3.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult> Index(string values = "")
+        public ActionResult Index(string values = "")
         {
         
             string StrSql = string.Empty;
@@ -2237,10 +2248,7 @@ namespace ais_web3.Controllers
                         {
                             if (ds.Tables["Login_agent"].Rows.Count != 0)
                             {
-                                if (Session["Editv"] != null)
-                                {
-                                    return1 = 1;
-                                }
+     
                                 return1 = 1;
                             }
                             else
@@ -2257,10 +2265,10 @@ namespace ais_web3.Controllers
 
                     }
                     string session = string.Empty;
-                    string agenid = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
-                    int count =   WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd")) ;
-                        session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
-                        session = session.Split(',')[count - 1].Split('=')[1].ToString();
+                    string agenid = HttpContext.Request.Cookies["Agen"].Value;
+                    int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
+                    session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
+                    session = session.Split(',')[count - 1].Split('=')[1].ToString();
 
                     values = session;
                     if (return1 == 1)
@@ -2421,14 +2429,15 @@ namespace ais_web3.Controllers
 
             return JsonConvert.SerializeObject(dt1);
         }
-        [HttpGet]
 
+
+        [HttpGet]
         public string GetPhone()
         {
         
             DataTable dataTable = null;
             string sql = string.Empty;
-            string Agen_id = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('"')[1].Trim();
+            string Agen_id = HttpContext.Request.Cookies["Agen"].Value;
             string Agen_IP = HttpContext.Request.Cookies["Agent_Ip"].Value;
             try
             {
@@ -2438,10 +2447,24 @@ namespace ais_web3.Controllers
 
                  module.Comman_Static(sql ,null ,null, ref dataTable);
 
-                if (dataTable.Rows.Count > 0)
+                if(HttpContext.Request.Cookies["Tel"] == null || HttpContext.Request.Cookies["Tel"].Expires == Convert.ToDateTime("1870/01/01 00:00:00"))
                 {
-                    tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
+                        HttpContext.Response.Cookies["Tel"].Value = tel_phone;
+                    }
+                    else
+                    {
+                        tel_phone = "";
+                    }
                 }
+                if (HttpContext.Request.Cookies["Isave"] != null && HttpContext.Request.Cookies["Isave"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                {
+                    HttpContext.Response.Cookies["Tel"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                    HttpContext.Response.Cookies["Isave"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                }
+               
                 //tel_phone = "0000000000";
                 return tel_phone;
             }
@@ -2508,7 +2531,11 @@ namespace ais_web3.Controllers
                 HttpContext.Response.Cookies["editv"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
                 HttpContext.Request.Cookies["editv"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
             }
-            return "";
+            if (HttpContext.Request.Cookies["Tel"] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+            {
+                HttpContext.Response.Cookies["Tel"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+            }
+                return "";
         }
 
 

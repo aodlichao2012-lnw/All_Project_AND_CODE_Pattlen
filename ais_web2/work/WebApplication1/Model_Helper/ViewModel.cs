@@ -8,6 +8,7 @@ namespace Model_Helper
 {
     public class ViewModel
     {
+        public string DESCRIPTION { get; set; }
         public string DENY_CODE { get; set; }
         public string DENY_NAME { get; set; }
         public string DENY_STATUS { get; set; }

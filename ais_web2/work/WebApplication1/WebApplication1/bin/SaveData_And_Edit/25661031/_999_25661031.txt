@@ -1,0 +1,1 @@
+31-10-2566 14:44:54 , type = 1200 , Result = success, Connection String = Production , Type = Save ,= txtTel_No :009090003557 , txtName :  , txtSName :  , cboDate :  , cboMouth :  , txtYear : - , cboSex : N , cboStatus : 03 , cbocity :-

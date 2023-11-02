@@ -56,111 +56,162 @@ namespace Model_Helper
         }
         public Module2()
         {
-
+          
             if (type_db == null)
             {
-                type_db = type_db_;
+                if (HttpContext.Current.Request.Cookies["type_db"] != null)
+                {
+                    type_db = HttpContext.Current.Request.Cookies["type_db"].Value.ToString();
+                }
+
             }
             if (user_name == null)
             {
-                user_name = user_name_;
+                if (HttpContext.Current.Request.Cookies["user_name"] != null)
+                    user_name = HttpContext.Current.Request.Cookies["user_name"].Value.ToString();
             }
             if (strDB == null)
             {
-                strDB = strDB_;
+                if (HttpContext.Current.Request.Cookies["strDB"] != null)
+                    strDB = HttpContext.Current.Request.Cookies["strDB"].Value.ToString();
             }
 
-            if (type_db != null)
+            if (strConn != null)
             {
-                if (strDB == "Production")
-                {
-                    HttpContext.Current.Response.Cookies["strDB"].Value = strDB;
-                    if (type_db == "1200")
-                    {
-                        strConn = ConfigurationManager.AppSettings["pro1"].ToString();
-                    }
-                    else if (type_db == "2400")
-                    {
-                        strConn = ConfigurationManager.AppSettings["pro2"].ToString();
-                    }
-                    else if (type_db == "4800")
-                    {
-                        strConn = ConfigurationManager.AppSettings["pro3"].ToString();
-                    }
-                    else
-                    {
-                        strConn = ConfigurationManager.AppSettings["pro"].ToString();
-                    }
-                }
-                else if (strDB == "Backup")
-                {
-                    HttpContext.Current.Response.Cookies["strDB"].Value = strDB;
-                    if (type_db == "1200")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back1"].ToString();
-                    }
-                    else if (type_db == "2400")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back2"].ToString();
-                    }
-                    else if (type_db == "4800")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back3"].ToString();
-                    }
-                    else
-                    {
-                        strConn = ConfigurationManager.AppSettings["back"].ToString();
-                    }
-                }
-                else
-                {
-                    if (type_db == "1200")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back1"].ToString();
-                    }
-                    else if (type_db == "2400")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back2"].ToString();
-                    }
-                    else if (type_db == "4800")
-                    {
-                        strConn = ConfigurationManager.AppSettings["back3"].ToString();
-                    }
-                    else
-                    {
-                        strConn = ConfigurationManager.AppSettings["back"].ToString();
-                    }
-                }
+                strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
             }
             else
             {
-
-                // 'Dim Static_Cookie.strConnect As String = "Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;" 'base จริง
-                // '  Dim Static_Cookie.strConnect As String = "Data Source=DTACIVR;User ID=YUMT;Password=PASSTB;"   '' Base สำรอง
-                if (strDB == "Production")
+                if (type_db != null)
                 {
-                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
-                    HttpContext.Current.Session["strcon"] = strConn;
-                }
-                else if (strDB == "Backup")
-                {
-                    strConn = ConfigurationManager.AppSettings["back"].ToString();
-                    HttpContext.Current.Session["strcon"] = strConn;
-                }
-                else
-                {
-                    if (HttpContext.Current.Session["strcon"] != null)
+                    if (strDB == "Production")
                     {
-                        strConn = HttpContext.Current.Session["strcon"].ToString();
+
+                        if (type_db == "1200")
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                            strConn = ConfigurationManager.AppSettings["pro1"].ToString();
+                            else
+                           strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else if (type_db == "2400")
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["pro2"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                            
+     
+                        }
+                        else if (type_db == "4800")
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["pro3"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                    }
+                    else if (strDB == "Backup")
+                    {
+
+                        if (type_db == "1200")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back1"].ToString();
+                            else
+                             strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else if (type_db == "2400")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back2"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else if (type_db == "4800")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back3"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
                     }
                     else
                     {
-                        strConn = ConfigurationManager.AppSettings["back"].ToString();
-                        HttpContext.Current.Session["strcon"] = strConn;
-                    }
+                        if (type_db == "1200")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back1"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else if (type_db == "2400")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back2"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else if (type_db == "4800")
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back3"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                        }
+                        else
+                        {
+                              if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                strConn = ConfigurationManager.AppSettings["back"].ToString();
+                            else
+                               strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
 
+                        }
+                    }
+                }
+                else
+                {
+
+                    if (strDB == "Production")
+                    {
+                          if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                            strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                        else
+                           strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                    }
+                    else if (strDB == "Backup")
+                    {
+                          if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                            strConn = ConfigurationManager.AppSettings["back"].ToString();
+                        else
+                           strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+                    }
+                    else
+                    {
+                        if (HttpContext.Current.Request.Cookies["strConn"] != null)
+                            strConn = HttpContext.Current.Request.Cookies["strConn"].Value.ToString();
+                        //else
+                        //   strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+
+
+                    }
                 }
             }
+
         }
         public static Module2 Module2s = null;
 
@@ -323,28 +374,19 @@ namespace Model_Helper
 
         public void Common_static_reson(string sQL, string[] input, string[] parameter, ref DataTable dt)
         {
-            WriteLog.instance.LogSql(sQL);
+            //WriteLog.instance.LogSql(sQL);
             DataTable dt2 = new DataTable();
             object connectionLock = new object();
             Connectdb();
-            dt = Excutue_process_sql(sQL, input, parameter).Result;
+            dt = Excutue_process_sql(sQL, input, parameter);
         }
         public void Comman_Static(string sQL, string[] input, string[] parameter, ref DataTable dt)
         {
 
             try
             {
-                WriteLog.instance.LogSql(sQL);
                 DataTable dt2 = new DataTable();
-                object connectionLock = new object();
-                //Connectdb();
-                //while (Connect.State == ConnectionState.Closed)
-                //{
-                //    Connectdb();
-                //}
-                Connectdb();
-
-                dt = Excutue_process_sql(sQL, input, parameter).Result;
+                dt = Excutue_process_sql(sQL, input, parameter);
 
 
 
@@ -361,9 +403,8 @@ namespace Model_Helper
         }
 
 
-        private async Task<DataTable> Excutue_process_sql(string sQL, string[] input, string[] parameter)
+        private DataTable Excutue_process_sql(string sQL, string[] input, string[] parameter)
         {
-            Connectdb();
             string Paraname = string.Empty;
             DataTable dt1 = Execute_Sql(sQL, input, parameter, Paraname);
 
@@ -384,7 +425,7 @@ namespace Model_Helper
                 {
                     using (OracleCommand command = new OracleCommand(sQL, Connect))
                     {
-                        WriteLog.instance.LogSql(Connect.ConnectionString);
+                        //WriteLog.instance.LogSql(Connect.ConnectionString);
                         if (input != null)
                         {
                             if (input.Length > 0)
@@ -509,9 +550,6 @@ namespace Model_Helper
                 DataTable dt = new DataTable();
                 try
                 {
-
-                    Connectdb3();
-
                     using (OracleConnection Connection = new OracleConnection(strConn))
                     {
                         Connection.Open();
@@ -526,7 +564,7 @@ namespace Model_Helper
                                     int i = 0;
                                     foreach (string s in parameter)
                                     {
-                                        WriteLog.instance.Log("Input :" + s);
+                                        //WriteLog.instance.Log("Input :" + s);
                                         oracleParameter = new OracleParameter();
                                         oracleParameter.Value = input[i];
                                         oracleParameter.ParameterName = s;
@@ -553,7 +591,7 @@ namespace Model_Helper
                                         {
                                             dt.Load(sqls);
                                         }
-
+                                        transaction.Commit();
                                         command.Dispose();
                                     }
                                     else
@@ -565,7 +603,7 @@ namespace Model_Helper
                                         {
                                             dt.Load(sqls);
                                         }
-
+                                        transaction.Commit();
                                         command.Dispose();
                                     }
                                 }
@@ -578,7 +616,7 @@ namespace Model_Helper
                                     {
                                         dt.Load(sqls);
                                     }
-
+                                    transaction.Commit();
                                     command.Dispose();
                                 }
                             }
@@ -591,11 +629,11 @@ namespace Model_Helper
                                     dt.Load(sqls);
                                 }
 
-
+                                transaction.Commit();
                                 command.Dispose();
 
                             }
-                            transaction.Commit();
+
                         }
 
                         Connection.Close();
@@ -654,7 +692,7 @@ namespace Model_Helper
                     {
                         using (OracleCommand command = new OracleCommand(sqlselect, connect))
                         {
-                            WriteLog.instance.LogSql(sqlselect);
+                            //WriteLog.instance.LogSql(sqlselect);
 
                             List<ViewModel> da = connect.Query<ViewModel>(command.CommandText).ToList();
 

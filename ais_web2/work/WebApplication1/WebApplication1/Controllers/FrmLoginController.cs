@@ -62,8 +62,8 @@ namespace ais_web3.Controllers
         {
             //WriteLog.instance.Log_browser_Detail_page("FrmLogin/Index");
             myIPs = System.Net.Dns.GetHostByName(myHost);
-            module = new Module2();
 
+            module = new Module2();
         }
         [HttpPost]
         public string Select_database(local_var local_Vars)
@@ -84,21 +84,21 @@ namespace ais_web3.Controllers
                 Module2.strDB_ = "Production";
                 HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Production";
-                module = new Module2();
+
             }
             else if (local_Vars.checkbox_DB_Database == "Backup")
             {
                 Module2.strDB_ = "Backup";
                 HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Backup";
-                module = new Module2();
+
             }
             else
             {
                 Module2.strDB_ = "Production";
                 HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Production";
-                module = new Module2();
+
             }
             status_list.Add(status);
             status_list.Add(Module2.strDB_);
@@ -167,21 +167,26 @@ namespace ais_web3.Controllers
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
                 txtPassword = $"'{txtPassword}'";
-                HttpContext.Response.Cookies["type_db"].Value = type_keep;
+             
                 if(type_keep == "1200")
                 {
                     HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[1];
-                }else if(type_keep == "2400")
+                    HttpContext.Response.Cookies["type_db"].Value = "1200";
+                }
+                else if(type_keep == "2400")
                 {
                     HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[2];
+                    HttpContext.Response.Cookies["type_db"].Value = "2400";
                 }
                 else if (type_keep == "4800")
                 {
                     HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[3];
+                    HttpContext.Response.Cookies["type_db"].Value = "4800";
                 }
                 else
                 {
                     HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[0];
+                    HttpContext.Response.Cookies["type_db"].Value = "test";
                 }
                     Module2.type_db_ = type_keep;
                 StrSql = "";
@@ -208,7 +213,7 @@ namespace ais_web3.Controllers
                     string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
                     Module2.user_name_ = user_name;
                     HttpContext.Response.Cookies["user_name"].Value = HttpUtility.UrlEncode( user_name);
-                    HttpContext.Response.Cookies["Agen"].Value = JWT.Encode( new Dictionary<string, string>() { { "Agen", Module2.Agent_Id } },null,JwsAlgorithm.none);
+                    HttpContext.Response.Cookies["Agen"].Value =/* JWT.Encode( new Dictionary<string, string>() { { "Agen", Module2.Agent_Id } },null,JwsAlgorithm.none);*/Module2.Agent_Id;
 
                     HttpContext.Response.Cookies["EXTENSION"].Value = Module2.EXTENSION;
                     foreach (IPAddress myIP in myIPs.AddressList)

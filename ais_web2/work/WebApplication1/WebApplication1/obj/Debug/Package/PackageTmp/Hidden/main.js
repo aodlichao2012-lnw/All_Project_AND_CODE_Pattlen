@@ -54,7 +54,6 @@ function Cache_item() {
                     htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
                 }
                 htmls += ` </select>`
-                console.log(htmls)
                 $("#cbocity").html(htmls)
             }
 
@@ -73,7 +72,6 @@ function Cache_item() {
                     }
                 }
                 htmls += ` </select >`
-                console.log(htmls)
                 $("#select_st").html(htmls)
 
             }
@@ -129,7 +127,10 @@ $("#svg2").on('click', function (e) {
 $(function () {
     //Reference the DropDownList.
     var ddlYears = $("#year_thai");
-
+    var option = $("<option />");
+    option.html("-");
+    option.val("-");
+    ddlYears.append(option);
     //Determine the Current Year.
     var currentYear = (new Date()).getFullYear();
 
@@ -348,7 +349,6 @@ function fuc_select_status() {
         , type: "GET",
         data: null,
         success: function (e) {
-            console.log(e)
             if (e === null) {
                 Cache_item()
             }
@@ -372,7 +372,6 @@ function fuc_select_status() {
                         }
                     }
                     htmls += ` </select >`
-                    console.log(htmls)
                     $("#select_st").html(htmls)
 
                     clearInterval()
@@ -404,11 +403,12 @@ function fuc_select_status_2() {
             let values = JSON.parse(e)
             if (values != null || values != "" || e != "[]") {
                 let htmls = ` <select style="width:200px;height:25px;"  id="cbocity" > `
+                htmls += `  <option  value="-" >  -- กรุณาเลือก -- </option>`
+                htmls += `  <option  value="-" > - </option>`
                 for (i = 0; i < values.length; i++) {
                     htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
                 }
                 htmls += ` </select>`
-                console.log(htmls)
                 $("#cbocity").html(htmls)
             } else {
                 fuc_select_status_2()
@@ -594,7 +594,6 @@ function getfucLoad() {
                     //$("#cbocity").text(values.cbocity_name)
                     //$("#cbocity").val(values.cbocity)
                     $("#cbocity").append(`<option value="` + values.cbocity + `" selected>` + values.cbocity_name + `</option>`)
-                    console.log(values.cbocity)
                     /*   $("#status").text(e)*/
                     cbostatus2 = values.cboStatus;
                     if (values.cboStatus === "สมัคร") {
@@ -643,7 +642,6 @@ function fuc_edit_Service(Service) {
         , success: function (e) {
             if (e !== null) {
                 let values = JSON.parse(e)
-                console.log(values)
                 let htmls = ``
                 for (i = 0; i < values.length; i++) {
                     if (i <= 10) {
@@ -738,7 +736,6 @@ function fuc_insert_ser() {
                     // ตรวจสอบเงื่อนไขของข้อมูลในแต่ละคอลัมน์
                     // ในตัวอย่างนี้เราจะตรวจสอบคอลัมน์ที่ 2 (index 1)
                     var columnValue = data.IS_ACTIVE;
-                    console.log(columnValue)// เปลี่ยนตามคอลัมน์ที่คุณต้องการ
                     if (columnValue == 'เปิดให้ใช้บริการ') {
                         // กำหนดพื้นหลัง (background color) สำหรับแถวนี้
                         $(row).css('background-color', 'lightgreen');
@@ -800,7 +797,6 @@ $("#Service_select tbody").on('input', 'td', function (e) {
     }
 })
 function button_ser_save(value, id) {
-    console.log("Save : " + id + " : " + value)
     let ajax_ = $.ajax({
         url: '/FrmDetail/Save_service?id=' + id + "&values=" + value,
         type: 'GET',
@@ -858,7 +854,6 @@ function fuc_Service_ser_show(Service) {
     let htmls2 = ``;
     let nameid = column_name_id_ser.split(',')
     let name = column_name_ser.split(',')
-    console.log(name)
 
     htmls2 += `<div style="" >`
     for (i = 0; i < name.length - 1; i++) {
@@ -936,42 +931,42 @@ function cbostatus() {
     })
 
 }
-function sum(table, table2, table_sub3) {
- /*   if (table[0].SUM != "") {*/
-        $("#Label8").text(table[0].SUM)
-    $("#labelTel2").text(table2.length)
+//function sum(table, table2, table_sub3) {
+// /*   if (table[0].SUM != "") {*/
+//        $("#Label8").text(table[0].SUM)
+//    $("#labelTel2").text(table2.length)
 
 
-    $("#Labelstatus").text(table2[0].RES_NAME)
+//    $("#Labelstatus").text(table2[0].RES_NAME)
 
-    for (i = 0; i < table_sub3.length; i++) {
+//    for (i = 0; i < table_sub3.length; i++) {
 
-        if (table[i].SER13 != null && table_sub3[0].IS_ACTIVE == 1) {
-            $("#label_ser1").text("Service " + table_sub3[0].SER_NAME)
-            $("#Label9").text(""+table[i].SER13 + " บริการ")
-        }
-        if (table[i].SER11 != null && table_sub3[1].IS_ACTIVE == 1) {
-            $("#label_ser2").text("Service " + table_sub3[1].SER_NAME)
-            $("#Label10" ).text(""+table[i].SER11 + " บริการ")
-        }
-        if (table[i].SER21 != null  && table_sub3[2].IS_ACTIVE == 1) {
-            $("#label_ser3").text("Service " + table_sub3[2].SER_NAME)
-            $("#Label11" ).text(""+table[i].SER21 + " บริการ")
-        }
-        if (table[i].SER12 != null  && table_sub3[3].IS_ACTIVE == 1) {
-            $("#label_ser4").text("Service " + table_sub3[3].SER_NAME)
-            $("#Label12" ).text(""+table[i].SER12 + " บริการ")
-        }
+//        if (table[i].SER13 != null && table_sub3[0].IS_ACTIVE == 1) {
+//            $("#label_ser1").text("Service " + table_sub3[0].SER_NAME)
+//            $("#Label9").text(""+table[i].SER13 + " บริการ")
+//        }
+//        if (table[i].SER11 != null && table_sub3[1].IS_ACTIVE == 1) {
+//            $("#label_ser2").text("Service " + table_sub3[1].SER_NAME)
+//            $("#Label10" ).text(""+table[i].SER11 + " บริการ")
+//        }
+//        if (table[i].SER21 != null  && table_sub3[2].IS_ACTIVE == 1) {
+//            $("#label_ser3").text("Service " + table_sub3[2].SER_NAME)
+//            $("#Label11" ).text(""+table[i].SER21 + " บริการ")
+//        }
+//        if (table[i].SER12 != null  && table_sub3[3].IS_ACTIVE == 1) {
+//            $("#label_ser4").text("Service " + table_sub3[3].SER_NAME)
+//            $("#Label12" ).text(""+table[i].SER12 + " บริการ")
+//        }
  
     
-    }
+//    }
  
 
 
 
 
 
-}
+//}
 function sum2(table, table2, table_sub3) {
 
     $("#Label8_today").text(table[0].SUM)
@@ -980,6 +975,7 @@ function sum2(table, table2, table_sub3) {
     if (table[0].SUM == null) {
 
         for (i = 0; i < table_sub3.length; i++) {
+
             if ( table_sub3[0].IS_ACTIVE == 1) {
                 $("#label_ser1_today").text(table_sub3[0].SER_NAME)
                 $("#Label9_today").text("0 บริการ")
@@ -987,6 +983,7 @@ function sum2(table, table2, table_sub3) {
             else {
                 $("div[data-show='1']").remove();
             }
+
             if ( table_sub3[1].IS_ACTIVE == 1) {
                 $("#label_ser2_today").text(table_sub3[1].SER_NAME)
                 $("#Label10_today").text("0 บริการ")
@@ -994,6 +991,7 @@ function sum2(table, table2, table_sub3) {
             else {
                 $("div[data-show='2']").remove();
             }
+
             if (table_sub3[2].IS_ACTIVE == 1) {
                 $("#label_ser3_today").text(table_sub3[2].SER_NAME)
                 $("#Label11_today").text("0 บริการ")
@@ -1001,6 +999,7 @@ function sum2(table, table2, table_sub3) {
             else {
                 $("div[data-show='3']").remove();
             }
+
             if (table_sub3[3].IS_ACTIVE == 1) {
                 $("#label_ser4_today").text(table_sub3[3].SER_NAME)
                 $("#Label12_today").text("0 บริการ")
@@ -1013,254 +1012,245 @@ function sum2(table, table2, table_sub3) {
         $("#labelTel").text("0")
     } else {
 
-        for (i = 0; i < table_sub3.length; i++) {
 
-            if (table[i].SER13 != null && table_sub3[0].IS_ACTIVE == 1) {
+        if ( table_sub3[0].SER_ID == '11' && table_sub3[0].IS_ACTIVE == "1" ) {
                 $("#label_ser1_today").text(table_sub3[0].SER_NAME)
-                $("#Label9_today").text(table[0].SER13 + " บริการ")
+            $("#Label9_today").text(table[0].SER11 + " บริการ")
+
             }
             else {
                 $("div[data-show='1']").remove();
             }
-            if (table[i].SER11 != null && table_sub3[1].IS_ACTIVE == 1) {
+
+        if (table_sub3[1].SER_ID == '12' && table_sub3[1].IS_ACTIVE == "1") {
                 $("#label_ser2_today").text(table_sub3[1].SER_NAME)
-                $("#Label10_today").text(table[0].SER11 + " บริการ")
+            $("#Label10_today").text(table[0].SER12 + " บริการ")
             }
             else {
                 $("div[data-show='2']").remove();
             }
-            if (table[i].SER21 != null && table_sub3[2].IS_ACTIVE == 1) {
+
+        if (table_sub3[2].SER_ID == '13' && table_sub3[2].IS_ACTIVE == "1" ) {
                 $("#label_ser3_today").text(table_sub3[2].SER_NAME)
-                $("#Label11_today").text(table[0].SER21 +" บริการ")
+            $("#Label11_today").text(table[0].SER13 + " บริการ")
+
             }
             else {
                 $("div[data-show='3']").remove();
             }
-            if (table[i].SER12 != null && table_sub3[3].IS_ACTIVE == 1) {
+
+        if (table[0].SER21 > 0 && table_sub3[3].SER_ID == '21' && table_sub3[3].IS_ACTIVE == "1") {
                 $("#label_ser4_today").text(table_sub3[3].SER_NAME)
-                $("#Label12_today").text(table[0].SER12 + " บริการ")
+            $("#Label12_today").text(table[0].SER21 + " บริการ")
+
             }
             else {
                 $("div[data-show='4']").remove();
             }
-
-
-        }
-
-    
     }
-  
-
 }
 function formatNumber(number, decimalPlaces) {
     let numbers = number.torelative(decimalPlaces);
     return numbers.replace('0', 'X').replace('.', '').replace('1', 'X').replace('2', 'X').replace('4', 'X').replace('5', 'X').replace('7', 'X').replace('8', 'X').replace('9', 'X')
 }
-function tableload(tables, table_sub3) {
-    var columns = [];
+//function tableload(tables, table_sub3) {
+//    var columns = [];
  
 
-    $("#Label4").text(tables.length)
-    if (tables[0].RES_NAME === "ไม่สนใจ") {
+//    $("#Label4").text(tables.length)
+//    if (tables[0].RES_NAME === "ไม่สนใจ") {
 
 
 
 
            
-            $('#tb_1').DataTable().destroy();
-            $('#tb_1').hide()
-            $('#tb_11').show()
-            $('#tb_11').DataTable().destroy();
+//            $('#tb_1').DataTable().destroy();
+//            $('#tb_1').hide()
+//            $('#tb_11').show()
+//            $('#tb_11').DataTable().destroy();
 
-            columns.push(
+//            columns.push(
 
-                {
-                    data: 'ANUMBER', title: 'เบอร์โทรศัพท์', render: function (data, type, row) {
-                        if (type === 'excel') {
-                            return data; // ในโหมดการแสดงหรือส่งออก Excel ให้คืนค่าเบอร์โทรศัพท์แบบปกติ
-                        }
+//                {
+//                    data: 'ANUMBER', title: 'เบอร์โทรศัพท์', render: function (data, type, row) {
+//                        if (type === 'excel') {
+//                            return data; // ในโหมดการแสดงหรือส่งออก Excel ให้คืนค่าเบอร์โทรศัพท์แบบปกติ
+//                        }
 
-                        else if (type === 'display') {
-                            // ปิดเลขโทรศัพท์เพื่อแสดงเป็น ****
-                            return `<span>` + '***-***-' + data.substr(data.length - 4); + `<span>`
-                        }
-                        return data;
-                    }
-                },
-                { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
-                { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
-                );
-        for (var i = 0; i < table_sub3.length; i++) {
-            if (table_sub3[i].IS_ACTIVE == 1) {
-                columns.push(
+//                        else if (type === 'display') {
+//                            // ปิดเลขโทรศัพท์เพื่อแสดงเป็น ****
+//                            return `<span>` + '***-***-' + data.substr(data.length - 4); + `<span>`
+//                        }
+//                        return data;
+//                    }
+//                },
+//                { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
+//                { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
+//                );
+//        for (var i = 0; i < table_sub3.length; i++) {
 
-                    { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
+//            if (table_sub3[i].IS_ACTIVE == 1) {
+//                console.log(table_sub3[i].SER_ID)
+//                console.log(table_sub3[i].SER_NAME)
+//                columns.push(
 
-                );
-            } else {
-                $("th[data-table='" + i + "']").remove()
-            }
-        }
+//                    { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
 
-            columns.push(
-                { data: 'DENY_NAME', title: 'เหตุผล', render: function (data, type, row) { return `<span style='padding-right: 30px;text-align: left;display: flex;'>` + data + `<span>` } }
-            );
+//                );
+//            } else {
+//                $("th[data-table='" + i + "']").remove()
+//            }
+//        }
 
-            $('#tb_11').DataTable({
+//            columns.push(
+//                { data: 'DENY_NAME', title: 'เหตุผล', render: function (data, type, row) { return `<span style='padding-right: 30px;text-align: left;display: flex;'>` + data + `<span>` } }
+//            );
 
-                searching: false,
-                lengthChange: false,
-                dom: 'Bfrtip',
-                buttons: [
-                    //{
-                    //    extend: 'csv',
-                    //    text: 'CSV',
-                    //    exportOptions: {
-                    //        encoding: 'utf8'
-                    //    }
-                    //},
-                    //{
-                    //    extend: 'excel',
-                    //    text: 'Excel',
-                    //    exportOptions: {
-                    //        encoding: 'utf8'
-                    //    }
-                    //},
-                ],
-                columns:
-                    columns
-                ,
-                data: tables
-            }).draw()
+//            $('#tb_11').DataTable({
+
+//                searching: false,
+//                lengthChange: false,
+//                dom: 'Bfrtip',
+//                buttons: [
+//                    //{
+//                    //    extend: 'csv',
+//                    //    text: 'CSV',
+//                    //    exportOptions: {
+//                    //        encoding: 'utf8'
+//                    //    }
+//                    //},
+//                    //{
+//                    //    extend: 'excel',
+//                    //    text: 'Excel',
+//                    //    exportOptions: {
+//                    //        encoding: 'utf8'
+//                    //    }
+//                    //},
+//                ],
+//                columns:
+//                    columns
+//                ,
+//                data: tables
+//            }).draw()
 
         
-        $("#total_l").show()
-    }else {
+//        $("#total_l").show()
+//    }else {
 
 
-            $('#tb_11').hide()
-            $('#tb_1').show()
-            $('#tb_1').DataTable().destroy();
+//            $('#tb_11').hide()
+//            $('#tb_1').show()
+//            $('#tb_1').DataTable().destroy();
 
-            columns.push(
+//            columns.push(
 
-                {
-                    data: 'ANUMBER', title: 'เบอร์โทรศัพท์', render: function (data, type, row) {
-                        if (type === 'excel') {
-                            return data; // ในโหมดการแสดงหรือส่งออก Excel ให้คืนค่าเบอร์โทรศัพท์แบบปกติ
-                        }
+//                {
+//                    data: 'ANUMBER', title: 'เบอร์โทรศัพท์', render: function (data, type, row) {
+//                        if (type === 'excel') {
+//                            return data; // ในโหมดการแสดงหรือส่งออก Excel ให้คืนค่าเบอร์โทรศัพท์แบบปกติ
+//                        }
 
-                        else if (type === 'display') {
-                            // ปิดเลขโทรศัพท์เพื่อแสดงเป็น ****
-                            return `<span>` + '***-***-' + data.substr(data.length - 4); + `<span>`
-                        }
-                        return data;
-                    }
-                },
-                { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
-                { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
-                );
-        for (var i = 0; i < table_sub3.length; i++) {
-            if (table_sub3[i].IS_ACTIVE == 1) {
-                columns.push(
+//                        else if (type === 'display') {
+//                            // ปิดเลขโทรศัพท์เพื่อแสดงเป็น ****
+//                            return `<span>` + '***-***-' + data.substr(data.length - 4); + `<span>`
+//                        }
+//                        return data;
+//                    }
+//                },
+//                { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
+//                { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
+//                );
+//        for (var i = 0; i < table_sub3.length; i++) {
+//            if (table_sub3[i].IS_ACTIVE == 1) {
+//                columns.push(
 
-                    { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
+//                    { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
 
-                );
-            } else {
-                $("th[data-table='" + i + "']").remove()
-            }
-            }
-            $('#tb_1').DataTable({
-                searching: false,
-                lengthChange: false,
-                dom: 'Bfrtip',
-                buttons: [
-                ],
-                columns: 
-                    columns
-                ,
-                data: tables
-            }).draw()
-            $("#total_l").show()
-        }
+//                );
+//            } else {
+//                $("th[data-table='" + i + "']").remove()
+//            }
+//            }
+//            $('#tb_1').DataTable({
+//                searching: false,
+//                lengthChange: false,
+//                dom: 'Bfrtip',
+//                buttons: [
+//                ],
+//                columns: 
+//                    columns
+//                ,
+//                data: tables
+//            }).draw()
+//            $("#total_l").show()
+//        }
 
-    }
+//    }
 
 
     let set_interval;
-    function showreportToday() {
-        let reson = $("#select_reson").val()
-        let date = $("#date_reson").val()
-        let datas = new FormData();
-        if (reson === "" || reson == null) {
-            reson = "01"
+function showreportToday() {
+
+    $.ajax({
+        url: '/FrmReportTel/showreportToday',
+        cache: false,
+        type: 'GET',
+        data: null,
+        success: function (e) {
+
+            table = JSON.parse(e)
+            console.log("Callback")
+            table_sub = JSON.parse(table[0])
+            table_sub2 = JSON.parse(table[1])
+            table_sub3 = JSON.parse(table[2])
+            sum2(table_sub, table_sub2, table_sub3)
+
         }
-        datas.append("res_code", reson)
-        let ajax_ = $.ajax({
-            url: '/FrmReportTel/showreportToday',
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            data: datas,
-            success: function (e) {
+    })
 
-                table = JSON.parse(e)
+}
+    //function btnreport_click() {
+    //    let reson = $("#select_reson").val()
+    //    let date =  $("#date_reson").val() 
+    //    let datas = new FormData();
+    //    if (reson === "" || reson == null) {
+    //        reson = "01"
+    //    }
+    //    datas.append("res_code", reson)
 
-                table_sub = JSON.parse(table[0])
-                table_sub2 = JSON.parse(table[1])
-                table_sub3 = JSON.parse(table[2])
-                /*    sum(table_sub, table_sub2 , table_sub3)*/
-                sum2(table_sub, table_sub2, table_sub3)
+    //    datas.append("Day", date)
 
-            }
-        })
+    //    let ajax_ = $.ajax({
+    //        url: '/FrmReportTel/btnReport_Click',
+    //        processData: false,
+    //        contentType: false,
+    //        type: 'POST',
+    //        data: datas,
+    //        success: function (e) {
+    //            if (e === null || e === "") {
+    //                btnreport_click();
+    //            }
+    //            if (e === "ไม่มีข้อมูลที่คุณค้นหา") {
+    //                alert2("ไม่มีข้อมูลที่คุณค้นหา")
+    //            }
+    //            else if (e === "ไม่สามารถแสดงข้อมูลได้ เนื่องจากมีข้อผิดพลาด") {
+    //            }
+    //            else {
+    //                table = JSON.parse(e)
 
-    }
-    function btnreport_click() {
-        let reson = $("#select_reson").val()
-        let date =  $("#date_reson").val() 
-        let datas = new FormData();
-        if (reson === "" || reson == null) {
-            reson = "01"
-        }
-        datas.append("res_code", reson)
+    //                table_sub = JSON.parse(table[0])
+    //                table_sub2 = JSON.parse(table[1])
+    //                table_sub3 = JSON.parse(table[2])
 
-        datas.append("Day", date)
-
-        let ajax_ = $.ajax({
-            url: '/FrmReportTel/btnReport_Click',
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            data: datas,
-            success: function (e) {
-                if (e === null || e === "") {
-                    btnreport_click();
-                }
-                if (e === "ไม่มีข้อมูลที่คุณค้นหา") {
-                    alert2("ไม่มีข้อมูลที่คุณค้นหา")
-                }
-                else if (e === "ไม่สามารถแสดงข้อมูลได้ เนื่องจากมีข้อผิดพลาด") {
-                }
-                else {
-                    table = JSON.parse(e)
-
-                    table_sub = JSON.parse(table[0])
-                    table_sub2 = JSON.parse(table[1])
-                    table_sub3 = JSON.parse(table[2])
-                    console.log(table_sub)
-                    console.log(table_sub2)
-                    console.log(table_sub3)
-                    tableload(table_sub2, table_sub3)
-                    sum(table_sub, table_sub2, table_sub3)
-              /*      sum2(table_sub, table_sub2, table_sub3)*/
-                }
-            }
-        })
+    //                tableload(table_sub2, table_sub3)
+    //                sum(table_sub, table_sub2, table_sub3)
+    //          /*      sum2(table_sub, table_sub2, table_sub3)*/
+    //            }
+    //        }
+    //    })
 
 
-    }
+    //}
 
 
     function fucback() {
@@ -1272,9 +1262,7 @@ function tableload(tables, table_sub3) {
 
 
     $(document).on('load', cbostatus())
-    $("#button_report").on('click', function (e) {
-        btnreport_click()
-    })
+    
     $(document).on('load', showreportToday());
     $("#button_logout").on('click', function (e) { fuclogout() })
     $("#button_back").on('click', function (e) { fucback() })

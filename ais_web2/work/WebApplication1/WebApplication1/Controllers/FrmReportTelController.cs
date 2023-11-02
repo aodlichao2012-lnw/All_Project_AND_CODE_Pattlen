@@ -149,7 +149,7 @@ namespace ais_web3.Controllers
 
                     }
                     string session = string.Empty;
-                    string agenid = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                    string agenid = HttpContext.Request.Cookies["Agen"].Value;
                     int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = session.Split(',')[count - 1].Split('=')[1].ToString();
@@ -259,7 +259,7 @@ namespace ais_web3.Controllers
             try
             {
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
-                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ";
+                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
 
 
                 module.Comman_Static(sql, null, null, ref dt1);
@@ -279,13 +279,13 @@ namespace ais_web3.Controllers
 
         }
 
-        [HttpPost]
+        [HttpGet]
         public string showreportToday()
         {
             string Agens = string.Empty;
             if (HttpContext.Request.Cookies["Agen"] != null)
             {
-                Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                Agens = HttpContext.Request.Cookies["Agen"].Value;
             }
 
             string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
@@ -341,7 +341,7 @@ namespace ais_web3.Controllers
 
                 if (HttpContext.Request.Cookies["Agen"] != null)
                 {
-                    string Agens = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
                     Module2.Agent_Id = Agens;
                 }
                 string Agenid = Module2.Agent_Id;

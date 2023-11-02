@@ -9,9 +9,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     string values = Model[0] as string;
 }
-<link href="~/Hidden/sweetalert2/sweetalert2.css" rel="stylesheet" />
+<link href="~/sweetalert2.css" rel="stylesheet" />
 
-<script src="~/Hidden/sweetalert2/sweetalert2.js"></script>
+<script src="~/sweetalert2.js"></script>
 <style>
     .total_l_today {
         padding: 6px;
@@ -52,7 +52,7 @@
         color: #666666 !important;
     }
 
-    .sweet-alert {
+    .sweet-console.log {
         border: 0;
         border-radius: 0.25em;
         background: initial;
@@ -167,23 +167,23 @@
                         <div data-show="1">
                             <span class="Label_" id="label_ser1_today"> </span>
                             <span style="padding-left: 10px;"></span>
-                            <span id="Label9_today"></span> 
+                            <span id="Label9_today"></span>
                         </div>
-                        <div  data-show="2">
+                        <div data-show="2">
                             <span class="Label_" id="label_ser2_today"></span>
                             <span style="padding-left: 10px;"></span>
-                            <span id="Label10_today"></span> 
+                            <span id="Label10_today"></span>
                         </div>
-                        <div  data-show="3">
+                        <div data-show="3">
                             <span class="Label_" id="label_ser3_today"> </span>
                             <span style="padding-left: 10px;"></span>
-                            <span id="Label11_today"> </span> 
+                            <span id="Label11_today"> </span>
                         </div>
-                        <div  data-show="4">
+                        <div data-show="4">
                             <span class="Label_" id="label_ser4_today">
                             </span>
                             <span style="padding-left: 10px;"></span>
-                            <span id="Label12_today">  </span> 
+                            <span id="Label12_today">  </span>
                         </div>
 
 
@@ -227,6 +227,9 @@
                         <select id="cbocity" class="select1 cbocity_1">
                             <option selected>
                                 -- กรุณาเลือก --
+                            </option>
+                            <option value="-">
+                                -
                             </option>
                         </select>
 
@@ -365,6 +368,7 @@
 
                                 <select class="select1 date_thai_s" id="date_thai" name="">
                                     <option value="" selected>-- กรุณาเลือก--</option>
+                                    <option value="0">-</option>
                                     <option value="1">วันจันทร์</option>
                                     <option value="2">วันอังคาร</option>
                                     <option value="3">วันพุธ</option>
@@ -550,53 +554,7 @@
     //    }
 
     //    })
-    $("#button_save").on('click', function (e) { fucsave(); showreportToday(); })
-    $("#button_save2").on('click', function (e) { fucsave(); showreportToday(); })
-    function getfuc() {
-        let ajax_ = $.ajax({
-            url: '/FrmStatus/FrmStatus_Load',
-            type: "GET",
-            data: null,
-            success: function (e) {
-
-                if (e === "Busy") {
-                    status_busy = 'is_Busy'
-                    $("#status").text("Busy").css("color", "red")
-                    if (telephone_isSave == 'isSave') {
-                        $("#txt_tel").val(``)
-                        telephone_isSave = ''
-                        fucshowtel3(true)
-                        showreportToday();
-                    }
-                    fucshowtel3(true)
-                } else if (e === "Not Login") {
-                    $("#txt_tel").val(``)
-                    $("#status").text("Not Login").css("color", "gray")
-                } else if (e === "Available") {
-                    fucshowtel3(false)
-                    $("#txt_tel").val(``)
-                    $("#status").text("Available").css("color", "green")
-
-
-                } else if (e === "Aux") {
-                    $("#status").text("Aux").css("color", "black")
-                    /*                    fucshowtel3(false)*/
-                } else if (e === "Standby") {
-                    fucshowtel3(false)
-                    $("#txt_tel").val(``)
-                    $("#status").text("Standby").css("color", "green")
-                    showreportToday();
-
-                }
-
-            }
-        })
-
-    }
-    function getstatus() {
-        intervalId = setInterval(getfuc, 2000)
-
-    }
+   
     //function fucshowtel() {
     //           let ajax_ =  $.ajax({
     //                url: "/FrmDetail/GetPhone"
@@ -617,40 +575,47 @@
 
     function fucshowtel3(is_time) {
 
-        if (is_time == false) {
-
-            console.log("clear")
-            $("#txt_tel").val(``)
-
-            /*        }*/
-        } else if (is_time == true) {
-            console.log("ค้นหาหมายเลข")
-            /*        if (telephone_update != $("#txt_tel").val() ||  $("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() == "กำลังค้นหาหมายเลขโทรศัพท์ ....") {*/
-            let ajax_ = $.ajax({
+        if (is_time === 1) {
+/*            console.log("1")*/
+          
+            $.ajax({
                 url: "/FrmDetail/GetPhone"
                 , type: "GET",
-                data: null,
+                cache: false,
                 success: function (e) {
+                    console.log("Tel from ajax is = " + e)
                     if (e === "") {
                         $("#txt_tel").attr('disabled', true)
                         $("#txt_tel").val("กำลังค้นหาหมายเลขโทรศัพท์ ....")
-                        /*  $("#button_request_phone").text("กำลังค้นหา...")*/
-                    } else if (telephone_update != e) {
-
-                        $("#txt_tel").val(e)
-                        telephone_update = e
-                        console.log("ajax = " + e)
-                    } else if (status_busy == 'is_Busy') {
-                        $("#txt_tel").val(e)
                     }
-                    console.log("busy is :" + status_busy)
+                    else if (e === "0") {
+                        $("#txt_tel").val("")
+                    }
+                    else {
+                        $("#txt_tel").attr('disabled', true)
+                        $("#txt_tel").val(e)
+                      
+                    }
                 }
             })
 
 
-
-
         }
+        else if (is_time === 0) {
+
+      /*      console.log("0")*/
+
+            /*        }*/
+        }
+        else
+        if (is_time === 2) {
+
+            $("#txt_tel").val(``)
+          /*  console.log("2")*/
+            /*        }*/
+        }
+        
+
 
     }
     $("#cbocity").on('click', function (e) {
@@ -670,12 +635,10 @@
     })
     function fucsave() {
 
-        console.log($("#date_num").val());
-        console.log($("#date_thai").val());
-        console.log($("#year_thai").val());
+
 
         if ($("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() === "กำลังค้นหาหมายเลขโทรศัพท์ ....") {
-            alert2("ไม่สามารถบันทึกได้ เนื่องจากไม่มี เบอร์โทรศัพท์ กรุณากรอกหมายเลขโทรศัพท์")
+           alert2("ไม่สามารถบันทึกได้ เนื่องจากไม่มี เบอร์โทรศัพท์ กรุณากรอกหมายเลขโทรศัพท์")
         } else {
             if (regex.test($("#txt_tel").val())) {
 
@@ -686,26 +649,24 @@
                         $("#valid2").show()
                     } else {
                         if ($("#txt_tel").val().length < 10) {
-                            alert2("กรุณากรอก หมายเลขโทรศัพท์ให้ครบ 10 หลัก")
+                           alert2("กรุณากรอก หมายเลขโทรศัพท์ให้ครบ 10 หลัก")
                         } else {
                             if ($("#select_st").val() === "") {
                                 $("#valid3").show()
                             } else {
                                 if ($("#select_st").val() === "01") {
                                     if ($("#date_thai").val() == "" || $("#year_thai").val() == "" || $("#year_thai").val() == null || $("#mouth_thai").val() == null) {
-                                        alert2("กรุณากรอก วัน  ปี เกิด")
+                                       alert2("กรุณากรอก วัน  ปี เกิด")
                                         $("#valid4").show()
                                         $("#valid5").show()
                                     }
                                     else {
 
                                         Save_function()
-                                        fucshowtel3(true)
                                     }
                                 } else {
 
                                     Save_function()
-                                    fucshowtel3(true)
                                 }
                             }
                         }
@@ -716,7 +677,7 @@
             else {
 
 
-                alert2("กรุณาพิมพ์หมายเลขโทรศัพท์ให้ถูกต้อง ห้ามมีอักขระ หรือตัวอักษร")
+               alert2("กรุณาพิมพ์หมายเลขโทรศัพท์ให้ถูกต้อง ห้ามมีอักขระ หรือตัวอักษร")
             }
             showreportToday()
 
@@ -730,11 +691,11 @@
                 return this.id === SERVICE2_
             })
             let datas = new FormData();
-            console.log(service)
+
             for (i = 0; i < service.prevObject.length; i++) {
 
                 if (service.prevObject[i].id.includes("SERVICE_") === true) {
-                    console.log(service.prevObject[i].id)
+
                     datas.append(service.prevObject[i].id, service.prevObject[i].checked)
                 }
 
@@ -771,7 +732,7 @@
             datas.append("cboSex", sex2)
             datas.append("strDenycode", reson_code)
             datas.append("txtDate_Tel", date_tel)
-            console.log(datas)
+
             /*    datas.append("cboDeny", current_date)*/
 
             let ajax_ = $.ajax({
@@ -785,8 +746,7 @@
                     showreportToday();
                     if (e === "บันทึกข้อมูลเรียบร้อย") {
                         showreportToday();
-                        telephone_isSave = 'isSave'
-                        telephone_update = ''
+
                         $("#button_save").prop('disabled', false)
                         $("#button_save2").prop('disabled', false)
                         $("#Service_select").hide()
@@ -813,7 +773,8 @@
                         $("#valid5").hide()
                         showreportToday();
                     }
-
+                    telephone_isSave = 'isSave'
+                    console.log("Save statius =  "+telephone_isSave)
                 }
             })
 
@@ -822,11 +783,171 @@
     }
 
 
+    $("#button_save").on('click', function (e) { fucsave(); showreportToday(); })
+    $("#button_save2").on('click', function (e) { fucsave(); showreportToday(); })
+    function getfuc() {
+        $.ajax({
+            url: '/FrmStatus/FrmStatus_Load',
+            type: "GET",
+            data: null,
+            cache: false,
+            success: function (e) {
+
+                if (e === "Busy") {
 
 
+                    $("#status").text("Busy").css("color", "red")
+
+                    fucshowtel3(1)
+                    showreportToday()
+
+                } else if (e === "Not Login") {
+                    $("#txt_tel").val(``)
+                    $("#status").text("Not Login").css("color", "gray")
+
+                    showreportToday()
+
+                } else if (e === "Available") {
+             /*       fucshowtel3(1)*/
+                    $("#txt_tel").val(``)
+                    $("#status").text("Available").css("color", "green")
+
+                    showreportToday()
+
+                } else if (e === "Aux") {
+                    fucshowtel3(0)
+                    $("#status").text("Aux").css("color", "black")
+
+                    showreportToday()
+                    /*                    fucshowtel3(2)*/
+                } else if (e === "Standby") {
+                    fucshowtel3(2)
+                    $("#txt_tel").val(``)
+                    $("#status").text("Standby").css("color", "green")
+                    showreportToday();
+         
+                }
+
+            }
+        })
+
+    }
+    function getstatus() {
+        intervalId = setInterval(getfuc, 2000)
+
+    }
+
+    function showreportToday() {
+       
+         $.ajax({
+            url: '/FrmReportTel/showreportToday',
+            cache: false,
+            type: 'GET',
+            data: null,
+            success: function (e) {
+
+                table = JSON.parse(e)
+                console.log("Callback")
+                table_sub = JSON.parse(table[0])
+                table_sub2 = JSON.parse(table[1])
+                table_sub3 = JSON.parse(table[2])
+                sum2(table_sub, table_sub2, table_sub3)
+
+            }
+        })
+
+    }
+    function sum2(table, table2, table_sub3) {
+
+        $("#Label8_today").text(table[0].SUM)
+        $("#labelTel").text(table2.length)
+
+        if (table[0].SUM == null) {
+
+            for (i = 0; i < table_sub3.length; i++) {
+
+                if (table_sub3[0].IS_ACTIVE == 1) {
+                    $("#label_ser1_today").text(table_sub3[0].SER_NAME)
+                    $("#Label9_today").text("0 บริการ")
+                }
+                else {
+                    $("div[data-show='1']").remove();
+                }
+
+                if (table_sub3[1].IS_ACTIVE == 1) {
+                    $("#label_ser2_today").text(table_sub3[1].SER_NAME)
+                    $("#Label10_today").text("0 บริการ")
+                }
+                else {
+                    $("div[data-show='2']").remove();
+                }
+
+                if (table_sub3[2].IS_ACTIVE == 1) {
+                    $("#label_ser3_today").text(table_sub3[2].SER_NAME)
+                    $("#Label11_today").text("0 บริการ")
+                }
+                else {
+                    $("div[data-show='3']").remove();
+                }
+
+                if (table_sub3[3].IS_ACTIVE == 1) {
+                    $("#label_ser4_today").text(table_sub3[3].SER_NAME)
+                    $("#Label12_today").text("0 บริการ")
+                }
+                else {
+                    $("div[data-show='4']").remove();
+                }
+                $("#Label8_today").text("0")
+            }
+            $("#labelTel").text("0")
+        } else {
+
+
+            if (table_sub3[0].SER_ID == '11' && table_sub3[0].IS_ACTIVE == "1") {
+                $("#label_ser1_today").text(table_sub3[0].SER_NAME)
+                $("#Label9_today").text(table[0].SER11 + " บริการ")
+
+            }
+            else {
+                $("div[data-show='1']").remove();
+            }
+
+            if (table_sub3[1].SER_ID == '12' && table_sub3[1].IS_ACTIVE == "1") {
+                $("#label_ser2_today").text(table_sub3[1].SER_NAME)
+                $("#Label10_today").text(table[0].SER12 + " บริการ")
+            }
+            else {
+                $("div[data-show='2']").remove();
+            }
+
+            if (table_sub3[2].SER_ID == '13' && table_sub3[2].IS_ACTIVE == "1") {
+                $("#label_ser3_today").text(table_sub3[2].SER_NAME)
+                $("#Label11_today").text(table[0].SER13 + " บริการ")
+
+            }
+            else {
+                $("div[data-show='3']").remove();
+            }
+
+            if (table[0].SER21 > 0 && table_sub3[3].SER_ID == '21' && table_sub3[3].IS_ACTIVE == "1") {
+                $("#label_ser4_today").text(table_sub3[3].SER_NAME)
+                $("#Label12_today").text(table[0].SER21 + " บริการ")
+
+            }
+            else {
+                $("div[data-show='4']").remove();
+            }
+
+
+
+
+        }
+
+
+    }
 </script>
 
-<script src="~/Hidden/status.js"></script>
+@*<script src="~/Hidden/status.js"></script>*@
 <script src="~/Hidden/main.js"></script>
 <script src="~/Hidden/Reson.js"></script>
 <script src="~/Hidden/toggle.js"></script>

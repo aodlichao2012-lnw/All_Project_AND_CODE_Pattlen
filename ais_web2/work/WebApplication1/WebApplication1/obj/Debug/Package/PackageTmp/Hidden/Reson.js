@@ -10,7 +10,6 @@ function fuc_select_change_reson() {
         success: function (e) {
           
             let values = JSON.parse(e)
-            console.log(values)
             if (e === "server มี ปัญหา") {
                 alert2("server มี ปัญหา กรุณาติดต่อ admin");
             }
@@ -20,7 +19,6 @@ function fuc_select_change_reson() {
                     htmls += `  <option value = "` + values[i] + `" >` + values[i] + `</option>`
                 }
                 htmls += ` </select>`
-                console.log(htmls)
                 $("#cboDeny").html(htmls)
             }
             else {

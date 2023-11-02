@@ -396,6 +396,20 @@ namespace Model_Helper_famework
             return modelList;
         }
         #endregion
+        public System.Data.DataTable objectToDataTable<T>(List<T> list) where T : new()
+        {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            foreach (var item in list)
+            {
+                if(item.GetType() == typeof(T))
+                {
+                    dt.Columns.Add(item.GetType().GetProperties())
+                    dt.Rows.Add(item);
+                }
+
+            }
+        }
     }
+
 }
 

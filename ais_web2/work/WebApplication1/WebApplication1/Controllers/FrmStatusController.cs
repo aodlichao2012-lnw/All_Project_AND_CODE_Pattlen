@@ -43,7 +43,7 @@ namespace ais_web3.Controllers
                 if (HttpContext.Request.Cookies["Agen"] != null)
                     if (HttpContext.Request.Cookies["Agen"].Value != null)
                     {
-                        Agenids = JWT.Decode(HttpContext.Request.Cookies["Agen"].Value).Split(':')[1].Split('}')[0].Replace(@"""", "");
+                        Agenids = HttpContext.Request.Cookies["Agen"].Value;
                         Module2.Agent_Id = Agenids;
                     }
             }
@@ -79,7 +79,15 @@ namespace ais_web3.Controllers
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        if(HttpContext.Request.Cookies["Tel"] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                        {
+                     
+                        return "Busy";
+                        }
+                        else
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
                     }
                     return "Unknow";
             
