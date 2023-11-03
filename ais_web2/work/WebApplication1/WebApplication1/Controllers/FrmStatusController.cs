@@ -16,7 +16,7 @@ namespace ais_web3.Controllers
 {
     public class FrmStatusController : Controller
     {
-        static string session_ID = string.Empty;
+         string session_ID = string.Empty;
         private Module2 module = new Module2();
         string type_db = string.Empty;
         string user_name = string.Empty;

@@ -23,7 +23,7 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmReportTelController : Controller
     {
-        static string session_ID = string.Empty;
+         string session_ID = string.Empty;
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;

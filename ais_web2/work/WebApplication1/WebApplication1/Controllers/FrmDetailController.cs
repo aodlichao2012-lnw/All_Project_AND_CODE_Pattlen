@@ -32,7 +32,7 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmDetailController : Controller
     {
-        static string session_ID = string.Empty;
+         string session_ID = string.Empty;
 
         private Module2 module;
         string type_db = string.Empty;
@@ -143,7 +143,7 @@ namespace ais_web3.Controllers
             try
             {
                     string sql = "SELECT DENY_CODE , DENY_NAME  FROM MAS_RESON_DENY WHERE RES_CODE = :RES_CODE "; // WHERE RES_STATUS = '0' "
-                module = new Module2(session_ID);
+                module = new Module2(id);
                 module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" }, ref dt);
 
                return JsonConvert.SerializeObject(dt);
@@ -1045,7 +1045,7 @@ namespace ais_web3.Controllers
                 DataTable dt = null;
                 string json = string.Empty;
                 searchcity = " SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
-                module = new Module2(session_ID);
+                module = new Module2(id);
                 module.Comman_Static(searchcity , null, null, ref dt);
                     if (dt != null)
                     {
@@ -1085,7 +1085,7 @@ namespace ais_web3.Controllers
              
                     sql = "SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
 
-                module = new Module2(session_ID);
+                module = new Module2(id);
                 module.Comman_Static(sql , null,null,ref dt);
                     if (dt != null)
                     {
