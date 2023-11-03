@@ -1168,7 +1168,7 @@ namespace ais_web3.Controllers
 
 
         [HttpGet]
-        public string SingOut(string id ="")
+        public string SingOut(string id )
         {
             session_ID = id;
             string strUpdate = string.Empty;
@@ -1184,9 +1184,9 @@ namespace ais_web3.Controllers
                     //}
                     //else
                     
-                    if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
+                    if (HttpContext.Request.Cookies["Agen" + id] != null)
                     {
-                        string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                        string Agens = HttpContext.Request.Cookies["Agen" + id].Value;
                         Module2.Agent_Id = Agens;
 
 
@@ -1201,7 +1201,7 @@ namespace ais_web3.Controllers
                         try
                         {
                             {
-                            module = new Module2(session_ID);
+                            module = new Module2(id);
                             module.Comman_Static(strUpdate, null, null, ref dt);
     
                                 message = "200";
@@ -1216,7 +1216,9 @@ namespace ais_web3.Controllers
                                     HttpContext.Response.Cookies.Add(new HttpCookie(item));
                                 }
                             }
-                            HttpContext.Response.Cookies["strDB"+ session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                            HttpContext.Response.Cookies["strDB"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                            HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));  
+                            HttpContext.Response.Cookies["Agen"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                             HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));
 
 
@@ -2242,7 +2244,7 @@ namespace ais_web3.Controllers
 
 
         [HttpGet]
-        public ActionResult Index(string id = "")
+        public ActionResult Index(string id )
         {
 
 

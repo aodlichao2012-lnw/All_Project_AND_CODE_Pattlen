@@ -316,12 +316,12 @@
                     <table class="tb_1" id="tb_11">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th data-table="1"></th>
+                                <th data-table="2"></th>
+                                <th data-table="3"></th>
+                                <th data-table="4"></th>
+                                <th data-table="5"></th>
+                                <th data-table="6"></th>
 
 
                             </tr>
@@ -1372,9 +1372,10 @@
             if (tables[0].RES_NAME === "ไม่สนใจ") {
 
                 $('#tb_1').DataTable().destroy();
+                $('#tb_11').DataTable().destroy();
                 $('#tb_1').hide()
                 $('#tb_11').show()
-                $('#tb_11').DataTable().destroy();
+
 
                 columns.push(
 
@@ -1429,11 +1430,11 @@
                 $("#total_l").show()
             } else {
 
-
-                $('#tb_11').hide()
-                $('#tb_1').show()
                 $('#tb_1').DataTable().destroy();
                 $('#tb_11').DataTable().destroy();
+                $('#tb_11').hide()
+                $('#tb_1').show()
+
                 columns.push(
 
                     {

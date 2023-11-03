@@ -34,8 +34,8 @@ namespace ais_web3.Controllers
         }
         static string  Agenids = string.Empty;
 
-
-        public async Task< ActionResult> Index(string id ="")
+        [HttpGet]
+        public ActionResult Index(string id)
         {
 
             string StrSql = string.Empty;
@@ -44,21 +44,20 @@ namespace ais_web3.Controllers
             {
 
 
-                session_ID = HttpContext.Request.Cookies["id"].Value;
-   
+
                 type_db = "";
                 user_name = "";
 
                 CultureInfo cultureInfo = new CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = cultureInfo;
                 DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                string jwt = HttpContext.Request.Cookies["login" + session_ID].Value;
+                string jwt = HttpContext.Request.Cookies["login" + id].Value;
 
 
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
-                    module = new Module2(session_ID);
+                    module = new Module2(id);
                     List<string> userjson = module.GetFromToken(keys);
 
                     if (datet <= Convert.ToDateTime(userjson[2].ToString()))
@@ -66,7 +65,7 @@ namespace ais_web3.Controllers
 
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-                        module = new Module2(session_ID);
+                        module = new Module2(id);
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
 
                         if (ds != null)
@@ -93,7 +92,7 @@ namespace ais_web3.Controllers
 
                     }
                     string session = string.Empty;
-                    string agenid = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                    string agenid = HttpContext.Request.Cookies["Agen" + id].Value;
                     int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = session.Split(',')[count - 1].Split('=')[1].ToString();
@@ -199,11 +198,12 @@ namespace ais_web3.Controllers
         }
         public string list_Service(string id = "")
         {
-            session_ID = id;
-            string sql = string.Empty;
-            DataTable dt1 = null;
+
             try
             {
+                session_ID = id;
+                string sql = string.Empty;
+                DataTable dt1 = null;
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
 
@@ -281,11 +281,11 @@ namespace ais_web3.Controllers
         }
         public string showreport(Telclass telclass)
         {
-            session_ID = telclass.id;
             string sql2 = string.Empty;
             try
             {
-               
+                session_ID = telclass.id;
+
                 DataTable dt3 = new DataTable();
 
 
@@ -388,7 +388,7 @@ namespace ais_web3.Controllers
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
-                                    list.Add(list_Service());
+                                    list.Add(list_Service(session_ID));
                                     return JsonConvert.SerializeObject(list);
                                 }
                             }

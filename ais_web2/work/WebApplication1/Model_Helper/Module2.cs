@@ -1084,32 +1084,50 @@ namespace Model_Helper
                 OracleDataAdapter dr2;
                 DataTable dt = new DataTable();
 
-                try
+                //try
+                //{
+                //    Connect7 = new OracleConnection(strConn);
+                //    {
+                //        Connect7.Open();
+                //    }
+
+                //    //// เปิดการเชื่อมต่อกับ Oracle
+                //    //Connect.Open();
+
+                //    dr2 = new OracleDataAdapter(sQL, Connect7);
+                //}
+                //catch (Exception ex)
+                //{
+                //    WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                //    return null;
+                //}
+                //if (!string.IsNullOrEmpty(sQL))
+                //{
+
+                //    dr2.Fill(dt);
+
+                //}
+
+                //// ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
+                //Connect7.Close();
+
+                using(OracleConnection Connect5 = new OracleConnection(strConn))
                 {
-                    Connect7 = new OracleConnection(strConn);
+                    Connect5.Open();
+                    using(OracleTransaction transaction = Connect5.BeginTransaction())
                     {
-                        Connect7.Open();
+                        dr2 = new OracleDataAdapter(sQL, Connect5);
+                        if (!string.IsNullOrEmpty(sQL))
+                        {
+
+                            dr2.Fill(dt);
+
+                        }
+                        transaction.Commit();
+                        transaction.Dispose();
+                        Connect5.Close();
                     }
-
-                    //// เปิดการเชื่อมต่อกับ Oracle
-                    //Connect.Open();
-
-                    dr2 = new OracleDataAdapter(sQL, Connect7);
                 }
-                catch (Exception ex)
-                {
-                    WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
-                    return null;
-                }
-                if (!string.IsNullOrEmpty(sQL))
-                {
-
-                    dr2.Fill(dt);
-
-                }
-
-                // ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
-                Connect7.Close();
 
                 return dt;
             }
