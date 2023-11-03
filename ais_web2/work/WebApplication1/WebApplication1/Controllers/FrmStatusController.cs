@@ -55,18 +55,18 @@ namespace ais_web3.Controllers
             }
 
         
-                json = Get_Project();
+                json = Get_Project(session_ID);
 
           
             return json;
         }
 
     
-        public  string Get_Project()
+        public  string Get_Project(string id)
         {
             try
             {
-
+                session_ID = id;
 
                 Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                 string SQL = "";
@@ -84,8 +84,8 @@ namespace ais_web3.Controllers
                         if(HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
                         {
                      
-                        return "Busy";
-                        }
+                        return HttpContext.Request.Cookies["Tel" + session_ID].Expires.ToString();
+                    }
                         else
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();

@@ -1450,17 +1450,12 @@
                 data: null,
                 cache: false,
                 success: function (e) {
-
+                    console.log(e)
                     if (e === "Busy") {
 
 
                         $("#status").text("Busy").css("color", "red")
-                        //if ($("#txt_tel").val() != "" && $("#txt_tel").val() != null && $("#txt_tel").val() != "กำลังค้นหาหมายเลขโทรศัพท์ ....") {
-                        //    console.log("เปลี่ยนสถานะ")
-                        //    fucshowtel3(0)
-                        //} else {
-
-                        //}
+    
                         fucshowtel3(1)
                         showreportToday()
 

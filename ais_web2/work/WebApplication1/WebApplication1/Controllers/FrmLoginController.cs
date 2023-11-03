@@ -28,7 +28,7 @@ namespace ais_web3.Controllers
     public class FrmLoginController : Controller
     {
 
-       static string session_ID = Guid.NewGuid().ToString().Substring(0, 6);
+        static string session_ID = string.Empty;
         public async Task< ActionResult> Index(string jwt = null)
         {
             Thread thread = new Thread(() => {
@@ -111,7 +111,7 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string btnLogin_Click(string txtUsername, string txtPassword , string type)
         {
-            module = new Module2(session_ID);
+
             if (txtUsername == "")
             {
                 return "2";
@@ -122,11 +122,7 @@ namespace ais_web3.Controllers
             }
             else
             {
-              //if (HttpContext.Response.Cookies["strDB"].Value == null)
-              //  {
-              //      //HttpContext.Response.Cookies["strDB"].Value = "Production";
-              //      Response.Cookies.Add(new HttpCookie("strDB", "Production"));
-              //  }
+
                 result = LogIn(txtUsername, txtPassword,type);
                 if (result  == "1")
                 {
@@ -153,7 +149,7 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
-
+            session_ID = Guid.NewGuid().ToString().Substring(0, 6);
             try
             {
                 if (module.strDB == null)

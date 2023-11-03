@@ -2083,7 +2083,7 @@ namespace ais_web3.Controllers
                             //return Module2.Agent_Id;
                             if (HttpContext.Request.Cookies["Tel" + session_ID] != null )
                             {
-                                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                                HttpContext.Request.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
                                 HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
                             }
                             return "บันทึกข้อมูลเรียบร้อย";
