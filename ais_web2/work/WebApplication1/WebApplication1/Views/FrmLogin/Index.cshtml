@@ -105,5 +105,76 @@
 
 <link href="~/sweetalert2.css" rel="stylesheet" />
 <script src="~/sweetalert2.js"></script>
+<script>
+    $(document).ready(function (e) {
+        function alert2(txt) {
+            swal({
+                title: 'แจ้งเตือน!',
+                text: txt,
+                confirmButtonText: 'ปิด',
+                //showCancelButton: true,
+                //cancelButtonText: 'Cancel',
+                /*        reverseButtons: true,*/
+                customClass: {
+                    confirmButton: 'my-custom-button' // ใช้คลาส CSS ที่คุณสร้าง
+                }
+            });
+        }
+        $("#btnlogin").on('click', function (e) {
+            /*    $("#loadingLogin").show()*/
+            let ajax_ = $.ajax({
+                url: '/FrmLogin/btnLogin_Click?txtUsername=' + $("#txtUsername").val() + '&txtPassword=' + $("#txtPassword").val() + '&type=' + $("#dd_type_gov").val(),
+                type: 'POST',
+                success: function (e) {
+                    /*     $("#loadingLogin").hide()*/
 
-<script type="module" src="~/Hidden/login.js"></script>
+                    if (e === "2") {
+                        alert2("กรุณากรอก Username ค่ะ");
+                    } else if (e === "3") {
+                        alert2("กรุณากรอก Password ค่ะ")
+                    } else if (e === "04") {
+                        alert2(" ไม่สามารถ เชื่อมต่อ ฐานข้อมูลได้ เนื่องจาก คุณอาจจะคุณป้อน Username หรือ Password ไม่ถูกต้อง หรือ หมดเวลาเชื่อมต่อฐานข้อมูลค่ะ")
+                    } else if (e === "05") {
+                        alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบ")
+                    } else {
+                        var msg = e;
+
+                        window.location.href = '/FrmDetail/Index?id=' + e
+                        document.cookie =  "id=" + e +"; path=/";
+
+                    }
+                }
+            })
+        })
+        $("#Cbo_Database").on('change', function () {
+            var cbocheck = $("#Cbo_Database").val()
+            alert2(cbocheck)
+            var table = new FormData();
+            if (cbocheck === "Backup") {
+                table.append("checkbox_DB_Backup", true)
+                table.append("checkbox_DB_Database", "Backup")
+            } else {
+                table.append("checkbox_DB_Backup", false)
+                table.append("checkbox_DB_Database", "Production")
+            }
+
+         $.ajax({
+                url: '/FrmLogin/Select_database',
+                type: 'POST',
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: table,
+                success: function (e) {
+                    var msg = JSON.parse(e)
+                    alert2(msg)
+                    //$("#status").text(msg[0])
+                    //$("#strDB").text(msg[1])
+                }
+            })
+
+        })
+    })
+
+</script>
+<script  src="~/Hidden/login.js"></script>

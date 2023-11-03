@@ -30,6 +30,7 @@ namespace Model_Helper
     public class Telclass
     {
         public string Date_thai { get; set; }
+        public string id { get; set; }
         public string anumber { get; set; }
         public string agent_id { get; set; }
         public string lead_call_date { get; set; }
@@ -215,7 +216,9 @@ namespace Model_Helper
     }
     public class form3
     {
+
         public string Date_thai { get; set; }
+        public string id { get; set; }
         public string txtTel_No { get; set; }
         public string txtOper { get; set; }
         public string txtDate_Tel { get; set; }

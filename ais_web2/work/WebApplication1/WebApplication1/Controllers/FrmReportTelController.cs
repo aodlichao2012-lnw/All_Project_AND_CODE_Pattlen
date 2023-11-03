@@ -23,23 +23,20 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmReportTelController : Controller
     {
-
+        static string session_ID = string.Empty;
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;
 
         public FrmReportTelController()
         {
-            module = new Module2();
-            //WriteLog.instance.Log_browser_Detail_page("FrmReportTel/Index");
 
         }
         static string  Agenids = string.Empty;
 
 
-        public async Task< ActionResult> Index(string values ="")
+        public async Task< ActionResult> Index(string id ="")
         {
-        
 
             string StrSql = string.Empty;
             int return1 = 0;
@@ -47,82 +44,29 @@ namespace ais_web3.Controllers
             {
 
 
-                //CultureInfo cultureInfo = new CultureInfo("en-US");
-                //Thread.CurrentThread.CurrentCulture = cultureInfo;
-                //DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                //string jwt = HttpContext.Request.Cookies["login"].Value;
-
-
-                //if (jwt != "" && jwt != null)
-                //{
-                //    string keys = jwt;
-                //    //WriteLog.instance.Log("HttpContext.Request.Cookies[\"login\"].Value");
-                //    List<string> userjson = module.GetFromToken(keys);
-
-                //    if (datet <= Convert.ToDateTime(userjson[2].ToString()))
-                //    {
-                //        //WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
-                //        StrSql = "SELECT * FROM PREDIC_AGENTS";
-                //        StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-
-                //        DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
-
-                //        if (ds != null)
-                //        {
-                //            if (ds.Tables["Login_agent"].Rows.Count != 0)
-                //            {
-                //                if (Session["Editv"] != null)
-                //                {
-                //                    return1 = 1;
-                //                }
-                //                return1 = 1;
-                //            }
-                //            else
-                //            {
-
-                //                return1 = 0;
-                //            }
-                //        }
-                //        else
-                //        {
-
-                //            return1 = 0;
-                //        }
-
-                //    }
-
-                //}
-
-                //    if (return1 == 1)
-                //{
-
-                //    return View();
-                //}
-                //else
-                //{
-                //    return RedirectToAction("Index", "FrmLogin");
-                //}
+                session_ID = HttpContext.Request.Cookies["id"].Value;
+   
                 type_db = "";
                 user_name = "";
 
                 CultureInfo cultureInfo = new CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = cultureInfo;
                 DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                string jwt = HttpContext.Request.Cookies["login"].Value;
+                string jwt = HttpContext.Request.Cookies["login" + session_ID].Value;
 
 
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
-                    //WriteLog.instance.Log("HttpContext.Request.Cookies[\"login\"].Value");
+                    module = new Module2(session_ID);
                     List<string> userjson = module.GetFromToken(keys);
 
                     if (datet <= Convert.ToDateTime(userjson[2].ToString()))
                     {
-                        //WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
+
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-
+                        module = new Module2(session_ID);
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
 
                         if (ds != null)
@@ -149,17 +93,17 @@ namespace ais_web3.Controllers
 
                     }
                     string session = string.Empty;
-                    string agenid = HttpContext.Request.Cookies["Agen"].Value;
+                    string agenid = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                     int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
                     session = session.Split(',')[count - 1].Split('=')[1].ToString();
 
-                    values = session;
+                    id = session;
                     if (return1 == 1)
                     {
                         List<string> values1 = new List<string>()
                         {
-                            values
+                            id
                         };
 
 
@@ -196,9 +140,9 @@ namespace ais_web3.Controllers
         private int z;
         [HttpGet]
 
-        public string FrmReportTel_Load()
+        public string FrmReportTel_Load(string id = "")
         {
-        
+            session_ID = id;
             List<string> list = new List<string>();
             list.Add(DateTime.Now.ToString());
             string jsondata_1 = JsonConvert.SerializeObject(setcboStatus());
@@ -212,13 +156,14 @@ namespace ais_web3.Controllers
 
         private DataTable setcboStatus()
         {
-        
+
             DataTable dt = null;
            string sql = string.Empty;
             try
             {
                 sql = "SELECT * FROM MAS_REASON ORDER BY RES_CODE ASC ";
-               module.Comman_Static(sql,null,null, ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(sql,null,null, ref dt);
 
                 if (dt != null)
                 {
@@ -248,12 +193,13 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string btnReport_Click(Telclass telclass)
         {
-        
+            session_ID = telclass.id;
             return showreport(telclass);
 
         }
-        public string list_Service()
+        public string list_Service(string id = "")
         {
+            session_ID = id;
             string sql = string.Empty;
             DataTable dt1 = null;
             try
@@ -261,7 +207,7 @@ namespace ais_web3.Controllers
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
 
-
+                module = new Module2(session_ID);
                 module.Comman_Static(sql, null, null, ref dt1);
 
                 return JsonConvert.SerializeObject(dt1);
@@ -280,12 +226,13 @@ namespace ais_web3.Controllers
         }
 
         [HttpGet]
-        public string showreportToday()
+        public string showreportToday(string id = "")
         {
+            session_ID = id;
             string Agens = string.Empty;
-            if (HttpContext.Request.Cookies["Agen"] != null)
+            if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
             {
-                Agens = HttpContext.Request.Cookies["Agen"].Value;
+                Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
             }
 
             string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
@@ -316,32 +263,35 @@ namespace ais_web3.Controllers
                 string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
                 sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
             Thread.Sleep(1000);
+            module = new Module2(session_ID);
             DataTable  dt3 = module.Comman_Static2(sql2);
             List<string> json_list = new List<string>();
             //DataTable dt2 = Service_Sum(new Telclass() { res_code = "01", agent_id = Agenid });
             List<string> list = new List<string>();
+            module = new Module2(session_ID);
             DataTable dt2 =module. Service_Sum(new Telclass() { res_code = "01", agent_id = Agens });
             string data01 = JsonConvert.SerializeObject(dt2);
             string data02 = JsonConvert.SerializeObject(dt3);
             list.Add(data01);
             list.Add(data02);
-            list.Add(list_Service());
+            list.Add(list_Service(session_ID));
             return JsonConvert.SerializeObject(list);
 
 
         }
         public string showreport(Telclass telclass)
         {
-        
+            session_ID = telclass.id;
             string sql2 = string.Empty;
             try
             {
+               
                 DataTable dt3 = new DataTable();
 
 
-                if (HttpContext.Request.Cookies["Agen"] != null)
+                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                 {
-                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                     Module2.Agent_Id = Agens;
                 }
                 string Agenid = Module2.Agent_Id;
@@ -407,6 +357,7 @@ namespace ais_web3.Controllers
                 {
                     telclass.agent_id = Agenid;
                     Thread.Sleep(1000);
+                    module = new Module2(session_ID);
                     dt3 = module.Comman_Static4(sql2);
                     if (dt3 != null)
                     {
@@ -416,6 +367,7 @@ namespace ais_web3.Controllers
                             {
                                 if (status1 == "01")
                                 {
+                                    module = new Module2(session_ID);
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
                                     DataTable dt2 = module.Service_Sum2(telclass);
@@ -423,11 +375,12 @@ namespace ais_web3.Controllers
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
-                                    list.Add(list_Service());
+                                    list.Add(list_Service(session_ID));
                                     return JsonConvert.SerializeObject(list);
                                 }
                                 else
                                 {
+                                    module = new Module2(session_ID);
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
                                     DataTable dt2 = module. Service_Sum3(telclass);

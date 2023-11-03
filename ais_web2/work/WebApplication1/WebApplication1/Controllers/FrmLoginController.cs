@@ -28,7 +28,7 @@ namespace ais_web3.Controllers
     public class FrmLoginController : Controller
     {
 
-
+       static string session_ID = Guid.NewGuid().ToString().Substring(0, 6);
         public async Task< ActionResult> Index(string jwt = null)
         {
             Thread thread = new Thread(() => {
@@ -49,7 +49,7 @@ namespace ais_web3.Controllers
             });
             thread.Start();
             thread.Join();
-          
+
             return View();
         }
         private string StrSql = string.Empty;
@@ -63,7 +63,10 @@ namespace ais_web3.Controllers
             //WriteLog.instance.Log_browser_Detail_page("FrmLogin/Index");
             myIPs = System.Net.Dns.GetHostByName(myHost);
 
-            module = new Module2();
+            module = new Module2(session_ID);
+
+
+
         }
         [HttpPost]
         public string Select_database(local_var local_Vars)
@@ -82,21 +85,21 @@ namespace ais_web3.Controllers
             if (local_Vars.checkbox_DB_Database == "Production")
             {
                 Module2.strDB_ = "Production";
-                HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
+                Response.Cookies.Add(new HttpCookie("strDB" + session_ID, Module2.strDB_));
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Production";
 
             }
             else if (local_Vars.checkbox_DB_Database == "Backup")
             {
                 Module2.strDB_ = "Backup";
-                HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
+                Response.Cookies.Add(new HttpCookie("strDB" + session_ID, Module2.strDB_));
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Backup";
 
             }
             else
             {
                 Module2.strDB_ = "Production";
-                HttpContext.Response.Cookies["strDB"].Value = Module2.strDB_;
+                Response.Cookies.Add(new HttpCookie("strDB" + session_ID, Module2.strDB_));
                 status = ConfigurationManager.AppSettings["title"].ToString() + " - Database Production";
 
             }
@@ -108,7 +111,7 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string btnLogin_Click(string txtUsername, string txtPassword , string type)
         {
-            module = new Module2();
+            module = new Module2(session_ID);
             if (txtUsername == "")
             {
                 return "2";
@@ -119,10 +122,11 @@ namespace ais_web3.Controllers
             }
             else
             {
-              if (HttpContext.Response.Cookies["strDB"].Value == null)
-                {
-                    HttpContext.Response.Cookies["strDB"].Value = "Production";
-                }
+              //if (HttpContext.Response.Cookies["strDB"].Value == null)
+              //  {
+              //      //HttpContext.Response.Cookies["strDB"].Value = "Production";
+              //      Response.Cookies.Add(new HttpCookie("strDB", "Production"));
+              //  }
                 result = LogIn(txtUsername, txtPassword,type);
                 if (result  == "1")
                 {
@@ -138,8 +142,8 @@ namespace ais_web3.Controllers
 };
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
-                    HttpContext.Response.Cookies["login"].Value = tokenuser + ";" + tokempass;
-                    return tokenuser + ";" + tokempass ;
+                    Response.Cookies.Add(new HttpCookie("login"+ session_ID, tokenuser + ";" + tokempass));
+                    return session_ID;
 
                 }
                 return result;
@@ -170,23 +174,23 @@ namespace ais_web3.Controllers
              
                 if(type_keep == "1200")
                 {
-                    HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[1];
-                    HttpContext.Response.Cookies["type_db"].Value = "1200";
+                    Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[0]));
+                    Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "1200"));
                 }
                 else if(type_keep == "2400")
                 {
-                    HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[2];
-                    HttpContext.Response.Cookies["type_db"].Value = "2400";
+                    Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[1]));
+                              Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "2400"));
                 }
                 else if (type_keep == "4800")
                 {
-                    HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[3];
-                    HttpContext.Response.Cookies["type_db"].Value = "4800";
+                    Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[2]));
+                    Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "4800"));
                 }
                 else
                 {
-                    HttpContext.Response.Cookies["type_title"].Value = ConfigurationManager.AppSettings["type_title"].Split(';')[0];
-                    HttpContext.Response.Cookies["type_db"].Value = "test";
+                    Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[3]));
+                    Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "test"));
                 }
                     Module2.type_db_ = type_keep;
                 StrSql = "";
@@ -195,7 +199,7 @@ namespace ais_web3.Controllers
                 StrSql += " WHERE (LOGIN = "+ txtUsername + " )";
                 StrSql += " and (PASSWORD= "+ txtPassword + " )";
                 StrSql += " AND ROWNUM = 1 ";
-                module = new Module2();
+                module = new Module2(session_ID);
                 DataSet ds = module.CommandSet(StrSql, "Login_agent");
                 if (ds.Tables["Login_agent"].Rows.Count != 0)
                 {
@@ -212,14 +216,14 @@ namespace ais_web3.Controllers
                     Module2.Instance.strPassword = ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
                     string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
                     Module2.user_name_ = user_name;
-                    HttpContext.Response.Cookies["user_name"].Value = HttpUtility.UrlEncode( user_name);
-                    HttpContext.Response.Cookies["Agen"].Value =/* JWT.Encode( new Dictionary<string, string>() { { "Agen", Module2.Agent_Id } },null,JwsAlgorithm.none);*/Module2.Agent_Id;
+                    Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
 
-                    HttpContext.Response.Cookies["EXTENSION"].Value = Module2.EXTENSION;
+                    Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
+                    Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     foreach (IPAddress myIP in myIPs.AddressList)
                     {
                         Module2.Agent_Ip = myIP.ToString();
-                        HttpContext.Response.Cookies["Agent_Ip"].Value = Module2.Agent_Ip;
+                        Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, Module2.Agent_Ip));
                     }
                    module. UpdateCNFG_Agent_Info("5",Module2.Agent_Id,Module2.Agent_Ip);
                     //HttpContext.Response.Cookies["type_db"].Value = TempData["type_db"].ToString(); 

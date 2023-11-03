@@ -53,51 +53,51 @@ let set_intravel2;
 //    })
 $("#button_save").on('click', function (e) { fucsave(); showreportToday(); })
 $("#button_save2").on('click', function (e) { fucsave(); showreportToday(); })
-function getfuc() {
-       let ajax_ =  $.ajax({
-            url: '/FrmStatus/FrmStatus_Load',
-            type: "GET",
-            data: null,
-            success: function (e) {
+//function getfuc() {
+//       let ajax_ =  $.ajax({
+//            url: '/FrmStatus/FrmStatus_Load',
+//            type: "GET",
+//            data: null,
+//            success: function (e) {
              
-                if (e === "Busy") {
-                    status_busy = 'is_Busy'
-                    $("#status").text("Busy").css("color", "red")
-                    if (telephone_isSave == 'isSave') {
-                        $("#txt_tel").val(``)
-                        telephone_isSave = ''
-                        fucshowtel3(true)
-                        showreportToday();
-                    }
-                    fucshowtel3(true)
-                } else if (e === "Not Login") {
-                    $("#txt_tel").val(``)
-                    $("#status").text("Not Login").css("color", "gray")
-                } else if (e === "Available") {
-                    fucshowtel3(false)
-                    $("#txt_tel").val(``)
-                    $("#status").text("Available").css("color", "green")
+//                if (e === "Busy") {
+//                    status_busy = 'is_Busy'
+//                    $("#status").text("Busy").css("color", "red")
+//                    if (telephone_isSave == 'isSave') {
+//                        $("#txt_tel").val(``)
+//                        telephone_isSave = ''
+//                        fucshowtel3(true)
+//                        showreportToday();
+//                    }
+//                    fucshowtel3(true)
+//                } else if (e === "Not Login") {
+//                    $("#txt_tel").val(``)
+//                    $("#status").text("Not Login").css("color", "gray")
+//                } else if (e === "Available") {
+//                    fucshowtel3(false)
+//                    $("#txt_tel").val(``)
+//                    $("#status").text("Available").css("color", "green")
 
                   
-                } else if (e === "Aux"){
-                    $("#status").text("Aux").css("color", "black")
-/*                    fucshowtel3(false)*/
-                } else if (e === "Standby") {
-                    fucshowtel3(false)
-                    $("#txt_tel").val(``)
-                    $("#status").text("Standby").css("color", "green")
-                    showreportToday();
+//                } else if (e === "Aux"){
+//                    $("#status").text("Aux").css("color", "black")
+///*                    fucshowtel3(false)*/
+//                } else if (e === "Standby") {
+//                    fucshowtel3(false)
+//                    $("#txt_tel").val(``)
+//                    $("#status").text("Standby").css("color", "green")
+//                    showreportToday();
 
-                }
+//                }
              
-            }
-       })
+//            }
+//       })
    
-}
-function getstatus() {
-    intervalId = setInterval(getfuc, 2000)
+//}
+//function getstatus() {
+//    intervalId = setInterval(getfuc, 2000)
 
-}
+//}
 //function fucshowtel() {
 //           let ajax_ =  $.ajax({
 //                url: "/FrmDetail/GetPhone"

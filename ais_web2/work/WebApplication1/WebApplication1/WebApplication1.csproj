@@ -330,6 +330,7 @@
     <Content Include="Hidden\login.js" />
     <Content Include="Hidden\main.css" />
     <Content Include="Hidden\main.js" />
+    <Content Include="Hidden\main2.js" />
     <Content Include="Hidden\moment.js_2.15.1_moment.min.js" />
     <Content Include="Hidden\pdfmake_0.1.53_pdfmake.min.js" />
     <Content Include="Hidden\report.css" />

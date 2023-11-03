@@ -32,13 +32,18 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmDetailController : Controller
     {
+        static string session_ID = string.Empty;
+
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;
 
+
         public FrmDetailController()
         {
-            module = new Module2();
+
+
+
             //WriteLog.instance.Log_browser_Detail_page("FrmDetail/Index");
 
         }
@@ -86,7 +91,8 @@ namespace ais_web3.Controllers
                 if (telclass.status != "")
                 {
                     string json = showDataforEdit(telclass);
-                    HttpContext.Response.Cookies["editv"].Value = json;
+                    //HttpContext.Response.Cookies["editv"].Value = json;
+                    Response.Cookies.Add(new HttpCookie("editv"+ session_ID, json));
 
                     return json;
                 }
@@ -94,6 +100,7 @@ namespace ais_web3.Controllers
                 {
                     string json = showDataforEdit(telclass);
                     HttpContext.Response.Cookies["editv"].Value = json;
+                    Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
                     return json;
                 }
                 else if (telclass.status != "01")
@@ -103,12 +110,14 @@ namespace ais_web3.Controllers
                         showDay = "show";
                         string json = showdata2(telclass);
                         HttpContext.Response.Cookies["editv"].Value = json;
+                        Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
                         return json;
                     }
                     else if (telclass.status == "01" | telclass.status == "05" | telclass.status == "02" | telclass.status == "03")
                     {
                         string json = showdata2(telclass);
                         HttpContext.Response.Cookies["editv"].Value = json;
+                        Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
                         return json;
 
                     }
@@ -129,13 +138,13 @@ namespace ais_web3.Controllers
      
         private   string setcboDeny(string res_code)
         {
-        
+            module = new Module2(session_ID);
             DataTable dt = null;
             try
             {
                     string sql = "SELECT DENY_CODE , DENY_NAME  FROM MAS_RESON_DENY WHERE RES_CODE = :RES_CODE "; // WHERE RES_STATUS = '0' "
-
-                    module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" }, ref dt);
+                module = new Module2(session_ID);
+                module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" }, ref dt);
 
                return JsonConvert.SerializeObject(dt);
             }
@@ -150,10 +159,11 @@ namespace ais_web3.Controllers
      
         private DataTable setcboDenyByCode()
         {
-        
+            module = new Module2(session_ID);
             DataTable dt = null;
            sql = "SELECT * FROM MAS_RESON_DENY WHERE Deny_Code = :Deny_Code ";
-           module.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" } , ref dt);
+            module = new Module2(session_ID);
+            module.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" } , ref dt);
             if (dt.Rows.Count != 0)
             {
                 return dt;
@@ -255,9 +265,9 @@ namespace ais_web3.Controllers
             string sqlselect = "";
             try
             {
-                if (HttpContext.Request.Cookies["Agen"] != null)
+                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                 {
-                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                     Module2.Agent_Id = Agens;
                 }
                 DataTable dt = null;
@@ -269,8 +279,8 @@ namespace ais_web3.Controllers
                 //sqlselect = "SELECT MAS_LEADS_TRANS.*, MAS_REASON.* , CALL_SEARCH_CITY.* , MAS_RESON_DENY.* FROM MAS_LEADS_TRANS , MAS_REASON , MAS_RESON_DENY , CALL_SEARCH_CITY  WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID  AND MAS_REASON.RES_NAME = :RES_NAME"; 
                 
                 sqlselect = "SELECT MAS_LEADS_TRANS.*, MAS_REASON.* , CALL_SEARCH_CITY.* , MAS_RESON_DENY.* FROM MAS_LEADS_TRANS \r\n LEFT JOIN MAS_REASON   ON   MAS_LEADS_TRANS.RES_CODE =MAS_REASON.RES_CODE\r\n  LEFT JOIN CALL_SEARCH_CITY  ON MAS_LEADS_TRANS.CITY_NAME_T  = CALL_SEARCH_CITY.CITY_CODE\r\n   LEFT JOIN MAS_RESON_DENY   ON MAS_LEADS_TRANS.RES_CODE  = MAS_RESON_DENY.RES_CODE\r\n WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID  AND MAS_REASON.RES_NAME = :RES_NAME AND CALL_SEARCH_CITY.CITY_CODE\r\n = MAS_LEADS_TRANS.CITY_NAME_T AND MAS_RESON_DENY.DENY_CODE =  MAS_LEADS_TRANS.DENY_CODE";
-
-                 module.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id ,telclass2.status }, new string[] { ":ANUMBER", ":AGENT_ID" , ":RES_NAME" }, ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id ,telclass2.status }, new string[] { ":ANUMBER", ":AGENT_ID" , ":RES_NAME" }, ref dt);
                    
 
                 if (dt.Rows.Count > 0)
@@ -650,16 +660,16 @@ namespace ais_web3.Controllers
             try
             {
 
-                if (HttpContext.Request.Cookies["Agen"] != null)
+                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                 {
-                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                     Module2.Agent_Id = Agens;
                 }
                 string sqlselect = "";
                 form1 form = new form1();
                 sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
-                
-                    module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" }, ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" }, ref dt);
               
                 if (dt.Rows.Count > 0)
                 {
@@ -1029,7 +1039,7 @@ namespace ais_web3.Controllers
         //}
 
         [HttpGet]
-        public string showCity()
+        public string showCity(string id ="")
         {
         
             string searchcity = string.Empty ;
@@ -1038,8 +1048,8 @@ namespace ais_web3.Controllers
                 DataTable dt = null;
                 string json = string.Empty;
                 searchcity = " SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
-              
-                    module.Comman_Static(searchcity , null, null, ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(searchcity , null, null, ref dt);
                     if (dt != null)
                     {
                         if (dt.Rows.Count != 0)
@@ -1067,7 +1077,7 @@ namespace ais_web3.Controllers
         }
 
         [HttpGet]
-        public string setcboStatus()
+        public string setcboStatus(string id ="")
         {
         
             string sql = string.Empty;
@@ -1078,8 +1088,8 @@ namespace ais_web3.Controllers
              
                     sql = "SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
 
-                    
-                    module.Comman_Static(sql , null,null,ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(sql , null,null,ref dt);
                     if (dt != null)
                     {
                         if (dt.Rows.Count > 0)
@@ -1123,14 +1133,14 @@ namespace ais_web3.Controllers
 
         private string SetAVAL()
         {
-            string Agen_id = HttpContext.Request.Cookies["Agen"].Value;
+            string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
             int rowUpdate;
             strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '"+ Agen_id + "' ";
             Event_Log("SqlUpdate  Available : " + strUpdate);
             try
             {
                 {
-
+                    module = new Module2(session_ID);
                     rowUpdate = Module2.Instance.CommanEx(strUpdate);
                     // Conn.Close()
                 }
@@ -1161,9 +1171,9 @@ namespace ais_web3.Controllers
 
 
         [HttpGet]
-        public string SingOut()
+        public string SingOut(string id ="")
         {
-        
+            session_ID = id;
             string strUpdate = string.Empty;
             string message = string.Empty;
             DataTable dt = null;
@@ -1177,9 +1187,9 @@ namespace ais_web3.Controllers
                     //}
                     //else
                     
-                    if (HttpContext.Request.Cookies["Agen"] != null)
+                    if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                     {
-                        string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                        string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                         Module2.Agent_Id = Agens;
 
 
@@ -1194,7 +1204,8 @@ namespace ais_web3.Controllers
                         try
                         {
                             {
-                                module.Comman_Static(strUpdate, null, null, ref dt);
+                            module = new Module2(session_ID);
+                            module.Comman_Static(strUpdate, null, null, ref dt);
     
                                 message = "200";
                             string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
@@ -1208,7 +1219,10 @@ namespace ais_web3.Controllers
                                     HttpContext.Response.Cookies.Add(new HttpCookie(item));
                                 }
                             }
-                          
+                            HttpContext.Response.Cookies["strDB"+ session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                            HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));
+
+
                         }
                         }
 
@@ -1244,19 +1258,21 @@ namespace ais_web3.Controllers
 
         public async Task<string> btnSave_Click(form3 form)
         {
-        
+ 
             DataTable check_anumber = null;
             string sqlsearch = string.Empty;
             try
             {
+                session_ID = form.id;
+                module = new Module2(session_ID);
                 int year2;
                 string year3;
                 int age;
                 int rowInsert = 0;
                 int day_no = 0;
-                if (HttpContext.Request.Cookies["Agen"] != null)
+                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                 {
-                    string Agens = HttpContext.Request.Cookies["Agen"].Value;
+                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                     Module2.Agent_Id = Agens;
                 }
                 string Agenid = Module2.Agent_Id;
@@ -1319,7 +1335,7 @@ namespace ais_web3.Controllers
 
 
 
-                if (HttpContext.Request.Cookies["editv"] == null || HttpContext.Request.Cookies["editv"].Value == null || HttpContext.Request.Cookies["editv"].Expires.Year == 1870)
+                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
                 {
                     //   module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null , ref check_anumber);
                     //if (check_anumber.Rows.Count >= 1)
@@ -1332,7 +1348,7 @@ namespace ais_web3.Controllers
                        module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null, ref check_anumber);
                     if (check_anumber.Rows.Count == 0)
                     {
-                        HttpContext.Request.Cookies["editv"].Expires = DateTime.Now.AddYears(-153);
+                        HttpContext.Request.Cookies["editv" + session_ID].Expires = DateTime.Now.AddYears(-153);
 
                     }
                     else
@@ -1381,7 +1397,7 @@ namespace ais_web3.Controllers
                         return "คุณเลือกไม่สนใจ โปรดยกเลิกการเลือกบริการ";
                     }
                 }
-                if (HttpContext.Request.Cookies["editv"] == null || HttpContext.Request.Cookies["editv"].Value == null || HttpContext.Request.Cookies["editv"].Expires.Year == 1870)
+                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
                 {
                     sqlsearch = "";
                     sqlsearch = "INSERT INTO MAS_LEADS_TRANS(ANUMBER,LEAD_CALL_DATE,SERVICE_01,SERVICE_02,SERVICE_03,SERVICE_04,SERVICE_05,SERVICE_06,SERVICE_07,SERVICE_08,SERVICE_09,SERVICE_10,SERVICE_11,SERVICE_12,SERVICE_13,SERVICE_14,SERVICE_15,SERVICE_16,SERVICE_17,SERVICE_18,SERVICE_19,SERVICE_20,SERVICE_21,SERVICE_22,SERVICE_23,SERVICE_24,SERVICE_25,SERVICE_26,SERVICE_27,SERVICE_28,SERVICE_29,SERVICE_33,";
@@ -2045,8 +2061,9 @@ namespace ais_web3.Controllers
                 {
                     {
 
-                        if (HttpContext.Request.Cookies["editv"] == null || HttpContext.Request.Cookies["editv"].Value == null || HttpContext.Request.Cookies["editv"].Expires.Year == 1870)
+                        if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
                         {
+                            module = new Module2(session_ID);
                             rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity  }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity"  });
                             //WriteLog.instance.Log_Get_information_SaveData_And_Edit("success" , "Save",Module2.Agent_Id , DateTime.Now.ToString("yyyyMMdd") , form);
                             Module2.Instance.status_Edit = "";
@@ -2056,15 +2073,24 @@ namespace ais_web3.Controllers
                                 return "server มี ปัญหา";
                             }
                             //SetAVAL();
-                            Clear_edit();
+                            //Clear_edit();
+                            module = new Module2(session_ID);
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip , form.txtTel_No);
                             string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            module = new Module2(session_ID);
                             module.CommanEx_Save(sqlClear_);
-                            HttpContext.Response.Cookies["Isave"].Value = "save";
+                            Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
+                            //return Module2.Agent_Id;
+                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null )
+                            {
+                                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                                HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
+                            }
                             return "บันทึกข้อมูลเรียบร้อย";
                         }
                         else
                         {
+                            module = new Module2(session_ID);
                             rowInsert = module.CommanEx_Save(sqlsearch);
                             //WriteLog.instance.Log_Get_information_SaveData_And_Edit("success", "Edit", Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
                             Module2.Instance.status_Edit = "";
@@ -2074,11 +2100,15 @@ namespace ais_web3.Controllers
                             {
                                 return "server มี ปัญหา";
                             }
-                            Clear_edit();
+                            //Clear_edit();
+                            module = new Module2(session_ID);
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip, form.txtTel_No);
                             string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            module = new Module2(session_ID);
                             module.CommanEx_Save(sqlClear_);
-                            HttpContext.Response.Cookies["Isave"].Value = "save";
+                            Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
+                            //return Module2.Agent_Id;
+                            Clear_edit(session_ID);
                             return "บันทึกข้อมูลเรียบร้อย";
                         }
 
@@ -2088,6 +2118,7 @@ namespace ais_web3.Controllers
                 }
                 catch (Exception ex)
                 {
+                    module = new Module2(session_ID);
                     WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
                     WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
                     WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
@@ -2194,16 +2225,16 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string LoadEdit()
+        public string LoadEdit(string id = "")
         {
         
             try
             {
-                if (HttpContext.Request.Cookies["editv"] == null)
+                if (HttpContext.Request.Cookies["editv" + session_ID] == null)
                 {
                     return "";
                 }
-                return HttpContext.Request.Cookies["editv"].Value;
+                return HttpContext.Request.Cookies["editv" + session_ID].Value;
             }
             catch
             {
@@ -2214,25 +2245,28 @@ namespace ais_web3.Controllers
 
 
         [HttpGet]
-        public ActionResult Index(string values = "")
+        public ActionResult Index(string id = "")
         {
-        
+
+
             string StrSql = string.Empty;
             int return1 = 0;
             try
             {
+                session_ID = HttpContext.Request.Cookies["id"].Value;
                 type_db = "";
                 user_name = "";
 
                 CultureInfo cultureInfo = new CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = cultureInfo;
                 DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                string jwt = HttpContext.Request.Cookies["login"].Value;
+                string jwt = HttpContext.Request.Cookies["login" + session_ID].Value;
 
 
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
+                    module = new Module2(session_ID);
                     //WriteLog.instance.Log("HttpContext.Request.Cookies[\"login\"].Value");
                     List<string> userjson = module.GetFromToken(keys);
 
@@ -2241,7 +2275,7 @@ namespace ais_web3.Controllers
                         //WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-
+                        module = new Module2(session_ID);
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
 
                         if (ds != null)
@@ -2265,17 +2299,15 @@ namespace ais_web3.Controllers
 
                     }
                     string session = string.Empty;
-                    string agenid = HttpContext.Request.Cookies["Agen"].Value;
-                    int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
-                    session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
-                    session = session.Split(',')[count - 1].Split('=')[1].ToString();
+                    string agenid = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+              
 
-                    values = session;
+                 string   values_genid = agenid;
                     if (return1 == 1)
                     {
                         List<string> values1 = new List<string>()
                         {
-                            values
+                            values_genid
                         };
 
                         
@@ -2304,8 +2336,8 @@ namespace ais_web3.Controllers
 
         [HttpGet]
 
-     
-        public async Task<string> list_Service(string txt_tel)
+
+        public async Task<string> list_Service2(string id ="")
         {
             string sql = string.Empty;
             DataTable dt1 = null;
@@ -2313,8 +2345,8 @@ namespace ais_web3.Controllers
             {
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED WHERE MAS_SERV_USED.is_active = '1'";
-
-
+                session_ID = id;
+                module = new Module2(session_ID);
                 module.Comman_Static(sql, null, null, ref dt1);
 
                 return JsonConvert.SerializeObject(dt1);
@@ -2325,11 +2357,11 @@ namespace ais_web3.Controllers
             }
             finally
             {
-            
+
             }
-        
- 
-          
+
+
+
         }
 
         [HttpPost]
@@ -2354,6 +2386,7 @@ namespace ais_web3.Controllers
                     sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = :isActiveValue, MDF_DATE = sysdate WHERE SERVICE_ID = :itemID";
                     try
                     {
+                        module = new Module2(session_ID);
                         dt = module.CommanEx(sql, new string[] { isActiveValue, item }, new string[] { ":isActiveValue", ":itemID" });
                     }
                     catch (Exception ex)
@@ -2396,7 +2429,8 @@ namespace ais_web3.Controllers
                 }
                 new_unvisible = new_unvisible.Remove(new_unvisible.Length - 4, 4);
                  sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = '0' , MDF_DATE = '{DateTime.Now.ToString("dd-MMM-yy")}' WHERE  SERVICE_ID IN ({new_unvisible})";
-               module.Comman_Static(sql , null,null,ref dt);
+                module = new Module2(session_ID);
+                module.Comman_Static(sql , null,null,ref dt);
                 if (dt.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";
@@ -2424,45 +2458,126 @@ namespace ais_web3.Controllers
 
             sql = $@"SELECT DISTINCT MAS_SERVICE.SERVICE_ID as SER_ID , 
                 MAS_SERVICE.SERVICE_NAME as SER_NAME , CASE WHEN MAS_SERVICE.IS_ACTIVE = '1' THEN 'เปิดให้ใช้บริการ' ELSE 'ปิดการใช้บริการ' END as IS_ACTIVE FROM MAS_SERVICE ORDER BY IS_ACTIVE DESC";
-
+            module = new Module2(session_ID);
             dt1 = module.Comman_Static_All(sql);
 
             return JsonConvert.SerializeObject(dt1);
         }
+        public string list_Service(string id = "")
+        {
+            session_ID = id;
+            string sql = string.Empty;
+            DataTable dt1 = null;
+            try
+            {
+                sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
+                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
 
+                module = new Module2(session_ID);
+                module.Comman_Static(sql, null, null, ref dt1);
+
+                return JsonConvert.SerializeObject(dt1);
+            }
+            catch
+            {
+                return "";
+            }
+            finally
+            {
+
+            }
+
+
+
+        }
 
         [HttpGet]
-        public string GetPhone()
+        public string showreportToday(string id = "")
         {
-        
+            session_ID = id;
+            string Agens = string.Empty;
+            if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
+            {
+                Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+            }
+
+            string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
+                     "" +
+                     " CASE " +
+                     "   WHEN SERVICE_21 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_21 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_21" +
+                       ", CASE " +
+                     "   WHEN SERVICE_11 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_11 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_11" +
+                     " ,  CASE " +
+                     "   WHEN SERVICE_12 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_12 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_12" +
+                     " ,  CASE " +
+                     "   WHEN SERVICE_13 = 1 THEN 'สมัคร'" +
+                     "   WHEN SERVICE_13 = 0 THEN 'ไม่ได้สมัคร'" +
+                     "   END AS SERVICE_13" +
+                     "   from  MAS_LEADS_TRANS " +
+                     " LEFT JOIN MAS_REASON ON MAS_REASON.RES_CODE = MAS_LEADS_TRANS.RES_CODE LEFT JOIN MAS_RESON_DENY ON MAS_RESON_DENY.DENY_CODE = MAS_LEADS_TRANS.DENY_CODE" +
+                     " ";
+            sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agens + "' AND MAS_LEADS_TRANS.RES_CODE = '01'";
+
+            string dd = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[0];
+            string mm = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[1];
+            string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
+            sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
+            Thread.Sleep(1000);
+            module = new Module2(session_ID);
+            DataTable dt3 = module.Comman_Static2(sql2);
+            List<string> json_list = new List<string>();
+            //DataTable dt2 = Service_Sum(new Telclass() { res_code = "01", agent_id = Agenid });
+            List<string> list = new List<string>();
+            module = new Module2(session_ID);
+            DataTable dt2 = module.Service_Sum(new Telclass() { res_code = "01", agent_id = Agens });
+            string data01 = JsonConvert.SerializeObject(dt2);
+            string data02 = JsonConvert.SerializeObject(dt3);
+            list.Add(data01);
+            list.Add(data02);
+            list.Add(list_Service(session_ID));
+            return JsonConvert.SerializeObject(list);
+
+
+        }
+        [HttpGet]
+        public string GetPhone(string id= "")
+        {
+            session_ID = id;
             DataTable dataTable = null;
             string sql = string.Empty;
-            string Agen_id = HttpContext.Request.Cookies["Agen"].Value;
-            string Agen_IP = HttpContext.Request.Cookies["Agent_Ip"].Value;
+            string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+            string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
             try
             {
 
                 sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "'";
 
+                module = new Module2(session_ID);
+                module.Comman_Static(sql ,null ,null, ref dataTable);
 
-                 module.Comman_Static(sql ,null ,null, ref dataTable);
-
-                if(HttpContext.Request.Cookies["Tel"] == null || HttpContext.Request.Cookies["Tel"].Expires == Convert.ToDateTime("1870/01/01 00:00:00"))
+                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
                 {
                     if (dataTable.Rows.Count > 0)
                     {
                         tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
-                        HttpContext.Response.Cookies["Tel"].Value = tel_phone;
+                        Response.Cookies.Add(new HttpCookie("Tel" + session_ID, tel_phone));
                     }
                     else
                     {
                         tel_phone = "";
                     }
                 }
-                if (HttpContext.Request.Cookies["Isave"] != null && HttpContext.Request.Cookies["Isave"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                if (HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
                 {
-                    HttpContext.Response.Cookies["Tel"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
-                    HttpContext.Response.Cookies["Isave"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                    HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+
                 }
                
                 //tel_phone = "0000000000";
@@ -2505,7 +2620,8 @@ namespace ais_web3.Controllers
 
                 DataTable dataTable = null;
                 sql = $@"UPDATE MAS_SERVICE SET  SERVICE_NAME = :values2 , MDF_DATE = :Date1 WHERE SERVICE_ID = :id2 ";
-                 module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , ref dataTable);
+                module = new Module2(session_ID);
+                module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , ref dataTable);
                 if (dataTable.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";
@@ -2524,16 +2640,17 @@ namespace ais_web3.Controllers
 
         }
         [HttpGet]
-        public string Clear_edit()
+        public string Clear_edit(string id ="")
         {
-            if(HttpContext.Response.Cookies["editv"] != null)
+            session_ID = id;
+            if (HttpContext.Response.Cookies["editv" + session_ID] != null)
             {
-                HttpContext.Response.Cookies["editv"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
-                HttpContext.Request.Cookies["editv"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
             }
-            if (HttpContext.Request.Cookies["Tel"] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
             {
-                HttpContext.Response.Cookies["Tel"].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
             }
                 return "";
         }
@@ -2553,5 +2670,7 @@ namespace ais_web3.Controllers
             Module2.strDB_ = localstoreless.strDB;
             Module2.type_db_ = localstoreless.type_db;
         }
+
+        
     }
 }
