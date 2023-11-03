@@ -136,9 +136,9 @@ namespace ais_web3.Controllers
         }
 
      
-        private   string setcboDeny(string res_code)
+        private   string setcboDeny(string res_code ,string id ="")
         {
-            module = new Module2(session_ID);
+            module = new Module2(id);
             DataTable dt = null;
             try
             {
@@ -967,7 +967,7 @@ namespace ais_web3.Controllers
         }
 
         [HttpGet]
-        public async  Task< string> cboStatus_SelectedIndexChanged(string cboStatus, string res_code)
+        public async  Task< string> cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="")
         {
 
         
@@ -975,11 +975,10 @@ namespace ais_web3.Controllers
             string json = string.Empty;
             try
             {
-                Thread thread = new Thread(() =>
-                {
+       
                     if (cboStatus == "03")
                     {
-                        json = setcboDeny(res_code.ToString());
+                        json = setcboDeny(res_code.ToString(), id);
                     }
                     else if (cboStatus == "15")
                     {
@@ -992,9 +991,7 @@ namespace ais_web3.Controllers
                     else
                     {
                     }
-                });
-                thread.Start();
-                thread.Join();
+             
        
                 if (json == null || json == "")
                 {
@@ -1215,11 +1212,11 @@ namespace ais_web3.Controllers
                             if (item != null)
                                 {
                                     // ตั้งค่าวันหมดอายุของคุกกี้เป็นค่าย้อนหลัง
-                                    HttpContext.Response.Cookies[item].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                                    HttpContext.Response.Cookies[item].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                                     HttpContext.Response.Cookies.Add(new HttpCookie(item));
                                 }
                             }
-                            HttpContext.Response.Cookies["strDB"+ session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                            HttpContext.Response.Cookies["strDB"+ session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                             HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));
 
 
@@ -1335,7 +1332,7 @@ namespace ais_web3.Controllers
 
 
 
-                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
+                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
                 {
                     //   module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null , ref check_anumber);
                     //if (check_anumber.Rows.Count >= 1)
@@ -1397,7 +1394,7 @@ namespace ais_web3.Controllers
                         return "คุณเลือกไม่สนใจ โปรดยกเลิกการเลือกบริการ";
                     }
                 }
-                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
+                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
                 {
                     sqlsearch = "";
                     sqlsearch = "INSERT INTO MAS_LEADS_TRANS(ANUMBER,LEAD_CALL_DATE,SERVICE_01,SERVICE_02,SERVICE_03,SERVICE_04,SERVICE_05,SERVICE_06,SERVICE_07,SERVICE_08,SERVICE_09,SERVICE_10,SERVICE_11,SERVICE_12,SERVICE_13,SERVICE_14,SERVICE_15,SERVICE_16,SERVICE_17,SERVICE_18,SERVICE_19,SERVICE_20,SERVICE_21,SERVICE_22,SERVICE_23,SERVICE_24,SERVICE_25,SERVICE_26,SERVICE_27,SERVICE_28,SERVICE_29,SERVICE_33,";
@@ -2061,7 +2058,7 @@ namespace ais_web3.Controllers
                 {
                     {
 
-                        if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 1870)
+                        if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
                         {
                             module = new Module2(session_ID);
                             rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity  }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity"  });
@@ -2083,7 +2080,7 @@ namespace ais_web3.Controllers
                             //return Module2.Agent_Id;
                             if (HttpContext.Request.Cookies["Tel" + session_ID] != null )
                             {
-                                HttpContext.Request.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                                 HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
                             }
                             return "บันทึกข้อมูลเรียบร้อย";
@@ -2561,7 +2558,7 @@ namespace ais_web3.Controllers
                 module = new Module2(session_ID);
                 module.Comman_Static(sql ,null ,null, ref dataTable);
 
-                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
                     if (dataTable.Rows.Count > 0)
                     {
@@ -2573,10 +2570,10 @@ namespace ais_web3.Controllers
                         tel_phone = "";
                     }
                 }
-                if (HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                if (HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
-                    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
-                    HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                    HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
 
                 }
                
@@ -2645,12 +2642,12 @@ namespace ais_web3.Controllers
             session_ID = id;
             if (HttpContext.Response.Cookies["editv" + session_ID] != null)
             {
-                HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
-                HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
             }
-            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
             {
-                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("1870/01/01 00:00:00");
+                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
             }
                 return "";
         }

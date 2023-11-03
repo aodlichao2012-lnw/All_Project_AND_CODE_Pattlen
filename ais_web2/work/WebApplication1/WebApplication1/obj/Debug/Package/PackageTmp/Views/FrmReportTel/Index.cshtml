@@ -1522,7 +1522,7 @@
             })
 
         }
-
+        $(document).on('load', showreportToday());
         let cbostatus2 = null;
         let fucshowtel2 = null;
         let id_serivce;
@@ -1531,12 +1531,6 @@
         $("#total_l").hide()
         $("#right_bar").hide()
 
-
-        $("#agen_id").text(getCookie("Agen" + "" + getCookie1("id")))
-        //$("#occ_tel").text(" แบบฟอร์มบันทึกโทร ระบบ 55555 ")
-        //$("#label_username").text("Test");
-        //getCookie("user_name" + "" + getCookie1("id"))
-        //getCookie("type_db" + "" + getCookie1("id"))
 
 
         $("#valid1").hide()
@@ -1942,7 +1936,7 @@
 
         $("#button_logout").on('click', fuclogout)
 
-        $(document).on('load', showreportToday());
+
     })
 </script>
 <script src="~/Hidden/main2.js"></script>

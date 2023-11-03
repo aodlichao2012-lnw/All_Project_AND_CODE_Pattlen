@@ -2,3 +2,12 @@
 : 03-11-2023 09:24:39: = Index FrmDetail :Connection is already part of a local or a distributed transaction
 : 03-11-2023 09:24:39: = Index FrmDetail :Connection is already part of a local or a distributed transaction
 : 03-11-2023 09:24:39: = Index FrmDetail :SELECT * FROM PREDIC_AGENTS WHERE ROWNUM = 1 AND (LOGIN = :userjson )
+: 03-11-2023 09:48:08: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 09:48:08: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 11:03:50: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 11:03:50: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 11:03:50: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 11:03:55: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 03-11-2023 11:47:22: = Error ที่ Comman_Static2 : OracleConnection.ConnectionString is invalid
+: 03-11-2023 11:47:22: = Error ที่ Comman_Static3 : OracleConnection.ConnectionString is invalid
+: 03-11-2023 11:47:22: = Error ที่ Comman_Static : OracleConnection.ConnectionString is invalid

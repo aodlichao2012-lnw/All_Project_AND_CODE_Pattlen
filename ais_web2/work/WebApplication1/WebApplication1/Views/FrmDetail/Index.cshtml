@@ -1694,7 +1694,7 @@
             formatDate: 'd/m/Y',
         });
 
-        $("#agen_id").text(getCookie("Agen" + "" + getCookie1("id")))
+
         $(document).on('load', showreportToday());
         $("#valid1").hide()
         $("#valid2").hide()
@@ -1876,6 +1876,54 @@
             fuc_select_status_2()
         )
         $("#button_logout").on('click', fuclogout)
+
+
+
+        function fuc_select_change_reson() {
+            let variable = "data-val"
+            let reson_select = $("#select_st").val()
+            /*  let select = $('#browsers [value="' + reson_select + '"]').data('val')*/
+            let ajax_ = $.ajax({
+                url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + getCookie("id")
+                , type: "GET",
+                success: function (e) {
+
+                    let values = JSON.parse(e)
+                    if (e === "server มี ปัญหา") {
+                        alert2("server มี ปัญหา กรุณาติดต่อ admin");
+                    }
+                    if (values[0] === "เครือข่าย") {
+                        let htmls = `  <select  id="cboDeny"  style="width:200px;height:25px;" >`
+                        for (i = 0; i < values.length; i++) {
+                            htmls += `  <option value = "` + values[i] + `" >` + values[i] + `</option>`
+                        }
+                        htmls += ` </select>`
+                        $("#cboDeny").html(htmls)
+                    }
+                    else {
+                        let htmls = `  <select  id="select_rs" style="width:200px;height:25px;" >   <option value="" >
+                                    -- กรุณาเลือก --
+                                </option>`
+                        for (i = 0; i < values.length; i++) {
+                            htmls += `  <option value="` + values[i].DENY_CODE + `" data-val="` + values[i].DENY_CODE + `" >` + values[i].DENY_NAME + `</option>`
+                        }
+                        htmls += ` </select>`
+                        $("#select_rs").html(htmls)
+                        if (reson_select === "01") {
+                            $("#button_add_ser").show()
+                        } else {
+                            $("#button_add_ser").hide()
+                        }
+                    }
+                }
+            })
+
+        }
+
+        $("#select_st").on('change', function (e) {
+            fuc_select_change_reson()
+        })
+
     })
     function clearCookie(cookieName) {
         document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -1893,5 +1941,4 @@
 
 </script>
 <script src="~/Hidden/main.js"></script>
-<script src="~/Hidden/Reson.js"></script>
 <script src="~/Hidden/toggle.js"></script>

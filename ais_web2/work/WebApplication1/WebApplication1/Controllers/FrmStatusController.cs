@@ -81,11 +81,11 @@ namespace ais_web3.Controllers
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        if(HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("1870/01/01 00:00:00"))
+                        if(HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires.Year != 2000)
                         {
                      
-                        return HttpContext.Request.Cookies["Tel" + session_ID].Expires.ToString();
-                    }
+                        return "Busy";
+                        }
                         else
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();

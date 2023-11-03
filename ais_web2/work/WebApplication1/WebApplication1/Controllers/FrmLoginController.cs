@@ -28,10 +28,10 @@ namespace ais_web3.Controllers
     public class FrmLoginController : Controller
     {
 
-        static string session_ID = string.Empty;
+         string session_ID  = Guid.NewGuid().ToString().Substring(0, 6);
         public async Task< ActionResult> Index(string jwt = null)
         {
-            Thread thread = new Thread(() => {
+
 
                 if (HttpContext.Request.Cookies.AllKeys.Length > 0)
                 {
@@ -46,9 +46,6 @@ namespace ais_web3.Controllers
                    
                 }
 
-            });
-            thread.Start();
-            thread.Join();
 
             return View();
         }
@@ -149,7 +146,7 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
-            session_ID = Guid.NewGuid().ToString().Substring(0, 6);
+
             try
             {
                 if (module.strDB == null)
