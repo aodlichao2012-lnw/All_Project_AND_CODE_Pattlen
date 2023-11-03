@@ -381,7 +381,7 @@ namespace Model_Helper_famework
             int i = 0;
             foreach (var dt2 in dt.Rows)
             {
-                T model =  new T();
+                T model = new T();
                 foreach (var property in model.GetType().GetProperties())
                 {
                     foreach (var dt3 in dt.Columns)
@@ -396,20 +396,26 @@ namespace Model_Helper_famework
             return modelList;
         }
         #endregion
+
+
+        #region เปลี่ยนจาก object  เป็น Datatable
         public System.Data.DataTable objectToDataTable<T>(List<T> list) where T : new()
         {
             System.Data.DataTable dt = new System.Data.DataTable();
+
+            foreach (var property in list.GetType().GetProperties())
+            {
+                dt.Columns.Add(property.Name);
+            }
             foreach (var item in list)
             {
-                if(item.GetType() == typeof(T))
-                {
-                    dt.Columns.Add(item.GetType().GetProperties())
-                    dt.Rows.Add(item);
-                }
-
+                dt.Rows.Add(item);
             }
+            return dt;
         }
+        #endregion
     }
-
 }
+
+
 
