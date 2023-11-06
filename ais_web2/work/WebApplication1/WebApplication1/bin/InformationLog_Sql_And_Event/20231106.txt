@@ -1,0 +1,6 @@
+: 06-11-2023 12:38:16: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 06-11-2023 12:38:30: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 06-11-2023 12:38:30: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 06-11-2023 12:38:31: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 06-11-2023 12:38:31: = Error ที่ Get_Project : Object reference not set to an instance of an object.
+: 06-11-2023 12:38:31: = Error ที่ Get_Project : Object reference not set to an instance of an object.

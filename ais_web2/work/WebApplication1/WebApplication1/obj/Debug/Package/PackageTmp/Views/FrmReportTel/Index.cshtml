@@ -1555,12 +1555,14 @@
 
         $("#svg1").on('click', function (e) {
 
-            window.location.href = '/FrmDetail/Index'
+            window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+
 
         })
         $("#svg2").on('click', function (e) {
 
-            window.location.href = '/FrmDetail/Index'
+            window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+
 
         })
         $(function () {

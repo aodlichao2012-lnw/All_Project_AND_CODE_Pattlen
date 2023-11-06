@@ -2073,14 +2073,16 @@ namespace ais_web3.Controllers
                             }
                             //SetAVAL();
                             //Clear_edit();
+                          
                             module = new Module2(session_ID);
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip , form.txtTel_No);
                             string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+
                             module = new Module2(session_ID);
                             module.CommanEx_Save(sqlClear_);
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
                             //return Module2.Agent_Id;
-                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null )
+                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null)
                             {
                                 HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                                 HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
@@ -2102,9 +2104,9 @@ namespace ais_web3.Controllers
                             //Clear_edit();
                             module = new Module2(session_ID);
                             module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip, form.txtTel_No);
-                            string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
-                            module = new Module2(session_ID);
-                            module.CommanEx_Save(sqlClear_);
+                            //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            //module = new Module2(session_ID);
+                            //module.CommanEx_Save(sqlClear_);
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
                             //return Module2.Agent_Id;
                             Clear_edit(session_ID);
@@ -2560,7 +2562,7 @@ namespace ais_web3.Controllers
                 module = new Module2(session_ID);
                 module.Comman_Static(sql ,null ,null, ref dataTable);
 
-                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
                     if (dataTable.Rows.Count > 0)
                     {
@@ -2642,16 +2644,22 @@ namespace ais_web3.Controllers
         public string Clear_edit(string id ="")
         {
             session_ID = id;
+          
             if (HttpContext.Response.Cookies["editv" + session_ID] != null)
             {
                 HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                 HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
             }
-            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"+ session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
             {
+
+                //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + HttpContext.Response.Cookies["Agen" + session_ID].Value + "";
+                //module = new Module2(session_ID);
+                //module.CommanEx_Save(sqlClear_);
                 HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
             }
-                return "";
+         
+            return "";
         }
 
 
