@@ -306,8 +306,13 @@ namespace Model_Helper
          
             string strUpdate;
             strUpdate = "";
-            strUpdate = "UPDATE CNFG_AGENT_INFO  ";
-            strUpdate += " SET  TERMINAL_IP   = '" + IP + "' ,";
+            strUpdate = "UPDATE CNFG_AGENT_INFO  SET ";
+
+            if(IP != "")
+            {
+                strUpdate += "TERMINAL_IP   = '" + IP + "' ,";
+            }
+
             strUpdate += " STATUS_ID = " + status + " ,";
             strUpdate += "CALL_COUNT = 0,";
             strUpdate += "LOGON_EXT = " + status + ",";

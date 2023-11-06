@@ -209,7 +209,7 @@
                     <div class="div_detail1">
                         <span class="textbox_"></span>
                         <span id="status" class="status1">
-                            
+
                         </span>
                     </div>
                     <span class="lable1 tel">หมายเลขโทรศัพท์</span>
@@ -303,16 +303,16 @@
 
                             <br />
                             <div>
-                                <span class="lable1 year_l"> ปีเกิด <span class="lable1 year_danger">*</span></span>
+                                <span class="lable1 year_l"> ปีเกิด (พ.ศ) <span class="lable1 year_danger">*</span></span>
                                 <span class="lable1 datenum_l "> เดือนเกิด </span>
                                 <span class="lable1 mount_l"> วันที่เกิด </span>
                                 <span class="lable1 dateday_l"> วันเกิด <span class="lable1 day_danger">*</span> </span>
 
                             </div>
                             <div class="">
-                                <select class="select1 year_thai_s" id="year_thai" name="">
-                                    <option value="" selected>-- กรุณาเลือก --</option>
-                                </select>
+                                <input class="select1 year_thai_s" id="year_thai" name="" />
+                                @*<option value="" selected>-- กรุณาเลือก --</option>
+                                    </input>*@
 
                                 <select class="select1 date_num_s" id="mouth_thai" name="">
                                     <option value="" selected>-- กรุณาเลือก --</option>
@@ -387,7 +387,7 @@
 
                             <script type="text/javascript">
 
-</script>
+                            </script>
                         </div>
                         <br />
                         <div>
@@ -499,6 +499,8 @@
     </div>
 </div>
 <p class="copy2">© 2023 Teleinfo Media Public Company Limited</p>
+<link href="~/Hidden/jquery-ui.css" rel="stylesheet" />
+<script src="~/Hidden/jquery-ui.js"></script>
 <script>
     $(document).ready(function (e) {
         function alert2(txt) {
@@ -516,24 +518,34 @@
         }
 
         $(function () {
-            //Reference the DropDownList.
-            var ddlYears = $("#year_thai");
-            var option = $("<option />");
-            option.html("-");
-            option.val("-");
-            ddlYears.append(option);
-            //Determine the Current Year.
-            var currentYear = (new Date()).getFullYear();
+            ////Reference the DropDownList.
+            //var ddlYears = $("#year_thai");
+            //var option = $("<option />");
+            //option.html("-");
+            //option.val("-");
+            //ddlYears.append(option);
+            ////Determine the Current Year.
+         
+            jQuery(function ($) {
+                var currentYear = (new Date()).getFullYear();
+                ////Loop and add the Year values to DropDownList.
+                let year_arr = [];
+                for (var i = 2500; i <= currentYear + 543; i++) {
+
+                    year_arr.push("" + i + "");
+                }
+                $("#year_thai").autocomplete({
+                    source: function (request, response) {
+                        var searchTerm = request.term.toLowerCase(); // รับคำที่พิมพ์
+                        var filteredYears = year_arr.filter(function (year) {
+                            return year.toString().includes(searchTerm);
+                        });
+                        response(filteredYears);
+                    }
+                });
+            })
 
 
-
-            //Loop and add the Year values to DropDownList.
-            for (var i = 2500; i <= currentYear + 543; i++) {
-                var option = $("<option />");
-                option.html(i);
-                option.val(i);
-                ddlYears.append(option);
-            }
 
             $("#button_clear").on('click', function (e) {
                 showreportToday()
@@ -897,7 +909,7 @@
             $.ajax({
                 url: '/FrmDetail/list_Service2?id=' + getCookie("id"),
                 type: 'GET'
-            , success: function (e) {
+                , success: function (e) {
                     if (e !== null) {
                         let values = JSON.parse(e)
                         let htmls = ``
@@ -1455,7 +1467,7 @@
 
 
                         $("#status").text("Busy").css("color", "red")
-    
+
                         fucshowtel3(1)
                         showreportToday()
 

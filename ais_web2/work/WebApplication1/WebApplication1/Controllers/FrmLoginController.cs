@@ -213,12 +213,13 @@ namespace ais_web3.Controllers
 
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
+                    string ip = string.Empty;
                     foreach (IPAddress myIP in myIPs.AddressList)
                     {
-                        Module2.Agent_Ip = myIP.ToString();
-                        Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, Module2.Agent_Ip));
+                       ip= myIP.ToString();
+                        Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
-                   module. UpdateCNFG_Agent_Info("5",Module2.Agent_Id,Module2.Agent_Ip);
+                   module. UpdateCNFG_Agent_Info("5",Module2.Agent_Id,ip);
                     //HttpContext.Response.Cookies["type_db"].Value = TempData["type_db"].ToString(); 
                     //HttpContext.Response.Cookies["user_name"].Value = TempData["user_name"].ToString();
                     return "1";

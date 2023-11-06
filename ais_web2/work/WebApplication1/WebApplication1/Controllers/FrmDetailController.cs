@@ -2075,7 +2075,7 @@ namespace ais_web3.Controllers
                             //Clear_edit();
                           
                             module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip , form.txtTel_No);
+                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, "", form.txtTel_No);
                             string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
 
                             module = new Module2(session_ID);
@@ -2103,7 +2103,7 @@ namespace ais_web3.Controllers
                             }
                             //Clear_edit();
                             module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, Module2.Agent_Ip, form.txtTel_No);
+                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, "", form.txtTel_No);
                             //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
                             //module = new Module2(session_ID);
                             //module.CommanEx_Save(sqlClear_);

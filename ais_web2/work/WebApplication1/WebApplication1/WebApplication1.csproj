@@ -324,6 +324,8 @@
     <Content Include="Hidden\dataTables.buttons.min.js" />
     <Content Include="Hidden\icons8-calendar-24.png" />
     <Content Include="Hidden\jquery-datatables-checkboxes%401.2.14_css_dataTables.checkboxes.min.css" />
+    <Content Include="Hidden\jquery-ui.css" />
+    <Content Include="Hidden\jquery-ui.js" />
     <Content Include="Hidden\latest_moment.min.js" />
     <Content Include="Hidden\libs_jszip_3.10.1_jszip.min.js" />
     <Content Include="Hidden\limonte-sweetalert2_11.7.32_sweetalert2.min.js" />
