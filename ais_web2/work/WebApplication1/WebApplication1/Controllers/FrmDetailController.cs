@@ -2562,7 +2562,7 @@ namespace ais_web3.Controllers
                 module = new Module2(session_ID);
                 module.Comman_Static(sql ,null ,null, ref dataTable);
 
-                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
                     if (dataTable.Rows.Count > 0)
                     {
