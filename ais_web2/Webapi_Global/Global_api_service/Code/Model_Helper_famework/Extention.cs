@@ -10,8 +10,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
@@ -55,7 +58,6 @@ namespace Model_Helper_famework
             return path;
         }
         #endregion
-
         #region Log 
         public void Log(string message)
         {
@@ -209,7 +211,6 @@ namespace Model_Helper_famework
         }
 
         #endregion
-
         #region ส่งออก Excel
         public void ExportExcel(System.Data.DataTable dt, string sheetname = "Sheet1", string path = "D:\\Excel\\")
         {
@@ -234,7 +235,6 @@ namespace Model_Helper_famework
 
         }
         #endregion
-
         #region นำเข้า Excel
         public System.Data.DataTable ImportExcel(string pathfile, string sheetName = "Sheet1", bool hasHeader = true)
         {
@@ -267,7 +267,6 @@ namespace Model_Helper_famework
 
         }
         #endregion
-
         #region เลบอภาพ
         public void ImageBlur(string imagePath)
         {
@@ -328,7 +327,6 @@ namespace Model_Helper_famework
 
         }
         #endregion
-
         #region ฟังก์ชั้น คัดลอกและวางรูปภาพลงในสเต็ปโดยตรง
 
         private PictureBox pictureBox;
@@ -373,7 +371,6 @@ namespace Model_Helper_famework
             }
         }
         #endregion
-
         #region เปลี่ยนจาก Datatable เป็น object
         public List<T> DataTableTooject<T>(System.Data.DataTable dt) where T : new()
         {
@@ -396,8 +393,6 @@ namespace Model_Helper_famework
             return modelList;
         }
         #endregion
-
-
         #region เปลี่ยนจาก object  เป็น Datatable
         public System.Data.DataTable objectToDataTable<T>(List<T> list) where T : new()
         {
@@ -414,8 +409,57 @@ namespace Model_Helper_famework
             return dt;
         }
         #endregion
+        #region Socket
+        private HttpListener _httpListener;
+        private async Task AcceptWebSocketAsync(HttpListenerContext context)
+        {
+            if (context.Request.IsWebSocketRequest)
+            {
+                WebSocketContext webSocketContext = await context.AcceptWebSocketAsync(subProtocol: null);
+
+                using (WebSocket webSocket = webSocketContext.WebSocket)
+                {
+                    byte[] receiveBuffer = new byte[1024];
+                    WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+
+                    while (!result.CloseStatus.HasValue)
+                    {
+                        // Handle received data
+                        string receivedData = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
+                        Console.WriteLine($"Received data: {receivedData}");
+
+                        // Send a response
+                        string responseMessage = "Server received: " + receivedData;
+                        byte[] responseBuffer = Encoding.UTF8.GetBytes(responseMessage);
+                        await webSocket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                        result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+                    }
+                }
+            }
+        }
+        #endregion
+        #region เริ่ม Socket
+        public async Task StartAsync()
+        {
+            _httpListener = new HttpListener();
+            _httpListener.Prefixes.Add("http://localhost:8080/");
+            _httpListener.Start();
+
+            while (true)
+            {
+                HttpListenerContext context = await _httpListener.GetContextAsync();
+                if (context.Request.IsWebSocketRequest)
+                {
+                    await AcceptWebSocketAsync(context);
+                }
+                else
+                {
+                    context.Response.StatusCode = 400;
+                    context.Response.Close();
+                }
+            }
+        }
+        #endregion
     }
 }
-
-
-
