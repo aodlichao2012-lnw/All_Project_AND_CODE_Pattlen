@@ -27,9 +27,8 @@ namespace ais_web3.Controllers
 {
     public class FrmLoginController : Controller
     {
-
-         string session_ID  = Guid.NewGuid().ToString().Substring(0, 6);
-        public async Task< ActionResult> Index(string jwt = null)
+        string session_ID  = Guid.NewGuid().ToString().Substring(0, 6);
+        public  ActionResult Index(string jwt = null)
         {
 
 
@@ -54,7 +53,6 @@ namespace ais_web3.Controllers
         private IPHostEntry myIPs;
         private string result;
         private  Module2 module;
-
         public FrmLoginController()
         {
             //WriteLog.instance.Log_browser_Detail_page("FrmLogin/Index");
@@ -104,11 +102,9 @@ namespace ais_web3.Controllers
             status_list.Add(Module2.strDB_);
             return JsonConvert.SerializeObject(status_list);
         }
-
         [HttpPost]
         public string btnLogin_Click(string txtUsername, string txtPassword , string type)
         {
-
             if (txtUsername == "")
             {
                 return "2";
@@ -119,7 +115,6 @@ namespace ais_web3.Controllers
             }
             else
             {
-
                 result = LogIn(txtUsername, txtPassword,type);
                 if (result  == "1")
                 {
@@ -137,16 +132,13 @@ namespace ais_web3.Controllers
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
                     Response.Cookies.Add(new HttpCookie("login"+ session_ID, tokenuser + ";" + tokempass));
                     return session_ID;
-
                 }
                 return result;
             }
         }
-
         [HttpPost]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
-
             try
             {
                 if (module.strDB == null)
@@ -164,7 +156,6 @@ namespace ais_web3.Controllers
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
                 txtPassword = $"'{txtPassword}'";
-             
                 if(type_keep == "1200")
                 {
                     Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[0]));
@@ -196,11 +187,8 @@ namespace ais_web3.Controllers
                 DataSet ds = module.CommandSet(StrSql, "Login_agent");
                 if (ds.Tables["Login_agent"].Rows.Count != 0)
                 {
-
-
                     Module2.Agent_Id = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
                     Module2.EXTENSION = ds.Tables["Login_agent"].Rows[0]["EXTENSION"].ToString();
-                    //HttpContext.Session.Add("Agent_Id" , Module2.Agent_Id);
                     WriteLog.instance.Log_Save_information(Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"));
                     Module2.Instance.Group_Id = Convert.ToInt32(ds.Tables["Login_agent"].Rows[0]["Group_Id"]);
                     Module2.Instance.agent = ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString();
@@ -210,7 +198,6 @@ namespace ais_web3.Controllers
                     string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
                     Module2.user_name_ = user_name;
                     Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
-
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
@@ -220,21 +207,17 @@ namespace ais_web3.Controllers
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
                    module.UpdateCNFG_Agent_Info_login("5",Module2.Agent_Id,ip);
-                    //HttpContext.Response.Cookies["type_db"].Value = TempData["type_db"].ToString(); 
-                    //HttpContext.Response.Cookies["user_name"].Value = TempData["user_name"].ToString();
                     return "1";
                 }
                 else
                 {
                     return "04";
                 }
-           
             }
             catch(OracleException ex )
             {
                 return "05 "+ ex.Message.ToString();
             }
         }
-      
     }
 }

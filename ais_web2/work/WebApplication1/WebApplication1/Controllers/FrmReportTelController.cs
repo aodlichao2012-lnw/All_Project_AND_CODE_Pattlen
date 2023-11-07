@@ -23,17 +23,15 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmReportTelController : Controller
     {
-         string session_ID = string.Empty;
+        string session_ID = string.Empty;
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;
-
         public FrmReportTelController()
         {
 
         }
         static string  Agenids = string.Empty;
-
         [HttpGet]
         public ActionResult Index(string id)
         {
@@ -129,7 +127,6 @@ namespace ais_web3.Controllers
 
         }
         private string sql = "";
-
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
         private int i;
@@ -138,7 +135,6 @@ namespace ais_web3.Controllers
         private string actionflag;
         private int z;
         [HttpGet]
-
         public string FrmReportTel_Load(string id = "")
         {
             session_ID = id;
@@ -152,7 +148,6 @@ namespace ais_web3.Controllers
             }
             return JsonConvert.SerializeObject(list);
         }
-
         private DataTable setcboStatus()
         {
 
@@ -188,17 +183,14 @@ namespace ais_web3.Controllers
             }
          
         }
-
         [HttpPost]
         public string btnReport_Click(Telclass telclass)
         {
             session_ID = telclass.id;
             return showreport(telclass);
-
         }
         public string list_Service(string id = "")
         {
-
             try
             {
                 session_ID = id;
@@ -206,10 +198,8 @@ namespace ais_web3.Controllers
                 DataTable dt1 = null;
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
-
                 module = new Module2(session_ID);
                 module.Comman_Static(sql, null, null, ref dt1);
-
                 return JsonConvert.SerializeObject(dt1);
             }
             catch
@@ -218,13 +208,8 @@ namespace ais_web3.Controllers
             }
             finally
             {
-
             }
-
-
-
         }
-
         [HttpGet]
         public string showreportToday(string id = "")
         {
@@ -285,10 +270,7 @@ namespace ais_web3.Controllers
             try
             {
                 session_ID = telclass.id;
-
                 DataTable dt3 = new DataTable();
-
-
                 if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
                 {
                     string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
@@ -400,16 +382,13 @@ namespace ais_web3.Controllers
                         }
                         else
                         {
-
                             return "ไม่มีข้อมูลที่คุณค้นหา";
                         }
                     }
                     else
                     {
-
                         return "ไม่มีข้อมูลที่คุณค้นหา";
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -423,10 +402,7 @@ namespace ais_web3.Controllers
                 WriteLog.instance.Log("showreport :" + sql2);
                 return ("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
             }
-         
-          
         }
-       
         [HttpPost]
         public string DataGridView1_DoubleClick(Telclass telclass)
         {
@@ -439,8 +415,6 @@ namespace ais_web3.Controllers
             list.Add(telclass.res_code);
             return JsonConvert.SerializeObject(list);
         }
-
-        
         [HttpPost]
         public string Send_localstoreless(localstoreless localstoreless)
         {

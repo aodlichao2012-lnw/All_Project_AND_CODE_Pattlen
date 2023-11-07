@@ -4,8 +4,6 @@ using Microsoft.VisualBasic;
 using Model_Helper;
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
-//using Oracle.ManagedDataAccess.Client;
-//using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,53 +24,35 @@ namespace ais_web3.Controllers
     public class FrmSearchNumberController : Controller
     {
         string Agenids = string.Empty;
-
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;
-
         public FrmSearchNumberController()
         {
             module = new Module2();
-            //WriteLog.instance.Log_browser_Detail_page("FrmDetail/Index");
-
         }
-
-
         [HttpGet]
-
-        public async Task< ActionResult> Index( )
+        public ActionResult Index( )
         {
-        
             string StrSql = string.Empty;
             int return1 = 0;
             try
             {
-
-
                 type_db = "";
                 user_name = "";
-
                 CultureInfo cultureInfo = new CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = cultureInfo;
                 DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
                 string jwt = HttpContext.Request.Cookies["login"].Value;
-
-
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
-                    //WriteLog.instance.Log("HttpContext.Request.Cookies[\"login\"].Value");
                     List<string> userjson = module.GetFromToken(keys);
-
                     if (datet <= Convert.ToDateTime(userjson[2].ToString()))
                     {
-                        //WriteLog.instance.Log(" login by user " + WindowsIdentity.DefaultIssuer);
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE  ROWNUM = 1 AND (LOGIN = :userjson )";
-
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
-
                         if (ds != null)
                         {
                             if (ds.Tables["Login_agent"].Rows.Count != 0)
@@ -85,30 +65,22 @@ namespace ais_web3.Controllers
                             }
                             else
                             {
-
                                 return1 = 0;
                             }
                         }
                         else
                         {
-
                             return1 = 0;
                         }
-
                     }
-
-
-
                     if (return1 == 1)
                     {
-
                         return View();
                     }
                     else
                     {
                         return RedirectToAction("Index", "FrmLogin");
                     }
-
                 }
                 return RedirectToAction("Index", "FrmLogin");
             }
@@ -118,7 +90,6 @@ namespace ais_web3.Controllers
                 WriteLog.instance.Log("Index FrmNumberSearch :" + StrSql);
                 return RedirectToAction("Index", "FrmSearchNumber");
             }
-         
         }
         private int i;
         private string Today = "";
@@ -126,7 +97,6 @@ namespace ais_web3.Controllers
         private string strmm;
         private string stryy;
         private int z;
-
         [HttpPost]
         public string Send_localstoreless(localstoreless localstoreless)
         {
@@ -134,17 +104,13 @@ namespace ais_web3.Controllers
             Module2.strDB_ = localstoreless.strDB;
             return "";
         }
-
-
         [HttpGet]
         public string FrmSearchNumber_Load(string textbox_search_number = "")
         {
-        
             string json = "";
             try
             {
-                 json = module.CommanDataread(textbox_search_number);
-              
+                json = module.CommanDataread(textbox_search_number);
                 return json;
             }
             catch(Exception ex)
@@ -162,5 +128,4 @@ namespace ais_web3.Controllers
             return JsonConvert.SerializeObject(list);
         }
     }
-    
 }

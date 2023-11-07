@@ -16,11 +16,10 @@ namespace ais_web3.Controllers
 {
     public class FrmStatusController : Controller
     {
-         string session_ID = string.Empty;
+        string session_ID = string.Empty;
         private Module2 module = new Module2();
         string type_db = string.Empty;
         string user_name = string.Empty;
-
         public FrmStatusController()
         {
 
@@ -33,8 +32,7 @@ namespace ais_web3.Controllers
             return "";
         }
         [HttpGet]
-
-        public async Task<string> FrmStatus_Load(string id ="")
+        public string FrmStatus_Load(string id ="")
         {
             session_ID = id;
 
@@ -60,8 +58,6 @@ namespace ais_web3.Controllers
           
             return json;
         }
-
-    
         public  string Get_Project(string id)
         {
             try

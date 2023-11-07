@@ -942,7 +942,7 @@ namespace ais_web3.Controllers
         {
         }
         [HttpGet]
-        public async  Task< string> cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="")
+        public string cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="")
         {
 
         
@@ -1184,7 +1184,7 @@ namespace ais_web3.Controllers
         {
         }
         [HttpPost]
-        public async Task<string> btnSave_Click(form3 form)
+        public string btnSave_Click(form3 form)
         {
  
             DataTable check_anumber = null;
@@ -2256,7 +2256,7 @@ namespace ais_web3.Controllers
 
         }
         [HttpGet]
-        public async Task<string> list_Service2(string id ="")
+        public string list_Service2(string id ="")
         {
             string sql = string.Empty;
             DataTable dt1 = null;
