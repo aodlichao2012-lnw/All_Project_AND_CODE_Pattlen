@@ -32,13 +32,10 @@ namespace ais_web3.Controllers
     [OutputCache(Duration = 3600)]
     public class FrmDetailController : Controller
     {
-         string session_ID = string.Empty;
-
+        string session_ID = string.Empty;
         private Module2 module;
         string type_db = string.Empty;
         string user_name = string.Empty;
-
-
         public FrmDetailController()
         {
 
@@ -47,7 +44,6 @@ namespace ais_web3.Controllers
             //WriteLog.instance.Log_browser_Detail_page("FrmDetail/Index");
 
         }
-
         public Dictionary<string, string> keyValuePairs;
         public delegate void updatestatus(string strstat);
         private DataSet ds = new DataSet();
@@ -72,17 +68,6 @@ namespace ais_web3.Controllers
         private string strData, pAni1, sLang1; // ...AVAYA CTI
         private string Anumber = "";
         static string tel_phone;
-
-        //[HttpPost]
-        //public string FrmDetail_Load(Telclass2 telclass)
-        //{
-
-        //        GetPhone();
-
-        //    return FromLoad(telclass);
-        //}
-
-     
         private string FromLoad(Telclass2 telclass)
         {
         
@@ -134,8 +119,6 @@ namespace ais_web3.Controllers
 
         
         }
-
-     
         private   string setcboDeny(string res_code ,string id ="")
         {
             module = new Module2(id);
@@ -155,8 +138,6 @@ namespace ais_web3.Controllers
             }
            
         }
-
-     
         private DataTable setcboDenyByCode()
         {
             module = new Module2(session_ID);
@@ -256,9 +237,6 @@ namespace ais_web3.Controllers
             return "";
 
         }
-
-
-     
         public string showDataforEdit(Telclass2 telclass2)
         {
         
@@ -651,8 +629,6 @@ namespace ais_web3.Controllers
             }
           
         }
-
-     
         public string showdata2(Telclass2 telclass2)
         {
         
@@ -965,7 +941,6 @@ namespace ais_web3.Controllers
         private void pictureBox1_Click(object sender, EventArgs e)
         {
         }
-
         [HttpGet]
         public async  Task< string> cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="")
         {
@@ -1009,32 +984,6 @@ namespace ais_web3.Controllers
                
             }
         }
-        //[Obsolete]
-        //[HttpGet]
-        //public void showcity_thread()
-        //{
-        //    Thread event_city = new Thread(showCity_);
-        //    event_city.Start();
-        //}
-        //[Obsolete]
-        //[HttpGet]
-        //public void showcbostatus_thread()
-        //{
-        //    Thread event_cbostatus = new Thread(setcboStatus_);
-        //    event_cbostatus.Start();
-        //}
-
-        //[Obsolete]
-        //public void showCity_()
-        //{
-        //    showCity();
-        //}
-        //[Obsolete]
-        //public void setcboStatus_()
-        //{
-        //    setcboStatus();
-        //}
-
         [HttpGet]
         public string showCity(string id ="")
         {
@@ -1072,7 +1021,6 @@ namespace ais_web3.Controllers
             }
           
         }
-
         [HttpGet]
         public string setcboStatus(string id ="")
         {
@@ -1115,19 +1063,6 @@ namespace ais_web3.Controllers
 
 
         }
-        //private string cboMouth_KeyDown(string cboDate_No, string cboMouth, string txtYear)
-        //{
-
-        //    if (cboDate_No != "" & cboMouth != "" & txtYear != "")
-        //    {
-        //        checkMonth(new Models.checkcbo() { cboDate = cboDate_No, cboMouth = cboMouth, txtYear = txtYear });
-        //        checkDay(new Models.checkcbo() { cboDate = cboDate_No, cboMouth = cboMouth, txtYear = txtYear });
-        //        return Module2.Instance.Birth_MM;
-        //    }
-        //    return "";
-        //}
-
-
         private string SetAVAL()
         {
             string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
@@ -1150,7 +1085,6 @@ namespace ais_web3.Controllers
                 return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
             }
         }
-
         private void SelectCall_Count()
         {
             Module2.Instance.Connectdb();
@@ -1165,8 +1099,6 @@ namespace ais_web3.Controllers
                 Module2.Instance.Call_Count = Convert.ToInt32(ds.Tables["Call_Count"].Rows[i]["Call_Count"].ToString());
             }
         }
-
-
         [HttpGet]
         public string SingOut(string id )
         {
@@ -1248,13 +1180,10 @@ namespace ais_web3.Controllers
             }
 
         }
-
-
         private void btnSingout_Click(object sender, EventArgs e)
         {
         }
         [HttpPost]
-
         public async Task<string> btnSave_Click(form3 form)
         {
  
@@ -2075,7 +2004,7 @@ namespace ais_web3.Controllers
                             //Clear_edit();
                           
                             module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, "", form.txtTel_No);
+                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
                             string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
 
                             module = new Module2(session_ID);
@@ -2103,7 +2032,7 @@ namespace ais_web3.Controllers
                             }
                             //Clear_edit();
                             module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, "", form.txtTel_No);
+                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
                             //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
                             //module = new Module2(session_ID);
                             //module.CommanEx_Save(sqlClear_);
@@ -2139,7 +2068,6 @@ namespace ais_web3.Controllers
 
             }
         }
-
         public void Get_Error(string err_num, string err_des, string err_func)
         {
             string Err_number = err_num;
@@ -2171,13 +2099,9 @@ namespace ais_web3.Controllers
             }
 
         }
-
-
         private void FrmDetail_FormClosed()
         {
         }
-
-
         private void FrmDetail_FormClosing()
         {
         }
@@ -2242,9 +2166,6 @@ namespace ais_web3.Controllers
                 return "";
             }
         }
-
-
-
         [HttpGet]
         public ActionResult Index(string id )
         {
@@ -2334,10 +2255,7 @@ namespace ais_web3.Controllers
             }
 
         }
-
         [HttpGet]
-
-
         public async Task<string> list_Service2(string id ="")
         {
             string sql = string.Empty;
@@ -2364,9 +2282,7 @@ namespace ais_web3.Controllers
 
 
         }
-
         [HttpPost]
-
         public string SetVisible_Unvisible_Enable(form2 form)
         {
         
@@ -2408,10 +2324,6 @@ namespace ais_web3.Controllers
             }
         }
         [HttpPost]
-
- 
-     
-
         public string SetVisible(form2 form)
         {
         
@@ -2447,9 +2359,7 @@ namespace ais_web3.Controllers
             return "กรุณาเลือกข้อมูล";
 
         }
-
         [HttpGet]
-
         public string SetVisible_remove(string txt_tel)
         {
         
@@ -2491,7 +2401,6 @@ namespace ais_web3.Controllers
 
 
         }
-
         [HttpGet]
         public string showreportToday(string id = "")
         {
@@ -2610,7 +2519,6 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-
         public string Save_service(string id, string values)
         {
         
@@ -2661,15 +2569,12 @@ namespace ais_web3.Controllers
          
             return "";
         }
-
-
         [HttpGet]
         public string Get_sessionStorage_detail()
         {
             string values = showCity() + ";" + setcboStatus();
             return values;
         }
-
         [HttpPost]
         public void Send_localstoreless(localstoreless localstoreless)
         {
@@ -2677,7 +2582,5 @@ namespace ais_web3.Controllers
             Module2.strDB_ = localstoreless.strDB;
             Module2.type_db_ = localstoreless.type_db;
         }
-
-        
     }
 }

@@ -301,7 +301,7 @@ namespace Model_Helper
         }
 
 
-        public string UpdateCNFG_Agent_Info(string status, string Agen = "", string IP = "", string DNIS = "")
+        public string UpdateCNFG_Agent_Info_login(string status, string Agen = "", string IP = "", string DNIS = "")
         {
          
             string strUpdate;
@@ -312,6 +312,37 @@ namespace Model_Helper
             {
                 strUpdate += "TERMINAL_IP   = '" + IP + "' ,";
             }
+
+            strUpdate += " STATUS_ID = " + status + " ,";
+            strUpdate += "CALL_COUNT = 0,";
+            strUpdate += "LOGON_EXT = " + status + ",";
+            if (DNIS != "")
+            {
+                strUpdate += "DNIS = '' ,";
+            }
+            strUpdate += " LOGIN_TIME   = sysdate ";
+            strUpdate += " WHERE AGENT_ID = '" + Agen + "'";
+
+            try
+            {
+                {
+                    CommanEx(strUpdate);
+                    return "200";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message + "ผลการตรวจสอบ";
+            }
+        }  
+        
+        public string UpdateCNFG_Agent_Info(string status, string Agen = "", string DNIS = "")
+        {
+         
+            string strUpdate;
+            strUpdate = "";
+            strUpdate = "UPDATE CNFG_AGENT_INFO  SET ";
+
 
             strUpdate += " STATUS_ID = " + status + " ,";
             strUpdate += "CALL_COUNT = 0,";

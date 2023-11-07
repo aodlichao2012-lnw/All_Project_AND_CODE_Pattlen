@@ -126,12 +126,12 @@ namespace ais_web3.Controllers
                     var username = new Dictionary<string, object>()
 {
     { "sub", txtUsername },
-    { "exp", DateTime.Now.AddHours(5).ToString("MM/dd/yyyy HH:mm:ss" , new CultureInfo("en-US")) }
+    { "exp", DateTime.Now.AddHours(10).ToString("MM/dd/yyyy HH:mm:ss" , new CultureInfo("en-US")) }
 };
                     var password = new Dictionary<string, object>()
 {
     { "subpass", txtPassword},
-    { "exp",  DateTime.Now.AddHours(5).ToString("MM/dd/yyyy HH:mm:ss" , new CultureInfo("en-US")) }
+    { "exp",  DateTime.Now.AddHours(10).ToString("MM/dd/yyyy HH:mm:ss" , new CultureInfo("en-US")) }
 };
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
@@ -219,7 +219,7 @@ namespace ais_web3.Controllers
                        ip= myIP.ToString();
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
-                   module. UpdateCNFG_Agent_Info("5",Module2.Agent_Id,ip);
+                   module.UpdateCNFG_Agent_Info_login("5",Module2.Agent_Id,ip);
                     //HttpContext.Response.Cookies["type_db"].Value = TempData["type_db"].ToString(); 
                     //HttpContext.Response.Cookies["user_name"].Value = TempData["user_name"].ToString();
                     return "1";
