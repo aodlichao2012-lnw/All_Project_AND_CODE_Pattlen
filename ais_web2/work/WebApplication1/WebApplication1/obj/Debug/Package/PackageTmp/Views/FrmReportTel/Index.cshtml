@@ -293,7 +293,7 @@
                     <div> <span class="Label_" id="label_ser1"></span> <span style="padding-left: 10px;"></span>  <span id="Label9"> </span> <span style="margin-left:30px;"></span><span class="Label_" id="label_ser2"> </span><span style="padding-left: 20px;"></span>   <span id="Label10">  </span> </div>
                     <div style="position: relative; left: 39px;"> <span class="Label_" id="label_ser3"> </span> <span style=" margin-left: 6px;"></span>  <span id="Label11"> </span> <span style="margin-left:30px;"></span><span class="Label_" id="label_ser4"> </span> <span style="padding-left: 20px;"></span>   <span id="Label12"> </span> </div>
                     <div style="margin-top:20px;"></div>
-                    <div><span class="Label_" id=""> ผลการค้นหา สถานะ :</span> <span style="padding-left: 15px;"></span>  <span id="Labelstatus"> 0 </span> <span id="">วันที่ <span style="margin-left:10px;">@DateTime.Now.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("th-TH"))</span></span>    <span style="padding-left: 10px;font-size:14px;"></span><span class="Label_">จำนวนเบอร์โทร </span>  <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel2" class="Label_"> 0 </span> เบอร์</div>
+                    <div><span class="Label_" id=""> ผลการค้นหา สถานะ :</span> <span style="padding-left: 15px;"></span>  <span id="Labelstatus"> 0 </span> <span id="">วันที่ <span style="margin-left:10px;" ></span></span> <span id="date_reson1"></span>   <span style="padding-left: 10px;font-size:14px;"></span><span class="Label_">จำนวนเบอร์โทร </span>  <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel2" class="Label_"> 0 </span> เบอร์</div>
 
                 </div>
                 <div style="margin-left:100px;">
@@ -1235,6 +1235,7 @@
         function btnreport_click() {
             let reson = $("#select_reson").val()
             let date = $("#date_reson").val()
+
             let datas = new FormData();
             if (reson === "" || reson == null) {
                 reson = "01"
@@ -1268,6 +1269,7 @@
 
                         tableload(table_sub2, table_sub3)
                         sum(table_sub, table_sub2, table_sub3)
+                        $("#date_reson1").text(date)
                         /*      sum2(table_sub, table_sub2, table_sub3)*/
                     }
                 }

@@ -805,9 +805,10 @@ namespace Model_Helper
                         try
                         {
                             int i = Cmd.ExecuteNonQuery();
-                            Cmd.Dispose();
                             transaction.Commit();
                             transaction.Dispose();
+                            Cmd.Dispose();
+
                             Connect.Close();
                             return i;
                         }
@@ -816,6 +817,7 @@ namespace Model_Helper
                             //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                             transaction.Commit();
                             transaction.Dispose();
+                            Cmd.Dispose();
                             Connect.Close();
                             return -1;
                         }
