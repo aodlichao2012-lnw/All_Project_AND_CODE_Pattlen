@@ -86,8 +86,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Index FrmNumberSearch :" + ex.Message.ToString());
-                WriteLog.instance.Log("Index FrmNumberSearch :" + StrSql);
+                ////WriteLog.instance.Log("Index FrmNumberSearch :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Index FrmNumberSearch :" + StrSql);
                 return RedirectToAction("Index", "FrmSearchNumber");
             }
         }
@@ -115,7 +115,7 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ FrmSearchNumber_Load : "+ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ FrmSearchNumber_Load : "+ex.Message.ToString());
                 return json;
             }
         }

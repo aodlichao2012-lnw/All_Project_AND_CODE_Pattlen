@@ -48,8 +48,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ FrmStatus_Load : " + ex.Message.ToString());
-                Module2.Agent_Id = "";
+                //WriteLog.instance./*Log*/("Error ที่ FrmStatus_Load : " + ex.Message.ToString());
+                //Module2.Agent_Id = "";
             }
 
         
@@ -92,7 +92,7 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Get_Project : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Get_Project : " + ex.Message.ToString());
                 return "Unknow";
             }
         }

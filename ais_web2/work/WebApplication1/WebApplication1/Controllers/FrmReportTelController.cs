@@ -117,8 +117,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Index FrmReport : "+ ex.Message.ToString());
-                WriteLog.instance.Log("Index FrmReport : "+ StrSql);
+                //WriteLog.instance.Log("Index FrmReport : "+ ex.Message.ToString());
+                //WriteLog.instance.Log("Index FrmReport : "+ StrSql);
                 return  RedirectToAction("Index","FrmReportTel");
             }
             finally
@@ -173,8 +173,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("setcboStatus :" + ex.Message.ToString());
-                WriteLog.instance.Log("setcboStatus :" + sql);
+                //WriteLog.instance.Log("setcboStatus :" + ex.Message.ToString());
+                //WriteLog.instance.Log("setcboStatus :" + sql);
                 return null;
             }
             finally
@@ -331,8 +331,8 @@ namespace ais_web3.Controllers
                 }
                 catch (Exception ex)
                 {
-                    WriteLog.instance.Log("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
-                    WriteLog.instance.Log("showreport :" + sql2);
+                    //WriteLog.instance.Log("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
+                    //WriteLog.instance.Log("showreport :" + sql2);
                     return ("ไม่สามารถแสดงข้อมูลได้ เนื่องจากมีข้อผิดพลาด");
                 }
                 try
@@ -392,14 +392,14 @@ namespace ais_web3.Controllers
                 }
                 catch (Exception ex)
                 {
-                    WriteLog.instance.Log("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
-                    WriteLog.instance.Log("showreport :" + sql2);
+                    //WriteLog.instance.Log("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
+                    //WriteLog.instance.Log("showreport :" + sql2);
                     return ("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
                 }
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("showreport :" + sql2);
+                //WriteLog.instance.Log("showreport :" + sql2);
                 return ("ไม่สามารถแสดงข้อมูลได้ เนื่องจาก" + ex.Message.ToString() + "ข้อผิดพลาด");
             }
         }

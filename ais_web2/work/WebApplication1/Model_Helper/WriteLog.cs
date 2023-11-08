@@ -27,53 +27,53 @@ namespace Model_Helper
                 }
             }
 
-            public void Log(string message)
-            {
-                try
-                {
-                    string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\InformationLog_Sql_And_Event\\";
-                    if (!Directory.Exists(path))
+            //public void Log(string message)
+            //{
+            //    try
+            //    {
+            //        string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\InformationLog_Sql_And_Event\\";
+            //        if (!Directory.Exists(path))
 
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    using (StreamWriter steam = new StreamWriter(path + DateTime.Now.ToString("yyyyMMdd") + ".txt", true))
-                    {
+            //        {
+            //            Directory.CreateDirectory(path);
+            //        }
+            //        using (StreamWriter steam = new StreamWriter(path + DateTime.Now.ToString("yyyyMMdd") + ".txt", true))
+            //        {
 
-                        steam.WriteLine(": " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + ": = " + message);
-                    }
-                }
-                catch
-                {
+            //            steam.WriteLine(": " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + ": = " + message);
+            //        }
+            //    }
+            //    catch
+            //    {
 
-                }
+            //    }
 
 
-            }
+            //}
       
-            public void LogSql(string message)
-            {
-                try
-                {
-                    string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\Information_sql\\";
-                    if (!Directory.Exists(path))
+            //public void LogSql(string message)
+            //{
+            //    try
+            //    {
+            //        string path = HttpContext.Current.Server.MapPath("~\\bin") + "\\Information_sql\\";
+            //        if (!Directory.Exists(path))
 
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    using (StreamWriter steam = new StreamWriter(path + DateTime.Now.ToString("yyyyMMdd") + ".txt", true))
-                    {
+            //        {
+            //            Directory.CreateDirectory(path);
+            //        }
+            //        using (StreamWriter steam = new StreamWriter(path + DateTime.Now.ToString("yyyyMMdd") + ".txt", true))
+            //        {
 
-                        steam.WriteLine(": " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + ": = " + message);
-                    }
-                }
-                catch
-                {
+            //            steam.WriteLine(": " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + ": = " + message);
+            //        }
+            //    }
+            //    catch
+            //    {
 
-                }
+            //    }
 
 
-            }
+            //}
            
         public void Log_Save_information(string Cookie_AgenId, string Datetimes)
             {
@@ -120,7 +120,7 @@ namespace Model_Helper
                 }
                 catch (Exception ex) 
                 {
-                     WriteLog.instance.LogSql(ex.Message.ToString());
+                     //WriteLog.instance.LogSql(ex.Message.ToString());
                 return string.Empty;
                 }
 
@@ -151,7 +151,7 @@ namespace Model_Helper
                 }
                 catch (Exception ex) 
                 {
-                     WriteLog.instance.LogSql(ex.Message.ToString());
+                     //WriteLog.instance.LogSql(ex.Message.ToString());
                 return string.Empty;
                 }
 
@@ -179,7 +179,7 @@ namespace Model_Helper
                 }
                 catch (Exception ex) 
                 {
-                     WriteLog.instance.LogSql(ex.Message.ToString());
+                     //WriteLog.instance.LogSql(ex.Message.ToString());
                 return count = 0;
                 }
 

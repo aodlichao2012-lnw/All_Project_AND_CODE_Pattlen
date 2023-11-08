@@ -380,8 +380,8 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Connect : " + ex.Message.ToString());
-                WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
+                //WriteLog.instance.Log("Error ที่ Connect : " + ex.Message.ToString());
+                //WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
             }
         }
 
@@ -395,8 +395,8 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Connect3 : " + ex.Message.ToString());
-                WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
+                //WriteLog.instance.Log("Error ที่ Connect3 : " + ex.Message.ToString());
+                //WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
             }
         }
 
@@ -421,7 +421,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static : " + ex.Message.ToString());
 
             }
             finally
@@ -556,7 +556,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static_All : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static_All : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -672,7 +672,7 @@ namespace Model_Helper
                 }
                 catch (Exception ex)
                 {
-                    WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                    //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 }
 
 
@@ -771,7 +771,7 @@ namespace Model_Helper
 
             catch (OracleException ex)
             {
-                WriteLog.instance.Log("Error ที่ CommanDataread : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ CommanDataread : " + ex.Message.ToString());
                 return "";
             }
             finally
@@ -813,7 +813,7 @@ namespace Model_Helper
                         }
                         catch (OracleException ex)
                         {
-                            WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
+                            //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                             transaction.Commit();
                             transaction.Dispose();
                             Connect.Close();
@@ -827,7 +827,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                 return 0;
             }
             finally
@@ -868,7 +868,7 @@ namespace Model_Helper
                         }
                         catch (OracleException ex)
                         {
-                            WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
+                            //WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
                             transaction.Commit();
                             transaction.Dispose();
                             return -1;
@@ -878,7 +878,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
                 return -1;
             }
             finally
@@ -925,7 +925,7 @@ namespace Model_Helper
             }
             catch (OracleException ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Set : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Set : " + ex.Message.ToString());
                 return null;
             }
 
@@ -987,8 +987,9 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ GetFromToken : " + ex.Message.ToString());
                 return null;
+                //WriteLog.instance.Log("Error ที่ GetFromToken : " + ex.Message.ToString());
+                //return null;
             }
 
         }
@@ -1041,7 +1042,7 @@ namespace Model_Helper
                     }
                     catch (Exception ex)
                     {
-                        WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                        //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                         return null;
                     }
            
@@ -1053,7 +1054,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -1089,7 +1090,7 @@ namespace Model_Helper
                 }
                 catch (Exception ex)
                 {
-                    WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                    //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                     return null;
                 }
 
@@ -1098,7 +1099,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -1162,7 +1163,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -1207,8 +1208,8 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                WriteLog.instance.Log("Service_Sum :" + sql);
+                //WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Service_Sum :" + sql);
                 return null;
             }
 
@@ -1228,8 +1229,8 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                WriteLog.instance.Log("Service_Sum :" + sql);
+                //WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Service_Sum :" + sql);
                 return null;
             }
 
@@ -1249,8 +1250,8 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                WriteLog.instance.Log("Service_Sum :" + sql);
+                //WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Service_Sum :" + sql);
                 return null;
             }
 
@@ -1275,7 +1276,7 @@ namespace Model_Helper
                         }
                         catch (Exception ex)
                         {
-                            WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
+                            //WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
                             return null;
                         }
                         if (!string.IsNullOrEmpty(sQL))
@@ -1295,7 +1296,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
                 return null;
             }
             finally

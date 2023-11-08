@@ -107,7 +107,7 @@ namespace ais_web3.Controllers
                 return "";
             }
             catch(Exception ex) {
-                WriteLog.instance.Log("FromLoad :" + ex.Message.ToString());
+                //WriteLog.instance.Log("FromLoad :" + ex.Message.ToString());
                 return "";
             }
         }
@@ -124,7 +124,7 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ : setcboDeny" + ex.Message.ToString()); 
+                //WriteLog.instance.Log("Error ที่ : setcboDeny" + ex.Message.ToString()); 
                 return null;
             }
         }
@@ -587,8 +587,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("showDataforEdit :" + ex.Message.ToString());
-                WriteLog.instance.Log("showDataforEdit :" + sqlselect); 
+                //WriteLog.instance.Log("showDataforEdit :" + ex.Message.ToString());
+                //WriteLog.instance.Log("showDataforEdit :" + sqlselect); 
                 return null;
             }
             finally
@@ -941,8 +941,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ showCity : "+ ex.Message.ToString());
-                WriteLog.instance.Log("Error ที่ showCity : "+ searchcity);
+                //WriteLog.instance.Log("Error ที่ showCity : "+ ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ showCity : "+ searchcity);
                 return "";
             }
             finally
@@ -973,8 +973,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("Error ที่ setcboStatus : " + ex.Message.ToString());
-                WriteLog.instance.Log("Error ที่ setcboStatus : " + sql);
+                //WriteLog.instance.Log("Error ที่ setcboStatus : " + ex.Message.ToString());
+                //WriteLog.instance.Log("Error ที่ setcboStatus : " + sql);
                 return "";
             }
             finally
@@ -1797,15 +1797,15 @@ namespace ais_web3.Controllers
                 {
                     module = new Module2(session_ID);
                     WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
-                    WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
-                    WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
+                    //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
+                    //WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
                     return "ไม่สามารถบันทึกข้อมูลได้เนื่องจาก" + ex.Message;
                 }
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
-                WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
+                //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
+                //WriteLog.instance.Log("btnSave_Click :" + sqlsearch;
                 return "ไม่สามารถบันทึกได้เนื่องจาก " + ex.Message.ToString();
             }
             finally
@@ -1966,8 +1966,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Index FrmDetail :" + ex.Message.ToString());
-                WriteLog.instance.Log("Index FrmDetail :" + StrSql);
+                //WriteLog.instance.Log("Index FrmDetail :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Index FrmDetail :" + StrSql);
                 return RedirectToAction("Index", "FrmDetail");
             }
             finally
@@ -2027,8 +2027,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + ex.Message.ToString());
-                WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + sql);
+                //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + ex.Message.ToString());
+                //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + sql);
                 return "บันทึกไม่สำเร็จ";
             }
         }
@@ -2058,8 +2058,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("SetVisible :" + ex.Message.ToString());
-                WriteLog.instance.Log("SetVisible :" + sql);
+                //WriteLog.instance.Log("SetVisible :" + ex.Message.ToString());
+                //WriteLog.instance.Log("SetVisible :" + sql);
                 return "บันทึกไม่สำเร็จ";
             }
             return "กรุณาเลือกข้อมูล";
@@ -2180,8 +2180,8 @@ namespace ais_web3.Controllers
             }
             catch(Exception ex)
             {
-                WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
-                WriteLog.instance.Log("GetPhone :" + sql);
+                //WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
+                //WriteLog.instance.Log("GetPhone :" + sql);
                 return "";
             }
             finally
@@ -2222,8 +2222,8 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                WriteLog.instance.Log("Save_service :" + ex.Message.ToString());
-                WriteLog.instance.Log("Save_service :" + sql);
+                //WriteLog.instance.Log("Save_service :" + ex.Message.ToString());
+                //WriteLog.instance.Log("Save_service :" + sql);
                 return "บันทึกไม่สำเร็จ เนื่องจาก " + ex.Message.ToString();
             }
         }

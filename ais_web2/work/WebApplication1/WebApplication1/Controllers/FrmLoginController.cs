@@ -54,7 +54,6 @@ namespace ais_web3.Controllers
         private string result;
         private  Module2 module;
 
-        [Obsolete]
         public FrmLoginController()
         {
             //WriteLog.instance.Log_browser_Detail_page("FrmLogin/Index");
@@ -139,7 +138,6 @@ namespace ais_web3.Controllers
             }
         }
         [HttpPost]
-        [Obsolete]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
             try
