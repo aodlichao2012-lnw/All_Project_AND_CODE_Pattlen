@@ -53,13 +53,15 @@ namespace ais_web3.Controllers
         private IPHostEntry myIPs;
         private string result;
         private  Module2 module;
+
+        [Obsolete]
         public FrmLoginController()
         {
             //WriteLog.instance.Log_browser_Detail_page("FrmLogin/Index");
-            myIPs = System.Net.Dns.GetHostByName(myHost);
+
 
             module = new Module2(session_ID);
-
+            myHost = Dns.GetHostName();
 
 
         }
@@ -137,6 +139,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpPost]
+        [Obsolete]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
             try
@@ -201,6 +204,7 @@ namespace ais_web3.Controllers
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
+                    myIPs = System.Net.Dns.GetHostByName(myHost);
                     foreach (IPAddress myIP in myIPs.AddressList)
                     {
                        ip= myIP.ToString();

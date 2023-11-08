@@ -840,45 +840,41 @@ namespace Model_Helper
         {
             try
             {
-                dt = new DataTable();
+              DataTable  dt = new DataTable();
 
-
-                Connect2 = new OracleConnection(strConn);
+                using(OracleConnection connection = new OracleConnection(strConn))
                 {
-                    Connect2.Open();
-                }
-
-                using (OracleTransaction transaction = Connect2.BeginTransaction())
-                {
-                    OracleCommand Cmd = new OracleCommand(sQL, Connect2);
-                    if (input != null)
+                    connection.Open();
+                    using (OracleTransaction transaction = connection.BeginTransaction())
                     {
-                        int i = 0;
-                        foreach (string s in input)
+                        OracleCommand Cmd = new OracleCommand(sQL, connection);
+                        if (input != null)
                         {
-                            Cmd.Parameters.Add(parameter[i], s);
-                            i++;
+                            int i = 0;
+                            foreach (string s in input)
+                            {
+                                Cmd.Parameters.Add(parameter[i], s);
+                                i++;
+                            }
+                        }
+                        try
+                        {
+                            Cmd.ExecuteNonQuery();
+                            transaction.Commit();
+                            transaction.Dispose();
+                            Cmd.Dispose();
+                            connection.Close();
+                            return 0;
+                        }
+                        catch (OracleException ex)
+                        {
+                            WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
+                            transaction.Commit();
+                            transaction.Dispose();
+                            return -1;
                         }
                     }
-                    try
-                    {
-                        Cmd.ExecuteNonQuery();
-                        transaction.Commit();
-                        transaction.Dispose();
-                        Cmd.Dispose();
-                        Connect2.Close();
-                        return 0;
-                    }
-                    catch (OracleException ex)
-                    {
-                        WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
-                        transaction.Commit();
-                        transaction.Dispose();
-                        return -1;
-                    }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -887,11 +883,8 @@ namespace Model_Helper
             }
             finally
             {
-
             }
         }
-
-
         public DataSet CommandSet(string sQL, string table, string[] input = null, string[] parameter = null)
         {
             try
