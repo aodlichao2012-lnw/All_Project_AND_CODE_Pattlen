@@ -1905,13 +1905,21 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Index(string id )
+        public ActionResult Index(string id = "")
         {
             string StrSql = string.Empty;
             int return1 = 0;
             try
             {
-                session_ID = HttpContext.Request.Cookies["id"].Value;
+                if(id != "")
+                {
+                    session_ID = id;
+                }
+                else
+                {
+                    session_ID = HttpContext.Request.Cookies["id"].Value;
+                }
+              
                 type_db = "";
                 user_name = "";
                 CultureInfo cultureInfo = new CultureInfo("en-US");
