@@ -92,7 +92,6 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Get_Project : " + ex.Message.ToString());
                 return "Unknow";
             }
         }

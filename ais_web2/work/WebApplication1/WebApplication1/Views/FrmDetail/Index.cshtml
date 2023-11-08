@@ -1465,16 +1465,14 @@
                     console.log(e)
                     if (e === "Busy") {
 
-                        if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null)
-                        {
-                                console.log("ค้นหาเบอร์ใหม่")
-                                fucshowtel3(1)
+                        if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
+                            console.log("ค้นหาเบอร์ใหม่")
+                            fucshowtel3(1)
                         }
-                        else
-                        {
+                        else {
                             $("#button_save").prop('disabled', false)
-                                console.log("มีเบอร์แล้ว")
-                                fucshowtel3(0)
+                            console.log("มีเบอร์แล้ว")
+                            fucshowtel3(0)
                         }
                         $("#status").text("Busy").css("color", "red")
                         showreportToday()
@@ -1501,13 +1499,15 @@
                         $("#status").text("Standby").css("color", "green")
                         showreportToday();
                     }
+                    setTimeout(getfuc, 500);
                 }
             })
         }
         function getstatus() {
-            intervalId = setInterval(getfuc, 2300)
-
+            getfuc();
         }
+
+
         function showreportToday() {
 
             $.ajax({
