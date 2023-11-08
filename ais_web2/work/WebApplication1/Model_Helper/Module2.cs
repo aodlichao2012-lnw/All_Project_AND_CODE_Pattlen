@@ -621,6 +621,7 @@ namespace Model_Helper
                                         }
                                         transaction.Commit();
                                         command.Dispose();
+                                        transaction.Dispose();
                                     }
                                     else
                                     {
@@ -633,6 +634,7 @@ namespace Model_Helper
                                         }
                                         transaction.Commit();
                                         command.Dispose();
+                                        transaction.Dispose();
                                     }
                                 }
                                 else
@@ -646,6 +648,7 @@ namespace Model_Helper
                                     }
                                     transaction.Commit();
                                     command.Dispose();
+                                    transaction.Dispose();
                                 }
                             }
                             else
@@ -659,6 +662,7 @@ namespace Model_Helper
 
                                 transaction.Commit();
                                 command.Dispose();
+                                transaction.Dispose();
 
                             }
 
