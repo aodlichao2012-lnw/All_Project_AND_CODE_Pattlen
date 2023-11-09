@@ -78,7 +78,7 @@ namespace ais_web3.Controllers
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires.Year != 2000)
+                        if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                         {
 
                             return "Busy";

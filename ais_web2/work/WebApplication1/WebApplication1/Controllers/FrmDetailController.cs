@@ -1782,7 +1782,7 @@ namespace ais_web3.Controllers
                             //module = new Module2(session_ID);
                             //module.CommanEx_Save(sqlClear_);
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
-                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null)
+                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                             {
                                 HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
                                 HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
