@@ -1500,57 +1500,54 @@
                 data: null,
                 cache: false,
                 success: function (e) {
-                    setTimeout(function (e) {
+                    console.log(e)
 
-                        console.log(e)
-                        if (e === "Busy") {
+                    if (e === "Busy") {
 
-                            if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
-                                console.log("ค้นหาเบอร์ใหม่")
+                        if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
+                            console.log("ค้นหาเบอร์ใหม่")
 
-                                fucshowtel3(1)
-                            }
-                            else {
-                                $("#button_save").prop('disabled', false)
-                                console.log("มีเบอร์แล้ว")
-                                fucshowtel3(0)
-                            }
-                            $("#status").text("Busy").css("color", "red")
-                            showreportToday()
-
-                        } else if (e === "Not Login") {
-                            $("#txt_tel").val(``)
-                            $("#txt_tel").text("")
-                            $("#status").text("Not Login").css("color", "gray")
-                            showreportToday()
-
-                        } else if (e === "Available") {
-                            /*       fucshowtel3(1)*/
-                            $("#txt_tel").val(``)
-                            $("#txt_tel").text("")
-                            $("#status").text("Available").css("color", "green")
-                            showreportToday()
-
-                        } else if (e === "Aux") {
-                            fucshowtel3(0)
-                            $("#status").text("Aux").css("color", "black")
-                            showreportToday()
-                            /*                    fucshowtel3(2)*/
-                        } else if (e === "Standby") {
-                            fucshowtel3(2)
-                            $("#txt_tel").val(``)
-                            $("#txt_tel").text("")
-                            $("#status").text("Standby").css("color", "green")
-                            showreportToday();
+                            fucshowtel3(1)
                         }
+                        else {
+                            $("#button_save").prop('disabled', false)
+                            console.log("มีเบอร์แล้ว")
+                            fucshowtel3(0)
+                        }
+                        $("#status").text("Busy").css("color", "red")
+                        showreportToday()
 
-                    }, 500)
-                   
+                    } else if (e === "Not Login") {
+                        $("#txt_tel").val(``)
+                        $("#txt_tel").text("")
+                        $("#status").text("Not Login").css("color", "gray")
+                        showreportToday()
+
+                    } else if (e === "Available") {
+                        /*       fucshowtel3(1)*/
+                        $("#txt_tel").val(``)
+                        $("#txt_tel").text("")
+                        $("#status").text("Available").css("color", "green")
+                        showreportToday()
+
+                    } else if (e === "Aux") {
+                        $("#status").text("Aux").css("color", "black")
+                        showreportToday()
+                        fucshowtel3(0)
+
+                        /*                    fucshowtel3(2)*/
+                    } else if (e === "Standby") {
+                        $("#txt_tel").val(``)
+                        $("#txt_tel").text("")
+                        $("#status").text("Standby").css("color", "green")
+                        fucshowtel3(2)
+                        showreportToday();
+                    }
                 }
             })
         }
         function getstatus() {
-            setInterval(getfuc, 1500);
+            setInterval(getfuc, 2000);
         }
 
 
