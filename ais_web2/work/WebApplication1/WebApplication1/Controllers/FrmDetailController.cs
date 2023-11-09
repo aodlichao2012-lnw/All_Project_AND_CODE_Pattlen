@@ -1784,8 +1784,7 @@ namespace ais_web3.Controllers
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
                             if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                             {
-                                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                                Response.Cookies.Add(new HttpCookie("Tel" + session_ID));
+                                Response.Cookies.Add(new HttpCookie("Tel" + session_ID) {  Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
                             }
                             return "บันทึกข้อมูลเรียบร้อย";
                         }

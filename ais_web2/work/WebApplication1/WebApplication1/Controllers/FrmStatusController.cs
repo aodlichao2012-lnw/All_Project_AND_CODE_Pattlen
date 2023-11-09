@@ -72,7 +72,6 @@ namespace ais_web3.Controllers
                     // Conn.Open(SQL, Conn)
                     DataTable dt2 = null;
                     module = new Module2(session_ID);
-                    Thread.Sleep(500);
                     module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, ref dt2);
                     if (dt2 == null)
                     {
@@ -80,7 +79,22 @@ namespace ais_web3.Controllers
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                        if (HttpContext.Request.Cookies["Tel" + session_ID] == null)
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
+                        else if (HttpContext.Request.Cookies["Tel" + session_ID] == null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
+                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00")) {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
+                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
+                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                         {
 
                             return "Busy";
@@ -89,6 +103,7 @@ namespace ais_web3.Controllers
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
+                      
                     }
                     return "Unknow";
                 }
