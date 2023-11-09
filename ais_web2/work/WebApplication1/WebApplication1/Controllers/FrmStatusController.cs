@@ -7,6 +7,9 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Net;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -23,7 +26,7 @@ namespace ais_web3.Controllers
         string user_name = string.Empty;
         public FrmStatusController()
         {
-
+             this.StartAsync();
         }
         string Agenids = string.Empty;
         [HttpGet]
@@ -120,5 +123,59 @@ namespace ais_web3.Controllers
                 return "Unknow";
             }
         }
+
+        #region Socket
+        private HttpListener _httpListener;
+        private async Task AcceptWebSocketAsync(HttpListenerContext context)
+        {
+            if (context.Request.IsWebSocketRequest)
+            {
+                WebSocketContext webSocketContext = await context.AcceptWebSocketAsync(subProtocol: null);
+
+                using (WebSocket webSocket = webSocketContext.WebSocket)
+                {
+                    byte[] receiveBuffer = new byte[1024];
+
+                    WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+
+                    while (!result.CloseStatus.HasValue)
+                    {
+                        // Handle received data
+                        string receivedData = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
+                        Console.WriteLine($"Received data: {receivedData}");
+                      string status =  Get_Project(receivedData);
+                        // Send a response
+
+                        byte[] responseBuffer = Encoding.UTF8.GetBytes(status);
+                        await webSocket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                        result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+                    }
+                }
+            }
+        }
+        #endregion
+        #region เริ่ม Socket
+        public async Task StartAsync()
+        {
+            _httpListener = new HttpListener();
+            _httpListener.Prefixes.Add("https://localhost:44389/Status");
+            _httpListener.Start();
+
+            while (true)
+            {
+                HttpListenerContext context = await _httpListener.GetContextAsync();
+                if (context.Request.IsWebSocketRequest)
+                {
+                    await AcceptWebSocketAsync(context);
+                }
+                else
+                {
+                    context.Response.StatusCode = 400;
+                    context.Response.Close();
+                }
+            }
+        }
+        #endregion
     }
 }
