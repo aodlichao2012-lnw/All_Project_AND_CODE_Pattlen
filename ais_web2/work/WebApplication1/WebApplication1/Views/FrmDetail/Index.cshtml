@@ -512,7 +512,7 @@
                 //cancelButtonText: 'Cancel',
                 /*    reverseButtons: true,*/
                 customClass: {
-                    confirmButton: '    my-custom-button' // ใช้คลาส CSS ที่คุณสร้าง
+                    confirmButton: 'modal my-custom-button' // ใช้คลาส CSS ที่คุณสร้าง
                 }
             });
         }
@@ -1257,7 +1257,7 @@
                 //cancelButtonText: 'Cancel',
                 /*        reverseButtons: true,*/
                 customClass: {
-                    confirmButton: 'my-custom-button' // ใช้คลาส CSS ที่คุณสร้าง
+                    confirmButton: 'modal my-custom-button' // ใช้คลาส CSS ที่คุณสร้าง
                 }
             });
         }
@@ -1499,12 +1499,11 @@
                         $("#status").text("Standby").css("color", "green")
                         showreportToday();
                     }
-                    setTimeout(getfuc, 500);
                 }
             })
         }
         function getstatus() {
-            getfuc();
+            setInterval(getfuc, 500);
         }
 
 

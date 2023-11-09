@@ -363,7 +363,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message + "ผลการตรวจสอบ";
+                return "500";
             }
         }
 
@@ -809,10 +809,9 @@ namespace Model_Helper
                         try
                         {
                             int i = Cmd.ExecuteNonQuery();
+                            Cmd.Dispose();
                             transaction.Commit();
                             transaction.Dispose();
-                            Cmd.Dispose();
-
                             Connect.Close();
                             return i;
                         }
@@ -836,9 +835,7 @@ namespace Model_Helper
                 //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                 return 0;
             }
-            finally
-            {
-            }
+
         }
 
 

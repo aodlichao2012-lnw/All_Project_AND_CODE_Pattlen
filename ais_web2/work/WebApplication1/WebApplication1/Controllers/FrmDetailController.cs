@@ -981,28 +981,28 @@ namespace ais_web3.Controllers
             {
             }
         }
-        private string SetAVAL()
-        {
-            string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-            int rowUpdate;
-            strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '"+ Agen_id + "' ";
-            Event_Log("SqlUpdate  Available : " + strUpdate);
-            try
-            {
-                {
-                    module = new Module2(session_ID);
-                    rowUpdate = Module2.Instance.CommanEx(strUpdate);
-                    // Conn.Close()
-                }
-                Event_Log("RowUpdate :  " + rowUpdate);
-                Event_Log("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                return strUpdate;
-            }
-            catch (Exception ex)
-            {
-                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
-            }
-        }
+        //private string SetAVAL()
+        //{
+        //    string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+        //    int rowUpdate;
+        //    strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '"+ Agen_id + "' ";
+        //    Event_Log("SqlUpdate  Available : " + strUpdate);
+        //    try
+        //    {
+        //        {
+        //            module = new Module2(session_ID);
+        //            rowUpdate = Module2.Instance.CommanEx(strUpdate);
+        //            // Conn.Close()
+        //        }
+        //        Event_Log("RowUpdate :  " + rowUpdate);
+        //        Event_Log("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        //        return strUpdate;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
+        //    }
+        //}
         private void SelectCall_Count()
         {
             Module2.Instance.Connectdb();
@@ -1119,6 +1119,15 @@ namespace ais_web3.Controllers
                     {
                         return "ไม่สามารถรับบริการ Lotto guru ได้  เพราะปีเกิดที่ระบุไม่อยู่ในช่วงที่กำหนด";
                     }
+                    if (age < 15)
+                    {
+                        return "ลูกค้าอายุน้อยกว่า 15 ปี ไม่สามารถรับบริการได้ค่ะ";
+                    }
+                    if (age > 55)
+                    {
+                        return "ลูกค้าอายุมากกว่า 55 ปี ไม่สามารถรับบริการได้ค่ะ";
+                    }
+
                 }
                 if (form.cboMouth == null)
                 {
@@ -1132,6 +1141,7 @@ namespace ais_web3.Controllers
                 {
                     day_no = 0;
                 }
+          
                 bool isMatch = System.Text.RegularExpressions.Regex.IsMatch(form.txtTel_No, @"^[0-9]");
                 if (!isMatch)
                 {
@@ -1763,10 +1773,14 @@ namespace ais_web3.Controllers
                                 return "server มี ปัญหา";
                             }
                             module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
-                            string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
-                            module = new Module2(session_ID);
-                            module.CommanEx_Save(sqlClear_);
+                          string status =  module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
+                            if(status == "500")
+                            {
+                                return "server มี ปัญหา..";
+                            }
+                            //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
+                            //module = new Module2(session_ID);
+                            //module.CommanEx_Save(sqlClear_);
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
                             if (HttpContext.Request.Cookies["Tel" + session_ID] != null)
                             {
@@ -1777,26 +1791,27 @@ namespace ais_web3.Controllers
                         }
                         else
                         {
-                            module = new Module2(session_ID);
-                            rowInsert = module.CommanEx_Save(sqlsearch);
-                            Module2.Instance.status_Edit = "";
-                            Module2.Instance.cbocity = form.cbocity;
-                            if (rowInsert == -1)
-                            {
-                                return "server มี ปัญหา";
-                            }
-                            module = new Module2(session_ID);
-                            module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
-                            Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
-                            Clear_edit(session_ID);
-                            return "บันทึกข้อมูลเรียบร้อย";
+                            //module = new Module2(session_ID);
+                            //rowInsert = module.CommanEx_Save(sqlsearch);
+                            //Module2.Instance.status_Edit = "";
+                            //Module2.Instance.cbocity = form.cbocity;
+                            //if (rowInsert == -1)
+                            //{
+                            //    return "server มี ปัญหา";
+                            //}
+                            //module = new Module2(session_ID);
+                            //module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
+                            //Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
+                            //Clear_edit(session_ID);
+                            //return "บันทึกข้อมูลเรียบร้อย";
+                            return "บันทึกไม่สำเร็จโปรดลองใหม่อีกครั้ง";
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    module = new Module2(session_ID);
-                    WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
+              //      module = new Module2(session_ID);
+              ///*      WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), */Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
                     //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
                     //WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
                     return "ไม่สามารถบันทึกข้อมูลได้เนื่องจาก" + ex.Message;
@@ -1808,9 +1823,7 @@ namespace ais_web3.Controllers
                 //WriteLog.instance.Log("btnSave_Click :" + sqlsearch;
                 return "ไม่สามารถบันทึกได้เนื่องจาก " + ex.Message.ToString();
             }
-            finally
-            {
-            }
+
         }
         public void Get_Error(string err_num, string err_des, string err_func)
         {
@@ -2004,42 +2017,42 @@ namespace ais_web3.Controllers
             {
             }
         }
-        [HttpPost]
-        public string SetVisible_Unvisible_Enable(form2 form)
-        {
-            string sql = string.Empty;
-            try
-            {
-                int dt = 0;
-                string[] group_serivic_id = form.Service_id_name.Split(',');
-                string[] group_active_bool = form.IsActive.Split(',');
-                group_serivic_id[group_serivic_id.Length - 1] = "";
-                group_active_bool[group_active_bool.Length - 1] = "";
-                int i = 0;
-                foreach (var item in group_serivic_id)
-                {
-                    string isActiveValue = group_active_bool[i] == "เปิดให้ใช้บริการ" ? "0" : "1";
-                    sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = :isActiveValue, MDF_DATE = sysdate WHERE SERVICE_ID = :itemID";
-                    try
-                    {
-                        module = new Module2(session_ID);
-                        dt = module.CommanEx(sql, new string[] { isActiveValue, item }, new string[] { ":isActiveValue", ":itemID" });
-                    }
-                    catch (Exception ex)
-                    {
-                        return "บันทึกไม่สำเร็จเนื่องจาก " + ex.Message.ToString();
-                    }
-                    i++;
-                }
-                return "บันทึกสำเร็จ";
-            }
-            catch(Exception ex)
-            {
-                //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + ex.Message.ToString());
-                //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + sql);
-                return "บันทึกไม่สำเร็จ";
-            }
-        }
+        //[HttpPost]
+        //public string SetVisible_Unvisible_Enable(form2 form)
+        //{
+        //    string sql = string.Empty;
+        //    try
+        //    {
+        //        int dt = 0;
+        //        string[] group_serivic_id = form.Service_id_name.Split(',');
+        //        string[] group_active_bool = form.IsActive.Split(',');
+        //        group_serivic_id[group_serivic_id.Length - 1] = "";
+        //        group_active_bool[group_active_bool.Length - 1] = "";
+        //        int i = 0;
+        //        foreach (var item in group_serivic_id)
+        //        {
+        //            string isActiveValue = group_active_bool[i] == "เปิดให้ใช้บริการ" ? "0" : "1";
+        //            sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = :isActiveValue, MDF_DATE = sysdate WHERE SERVICE_ID = :itemID";
+        //            try
+        //            {
+        //                module = new Module2(session_ID);
+        //                dt = module.CommanEx(sql, new string[] { isActiveValue, item }, new string[] { ":isActiveValue", ":itemID" });
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                return "บันทึกไม่สำเร็จเนื่องจาก " + ex.Message.ToString();
+        //            }
+        //            i++;
+        //        }
+        //        return "บันทึกสำเร็จ";
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + ex.Message.ToString());
+        //        //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + sql);
+        //        return "บันทึกไม่สำเร็จ";
+        //    }
+        //}
         [HttpPost]
         public string SetVisible(form2 form)
         {
@@ -2192,9 +2205,7 @@ namespace ais_web3.Controllers
                 //WriteLog.instance.Log("GetPhone :" + sql);
                 return "";
             }
-            finally
-            {
-            }
+
         }
         public void updateUI(string strStat)
         {
