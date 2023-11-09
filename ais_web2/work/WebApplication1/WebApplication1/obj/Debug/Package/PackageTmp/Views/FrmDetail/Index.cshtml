@@ -1501,10 +1501,12 @@
                 cache: false,
                 success: function (e) {
                     console.log(e)
+
                     if (e === "Busy") {
 
                         if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
                             console.log("ค้นหาเบอร์ใหม่")
+
                             fucshowtel3(1)
                         }
                         else {
@@ -1529,22 +1531,23 @@
                         showreportToday()
 
                     } else if (e === "Aux") {
-                        fucshowtel3(0)
                         $("#status").text("Aux").css("color", "black")
                         showreportToday()
+                        fucshowtel3(0)
+
                         /*                    fucshowtel3(2)*/
                     } else if (e === "Standby") {
-                        fucshowtel3(2)
                         $("#txt_tel").val(``)
                         $("#txt_tel").text("")
                         $("#status").text("Standby").css("color", "green")
+                        fucshowtel3(2)
                         showreportToday();
                     }
                 }
             })
         }
         function getstatus() {
-            setInterval(getfuc, 500);
+            setInterval(getfuc, 600);
         }
 
 

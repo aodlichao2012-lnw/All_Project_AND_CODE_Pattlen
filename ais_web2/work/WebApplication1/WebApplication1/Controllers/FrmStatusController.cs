@@ -7,6 +7,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -71,6 +72,7 @@ namespace ais_web3.Controllers
                     // Conn.Open(SQL, Conn)
                     DataTable dt2 = null;
                     module = new Module2(session_ID);
+                    Thread.Sleep(500);
                     module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, ref dt2);
                     if (dt2 == null)
                     {
