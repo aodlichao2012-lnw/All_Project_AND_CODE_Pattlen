@@ -8,15 +8,14 @@
         text-align: left !important;
         padding-top: .25em !important;
     }
-    .modal {
-        display: none;
+    #modal1 {
         position: fixed;
-        z-index: 1;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งๆ */
+        z-index: 2;
     }
     .svg3 {
         width: 15px;
@@ -2692,15 +2691,14 @@
     .textbox_space2 {
         margin-right: 50px;
     }
-    .modal {
-        display: none;
+    #modal1 {
         position: fixed;
-        z-index: 1;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งๆ */
+        z-index: 1;
     }
     .copy4 {
         margin-top: 204px;
