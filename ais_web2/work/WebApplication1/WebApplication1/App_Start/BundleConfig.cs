@@ -26,7 +26,8 @@ namespace ais_web2
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
-                  "~/Scripts/jquery.signalR-{version}.js"));
+  "~/Scripts/jquery.signalr-*", //the * wildcard will get script regardless of version
+  "~/signalr/hubs"));
         }
     }
 }

@@ -120,7 +120,7 @@ namespace ais_web3.Controllers
             {
                 string sql = "SELECT DENY_CODE , DENY_NAME  FROM MAS_RESON_DENY WHERE RES_CODE = :RES_CODE "; // WHERE RES_STATUS = '0' "
                 module = new Module2(id);
-                module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" }, ref dt);
+             dt =   module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" } ,dt);
                return JsonConvert.SerializeObject(dt);
             }
             catch(Exception ex)
@@ -135,7 +135,7 @@ namespace ais_web3.Controllers
             DataTable dt = null;
            sql = "SELECT * FROM MAS_RESON_DENY WHERE Deny_Code = :Deny_Code ";
             module = new Module2(session_ID);
-            module.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" } , ref dt);
+          dt =  module.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" } , dt);
             if (dt.Rows.Count != 0)
             {
                 return dt;
@@ -242,7 +242,7 @@ namespace ais_web3.Controllers
                 string sDate2 = "";
                 sqlselect = "SELECT MAS_LEADS_TRANS.*, MAS_REASON.* , CALL_SEARCH_CITY.* , MAS_RESON_DENY.* FROM MAS_LEADS_TRANS \r\n LEFT JOIN MAS_REASON   ON   MAS_LEADS_TRANS.RES_CODE =MAS_REASON.RES_CODE\r\n  LEFT JOIN CALL_SEARCH_CITY  ON MAS_LEADS_TRANS.CITY_NAME_T  = CALL_SEARCH_CITY.CITY_CODE\r\n   LEFT JOIN MAS_RESON_DENY   ON MAS_LEADS_TRANS.RES_CODE  = MAS_RESON_DENY.RES_CODE\r\n WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID  AND MAS_REASON.RES_NAME = :RES_NAME AND CALL_SEARCH_CITY.CITY_CODE\r\n = MAS_LEADS_TRANS.CITY_NAME_T AND MAS_RESON_DENY.DENY_CODE =  MAS_LEADS_TRANS.DENY_CODE";
                 module = new Module2(session_ID);
-                module.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id ,telclass2.status }, new string[] { ":ANUMBER", ":AGENT_ID" , ":RES_NAME" }, ref dt);
+               dt = module.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id ,telclass2.status }, new string[] { ":ANUMBER", ":AGENT_ID" , ":RES_NAME" } , dt);
                 if (dt.Rows.Count > 0)
                 {
                     form.txtTel_No = telclass2.anumber;
@@ -610,7 +610,7 @@ namespace ais_web3.Controllers
                 form1 form = new form1();
                 sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
                 module = new Module2(session_ID);
-                module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" }, ref dt);
+               dt = module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" },  dt);
                 if (dt.Rows.Count > 0)
                 {
                     if (dt.Rows[0]["RES_CODE"].ToString() == "01")
@@ -928,7 +928,7 @@ namespace ais_web3.Controllers
                 string json = string.Empty;
                 searchcity = " SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
                 module = new Module2(id);
-                module.Comman_Static(searchcity , null, null, ref dt);
+              dt =  module.Comman_Static(searchcity , null, null,  dt);
                     if (dt != null)
                     {
                         if (dt.Rows.Count != 0)
@@ -960,7 +960,7 @@ namespace ais_web3.Controllers
             {
                 sql = "SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
                 module = new Module2(id);
-                module.Comman_Static(sql , null,null,ref dt);
+               dt= module.Comman_Static(sql , null,null, dt);
                     if (dt != null)
                     {
                         if (dt.Rows.Count > 0)
@@ -1042,7 +1042,7 @@ namespace ais_web3.Controllers
                         {
                             {
                             module = new Module2(id);
-                            module.Comman_Static(strUpdate, null, null, ref dt);
+                          dt =  module.Comman_Static(strUpdate, null, null,  dt);
                                 message = "200";
                             string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
                             foreach (string item in list_cookie)
@@ -1154,7 +1154,7 @@ namespace ais_web3.Controllers
                 }
                 else
                 {
-                       module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null, ref check_anumber);
+                    check_anumber =  module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null,  check_anumber);
                     if (check_anumber.Rows.Count == 0)
                     {
                         HttpContext.Request.Cookies["editv" + session_ID].Expires = DateTime.Now.AddYears(-153);
@@ -2006,7 +2006,7 @@ namespace ais_web3.Controllers
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED WHERE MAS_SERV_USED.is_active = '1'";
                 session_ID = id;
                 module = new Module2(session_ID);
-                module.Comman_Static(sql, null, null, ref dt1);
+               dt1=  module.Comman_Static(sql, null, null, dt1);
                 return JsonConvert.SerializeObject(dt1);
             }
             catch
@@ -2071,7 +2071,7 @@ namespace ais_web3.Controllers
                 new_unvisible = new_unvisible.Remove(new_unvisible.Length - 4, 4);
                  sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = '0' , MDF_DATE = '{DateTime.Now.ToString("dd-MMM-yy")}' WHERE  SERVICE_ID IN ({new_unvisible})";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql , null,null,ref dt);
+               dt = module.Comman_Static(sql , null,null, dt);
                 if (dt.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";
@@ -2106,7 +2106,7 @@ namespace ais_web3.Controllers
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql, null, null, ref dt1);
+               dt1 = module.Comman_Static(sql, null, null,  dt1);
                 return JsonConvert.SerializeObject(dt1);
             }
             catch
@@ -2179,7 +2179,7 @@ namespace ais_web3.Controllers
             {
                 sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "'";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql ,null ,null, ref dataTable);
+             dataTable =   module.Comman_Static(sql ,null ,null,  dataTable);
                 if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
                     if (dataTable.Rows.Count > 0)
@@ -2229,7 +2229,7 @@ namespace ais_web3.Controllers
                 DataTable dataTable = null;
                 sql = $@"UPDATE MAS_SERVICE SET  SERVICE_NAME = :values2 , MDF_DATE = :Date1 WHERE SERVICE_ID = :id2 ";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , ref dataTable);
+             dataTable =  module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , dataTable);
                 if (dataTable.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";

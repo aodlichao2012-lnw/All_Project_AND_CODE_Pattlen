@@ -164,7 +164,7 @@ namespace ais_web3.Controllers
             {
                 sql = "SELECT * FROM MAS_REASON ORDER BY RES_CODE ASC ";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql,null,null, ref dt);
+              dt =  module.Comman_Static(sql,null,null,  dt);
 
                 if (dt != null)
                 {
@@ -206,7 +206,7 @@ namespace ais_web3.Controllers
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
                 module = new Module2(session_ID);
-                module.Comman_Static(sql, null, null, ref dt1);
+               dt1 = module.Comman_Static(sql, null, null,  dt1);
                 return JsonConvert.SerializeObject(dt1);
             }
             catch

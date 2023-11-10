@@ -130,8 +130,35 @@ namespace ais_web3.Controllers
     //    }
     }
 
-    public class Websocket2 : WebSocketHandler
+    public class ChatHub : Hub
     {
+        public void RequestData(string id)
+        {
+            // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
+            var data = GetDataFromDatabase(id);
+
+            // ส่งข้อมูลกลับไปยังทุกคนที่เชื่อมต่อ
+            Clients.Caller.ReceiveData(data);
+        }
+
+        public void Send(string id)
+        {
+            // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
+            var data = GetDataFromDatabase(id);
+
+            // ส่งข้อมูลกลับไปยังทุกคนที่เชื่อมต่อ
+            Clients.Caller.ReceiveData(data);
+        }
+
+        private string GetDataFromDatabase(string id)
+        {
+            // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
+            // จำลองกระบวนการดึงข้อมูลจากฐานข้อมูลที่นี่
+            // ตัวอย่าง: ให้ data เป็นข้อมูลที่ได้จากการ query
+            var data = Get_Project(id);
+            return data;
+        }
+
         private HttpListener _httpListener;
         string session_ID = string.Empty;
         private Module2 module = new Module2();
@@ -152,38 +179,39 @@ namespace ais_web3.Controllers
                     // Conn.Open(SQL, Conn)
                     DataTable dt2 = null;
                     module = new Module2(session_ID);
-                    module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, ref dt2);
+                  dt2 =  module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, dt2);
                     if (dt2 == null)
                     {
                         return "Unknow";
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
+                        //{
+                        //    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //}
+                        //else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        //{
+                        //    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //}
+                        //else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        //{
+                        //    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //}
+                        //else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                        //{
+                        //    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //}
+                        //else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                        //{
 
-                            return "Busy";
-                        }
-                        else
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
+                        //    return "Busy";
+                        //}
+                        //else
+                        //{
+                        //    return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        //}
 
                     }
                     return "Unknow";
@@ -201,47 +229,52 @@ namespace ais_web3.Controllers
                 return "Unknow";
             }
         }
-        private static WebSocketCollection clients = new WebSocketCollection();
-
-        public Websocket2()
-        {
-            clients.Add(this);
-        }
-
-        public override void OnOpen()
-        {
-            clients.Broadcast("New client joined the chat!");
-        }
-
-        public override void OnMessage(string message)
-        {
-            string status = Get_Project(message);
-            clients.Broadcast(status);
-        }
-
-        public override void OnClose()
-        {
-            clients.Broadcast("Client left the chat!");
-            clients.Remove(this);
-        }
     }
-    public class SendSocket : IHttpHandler
-    {
-        public bool IsReusable
-        {
-            get
-            {
-                return false;
-            }
-        }
 
-        public void ProcessRequest(HttpContext context)
-        {
-            if (context.IsWebSocketRequest)
-            {
-                context.AcceptWebSocketRequest(new Websocket2());
-            }
-        }
-    }
+    //public class Websocket2 : WebSocketHandler
+    //{
+
+    //    private static WebSocketCollection clients = new WebSocketCollection();
+
+    //    public Websocket2()
+    //    {
+    //        clients.Add(this);
+    //    }
+
+    //    public override void OnOpen()
+    //    {
+    //        clients.Broadcast("New client joined the chat!");
+    //    }
+
+    //    public override void OnMessage(string message)
+    //    {
+    //        string status = Get_Project(message);
+    //        clients.Broadcast(status);
+    //    }
+
+    //    public override void OnClose()
+    //    {
+    //        clients.Broadcast("Client left the chat!");
+    //        clients.Remove(this);
+    //    }
+    //}
+    //public class SendSocket : IHttpHandler
+    //{
+    //    public bool IsReusable
+    //    {
+    //        get
+    //        {
+    //            return false;
+    //        }
+    //    }
+
+    //    public void ProcessRequest(HttpContext context)
+    //    {
+    //        if (context.IsWebSocketRequest)
+    //        {
+    //            context.AcceptWebSocketRequest(new Websocket2());
+    //        }
+    //    }
+    //}
 }
 

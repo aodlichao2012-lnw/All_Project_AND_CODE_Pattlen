@@ -22,9 +22,9 @@ using Microsoft.AspNet.SignalR;
 namespace Model_Helper
 {
 
-    public class Module2 : Hub
+    public class Module2 
     {
-      string  session_ID = System.Web.HttpContext.Current.Session.SessionID;
+      string  session_ID = string.Empty;
         public readonly string strDB;
         public readonly string user_name;
         public readonly string strConn;
@@ -403,27 +403,30 @@ namespace Model_Helper
             }
         }
 
-        public void Common_static_reson(string sQL, string[] input, string[] parameter, ref DataTable dt)
+        public DataTable Common_static_reson(string sQL, string[] input, string[] parameter,  DataTable dt)
         {
             //WriteLog.instance.LogSql(sQL);
             DataTable dt2 = new DataTable();
             object connectionLock = new object();
             Connectdb();
+            
             dt = Excutue_process_sql(sQL, input, parameter);
+            return dt;
         }
-        public void Comman_Static(string sQL, string[] input, string[] parameter, ref DataTable dt)
+        public DataTable Comman_Static(string sQL, string[] input, string[] parameter,  DataTable dt)
         {
 
             try
             {
                 DataTable dt2 = new DataTable();
-                dt = Excutue_process_sql(sQL, input, parameter);
+                dt2 = Excutue_process_sql(sQL, input, parameter);
 
-
+                return dt2;
 
             }
             catch (Exception ex)
             {
+                return null;
                 //WriteLog.instance.Log("Error ที่ Comman_Static : " + ex.Message.ToString());
 
             }
@@ -572,7 +575,7 @@ namespace Model_Helper
             }
         }
 
-        public void Comman_Static2(string sQL, string[] input, string[] parameter, ref DataTable datatable , string id ="")
+        public DataTable Comman_Static2(string sQL, string[] input, string[] parameter,  DataTable datatable , string id ="")
         {
             try
             {
@@ -675,10 +678,11 @@ namespace Model_Helper
                     }
 
                     datatable = dt;
-
+                    return datatable;
                 }
                 catch (Exception ex)
                 {
+                    return null;
                     //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 }
 
@@ -686,7 +690,7 @@ namespace Model_Helper
             }
             catch
             {
-
+                return null;
             }
             finally
             {
@@ -1349,7 +1353,7 @@ namespace Model_Helper
                     SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                     // Conn.Open(SQL, Conn)
                     DataTable dt2 = null;
-                    Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, ref dt2);
+                   dt2 = Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, dt2);
                     if (dt2 == null)
                     {
                         return "Unknow";

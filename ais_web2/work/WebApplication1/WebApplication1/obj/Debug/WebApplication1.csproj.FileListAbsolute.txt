@@ -388,7 +388,6 @@ D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\W
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Model_Helper.dll.config
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Core.pdb
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Core.xml
-D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNetCore.Authentication.Abstractions.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNetCore.Authorization.xml
@@ -477,3 +476,5 @@ D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\W
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNetCore.ResponseCaching.Abstractions.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNetCore.WebSockets.Protocol.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNetCore.WebSockets.Server.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Owin.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Owin.xml
