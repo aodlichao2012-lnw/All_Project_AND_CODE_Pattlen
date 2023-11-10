@@ -1190,15 +1190,8 @@
             }
         })
     });
-    pdfMake.fonts = {
-        THSarabun: {
-            normal: 'THSarabun.ttf',
-            bold: 'THSarabun-Bold.ttf',
-            italics: 'THSarabun-Italic.ttf',
-            bolditalics: 'THSarabun-BoldItalic.ttf'
-        }
-    }
-    /*$(function () { getfucLoad() })*/
+
+
 
     $("#Service_select").hide()
     $("#button_add_ser").hide()

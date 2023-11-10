@@ -213,7 +213,7 @@ namespace ais_web3.Controllers
                 }
                 else
                 {
-                    return "04";
+                    return "06";
                 }
             }
             catch(OracleException ex )

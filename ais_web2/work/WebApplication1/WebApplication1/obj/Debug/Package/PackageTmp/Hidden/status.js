@@ -1,5 +1,5 @@
 ﻿
-let telephone_update = '';
+
 let telephone_isSave = '';
 let status_busy = '';
 $(window).on('load', function (e) {

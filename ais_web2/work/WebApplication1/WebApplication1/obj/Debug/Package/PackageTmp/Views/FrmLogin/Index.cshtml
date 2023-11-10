@@ -62,10 +62,27 @@
         background: #F84874; /* ตั้งค่าสีพื้นหลังเป็นสีแดง */
     }
 
-
+    .text_modal {
+        position: absolute;
+        left: 48%;
+        top: 40%;
+    }
+    .text_modal2 {
+        margin-left: -25%;
+        /* position: absolute; */
+        /* left: 48%; */
+        /* top: 40%; */
+        font-size: 40px;
+        color: white;
+    }
 </style>
 
-
+<div id="modal1">
+    <div class="text_modal">
+        <img src="~/text/loading-gif.gif" class="" width="60" height="60" />
+        <div class="text_modal2">Loading</div>
+    </div>
+</div>
 <div class="Container_box1">
     @*<img id="loadingLogin"src="~/Content/Image/loading-buffering.gif" width="100" height="100" />*@
     <svg width="141" height="50" class="tmc_log" viewBox="0 0 141 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -107,6 +124,8 @@
 <script src="~/sweetalert2.js"></script>
 <script>
     $(document).ready(function (e) {
+
+        $("#modal1").css("display", "none");
         function alert2(txt) {
             swal({
                 title: 'แจ้งเตือน!',
@@ -135,10 +154,14 @@
                         alert2(" ไม่สามารถ เชื่อมต่อ ฐานข้อมูลได้ เนื่องจาก คุณอาจจะคุณป้อน Username หรือ Password ไม่ถูกต้อง หรือ หมดเวลาเชื่อมต่อฐานข้อมูลค่ะ")
                     } else if (e === "05") {
                         alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบ")
-                    } else {
+                    } else if (e === "06") {
+                        alert2("Username หรือ Password ไม่ถูกต้องค่ะ")
+                    }
+                    else {
 
                         window.location.href = '/FrmDetail/Index?id=' + e
-                        document.cookie =  "id=" + e +"; path=/";
+                        document.cookie = "id=" + e + "; path=/";
+                        $("#modal1").css("display", "block");
 
                     }
                 }

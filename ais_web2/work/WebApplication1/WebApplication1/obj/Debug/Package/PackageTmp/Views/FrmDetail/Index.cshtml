@@ -520,8 +520,6 @@
 <script>
 
     var isSweetAlertOpen = false;
-
-
     function alert2(txt) {
         isSweetAlertOpen = true;
         checkSweetAlertStatus()
@@ -540,9 +538,6 @@
 
 
     }
-
-    // ตรวจสอบสถานะ SweetAlert ทุกครั้งที่ต้องการเรียกใช้
-    // คุณสามารถเรียกฟังก์ชันนี้เมื่อคุณต้องการตรวจสอบว่า SweetAlert ถูกเปิดหรือไม่
     function checkSweetAlertStatus() {
         if (isSweetAlertOpen) {
             // SweetAlert ถูกเปิดอยู่
@@ -831,60 +826,6 @@
 
         })
     }
-    //function fuc_insert_ser() {
-    //    let datas = null;
-    //    if ($("#txt_tel").val() == null) {
-    //        datas = null
-    //    } else {
-    //        datas = $("#txt_tel").val()
-    //    }
-    //    let ajax_ = $.ajax({
-    //        url: '/FrmDetail/SetVisible_remove?txt_tel=' + datas,
-    //        type: 'GET'
-    //        , data: datas
-    //        , success: function (e) {
-    //            let htmls2 = ``
-    //            let values = JSON.parse(e)
-
-    //            table2 = $("#Service_select").dataTable({
-    //                destroy: true,
-
-    //                lengthChange: false,
-    //                columns: [
-    //                    { data: 'SER_ID', render: function (data, type, row) { return '<input type="checkbox" id="addSERVICE_' + data + '" value="' + data + '" data-active="' + row["IS_ACTIVE"] + '" class="editor-active">' } },
-    //                    { data: 'SER_ID', title: 'หมายเลขบริการ' },
-    //                    { data: 'IS_ACTIVE', render: function (data, type, row) { return `<span id="ch` + row["SER_ID"] + `">` + data + `</span>` } },
-    //                    {
-    //                        data: 'SER_NAME', render: function (data, type, row) {
-    //                            return '<input type="text" id="editSERVICE_' + row["SER_ID"] + '" value="' + data + '" class="editor-active2 m-3 " disabled style="width:100%;"><button id="button_ser_save' + row["SER_ID"] + '" class="btn btn-primary " >บันทึก</button>'
-    //                        }
-    //                    },
-    //                    { data: 'SER_NAME', render: function (data, type, row) { return '<span style="display: none;">' + data + '</span>' } }
-
-
-
-    //                ],
-    //                data: values,
-    //                "createdRow": function (row, data, dataIndex) {
-    //                    // ตรวจสอบเงื่อนไขของข้อมูลในแต่ละคอลัมน์
-    //                    // ในตัวอย่างนี้เราจะตรวจสอบคอลัมน์ที่ 2 (index 1)
-    //                    var columnValue = data.IS_ACTIVE;
-    //                    if (columnValue == 'เปิดให้ใช้บริการ') {
-    //                        // กำหนดพื้นหลัง (background color) สำหรับแถวนี้
-    //                        $(row).css('background-color', 'lightgreen');
-    //                    } else if (columnValue == 'ปิดการใช้บริการ') {
-    //                        $(row).css('background-color', 'lightcoral');
-    //                    }
-    //                }
-    //            })
-    //            /*         table2.addClass("table-responsive-xl")*/
-    //            table2.removeAttr('style')
-    //            $("#Service_select").show()
-    //        }
-
-    //    })
-
-    //}
     function fuc_select_status_2() {
         let ajax_ = $.ajax({
             url: "/FrmDetail/showCity?id=" + getCookie("id")
@@ -958,64 +899,6 @@
         })
 
     }
-    //function fuc_insert_ser_confirm() {
-
-    //    let checkedvalues = $('#Service_select tbody td');
-    //    let active;
-    //    let bool_active = "";
-    //    let data_active = "";
-    //    let span_active_name = "";
-    //    let span_active_name_val = "";
-    //    let is_checked;
-
-    //    checkedvalues.each(function (e) {
-    //        active = $(this).find("input[type='checkbox']:checked")
-    //        is_checked = active.prop("checked")
-    //        data_active = active.attr("data-active")
-    //        span_active_name_val = active.val()
-    //        if (is_checked) {
-    //            bool_active += data_active + ","
-    //            span_active_name += span_active_name_val + ","
-    //        }
-
-
-    //    })
-    //    let data1 = new FormData();
-    //    data1.append("IsActive", bool_active)
-    //    data1.append("Service_id_name", span_active_name)
-    //    let ajax_ = $.ajax({
-    //        url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + getCookie("id"),
-    //        type: 'POST',
-    //        processData: false,
-    //        contentType: false,
-    //        data: data1,
-    //        success: function (e) {
-    //            alert2(e);
-    //            /*            fuc_insert_ser();*/
-    //        }
-    //    })
-
-    //}
-    //function fuc_Service_ser_show(Service) {
-    //    //$("#Service2").remove()
-    //    $("#Service2").remove()
-    //    $("#Service_modal").html(`<div id="Service2" style=" width: 1000px; right: 200px; flex-wrap: wrap;"></div>`)
-    //    let htmls2 = ``;
-    //    let nameid = column_name_id_ser.split(',')
-    //    let name = column_name_ser.split(',')
-
-    //    htmls2 += `<div style="" >`
-    //    for (i = 0; i < name.length - 1; i++) {
-    //        if ($("#" + nameid[i] + "").is(':checked')) {
-    //            htmls2 += `  <input type="checkbox" id="lb` + nameid[i] + `" placeholder="" class="input" /> <span style=""> <span id="lbsersh` + nameid[i] + `" > บริการ ` + name[i] + `</span>`
-    //        }
-
-    //    }
-    //    htmls2 += `</div style="" >`
-    //    column_name_id_ser = ``;
-    //    column_name_ser = ``;
-    //    $(Service).html(htmls2)
-    //}
     function cbostatus() {
         let ajax_ = $.ajax({
             url: '/FrmReportTel/FrmReportTel_Load?id=' + getCookie("id"),
