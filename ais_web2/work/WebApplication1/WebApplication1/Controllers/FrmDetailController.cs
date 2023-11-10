@@ -1120,11 +1120,11 @@ namespace ais_web3.Controllers
                     {
                         return "ไม่สามารถรับบริการ Lotto guru ได้  เพราะปีเกิดที่ระบุไม่อยู่ในช่วงที่กำหนด";
                     }
-                    if (age < 15)
+                    if (age < 15 && form.cboStatus == "01")
                     {
                         return "ลูกค้าอายุน้อยกว่า 15 ปี ไม่สามารถรับบริการได้ค่ะ";
                     }
-                    if (age > 55)
+                    if (age > 55 && form.cboStatus == "01")
                     {
                         return "ลูกค้าอายุมากกว่า 55 ปี ไม่สามารถรับบริการได้ค่ะ";
                     }
@@ -1918,7 +1918,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Index(string id = "")
+        public  ActionResult Index(string id = "")
         {
             string StrSql = string.Empty;
             int return1 = 0;
@@ -1976,7 +1976,7 @@ namespace ais_web3.Controllers
                         {
                             values_genid
                         };
-                        return  View(values1);
+                        return   View(values1);
                     }
                     else
                     {
@@ -1987,13 +1987,9 @@ namespace ais_web3.Controllers
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Index FrmDetail :" + ex.Message.ToString());
-                //WriteLog.instance.Log("Index FrmDetail :" + StrSql);
                 return RedirectToAction("Index", "FrmDetail");
             }
-            finally
-            {
-            }
+
         }
         [HttpGet]
         public string list_Service2(string id ="")
