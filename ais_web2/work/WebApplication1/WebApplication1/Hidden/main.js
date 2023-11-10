@@ -761,31 +761,17 @@
         window.location.href = '/FrmDetail/Index'
 
     }
-    function Keep_data_from_Socket(url, element_target) {
-        const socket = new WebSocket(url); // WebSocket URL
-        alert2("555555")
-
-        socket.onopen = function (event) {
-            console.log("WebSocket connection opened.");
-            socket.send(getCookie("id")); // Send data to the server
+    function connect() {
+       
+        var socket = new WebSocket("wss://localhost:44389/SendSocket");
+        socket.onopen = function () {
+            websocket.send("Hello, everyone!");
         };
 
         socket.onmessage = function (event) {
-            console.log("Received data from server: " + event.data);
-            $(element_target).text(event.data);
+            $("#status").text(event);
         };
 
-        socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log("WebSocket connection closed cleanly, code=" + event.code + ", reason=" + event.reason);
-            } else {
-                console.error("WebSocket connection closed with an error.");
-            }
-        };
-
-        socket.onerror = function (error) {
-            console.error("WebSocket error: " + error);
-        };
     }
     let set_intravel;
     let set_intravel2;
@@ -992,8 +978,8 @@
         }
     }
     function getfuc() {
-        let e = Keep_data_from_Socket("https://localhost:44389/Status", "#status")
-        if ($("#status").val() === "Busy") {
+         connect()
+        if ($("#status").text("Busy")) {
 
             if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
                 console.log("ค้นหาเบอร์ใหม่")
@@ -1008,26 +994,26 @@
             $("#status").text("Busy").css("color", "red")
             showreportToday()
 
-        } else if (e === "Not Login") {
+        } else if ($("#status").text("Not Login")) {
             $("#txt_tel").val(``)
             $("#txt_tel").text("")
             $("#status").text("Not Login").css("color", "gray")
             showreportToday()
 
-        } else if (e === "Available") {
+        } else if ($("#status").text("Available")) {
             /*       fucshowtel3(1)*/
             $("#txt_tel").val(``)
             $("#txt_tel").text("")
             $("#status").text("Available").css("color", "green")
             showreportToday()
 
-        } else if (e === "Aux") {
+        } else if ($("#status").text("Aux")) {
             $("#status").text("Aux").css("color", "black")
             showreportToday()
             fucshowtel3(0)
 
             /*                    fucshowtel3(2)*/
-        } else if (e === "Standby") {
+        } else if ($("#status").text("Standby")) {
             $("#txt_tel").val(``)
             $("#txt_tel").text("")
             $("#status").text("Standby").css("color", "green")
@@ -1089,6 +1075,15 @@
     //        }
     //    })
     //}
+    //$(window).on('load',
+    //    $.ajax({
+    //        url: "/FrmStatus/FrmStatus_Load",
+    //        type: 'GET',
+    //        success: function (e) {
+
+    //        }
+    //    })
+    //)
     function getstatus() {
         getfuc();
     }
@@ -1423,7 +1418,8 @@
         $("#txt_tel").attr('disabled', true)
     })
     /*$(document).on('load', fucshowtel());*/
-    $(document).on('load', getstatus());
+    setTimeout(getstatus(), 500);
+    $("#status").on('change', getstatus())
     const regex = /^[0-9]+$/;
     $("#cbocity").on('click', function (e) {
         $("#valid1").hide()

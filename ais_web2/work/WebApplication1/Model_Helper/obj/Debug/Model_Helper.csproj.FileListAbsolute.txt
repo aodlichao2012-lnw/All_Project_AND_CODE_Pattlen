@@ -31,9 +31,17 @@ D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\M
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Model_Helper.pdb
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Dapper.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\jose-jwt.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.Owin.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.Owin.Security.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Newtonsoft.Json.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Owin.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Dapper.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.Owin.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Microsoft.Owin.Security.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\bin\Debug\Newtonsoft.Json.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\obj\Debug\Model_Helper.csproj.AssemblyReference.cache
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\Model_Helper\obj\Debug\Model_Helper.csproj.CoreCompileInputs.cache

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Chat";
+
+}
+
+
+
+<hgroup>
+
+    <h2>@ViewBag.Title.</h2>
+
+    <h3>@ViewBag.Message</h3>
+
+</hgroup>
+
+
+
+<div class="container">
+
+    <input type="text" id="TxtMessage" />
+
+    <input type="button" id="BtnSend" value="Send" />
+
+    <input type="hidden" id="UserName" />
+
+    <ul id="Chats"></ul>
+
+</div>
+
+
+
+@section scripts {
+
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    @*<script src="@Url.Content("~/signalr/hubs")" type="text/javascript"></script>*@
+
+
+
+    <script>
+
+        $(function () {
+
+
+            var chatHub = $.connection.chatHub;
+
+
+
+            $('#UserName').val(prompt('Please Enter Your Name:', ''));
+
+            $('#TxtMessage').focus();
+
+            $.connection.hub.start().done(function () {
+
+                chatHub.client.NewMessage = function (Cl_Name, Cl_Message) {
+
+                    $('#Chats').append('<li><strong>' + htmlEncode(Cl_Name)
+
+                        + '</strong>: ' + htmlEncode(Cl_Message) + '</li>');
+
+                };
+                $('#BtnSend').click(function () {
+
+                   /* chatHub.server.Send($('#UserName').val())*/
+                    chatHub.server.send("Your message");
+                    $('#TxtMessage').val('').focus();
+
+                });
+
+            });
+
+        });
+
+
+
+        function htmlEncode(value) {
+
+            var encodedValue = $('<div />').text(value).html();
+
+            return encodedValue;
+
+        }
+
+    </script>
+
+}

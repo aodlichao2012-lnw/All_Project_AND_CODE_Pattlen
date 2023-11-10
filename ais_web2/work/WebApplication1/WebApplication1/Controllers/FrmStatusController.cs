@@ -1,5 +1,6 @@
 ﻿
 using Jose;
+using Microsoft.AspNetCore.WebSockets.Server;
 using Model_Helper;
 using System;
 using System.Collections.Generic;
@@ -15,61 +16,137 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using static System.Net.Mime.MediaTypeNames;
+using System.Net.Sockets;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.WebSockets;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.WebSockets;
+using System.Net.Http;
+using Microsoft.AspNetCore.Http.Connections.Client;
+using Microsoft.Web.WebSockets;
 
 namespace ais_web3.Controllers
 {
+    [ApiController]
     public class FrmStatusController : Controller
     {
+ 
+        //[HttpGet]
+        //public string Index()
+        //{
+
+        //    return "";
+        //}
+        //[HttpGet]
+        //public void FrmStatus_Load(string id = "")
+        //{
+        //    session_ID = id;
+
+        //    string json = null;
+        //    try
+        //    {
+        //        if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
+        //            if (HttpContext.Request.Cookies["Agen" + session_ID].Value != null)
+        //            {
+        //                Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+        //                Module2.Agent_Id = Agenids;
+        //            }
+        //        WebScoket();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //WriteLog.instance./*Log*/("Error ที่ FrmStatus_Load : " + ex.Message.ToString());
+        //        //Module2.Agent_Id = "";
+        //    }
+        //}
+
+
+
+  
+    //public async void WebScoket()
+    //    {
+    //        _httpListener = new HttpListener();
+
+    //        foreach (var prefix in _httpListener.Prefixes)
+    //        {
+    //            if (prefix == "http://localhost:44389/FrmStatus/WebScoket/")
+    //            {
+    //                continue;
+    //            }
+    //            else
+    //            {
+    //                _httpListener.Prefixes.Add($@"http://localhost:44389/FrmStatus/StartAsync/");
+    //            }
+    //        }
+    //        _httpListener.Start();
+    //        await StartAsync();
+    //    }
+
+    //    private async Task AcceptWebSocketAsync(HttpListenerContext context)
+    //    {
+    //        if (context.Request.IsWebSocketRequest)
+    //        {
+    //            WebSocketContext webSocketContext = await context.AcceptWebSocketAsync(subProtocol: null);
+
+    //            using (WebSocket webSocket = webSocketContext.WebSocket)
+    //            {
+    //                byte[] receiveBuffer = new byte[1024];
+    //                WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+
+    //                while (!result.CloseStatus.HasValue)
+    //                {
+    //                    // Handle received data
+    //                    string receivedData = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
+    //                    Console.WriteLine($"Received data: {receivedData}");
+    //                    string status = Get_Project(receivedData);
+
+    //                    // Send a response
+    //                    byte[] responseBuffer = Encoding.UTF8.GetBytes(status);
+    //                    await webSocket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+
+    //                    result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
+    //                }
+    //            }
+    //        }
+    //    }
+    //    public async Task StartAsync()
+    //    {
+         
+
+    //        while (true)
+    //        {
+    //            HttpListenerContext context = await _httpListener.GetContextAsync();
+    //            if (context.Request.IsWebSocketRequest)
+    //            {
+    //                await AcceptWebSocketAsync(context);
+    //            }
+    //            else
+    //            {
+    //                context.Response.StatusCode = 400;
+    //                context.Response.Close();
+    //            }
+    //        }
+    //    }
+    }
+
+    public class Websocket2 : WebSocketHandler
+    {
+        private HttpListener _httpListener;
         string session_ID = string.Empty;
         private Module2 module = new Module2();
         string type_db = string.Empty;
         string user_name = string.Empty;
-        public FrmStatusController()
-        {
-             this.StartAsync();
-        }
+
         string Agenids = string.Empty;
-        [HttpGet]
-        public string Index()
-        {
-   
-            return "";
-        }
-        [HttpGet]
-        public string FrmStatus_Load(string id ="")
-        {
-            session_ID = id;
-
-            string json = null;
-            try
-            {
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                    if (HttpContext.Request.Cookies["Agen" + session_ID].Value != null)
-                    {
-                        Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                        Module2.Agent_Id = Agenids;
-                    }
-            }
-            catch (Exception ex)
-            {
-                //WriteLog.instance./*Log*/("Error ที่ FrmStatus_Load : " + ex.Message.ToString());
-                //Module2.Agent_Id = "";
-            }
-
-        
-                json = Get_Project(session_ID);
-
-          
-            return json;
-        }
-        public  string Get_Project(string id)
+        public string Get_Project(string id)
         {
             try
             {
                 session_ID = id;
-                if(HttpContext.Request.Cookies["Agen" + session_ID] != null)
+                if (HttpContext.Current.Request.Cookies["Agen" + session_ID] != null)
                 {
-                    Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                    Agenids = HttpContext.Current.Request.Cookies["Agen" + session_ID].Value;
                     string SQL = "";
                     SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                     // Conn.Open(SQL, Conn)
@@ -82,22 +159,23 @@ namespace ais_web3.Controllers
                     }
                     if (dt2.Rows.Count > 0)
                     {
-                        if (HttpContext.Request.Cookies["Tel" + session_ID] == null)
+                        if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] == null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00")) {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        }
+                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                         {
 
                             return "Busy";
@@ -106,7 +184,7 @@ namespace ais_web3.Controllers
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                      
+
                     }
                     return "Unknow";
                 }
@@ -114,68 +192,56 @@ namespace ais_web3.Controllers
                 {
                     return "Not Login";
                 }
-            
-              
-            
+
+
+
             }
             catch (Exception ex)
             {
                 return "Unknow";
             }
         }
+        private static WebSocketCollection clients = new WebSocketCollection();
 
-        #region Socket
-        private HttpListener _httpListener;
-        private async Task AcceptWebSocketAsync(HttpListenerContext context)
+        public Websocket2()
         {
-            if (context.Request.IsWebSocketRequest)
+            clients.Add(this);
+        }
+
+        public override void OnOpen()
+        {
+            clients.Broadcast("New client joined the chat!");
+        }
+
+        public override void OnMessage(string message)
+        {
+            string status = Get_Project(message);
+            clients.Broadcast(status);
+        }
+
+        public override void OnClose()
+        {
+            clients.Broadcast("Client left the chat!");
+            clients.Remove(this);
+        }
+    }
+    public class SendSocket : IHttpHandler
+    {
+        public bool IsReusable
+        {
+            get
             {
-                WebSocketContext webSocketContext = await context.AcceptWebSocketAsync(subProtocol: null);
-
-                using (WebSocket webSocket = webSocketContext.WebSocket)
-                {
-                    byte[] receiveBuffer = new byte[1024];
-
-                    WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
-
-                    while (!result.CloseStatus.HasValue)
-                    {
-                        // Handle received data
-                        string receivedData = Encoding.UTF8.GetString(receiveBuffer, 0, result.Count);
-                        Console.WriteLine($"Received data: {receivedData}");
-                      string status =  Get_Project(receivedData);
-                        // Send a response
-
-                        byte[] responseBuffer = Encoding.UTF8.GetBytes(status);
-                        await webSocket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
-
-                        result = await webSocket.ReceiveAsync(new ArraySegment<byte>(receiveBuffer), CancellationToken.None);
-                    }
-                }
+                return false;
             }
         }
-        #endregion
-        #region เริ่ม Socket
-        public async Task StartAsync()
-        {
-            _httpListener = new HttpListener();
-            _httpListener.Prefixes.Add("https://localhost:44389/Status");
-            _httpListener.Start();
 
-            while (true)
+        public void ProcessRequest(HttpContext context)
+        {
+            if (context.IsWebSocketRequest)
             {
-                HttpListenerContext context = await _httpListener.GetContextAsync();
-                if (context.Request.IsWebSocketRequest)
-                {
-                    await AcceptWebSocketAsync(context);
-                }
-                else
-                {
-                    context.Response.StatusCode = 400;
-                    context.Response.Close();
-                }
+                context.AcceptWebSocketRequest(new Websocket2());
             }
         }
-        #endregion
     }
 }
+

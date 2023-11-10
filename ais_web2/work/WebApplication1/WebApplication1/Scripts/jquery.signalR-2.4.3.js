@@ -1264,7 +1264,7 @@
 
     transportLogic = signalR.transports._logic = {
         ajax: function (connection, options) {
-            returnlet ajax_ =  $.ajax(
+            return $.ajax(
                 $.extend(/*deep copy*/ true, {}, $.signalR.ajaxDefaults, {
                     type: "GET",
                     data: {},
@@ -1548,7 +1548,7 @@
                 });
             }
             else { 
-                // fetch is not available - fallback tolet ajax_ =  $.ajax
+                // fetch is not available - fallback to $.ajax
                 transportLogic.ajax(connection, {
                     url: url,
                     async: async,

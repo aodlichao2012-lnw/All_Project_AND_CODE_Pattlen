@@ -173,9 +173,13 @@ D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\A
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\System.Web.WebPages.Razor.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\WebApplication1.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\WebGrease.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.AspNet.SignalR.Core.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Oracle.ManagedDataAccess.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Dapper.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\jose-jwt.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Owin.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.Owin.Security.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.Owin.dll
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Model_Helper.pdb
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Model_Helper.dll.config
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\WebApplication1.pdb
@@ -194,7 +198,11 @@ D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\A
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\System.Web.WebPages.Razor.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Antlr3.Runtime.pdb
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.AspNet.SignalR.Core.pdb
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.AspNet.SignalR.Core.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Dapper.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.Owin.Security.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\bin\Microsoft.Owin.xml
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\obj\Debug\ApiHelper.csproj.AssemblyReference.cache
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\obj\Debug\ApiHelper.csproj.CoreCompileInputs.cache
 D:\Code_All_project\All_Project_AND_CODE_Pattlen\ais_web2\work\WebApplication1\ApiHelper\obj\Debug\ApiHelper.csproj.CopyComplete
