@@ -172,9 +172,9 @@ namespace ais_web3.Controllers
             try
             {
                 session_ID = id;
-                if (HttpContext.Current.Request.Cookies["Agen" + session_ID] != null)
+                if (HttpContext.Current.Request.Cookies[session_ID] != null)
                 {
-                    Agenids = HttpContext.Current.Request.Cookies["Agen" + session_ID].Value;
+                    Agenids = HttpContext.Current.Request.Cookies[ session_ID].Value;
                     string SQL = "";
                     SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                     // Conn.Open(SQL, Conn)
