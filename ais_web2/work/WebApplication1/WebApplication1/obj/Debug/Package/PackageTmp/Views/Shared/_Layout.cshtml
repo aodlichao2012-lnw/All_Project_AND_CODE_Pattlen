@@ -807,7 +807,8 @@
         $("#occ_tel").text(" แบบฟอร์มบันทึกโทร ระบบ " + getCookie("type_db" + "" + getCookie1("id")))
         $("#label_username").text(getCookie("user_name" + "" + getCookie1("id")))
         if (getCookie("type_db" + "" + getCookie1("id")) !== "") {
-            $("#occtel_title").text("ระบบ " + getCookie("type_db" + "" + getCookie1("id")))
+            /*$("#occtel_title").text("ระบบ " + getCookie("type_db" + "" + getCookie1("id")))*/
+            $("#occtel_title").text("OCC Telesale");
         } else {
             $("#occtel_title").text("OCC Telesale");
         }

@@ -1950,10 +1950,10 @@ namespace ais_web3.Controllers
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
                         module = new Module2(session_ID);
-                        DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
+                        DataTable ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
                         if (ds != null)
                         {
-                            if (ds.Tables["Login_agent"].Rows.Count != 0)
+                            if (ds.Rows.Count != 0)
                             {
                                 return1 = 1;
                             }

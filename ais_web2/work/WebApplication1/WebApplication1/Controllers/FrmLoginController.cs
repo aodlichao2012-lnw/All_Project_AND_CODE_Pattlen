@@ -132,12 +132,13 @@ namespace ais_web3.Controllers
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
                     Response.Cookies.Add(new HttpCookie("login"+ session_ID, tokenuser + ";" + tokempass));
-                    return session_ID;
+                    return result +","+ session_ID;
                 }
                 return result;
             }
         }
         [HttpPost]
+        [Obsolete]
         public string LogIn(string txtUsername, string txtPassword , string type)
         {
             try
@@ -189,31 +190,43 @@ namespace ais_web3.Controllers
                 StrSql += " and (PASSWORD= "+ txtPassword + " )";
                 StrSql += " AND ROWNUM = 1 ";
                 module = new Module2(session_ID);
-                DataSet ds = module.CommandSet(StrSql, "Login_agent");
-                if (ds.Tables["Login_agent"].Rows.Count != 0)
+                DataTable ds = module.CommandSet(StrSql, "Login_agent");
+                if (ds.Rows.Count != 0)
                 {
-                    Module2.Agent_Id = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
-                    Module2.EXTENSION = ds.Tables["Login_agent"].Rows[0]["EXTENSION"].ToString();
+                    Module2.Agent_Id = ds.Rows[0]["Agent_Id"].ToString();
+                    Module2.EXTENSION = ds.Rows[0]["EXTENSION"].ToString();
                     WriteLog.instance.Log_Save_information(Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"));
-                    Module2.Instance.Group_Id = Convert.ToInt32(ds.Tables["Login_agent"].Rows[0]["Group_Id"]);
-                    Module2.Instance.agent = ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString();
-                    Module2.Agent_Id = ds.Tables["Login_agent"].Rows[i]["AGENT_ID"].ToString();
-                    Module2.Instance.strUsername = ds.Tables["Login_agent"].Rows[i]["LOGIN"].ToString();
-                    Module2.Instance.strPassword = ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
-                    string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
+                    Module2.Instance.Group_Id = Convert.ToInt32(ds.Rows[0]["Group_Id"]);
+                    Module2.Instance.agent = ds.Rows[i]["FIRST_NAME"].ToString();
+                    Module2.Agent_Id = ds.Rows[i]["AGENT_ID"].ToString();
+                    Module2.Instance.strUsername = ds.Rows[i]["LOGIN"].ToString();
+                    Module2.Instance.strPassword = ds.Rows[i]["PASSWORD"].ToString();
+                    string user_name = " " + ds.Rows[i]["FIRST_NAME"].ToString() + " " + ds.Rows[i]["LAST_NAME"].ToString() + " ";
                     Module2.user_name_ = user_name;
                     Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
-                    string ip = string.Empty;
-                    myIPs = System.Net.Dns.GetHostByName(myHost);
+
+                 
+                }
+                else
+                {
+                    return "06";
+                }
+                string ip = string.Empty;
+                if (Module2.Agent_Id != null || Module2.Agent_Id != "")
+                {
+                    myIPs = Dns.GetHostByName(myHost);
                     foreach (IPAddress myIP in myIPs.AddressList)
                     {
-                       ip= myIP.ToString();
+                        ip = myIP.ToString();
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
-                   module.UpdateCNFG_Agent_Info_login("5",Module2.Agent_Id,ip);
-                    return "1";
+                    module = new Module2(session_ID);
+                    Task.Delay(1000);
+                  string status = module.UpdateCNFG_Agent_Info_login("5", Module2.Agent_Id, ip);
+
+                    return status;
                 }
                 else
                 {

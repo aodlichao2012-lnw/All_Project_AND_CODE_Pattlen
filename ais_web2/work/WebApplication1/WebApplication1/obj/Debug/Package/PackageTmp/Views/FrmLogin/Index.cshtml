@@ -140,6 +140,7 @@
             });
         }
         $("#btnlogin").on('click', function (e) {
+            $("#modal1").css("display", "block");
             /*    $("#loadingLogin").show()*/
             let ajax_ = $.ajax({
                 url: '/FrmLogin/btnLogin_Click?txtUsername=' + $("#txtUsername").val() + '&txtPassword=' + $("#txtPassword").val() + '&type=' + $("#dd_type_gov").val(),
@@ -148,21 +149,32 @@
 
                     if (e === "2") {
                         alert2("กรุณากรอก Username ค่ะ");
+                        $("#modal1").css("display", "none");
                     } else if (e === "3") {
                         alert2("กรุณากรอก Password ค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "04") {
                         alert2("กรุณากรอกตัวอักขระ เป็นตัวเลข หรือภาษาอังกฤษค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "05") {
                         alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "06") {
                         alert2("Username หรือ Password ไม่ถูกต้องค่ะ")
+                        $("#modal1").css("display", "none");
+                    } else if (e === "07") {
+                        alert2("ขออภัย โปรดลองอีกครั้งค่ะ")
+                        $("#modal1").css("display", "none");
                     }
-                    else {
+                    else if (e.split(',')[0] === "1") {
 
-                        window.location.href = '/FrmDetail/Index?id=' + e
-                        document.cookie = "id=" + e + "; path=/";
+                        window.location.href = '/FrmDetail/Index?id=' + e.split(',')[1]
+                        document.cookie = "id=" + e.split(',')[1] + "; path=/";
                         $("#modal1").css("display", "block");
 
+                    } else {
+                        alert2("Message Error is " + e)
+                        $("#modal1").css("display", "none");
                     }
                 }
             })

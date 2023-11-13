@@ -316,9 +316,9 @@ namespace Model_Helper
                 strUpdate += "TERMINAL_IP   = '" + IP + "' ,";
             }
 
-            strUpdate += " STATUS_ID = " + status + " ,";
+            strUpdate += " STATUS_ID = " + "5" + " ,";
             strUpdate += "CALL_COUNT = 0,";
-            strUpdate += "LOGON_EXT = " + status + ",";
+            strUpdate += "LOGON_EXT = " + "5" + ",";
             if (DNIS != "")
             {
                 strUpdate += "DNIS = '' ,";
@@ -328,14 +328,20 @@ namespace Model_Helper
 
             try
             {
-                {
-                    CommanEx(strUpdate);
-                    return "200";
-                }
+
+                  string status1 =  CommanEx(strUpdate);
+                  if (status1 == "1")
+                    {
+                        return status1;
+                    }
+                    else
+                    {
+                        return status1;
+                    }
             }
             catch (Exception ex)
             {
-                return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message + "ผลการตรวจสอบ";
+                return ex.Message.ToString() ;
             }
         }  
         
@@ -792,45 +798,46 @@ namespace Model_Helper
 
         }
 
-        public int CommanEx(string sQL, string[] input = null, string[] parameter = null)
+        public string CommanEx(string sQL, string[] input = null, string[] parameter = null)
         {
             try
             {
-                dt = new DataTable();
 
             using(OracleConnection Connect = new OracleConnection(strConn))
                 {
                     Connect.Open();
                     using (OracleTransaction transaction = Connect.BeginTransaction())
                     {
-                        OracleCommand Cmd = new OracleCommand(sQL, Connect);
-                        if (input != null)
+                        using (OracleCommand Cmd = new OracleCommand(sQL, Connect))
                         {
-                            int i = 0;
-                            foreach (string s in input)
+                            //if (input != null)
+                            //{
+                            //    int i = 0;
+                            //    foreach (string s in input)
+                            //    {
+                            //        Cmd.Parameters.Add(parameter[i], s);
+                            //        i++;
+                            //    }
+                            //}
+                            try
                             {
-                                Cmd.Parameters.Add(parameter[i], s);
-                                i++;
+                                Connect.Execute(sQL);
+                                transaction.Commit();
+                                transaction.Dispose();
+                                Connect.Close();
+                                return "1";
                             }
-                        }
-                        try
-                        {
-                            int i = Cmd.ExecuteNonQuery();
-                            Cmd.Dispose();
-                            transaction.Commit();
-                            transaction.Dispose();
-                            Connect.Close();
-                            return i;
-                        }
-                        catch (OracleException ex)
-                        {
-                            //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
-                            transaction.Commit();
-                            transaction.Dispose();
-                            Cmd.Dispose();
-                            Connect.Close();
-                            return -1;
-                        }
+                            catch (OracleException ex)
+                            {
+                                //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
+                                transaction.Commit();
+                                transaction.Dispose();
+                                Cmd.Dispose();
+                                Connect.Close();
+                                return ex.Message.ToString();
+                            }
+                        }      
+                   
                     }
 
                 }
@@ -839,8 +846,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
-                return 0;
+                return ex.Message.ToString();
             }
 
         }
@@ -895,11 +901,11 @@ namespace Model_Helper
             {
             }
         }
-        public DataSet CommandSet(string sQL, string table, string[] input = null, string[] parameter = null)
+        public DataTable CommandSet(string sQL, string table, string[] input = null, string[] parameter = null)
         {
             try
             {
-                DataSet ds2 = new DataSet();
+                DataTable ds2 = new DataTable();
 
 
                 using (OracleConnection Connect6 = new OracleConnection(strConn))
@@ -922,11 +928,11 @@ namespace Model_Helper
                             }
 
                         }
-                        OracleDataAdapter da = new OracleDataAdapter(command);
-                        da.Fill(ds2, table);
-                        command.Dispose();
+                        OracleDataReader da = command.ExecuteReader();
+                        ds2.Load(da);
                         transaction.Commit();
                         transaction.Dispose();
+                        command.Dispose();
                         Connect6.Close();
                     }
 
@@ -1337,71 +1343,71 @@ namespace Model_Helper
 
      
         string Agenids = string.Empty;
-        public string Get_Project(string id)
-        {
-            try
-            {
-                if(id == "")
-                {
-                    id = HttpContext.Current.Request.Cookies["id"].Value;
-                }
-                session_ID = id;
-                if (HttpContext.Current.Request.Cookies["Agen" + session_ID] != null)
-                {
-                    Agenids = HttpContext.Current.Request.Cookies["Agen" + session_ID].Value;
-                    string SQL = "";
-                    SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
-                    // Conn.Open(SQL, Conn)
-                    DataTable dt2 = null;
-                   dt2 = Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, dt2);
-                    if (dt2 == null)
-                    {
-                        return "Unknow";
-                    }
-                    if (dt2.Rows.Count > 0)
-                    {
-                        if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
+        //public string Get_Project(string id)
+        //{
+        //    try
+        //    {
+        //        if(id == "")
+        //        {
+        //            id = HttpContext.Current.Request.Cookies["id"].Value;
+        //        }
+        //        session_ID = id;
+        //        if (HttpContext.Current.Request.Cookies["Agen" + session_ID] != null)
+        //        {
+        //            Agenids = HttpContext.Current.Request.Cookies["Agen" + session_ID].Value;
+        //            string SQL = "";
+        //            SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
+        //            // Conn.Open(SQL, Conn)
+        //            DataTable dt2 = null;
+        //           dt2 = Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, dt2);
+        //            if (dt2 == null)
+        //            {
+        //                return "Unknow";
+        //            }
+        //            if (dt2.Rows.Count > 0)
+        //            {
+        //                if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
+        //                {
+        //                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+        //                }
+        //                else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+        //                {
+        //                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+        //                }
+        //                else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+        //                {
+        //                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+        //                }
+        //                else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+        //                {
+        //                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+        //                }
+        //                else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+        //                {
 
-                            return "Busy";
-                        }
-                        else
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
+        //                    return "Busy";
+        //                }
+        //                else
+        //                {
+        //                    return dt2.Rows[0]["DESCRIPTION"].ToString();
+        //                }
 
-                    }
-                    return "Unknow";
-                }
-                else
-                {
-                    return "Not Login";
-                }
+        //            }
+        //            return "Unknow";
+        //        }
+        //        else
+        //        {
+        //            return "Not Login";
+        //        }
 
 
 
-            }
-            catch (Exception ex)
-            {
-                return "Unknow";
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return "Unknow";
+        //    }
+        //}
     }
 
     public interface ICahce
