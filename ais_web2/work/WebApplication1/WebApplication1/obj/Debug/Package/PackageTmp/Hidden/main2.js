@@ -1218,11 +1218,15 @@
     $('#current_date').datetimepicker({
         format: 'd/m/Y',
         formatDate: 'd/m/Y',
+        timepicker: false, // ไม่ต้องแสดงเวลา
+        yearOffset: 543, // ปรับปีให้เป็น พ.ศ.
 
     });
     $("#date_reson").datetimepicker({
         format: 'd/m/Y',
         formatDate: 'd/m/Y',
+        timepicker: false, // ไม่ต้องแสดงเวลา
+        yearOffset: 543, // ปรับปีให้เป็น พ.ศ.
 
     });
 
@@ -1230,6 +1234,8 @@
     $('#date_tel').datetimepicker({
         format: 'd/m/Y',
         formatDate: 'd/m/Y',
+        timepicker: false, // ไม่ต้องแสดงเวลา
+        yearOffset: 543, // ปรับปีให้เป็น พ.ศ.
     });
 
     $("#Service_select tbody").on('click', 'input[type="checkbox"]', function () {

@@ -210,6 +210,9 @@ namespace ais_web3.Controllers
                         {
                             return "Busy";
                           
+                        }else if(HttpContext.Current.Request.Cookies["Tel" + session_ID] != null)
+                        {
+                            return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
                     }
                    

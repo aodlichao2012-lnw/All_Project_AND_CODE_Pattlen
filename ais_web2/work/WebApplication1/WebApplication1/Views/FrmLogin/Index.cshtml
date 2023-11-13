@@ -72,14 +72,14 @@
         /* position: absolute; */
         /* left: 48%; */
         /* top: 40%; */
-        font-size: 40px;
+        font-size: 125%;
         color: white;
     }
 </style>
 
 <div id="modal1">
     <div class="text_modal">
-        <img src="~/text/loading-gif.gif" class="" width="60" height="60" />
+        <img src="~/text/loading-gif.gif" class="" width="25" height="25" />
         <div class="text_modal2">Loading</div>
     </div>
 </div>
@@ -140,6 +140,7 @@
             });
         }
         $("#btnlogin").on('click', function (e) {
+            $("#modal1").css("display", "block");
             /*    $("#loadingLogin").show()*/
             let ajax_ = $.ajax({
                 url: '/FrmLogin/btnLogin_Click?txtUsername=' + $("#txtUsername").val() + '&txtPassword=' + $("#txtPassword").val() + '&type=' + $("#dd_type_gov").val(),
@@ -148,14 +149,19 @@
 
                     if (e === "2") {
                         alert2("กรุณากรอก Username ค่ะ");
+                        $("#modal1").css("display", "none");
                     } else if (e === "3") {
                         alert2("กรุณากรอก Password ค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "04") {
-                        alert2(" ไม่สามารถ เชื่อมต่อ ฐานข้อมูลได้ เนื่องจาก คุณอาจจะคุณป้อน Username หรือ Password ไม่ถูกต้อง หรือ หมดเวลาเชื่อมต่อฐานข้อมูลค่ะ")
+                        alert2("กรุณากรอกตัวอักขระ เป็นตัวเลข หรือภาษาอังกฤษค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "05") {
-                        alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบ")
+                        alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบค่ะ")
+                        $("#modal1").css("display", "none");
                     } else if (e === "06") {
                         alert2("Username หรือ Password ไม่ถูกต้องค่ะ")
+                        $("#modal1").css("display", "none");
                     }
                     else {
 

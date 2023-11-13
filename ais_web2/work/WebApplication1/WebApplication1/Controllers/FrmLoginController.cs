@@ -154,6 +154,10 @@ namespace ais_web3.Controllers
                 {
                     return "04";
                 }
+                if (Regex.IsMatch(txtPassword, @"^[ก-ฮ]"))
+                {
+                    return "04";
+                }
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
                 txtPassword = $"'{txtPassword}'";

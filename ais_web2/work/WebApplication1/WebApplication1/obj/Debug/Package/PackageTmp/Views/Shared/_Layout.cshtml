@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="occtel_title">
     </title>
+    <link rel="icon" href="~/text/tmc_logo.ico"
+          type="image/x-icon">
     @Styles.Render("~/Content/css")
     @*@Scripts.Render("~/bundles/modernizr")*@
     <style>
+        #logo {
+            max-height: 40px; /* ปรับขนาดรูปภาพตามต้องการ */
+            margin-right: 10px;
+        }
+
         .dataTables_paginate {
             margin-top: 20%;
         }
@@ -756,6 +763,7 @@
 </head>
 
 <body>
+
     <div class="">
 
         @RenderBody()
@@ -801,7 +809,7 @@
         if (getCookie("type_db" + "" + getCookie1("id")) !== "") {
             $("#occtel_title").text("ระบบ " + getCookie("type_db" + "" + getCookie1("id")))
         } else {
-            $("#occtel_title").text("เข้าสู่ระะบบ");
+            $("#occtel_title").text("OCC Telesale");
         }
     </script>
 </body>

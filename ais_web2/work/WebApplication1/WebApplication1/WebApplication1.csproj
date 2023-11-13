@@ -837,6 +837,9 @@
     <Content Include="sweetalert2.js" />
     <Content Include="text\loading-gif.gif" />
     <Content Include="text\TextFile1.txt" />
+    <Content Include="text\tmc_logo.ico" />
+    <Content Include="text\tmc_logo.png" />
+    <Content Include="tmc_logo.ico" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -942,6 +945,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tmc_logo.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
