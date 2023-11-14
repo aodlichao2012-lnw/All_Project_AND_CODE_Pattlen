@@ -204,6 +204,7 @@ namespace ais_web3.Controllers
                     Module2.user_name_ = user_name;
                     Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
+                    Response.Cookies.Add(new HttpCookie("Agen" , Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
                     myIPs = System.Net.Dns.GetHostByName(myHost);

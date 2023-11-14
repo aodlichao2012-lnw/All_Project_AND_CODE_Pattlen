@@ -133,30 +133,45 @@ namespace ais_web3.Controllers
 
     public class ChatHub : Hub
     {
+        //System.Timers.Timer Timer { get; set; }
+        //ChatHub(System.Timers.Timer timer)
+        //{
+        //    Timer = timer;
+        //    int interval = 5000;
+
+        //    // Create a timer with the specified interval
+        //    Timer = new System.Timers.Timer(interval);
+
+        //    // Hook up the Elapsed event for the timer
+        //    Timer.Elapsed += OnTimedEvent;
+
+        //    // Enable the timer
+        //    Timer.Enabled = true;
+        //}
         public void RequestData(string id)
         {
             // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
-            var data = GetDataFromDatabase(id);
+            var data = GetDataFromDatabase(id.Split(';')[0], id.Split(';')[1]);
 
             // ส่งข้อมูลกลับไปยังทุกคนที่เชื่อมต่อ
             Clients.Caller.ReceiveData(data);
         }
 
-        public void Send(string id)
+        public void Send(string id , string Agen)
         {
             // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
-            var data = GetDataFromDatabase(id);
+            var data = GetDataFromDatabase(id ,Agen);
 
             // ส่งข้อมูลกลับไปยังทุกคนที่เชื่อมต่อ
             Clients.Caller.ReceiveData(data);
         }
 
-        private string GetDataFromDatabase(string id)
+        private string GetDataFromDatabase(string id , string Agen)
         {
             // ทำการ query ข้อมูลจากฐานข้อมูลโดยใช้ ID ที่ได้รับ
             // จำลองกระบวนการดึงข้อมูลจากฐานข้อมูลที่นี่
             // ตัวอย่าง: ให้ data เป็นข้อมูลที่ได้จากการ query
-            var data = Get_Project(id);
+            var data = Get_Project(id , Agen);
             return data;
         }
 
@@ -167,19 +182,17 @@ namespace ais_web3.Controllers
         string user_name = string.Empty;
 
         string Agenids = string.Empty;
-        public string Get_Project(string id)
+        public string Get_Project(string id, string Agen)
         {
             try
             {
-                session_ID = id;
-                if (HttpContext.Current.Request.Cookies[session_ID] != null)
-                {
-                    Agenids = HttpContext.Current.Request.Cookies[ session_ID].Value;
+
+                    Agenids = Agen;
                     string SQL = "";
                     SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                     // Conn.Open(SQL, Conn)
                     DataTable dt2 = null;
-                    module = new Module2(session_ID);
+                    module = new Module2(id);
                     dt2 = module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, dt2);
                     if (dt2 == null)
                     {
@@ -214,8 +227,7 @@ namespace ais_web3.Controllers
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                    }
-                   
+
                     else
                     {
                         return "Not Login";

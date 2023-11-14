@@ -944,7 +944,7 @@
             /*            console.log("1")*/
 
             $.ajax({
-                url: "/FrmDetail/GetPhone?id=" + getCookie("id")
+                url: "/FrmDetail/GetPhone?id=" + localStorage.getItem("id") + "&Agen=" + localStorage.getItem("Agen")
                 , type: "GET",
                 cache: false,
                 success: function (e) {
@@ -1010,8 +1010,9 @@
 
             // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
             setInterval(function () {
+                console.log(localStorage.getItem("Agen"))
                 /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-                chatHub.server.requestData(localStorage.getItem("Agen"+""+ getCookie("id")));
+                chatHub.server.requestData(localStorage.getItem("id") + ";" + localStorage.getItem("Agen"));
             }, 2000);
         });
     }
@@ -1551,7 +1552,7 @@
     $(window).on('load', function (e) {
         $("#txt_tel").attr('disabled', true)
     })
-    setTimeout(connect(), 4000);
+    setTimeout(connect(), 1500);
     const regex = /^[0-9]+$/;
     $("#cbocity").on('click', function (e) {
         $("#valid1").hide()

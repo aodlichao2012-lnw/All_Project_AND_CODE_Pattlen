@@ -2164,15 +2164,24 @@ namespace ais_web3.Controllers
             return JsonConvert.SerializeObject(list);
         }
         [HttpGet]
-        public string GetPhone(string id= "")
+        public string GetPhone(string id= "" , string Agen = "")
         {
-            session_ID = id;
-            DataTable dataTable = null;
-            string sql = string.Empty;
-            string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-            string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
+       
             try
             {
+                string Agen_id = string.Empty;
+                session_ID = id;
+                DataTable dataTable = null;
+                string sql = string.Empty;
+                if (Agen == "")
+                {
+                    Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                }
+                else
+                {
+                    Agen_id = Agen;
+                }
+
                 sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "'";
                 module = new Module2(session_ID);
              dataTable =   module.Comman_Static(sql ,null ,null,  dataTable);
