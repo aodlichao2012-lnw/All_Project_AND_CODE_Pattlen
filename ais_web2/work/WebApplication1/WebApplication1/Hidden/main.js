@@ -64,7 +64,7 @@ $(function () {
         $("#button_save").prop('disabled', false)
         $("#button_save2").prop('disabled', false)
         let ajax_ = $.ajax({
-            url: '/FrmDetail/Clear_edit?id=' + getCookie("id"),
+            url: '/FrmDetail/Clear_edit?id=' + sessionStorage.getItem("id"),
             type: 'GET',
             data: null,
             success: function (e) {
@@ -201,7 +201,7 @@ function clearAllCookies() {
 function fuclogout() {
 
     let ajax_ = $.ajax({
-        url: "/FrmDetail/SingOut?id=" + getCookie("id"),
+        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id"),
         type: 'GET',
         success: function (e) {
             if (e === "server มี ปัญหา") {
@@ -246,7 +246,7 @@ let column_name_id_ser = "";
 function fuc_edit_Service(Service) {
 
     $.ajax({
-        url: '/FrmDetail/list_Service2?id=' + getCookie("id"),
+        url: '/FrmDetail/list_Service2?id=' + sessionStorage.getItem("id"),
         type: 'GET'
         , success: function (e) {
             if (e !== null) {
@@ -308,7 +308,7 @@ function fuc_edit_Service(Service) {
 }
 function fuc_select_status_2() {
     let ajax_ = $.ajax({
-        url: "/FrmDetail/showCity?id=" + getCookie("id")
+        url: "/FrmDetail/showCity?id=" + sessionStorage.getItem("id")
         , type: "GET",
         success: function (e) {
             if (e === "") {
@@ -381,7 +381,7 @@ function button_ser_save(value, id) {
 }
 function cbostatus() {
     let ajax_ = $.ajax({
-        url: '/FrmReportTel/FrmReportTel_Load?id=' + getCookie("id"),
+        url: '/FrmReportTel/FrmReportTel_Load?id=' + sessionStorage.getItem("id"),
         type: 'GET',
         data: null,
         success: function (e) {
@@ -494,7 +494,7 @@ function connect() {
             // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
             //setTimeout(chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen")), 2000)
             setInterval(function () {
-                /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
+                /*   console.log("ส่งค่า Agen " + sessionStorage.getItem("Agen" + sessionStorage.getItem("id")) + " ไป")*/
                 chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
             }, 15000);
         }).fail(function (error) {
@@ -606,7 +606,7 @@ function fucsave() {
         datas.append("cboSex", sex2)
         datas.append("strDenycode", reson_code)
         datas.append("txtDate_Tel", date_tel)
-        datas.append("id", getCookie("id"))
+        datas.append("id", sessionStorage.getItem("id"))
 
         /*    datas.append("cboDeny", current_date)*/
 
@@ -669,7 +669,7 @@ function getfuc() {
     let e = $("#status").text()
     if (e === "Busy") {
 
-        if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
+        if (sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == "" || sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == null) {
             console.log("ค้นหาเบอร์ใหม่")
 
             fucshowtel3(1)
@@ -677,8 +677,8 @@ function getfuc() {
         else {
             $("#button_save").prop('disabled', false)
             console.log("มีเบอร์แล้ว")
-            console.log(getCookie("Tel" + getCookie("id")))
-            $("#txt_tel").text(getCookie("Tel" + getCookie("id")))
+            console.log(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
+            $("#txt_tel").text(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
             fucshowtel3(0)
         }
         $("#status").text("Busy").css("color", "red")
@@ -717,7 +717,7 @@ function getstatus() {
 function showreportToday() {
 
     $.ajax({
-        url: '/FrmDetail/showreportToday?id=' + getCookie("id"),
+        url: '/FrmDetail/showreportToday?id=' + sessionStorage.getItem("id"),
         cache: false,
         type: 'GET',
         data: null,
@@ -822,7 +822,7 @@ function sum2(table, table2, table_sub3) {
 }
 function fuc_select_status() {
     let ajax_ = $.ajax({
-        url: "/FrmDetail/setcboStatus?id=" + getCookie("id")
+        url: "/FrmDetail/setcboStatus?id=" + sessionStorage.getItem("id")
         , type: "GET",
 
         success: function (e) {
@@ -1154,17 +1154,17 @@ function getstatus() {
     $("#Service").on('load', fuc_edit_Service("#Service"));
     $("#button_search").on('click', function (e) {
 
-        window.location.href = '/FrmSearchNumber/Index?id=' + getCookie("id")
+        window.location.href = '/FrmSearchNumber/Index?id=' + sessionStorage.getItem("id")
 
     })
     $("#button_Main").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
 
     })
     $("#button_Report").on('click', function (e) {
 
-        window.location.href = '/FrmReportTel/Index?id=' + getCookie("id")
+        window.location.href = '/FrmReportTel/Index?id=' + sessionStorage.getItem("id")
 
     })
 
@@ -1206,13 +1206,13 @@ function getstatus() {
     $("#button_save2").hide()
     $("#svg1").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
 
 
     })
     $("#svg2").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
 
 
     })
@@ -1347,7 +1347,7 @@ function getstatus() {
         let reson_select = $("#select_st").val()
         /*  let select = $('#browsers [value="' + reson_select + '"]').data('val')*/
         let ajax_ = $.ajax({
-            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + getCookie("id")
+            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + sessionStorage.getItem("id")
             , type: "GET",
             success: function (e) {
 

@@ -14,6 +14,7 @@
     h2 {
         color: #666666 !important;
     }
+
     .sweet-alert {
         border: 0;
         border-radius: 0.25em;
@@ -62,10 +63,28 @@
         background: #F84874; /* ตั้งค่าสีพื้นหลังเป็นสีแดง */
     }
 
+    .text_modal {
+        position: absolute;
+        left: 48%;
+        top: 40%;
+    }
 
+    .text_modal2 {
+        margin-left: -25%;
+        /* position: absolute; */
+        /* left: 48%; */
+        /* top: 40%; */
+        font-size: 125%;
+        color: white;
+    }
 </style>
 
-
+<div id="modal1">
+    <div class="text_modal">
+        <img src="~/text/loading-gif.gif" class="" width="25" height="25" />
+        <div class="text_modal2">Loading</div>
+    </div>
+</div>
 <div class="Container_box1">
     @*<img id="loadingLogin"src="~/Content/Image/loading-buffering.gif" width="100" height="100" />*@
     <svg width="141" height="50" class="tmc_log" viewBox="0 0 141 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -107,6 +126,39 @@
 <script src="~/sweetalert2.js"></script>
 <script>
     $(document).ready(function (e) {
+
+        function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(';');
+            for (var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
+                }
+            }
+            return "";
+        }
+        function getCookie1(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(';');
+            for (var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
+                }
+            }
+            return "";
+        }
+
+        $("#modal1").css("display", "none");
         function alert2(txt) {
             swal({
                 title: 'แจ้งเตือน!',
@@ -121,27 +173,49 @@
             });
         }
         $("#btnlogin").on('click', function (e) {
+            $("#modal1").css("display", "block");
             /*    $("#loadingLogin").show()*/
             let ajax_ = $.ajax({
                 url: '/FrmLogin/btnLogin_Click?txtUsername=' + $("#txtUsername").val() + '&txtPassword=' + $("#txtPassword").val() + '&type=' + $("#dd_type_gov").val(),
                 type: 'POST',
                 success: function (e) {
-                    /*     $("#loadingLogin").hide()*/
+                    let result = e.split(";")[0]
+                    let e1 = e.split(";")[1]
 
-                    if (e === "2") {
+                    if (e1 === "2") {
                         alert2("กรุณากรอก Username ค่ะ");
-                    } else if (e === "3") {
+                        $("#modal1").css("display", "none");
+                    } else if (e1 === "3") {
                         alert2("กรุณากรอก Password ค่ะ")
-                    } else if (e === "04") {
-                        alert2(" ไม่สามารถ เชื่อมต่อ ฐานข้อมูลได้ เนื่องจาก คุณอาจจะคุณป้อน Username หรือ Password ไม่ถูกต้อง หรือ หมดเวลาเชื่อมต่อฐานข้อมูลค่ะ")
-                    } else if (e === "05") {
-                        alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบ")
+                        $("#modal1").css("display", "none");
+                    } else if (e1 === "04") {
+                        alert2("กรุณากรอกตัวอักขระ เป็นตัวเลข หรือภาษาอังกฤษค่ะ")
+                        $("#modal1").css("display", "none");
+                    } else if (e1 === "05") {
+                        alert2("ไม่สามารถเชื่อมต่อ ฐานข้อมูลได้ กรุณาติดต่อผู้ดูแลระบบค่ะ")
+                        $("#modal1").css("display", "none");
+                    } else if (e1 === "06") {
+                        alert2("Username หรือ Password ไม่ถูกต้องค่ะ")
+                        $("#modal1").css("display", "none");
+                    }
+                    else if (e1 === "1") {
+
+                        window.location.href = '/FrmDetail/Index?id=' + result
+
+                        document.cookie = "id=" + result + "; path=/";
+                        sessionStorage.setItem("user_name", getCookie("id"))
+                        sessionStorage.setItem("strDB", getCookie("id"))
+                        sessionStorage.setItem("type_title", getCookie("id"))
+                        sessionStorage.setItem("type_db", getCookie("id"))
+                        sessionStorage.setItem("Agen", getCookie("Agen"))
+                        sessionStorage.setItem("EXTENSION", getCookie("id"))
+                        sessionStorage.setItem("Agent_Ip", getCookie("id"))
+                        sessionStorage.setItem("id", getCookie("id"))
+
+                        $("#modal1").css("display", "block");
+
                     } else {
-                        var msg = e;
-
-                        window.location.href = '/FrmDetail/Index?id=' + e
-                        document.cookie =  "id=" + e +"; path=/";
-
+                        alert2(e1)
                     }
                 }
             })
@@ -158,7 +232,7 @@
                 table.append("checkbox_DB_Database", "Production")
             }
 
-         $.ajax({
+            $.ajax({
                 url: '/FrmLogin/Select_database',
                 type: 'POST',
                 cache: false,
@@ -177,4 +251,4 @@
     })
 
 </script>
-<script  src="~/Hidden/login.js"></script>
+<script src="~/Hidden/login.js"></script>
