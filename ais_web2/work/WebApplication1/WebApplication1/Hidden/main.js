@@ -669,7 +669,7 @@ function getfuc() {
     let e = $("#status").text()
     if (e === "Busy") {
 
-        if (sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == "" || sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == null) {
+        if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
             console.log("ค้นหาเบอร์ใหม่")
 
             fucshowtel3(1)
@@ -677,8 +677,8 @@ function getfuc() {
         else {
             $("#button_save").prop('disabled', false)
             console.log("มีเบอร์แล้ว")
-            console.log(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
-            $("#txt_tel").text(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
+            console.log(getCookie("Tel" + getCookie("id")))
+            $("#txt_tel").text(getCookie("Tel" + getCookie("id")))
             fucshowtel3(0)
         }
         $("#status").text("Busy").css("color", "red")
