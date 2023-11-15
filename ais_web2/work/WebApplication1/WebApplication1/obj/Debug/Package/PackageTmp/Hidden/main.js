@@ -1,4 +1,13 @@
-﻿
+﻿sessionStorage.setItem("user_name", getCookie("id"))
+sessionStorage.setItem("strDB", getCookie("id"))
+sessionStorage.setItem("type_title", getCookie("id"))
+sessionStorage.setItem("type_db", getCookie("id"))
+sessionStorage.setItem("Agen", getCookie("Agen"))
+sessionStorage.setItem("EXTENSION", getCookie("id"))
+sessionStorage.setItem("Agent_Ip", getCookie("id"))
+sessionStorage.setItem("id", getCookie("id"))
+
+
 var isSweetAlertOpen = false;
 function alert2(txt) {
     isSweetAlertOpen = true;
@@ -460,53 +469,7 @@ function fucshowtel3(is_time) {
 
 }
 var chatHub;
-function connect() {
-    console.log("GET IN")
-    try {
-        // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-        if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-            console.log("Already connected");
-            return;
-        }
 
-        // สร้าง connection ใหม่
-        chatHub = $.connection.chatHub;
-
-        // เพิ่ม event handler สำหรับการรับข้อความ
-        chatHub.client.ReceiveData = function (status) {
-            /*  console.log("Received status: " + status);*/
-            $("#status").text(status);
-            getstatus();
-        };
-
-        $.connection.hub.reconnect = true;
-
-        // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-        $.connection.hub.keepAlive = 1000;
-
-        // เริ่ม connection
-        $.connection.hub.start({ transport: ['webSockets', 'serverSentEvents', 'longPolling'], waitForPageLoad: true, pingInterval: 1000 }).done(function () {
-            console.log("Connected to SignalR Hub");
-            // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-            console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-            // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-            //setTimeout(chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen")), 2000)
-            setInterval(function () {
-                /*   console.log("ส่งค่า Agen " + sessionStorage.getItem("Agen" + sessionStorage.getItem("id")) + " ไป")*/
-                chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-            }, 15000);
-        }).fail(function (error) {
-            console.error("Error connecting to SignalR Hub:", error);
-            connect()
-        });;
-    }
-    catch (error) {
-        console.error("An error occurred:", error);
-    }
-
-}
 function fucsave() {
     if ($("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() === "กำลังค้นหาหมายเลขโทรศัพท์ ....") {
         alert2("ไม่สามารถบันทึกได้ เนื่องจากไม่มี เบอร์โทรศัพท์ กรุณากรอกหมายเลขโทรศัพท์")
@@ -1315,7 +1278,6 @@ function getstatus() {
     $(window).on('load', function (e) {
         $("#txt_tel").attr('disabled', true)
     })
-    $(document).on('load', connect())
     const regex = /^[0-9]+$/;
     $("#cbocity").on('click', function (e) {
         $("#valid1").hide()
