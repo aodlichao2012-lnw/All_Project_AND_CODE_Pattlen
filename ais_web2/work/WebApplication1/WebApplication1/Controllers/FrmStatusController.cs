@@ -63,57 +63,62 @@ namespace ais_web3.Controllers
         {
             try
             {
-                session_ID = id;
-                if(HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                {
-                    Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                    string SQL = "";
-                    SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
-                    // Conn.Open(SQL, Conn)
-                    DataTable dt2 = null;
-                    module = new Module2(session_ID);
-                    module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" }, ref dt2);
-                    if (dt2 == null)
-                    {
-                        return "Unknow";
-                    }
-                    if (dt2.Rows.Count > 0)
-                    {
-                        if (HttpContext.Request.Cookies["Tel" + session_ID] == null)
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] == null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00")) {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                        else if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                        {
 
-                            return "Busy";
-                        }
-                        else
-                        {
-                            return dt2.Rows[0]["DESCRIPTION"].ToString();
-                        }
-                      
-                    }
+                string SQL = "";
+                SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
+                // Conn.Open(SQL, Conn)
+                DataTable dt2 = null;
+                module = new Module2(id);
+                  module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" },ref dt2);
+                if (dt2 == null)
+                {
                     return "Unknow";
                 }
+                if (dt2.Rows.Count > 0)
+                {
+
+                    if (HttpContext.Request.Cookies["Tel" + id] == null)
+                    {
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+                    else if (HttpContext.Request.Cookies["Tel" + id] == null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                    {
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                    {
+
+
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                    {
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                    {
+                        return "Busy";
+
+                    }
+                    else if (HttpContext.Request.Cookies["Tel" + id] != null)
+                    {
+                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+
+                    else
+                    {
+                        return "Not Login";
+                    }
+
+                }
+
                 else
                 {
                     return "Not Login";
                 }
-            
-              
-            
+
+                return "Unknow";
+
             }
             catch (Exception ex)
             {

@@ -25,6 +25,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Web.SessionState;
 using Model_Helper;
 using WebApplication1.Models;
+using System.Net;
 //using Oracle.DataAccess.Client;
 
 namespace ais_web3.Controllers
@@ -1954,7 +1955,23 @@ namespace ais_web3.Controllers
                         {
                             if (ds.Tables["Login_agent"].Rows.Count != 0)
                             {
-                                return1 = 1;
+                                    Module2.Agent_Id = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
+                                    Module2.EXTENSION = ds.Tables["Login_agent"].Rows[0]["EXTENSION"].ToString();
+                                    WriteLog.instance.Log_Save_information(Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"));
+                                    Module2.Instance.Group_Id = Convert.ToInt32(ds.Tables["Login_agent"].Rows[0]["Group_Id"]);
+                                    Module2.Instance.agent = ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString();
+                                    Module2.Agent_Id = ds.Tables["Login_agent"].Rows[i]["AGENT_ID"].ToString();
+                                    Module2.Instance.strUsername = ds.Tables["Login_agent"].Rows[i]["LOGIN"].ToString();
+                                    Module2.Instance.strPassword = ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+                                    string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
+                                    Module2.user_name_ = user_name;
+                                    Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
+                                    Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
+                                    Response.Cookies.Add(new HttpCookie("Agen", Module2.Agent_Id));
+                                    Response.Cookies.Add(new HttpCookie("id", session_ID));
+                                    Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
+              
+                                    return1 = 1;
                             }
                             else
                             {

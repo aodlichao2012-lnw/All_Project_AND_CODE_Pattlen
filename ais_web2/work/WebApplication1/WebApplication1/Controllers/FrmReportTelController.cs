@@ -40,7 +40,7 @@ namespace ais_web3.Controllers
             int return1 = 0;
             try
             {
-                if(id != "")
+                if (id != "")
                 {
                     session_ID = id;
                 }
@@ -49,75 +49,71 @@ namespace ais_web3.Controllers
                     session_ID = HttpContext.Request.Cookies["id"].Value;
                 }
 
-
                 type_db = "";
                 user_name = "";
-
                 CultureInfo cultureInfo = new CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = cultureInfo;
                 DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                string jwt = HttpContext.Request.Cookies["login" + id].Value;
-
-
+                string jwt = HttpContext.Request.Cookies["login" + session_ID].Value;
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
-                    module = new Module2(id);
+                    module = new Module2(session_ID);
                     List<string> userjson = module.GetFromToken(keys);
 
                     if (datet <= Convert.ToDateTime(userjson[2].ToString()))
                     {
-
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-                        module = new Module2(id);
+                        module = new Module2(session_ID);
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
-
                         if (ds != null)
                         {
                             if (ds.Tables["Login_agent"].Rows.Count != 0)
                             {
-                                if (Session["Editv"] != null)
-                                {
-                                    return1 = 1;
-                                }
+                                Module2.Agent_Id = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
+                                Module2.EXTENSION = ds.Tables["Login_agent"].Rows[0]["EXTENSION"].ToString();
+                                WriteLog.instance.Log_Save_information(Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"));
+                                Module2.Instance.Group_Id = Convert.ToInt32(ds.Tables["Login_agent"].Rows[0]["Group_Id"]);
+                                Module2.Instance.agent = ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString();
+                                Module2.Agent_Id = ds.Tables["Login_agent"].Rows[i]["AGENT_ID"].ToString();
+                                Module2.Instance.strUsername = ds.Tables["Login_agent"].Rows[i]["LOGIN"].ToString();
+                                Module2.Instance.strPassword = ds.Tables["Login_agent"].Rows[i]["PASSWORD"].ToString();
+                                string user_name = " " + ds.Tables["Login_agent"].Rows[i]["FIRST_NAME"].ToString() + " " + ds.Tables["Login_agent"].Rows[i]["LAST_NAME"].ToString() + " ";
+                                Module2.user_name_ = user_name;
+                                Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
+                                Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
+                                Response.Cookies.Add(new HttpCookie("Agen", Module2.Agent_Id));
+                                Response.Cookies.Add(new HttpCookie("id", session_ID));
+                                Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
+
                                 return1 = 1;
                             }
                             else
                             {
-
                                 return1 = 0;
                             }
                         }
                         else
                         {
-
                             return1 = 0;
                         }
-
                     }
                     string session = string.Empty;
-                    string agenid = HttpContext.Request.Cookies["Agen" + id].Value;
-                    int count = WriteLog.instance.Log_Get_information_lenght(agenid, DateTime.Now.ToString("yyyyMMdd"));
-                    session = WriteLog.instance.Log_Get_information(agenid, DateTime.Now.ToString("yyyyMMdd"));
-                    session = session.Split(',')[count - 1].Split('=')[1].ToString();
-
-                    id = session;
+                    string agenid = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                    string values_genid = agenid;
                     if (return1 == 1)
                     {
                         List<string> values1 = new List<string>()
                         {
-                            id
+                            values_genid
                         };
-
-
                         return View(values1);
                     }
                     else
                     {
                         return RedirectToAction("Index", "FrmLogin");
                     }
-
                 }
                 return RedirectToAction("Index", "FrmLogin");
 
