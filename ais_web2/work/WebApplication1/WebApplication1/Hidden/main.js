@@ -1,5 +1,4 @@
 ﻿
-    $(document).ready(function (e) {
         var isSweetAlertOpen = false;
 
 
@@ -1433,7 +1432,7 @@
         $("#select_st").on('change', function (e) {
             fuc_select_change_reson()
         })
-    })
+
     function clearCookie(cookieName) {
         document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
