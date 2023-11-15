@@ -803,7 +803,7 @@
             }
             return "";
         }
-        $("#agen_id").text(getCookie("Agen" + "" + getCookie1("id")))
+        $("#agen_id").text(sessionStorage.getItem("Agen"))
         $("#occ_tel").text(" แบบฟอร์มบันทึกโทร ระบบ " + getCookie("type_db" + "" + getCookie1("id")))
         $("#label_username").text(getCookie("user_name" + "" + getCookie1("id")))
         if (getCookie("type_db" + "" + getCookie1("id")) !== "") {

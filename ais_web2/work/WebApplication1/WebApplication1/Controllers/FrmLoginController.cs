@@ -108,16 +108,16 @@ namespace ais_web3.Controllers
         {
             if (txtUsername == "")
             {
-                return "2";
+                return session_ID +";"+ "2";
             }
             else if (txtPassword == "")
             {
-                return "3";
+                return session_ID + ";" + "3";
             }
             else
             {
                 result = LogIn(txtUsername, txtPassword,type);
-                if (result  == "1")
+                if (result.Split(';')[1]  == "1")
                 {
                     var username = new Dictionary<string, object>()
 {
@@ -132,9 +132,9 @@ namespace ais_web3.Controllers
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
                     Response.Cookies.Add(new HttpCookie("login"+ session_ID, tokenuser + ";" + tokempass));
-                    return session_ID;
+                    return session_ID +";"+"1";
                 }
-                return result;
+                return session_ID+";"+ result;
             }
         }
         [HttpPost]
@@ -148,15 +148,15 @@ namespace ais_web3.Controllers
                 }
                 if (!Regex.IsMatch(txtUsername, @"^[0-9a-zA-z]"))
                 {
-                    return "04";
+                    return session_ID + ";" + "04";
                 }
                 if (!Regex.IsMatch(txtPassword, @"^[0-9a-zA-z]"))
                 {
-                    return "04";
+                    return session_ID + ";" + "04";
                 }
                 if (Regex.IsMatch(txtPassword, @"^[ก-ฮ]"))
                 {
-                    return "04";
+                    return session_ID + ";" + "04";
                 }
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
@@ -205,6 +205,7 @@ namespace ais_web3.Controllers
                     Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
                     Response.Cookies.Add(new HttpCookie("Agen" , Module2.Agent_Id));
+                    Response.Cookies.Add(new HttpCookie("id" , session_ID));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
                     myIPs = System.Net.Dns.GetHostByName(myHost);
@@ -214,16 +215,16 @@ namespace ais_web3.Controllers
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
                    module.UpdateCNFG_Agent_Info_login("5",Module2.Agent_Id,ip);
-                    return "1";
+                    return session_ID + ";" + "1";
                 }
                 else
                 {
-                    return "06";
+                    return session_ID + ";" + "06";
                 }
             }
             catch(OracleException ex )
             {
-                return "05 "+ ex.Message.ToString();
+                return session_ID + ";" + "05 " + ex.Message.ToString();
             }
         }
     }
