@@ -27,23 +27,23 @@ namespace ais_web3.Controllers
 {
     public class FrmLoginController : Controller
     {
-        string session_ID  = Guid.NewGuid().ToString().Substring(0, 6);
-        public  ActionResult Index(string jwt = null)
+        string session_ID = Guid.NewGuid().ToString().Substring(0, 6);
+        public ActionResult Index(string jwt = null)
         {
 
 
-                if (HttpContext.Request.Cookies.AllKeys.Length > 0)
-                {
-                    HttpContext.Response.Cookies.Clear();
-                }
-                DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
-                string StrSql = string.Empty;
-                if (jwt == null)
-                {
-                    CultureInfo cultureInfo = new CultureInfo("en-US");
-                    Thread.CurrentThread.CurrentCulture = cultureInfo;
-                   
-                }
+            if (HttpContext.Request.Cookies.AllKeys.Length > 0)
+            {
+                HttpContext.Response.Cookies.Clear();
+            }
+            DateTime datet = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), new CultureInfo("en-US"));
+            string StrSql = string.Empty;
+            if (jwt == null)
+            {
+                CultureInfo cultureInfo = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentCulture = cultureInfo;
+
+            }
 
 
             return View();
@@ -52,7 +52,7 @@ namespace ais_web3.Controllers
         private string myHost = Dns.GetHostName();
         private IPHostEntry myIPs;
         private string result;
-        private  Module2 module;
+        private Module2 module;
 
         public FrmLoginController()
         {
@@ -104,20 +104,20 @@ namespace ais_web3.Controllers
             return JsonConvert.SerializeObject(status_list);
         }
         [HttpPost]
-        public string btnLogin_Click(string txtUsername, string txtPassword , string type)
+        public string btnLogin_Click(string txtUsername, string txtPassword, string type)
         {
             if (txtUsername == "")
             {
-                return "2";
+                return session_ID + ";" + "2";
             }
             else if (txtPassword == "")
             {
-                return "3";
+                return session_ID + ";" + "3";
             }
             else
             {
-                result = LogIn(txtUsername, txtPassword,type);
-                if (result  == "1")
+                result = LogIn(txtUsername, txtPassword, type);
+                if (result.Split(';')[1] == "1")
                 {
                     var username = new Dictionary<string, object>()
 {
@@ -131,14 +131,14 @@ namespace ais_web3.Controllers
 };
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
-                    Response.Cookies.Add(new HttpCookie("login"+ session_ID, tokenuser + ";" + tokempass));
-                    return session_ID;
+                    Response.Cookies.Add(new HttpCookie("login" + session_ID, tokenuser + ";" + tokempass));
+                    return session_ID + ";" + "1";
                 }
-                return result;
+                return session_ID + ";" + result;
             }
         }
         [HttpPost]
-        public string LogIn(string txtUsername, string txtPassword , string type)
+        public string LogIn(string txtUsername, string txtPassword, string type)
         {
             try
             {
@@ -148,24 +148,28 @@ namespace ais_web3.Controllers
                 }
                 if (!Regex.IsMatch(txtUsername, @"^[0-9a-zA-z]"))
                 {
-                    return "04";
+                    return session_ID + ";" + "04";
                 }
                 if (!Regex.IsMatch(txtPassword, @"^[0-9a-zA-z]"))
                 {
-                    return "04";
+                    return session_ID + ";" + "04";
+                }
+                if (Regex.IsMatch(txtPassword, @"^[ก-ฮ]"))
+                {
+                    return session_ID + ";" + "04";
                 }
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
                 txtPassword = $"'{txtPassword}'";
-                if(type_keep == "1200")
+                if (type_keep == "1200")
                 {
                     Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[0]));
                     Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "1200"));
                 }
-                else if(type_keep == "2400")
+                else if (type_keep == "2400")
                 {
                     Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[1]));
-                              Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "2400"));
+                    Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "2400"));
                 }
                 else if (type_keep == "4800")
                 {
@@ -177,12 +181,12 @@ namespace ais_web3.Controllers
                     Response.Cookies.Add(new HttpCookie("type_title" + session_ID, ConfigurationManager.AppSettings["type_title"].Split(';')[3]));
                     Response.Cookies.Add(new HttpCookie("type_db" + session_ID, "test"));
                 }
-                    Module2.type_db_ = type_keep;
+                Module2.type_db_ = type_keep;
                 StrSql = "";
                 int i = 0;
                 StrSql = "SELECT * FROM PREDIC_AGENTS";
-                StrSql += " WHERE (LOGIN = "+ txtUsername + " )";
-                StrSql += " and (PASSWORD= "+ txtPassword + " )";
+                StrSql += " WHERE (LOGIN = " + txtUsername + " )";
+                StrSql += " and (PASSWORD= " + txtPassword + " )";
                 StrSql += " AND ROWNUM = 1 ";
                 module = new Module2(session_ID);
                 DataSet ds = module.CommandSet(StrSql, "Login_agent");
@@ -200,25 +204,27 @@ namespace ais_web3.Controllers
                     Module2.user_name_ = user_name;
                     Response.Cookies.Add(new HttpCookie("user_name" + session_ID, HttpUtility.UrlEncode(user_name)));
                     Response.Cookies.Add(new HttpCookie("Agen" + session_ID, Module2.Agent_Id));
+                    Response.Cookies.Add(new HttpCookie("Agen", Module2.Agent_Id));
+                    Response.Cookies.Add(new HttpCookie("id", session_ID));
                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
                     myIPs = System.Net.Dns.GetHostByName(myHost);
                     foreach (IPAddress myIP in myIPs.AddressList)
                     {
-                       ip= myIP.ToString();
+                        ip = myIP.ToString();
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
-                   module.UpdateCNFG_Agent_Info_login("5",Module2.Agent_Id,ip);
-                    return "1";
+                    module.UpdateCNFG_Agent_Info_login("5", Module2.Agent_Id, ip);
+                    return session_ID + ";" + "1";
                 }
                 else
                 {
-                    return "04";
+                    return session_ID + ";" + "06";
                 }
             }
-            catch(OracleException ex )
+            catch (OracleException ex)
             {
-                return "05 "+ ex.Message.ToString();
+                return session_ID + ";" + "05 " + ex.Message.ToString();
             }
         }
     }
