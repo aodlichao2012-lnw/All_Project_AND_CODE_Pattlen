@@ -201,29 +201,29 @@ namespace ais_web3.Controllers
                     if (dt2.Rows.Count > 0)
                     {
 
-                        if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null)
+                        if (HttpContext.Current.Request.Cookies["Tel" + id] == null)
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] == null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + id] == null && HttpContext.Current.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + id] != null && HttpContext.Current.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                         {
                           
 
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + id] != null && HttpContext.Current.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         } 
-                        else if (HttpContext.Current.Request.Cookies["Tel" + session_ID] != null && HttpContext.Current.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                        else if (HttpContext.Current.Request.Cookies["Tel" + id] != null && HttpContext.Current.Request.Cookies["Tel" + id].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                         {
                             return "Busy";
                           
-                        }else if(HttpContext.Current.Request.Cookies["Tel" + session_ID] != null)
+                        }else if(HttpContext.Current.Request.Cookies["Tel" + id] != null)
                         {
                             return dt2.Rows[0]["DESCRIPTION"].ToString();
                         }

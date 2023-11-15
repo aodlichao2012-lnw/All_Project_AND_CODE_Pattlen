@@ -195,6 +195,9 @@
                         $("#modal1").css("display", "none");
                     }
                     else {
+               
+                        window.location.href = '/FrmDetail/Index?id=' + e
+                
                         document.cookie = "id=" + e + "; path=/";
                         localStorage.setItem("user_name", getCookie("id"))
                         localStorage.setItem("strDB", getCookie("id"))
@@ -204,9 +207,6 @@
                         localStorage.setItem("EXTENSION", getCookie("id"))
                         localStorage.setItem("Agent_Ip", getCookie("id"))
                         localStorage.setItem("id", getCookie("id"))
-                        window.location.href = '/FrmDetail/Index?id=' + e
-                
-                   
 
                         $("#modal1").css("display", "block");
 
