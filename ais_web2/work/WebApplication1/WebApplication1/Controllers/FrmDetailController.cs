@@ -2184,16 +2184,16 @@ namespace ais_web3.Controllers
             return JsonConvert.SerializeObject(list);
         }
         [HttpGet]
-        public string GetPhone(string id= "")
+        public string GetPhone(string id= "" , string Agen = "")
         {
             session_ID = id;
             DataTable dataTable = null;
             string sql = string.Empty;
-            string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+            string Agen_id = Agen;
             string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
             try
             {
-                sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "'";
+                sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "' AND ROWNUM = 1";
                 module = new Module2(session_ID);
                 module.Comman_Static(sql ,null ,null, ref dataTable);
                 if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))

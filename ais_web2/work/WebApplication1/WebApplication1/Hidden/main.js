@@ -1,5 +1,36 @@
-﻿$(window).load(function (e) {
-    sessionStorage.setItem("user_name", getCookie("id"))
+﻿
+function getCookie(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
+        }
+    }
+    return "";
+}
+function getCookie1(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
+        }
+    }
+    return "";
+}
+
+sessionStorage.setItem("user_name", getCookie("id"))
     sessionStorage.setItem("strDB", getCookie("id"))
     sessionStorage.setItem("type_title", getCookie("id"))
     sessionStorage.setItem("type_db", getCookie("id"))
@@ -7,7 +38,7 @@
     sessionStorage.setItem("EXTENSION", getCookie("id"))
     sessionStorage.setItem("Agent_Ip", getCookie("id"))
     sessionStorage.setItem("id", getCookie("id"))
-})
+
 
 
 var isSweetAlertOpen = false;
@@ -347,36 +378,7 @@ function fuc_select_status_2() {
     })
 
 }
-function getCookie(cookieName) {
-    var name = cookieName + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookieArray = decodedCookie.split(';');
-    for (var i = 0; i < cookieArray.length; i++) {
-        var cookie = cookieArray[i];
-        while (cookie.charAt(0) == ' ') {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) == 0) {
-            return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
-        }
-    }
-    return "";
-}
-function getCookie1(cookieName) {
-    var name = cookieName + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookieArray = decodedCookie.split(';');
-    for (var i = 0; i < cookieArray.length; i++) {
-        var cookie = cookieArray[i];
-        while (cookie.charAt(0) == ' ') {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) == 0) {
-            return cookie.substring(name.length, cookie.length).replace(/\+/g, ' ');
-        }
-    }
-    return "";
-}
+
 function button_ser_save(value, id) {
     let ajax_ = $.ajax({
         url: '/FrmDetail/Save_service?id=' + id + "&values=" + value,
@@ -433,7 +435,6 @@ function fucshowtel3(is_time) {
 
     if (is_time === 1) {
         /*            console.log("1")*/
-
         $.ajax({
             url: "/FrmDetail/GetPhone?id=" + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen")
             , type: "GET",
@@ -790,47 +791,47 @@ function fucsave() {
     //}
 
 
-    function fucshowtel3(is_time) {
+    //function fucshowtel3(is_time) {
 
-        if (is_time === 1) {
-            /*            console.log("1")*/
+    //    if (is_time === 1) {
+    //        /*            console.log("1")*/
 
-            $.ajax({
-                url: "/FrmDetail/GetPhone?id=" + sessionStorage.getItem("id")
-                , type: "GET",
-                cache: false,
-                success: function (e) {
-                    console.log("Tel from ajax is = " + e)
-                    if (e === "") {
-                        $("#txt_tel").attr('disabled', true)
-                        $("#txt_tel").val("กำลังค้นหาหมายเลขโทรศัพท์ ....")
-                    }
-                    else if (e === "0") {
-                        $("#txt_tel").val("")
-                    }
-                    else {
-                        $("#txt_tel").attr('disabled', true)
-                        $("#txt_tel").val(e)
-                        is_time = 0;
-                    }
-                }
-            })
-
-
-        }
-        else if (is_time === 0) {
-        }
-        else
-            if (is_time === 2) {
-
-                $("#txt_tel").val(``)
-                /*  console.log("2")*/
-                /*        }*/
-            }
+    //        $.ajax({
+    //            url: "/FrmDetail/GetPhone?id=" + sessionStorage.getItem("id")
+    //            , type: "GET",
+    //            cache: false,
+    //            success: function (e) {
+    //                console.log("Tel from ajax is = " + e)
+    //                if (e === "") {
+    //                    $("#txt_tel").attr('disabled', true)
+    //                    $("#txt_tel").val("กำลังค้นหาหมายเลขโทรศัพท์ ....")
+    //                }
+    //                else if (e === "0") {
+    //                    $("#txt_tel").val("")
+    //                }
+    //                else {
+    //                    $("#txt_tel").attr('disabled', true)
+    //                    $("#txt_tel").val(e)
+    //                    is_time = 0;
+    //                }
+    //            }
+    //        })
 
 
+    //    }
+    //    else if (is_time === 0) {
+    //    }
+    //    else
+    //        if (is_time === 2) {
 
-    }
+    //            $("#txt_tel").val(``)
+    //            /*  console.log("2")*/
+    //            /*        }*/
+    //        }
+
+
+
+    //}
 
     function fucsave() {
 
