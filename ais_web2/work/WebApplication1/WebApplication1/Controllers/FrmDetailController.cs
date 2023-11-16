@@ -2190,7 +2190,7 @@ namespace ais_web3.Controllers
             DataTable dataTable = null;
             string sql = string.Empty;
             string Agen_id = Agen;
-            string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
+            //string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
             try
             {
                 sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "' AND ROWNUM = 1";
