@@ -33,15 +33,18 @@ namespace ais_web3.Controllers
             return "";
         }
         [HttpGet]
-        public string FrmStatus_Load(string id ="")
+        public string FrmStatus_Load(string id ="" , string Agen ="")
         {
             session_ID = id;
 
             string json = null;
             try
             {
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                    if (HttpContext.Request.Cookies["Agen" + session_ID].Value != null)
+                    if(Agen != "")
+                    {
+                        Agenids = Agen;
+                    }
+                    else  if (HttpContext.Request.Cookies["Agen" + session_ID].Value != null)
                     {
                         Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
                         Module2.Agent_Id = Agenids;

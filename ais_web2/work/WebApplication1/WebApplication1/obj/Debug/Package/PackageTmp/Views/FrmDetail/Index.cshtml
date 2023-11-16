@@ -1,0 +1,517 @@
+﻿
+
+<head>
+    <meta charset="UTF-8">
+    <!-- อื่น ๆ -->
+</head>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string values = Model[0] as string;
+}
+<link href="~/sweetalert2.css" rel="stylesheet" />
+
+<script src="~/sweetalert2.js"></script>
+<style>
+    #modal1 {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งๆ */
+        z-index: 2;
+    }
+
+    .total_l_today {
+        padding: 6px;
+        position: absolute;
+        top: 212px;
+        width: 225px;
+        left: 7px;
+        background-color: #FFFFFF;
+    }
+
+    .svg1 {
+        width: 15px;
+        margin-left: 815px;
+        position: relative;
+        top: -30px;
+        color: #333333;
+    }
+
+    .svg2 {
+        width: 15px;
+        margin-left: 815px;
+        position: relative;
+        top: -30px;
+        color: #333333;
+    }
+
+    .div_detail1 {
+        padding: 10px;
+        margin-left: 220px;
+        margin-top: -40px;
+    }
+
+    .div_top {
+        padding-top: 10px
+    }
+
+    h2 {
+        color: #666666 !important;
+    }
+
+    .sweet-console.log {
+        border: 0;
+        border-radius: 0.25em;
+        background: initial;
+        background-color: #fff !important;
+        color: #fff;
+        font-size: 1em;
+        width: 100%;
+        grid-column: 2;
+        grid-row: 2;
+        align-self: center;
+        justify-self: center;
+        box-shadow: 0px 4px 4px rgb(149 149 149 / 75%);
+    }
+
+    .sweet-content {
+        font-family: Arial;
+        z-index: 1;
+        justify-content: center;
+        margin: 1em 1.6em .3em;
+        padding: 0;
+        overflow: auto;
+        color: #666666 !important;
+        font-size: 16px !important;
+        font-weight: normal;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .sweet-confirm {
+        width: 136px;
+        height: 48px;
+        font-family: Arial;
+        font-size: 25px;
+        background: #F84874 !important;
+        color: white !important;
+        border-radius: 6px;
+        outline-color: transparent;
+        border-width: 0px;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: #F84874; /* ตั้งค่าสีพื้นหลังเป็นสีแดง */
+        color: #F84874; /* ตั้งค่าสีพื้นหลังเป็นสีแดง */
+        background: #F84874; /* ตั้งค่าสีพื้นหลังเป็นสีแดง */
+    }
+
+    .menu1 {
+        margin-top: 30px;
+        position: absolute;
+        margin-left: -50px;
+        background: #F84874;
+        width: 41px;
+        height: 40px;
+        padding: 5px;
+        padding-top: 5px;
+        padding-top: 7px;
+    }
+
+        .menu1:hover {
+            background: #f84874bf;
+        }
+</style>
+
+<div id="modal1">
+</div>
+<div class="body2">
+    <a class="tmc_logo2" href="#">
+        <svg width="141" height="50" loading="lazy" style="margin-top: 10px;" id="svg1" viewBox="0 0 141 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="141" height="50" fill="url(#pattern0)" />
+            <defs>
+                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_149_36" transform="matrix(0.00223025 0 0 0.00628931 -0.00292163 0)" />
+                </pattern>
+                <image id="image0_149_36" width="451" height="159" xlink:href="data:image/png;base64,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" />
+            </defs>
+        </svg>
+    </a>
+    <span class="grap_username_detail"><span class="label_username">Agen ID :  <span id="agen_id"></span> </span><span class="textbox_space2"></span> <span class="label_username" id="label_username"></span><span class="textbox_space"></span><button type="button" id="button_logout" class="button_logout_2">ออกจากระบบ</button></span><div>  </div>
+
+    <div class="Main_form">
+
+
+        <div class="menu1">
+            <span id="Hamberger">
+                <a href="#" style="color:white">
+                    <svg xmlns="http://www.w3.org/2000/svg" loading="lazy"
+                         width="30"
+                         height="30"
+                         viewBox="0 0 30 30"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="27" y2="12"></line>
+                        <line x1="3" y1="6" x2="27" y2="6"></line>
+                        <line x1="3" y1="18" x2="27" y2="18"></line>
+                    </svg>
+                </a>
+
+                <div class="right_bar" id="right_bar">
+                    <!-- เปลี่ยนคลาสเป็น right_bar -->
+                    <span><button type="button" class="button_Main" style="background-color:#F84874;" id="button_Main">แบบฟอร์มบันทึกโทร</button></span>
+                    <span> <button type="button" class="button_report" id="button_Report">รายงาน</button></span>
+                    <span> <button type="button" class="button_search" disabled id="button_search" hidden="hidden">ค้นหาเบอร์โทร</button></span>
+                    <div class="total_l_today">
+
+                        <span class="Label_">จำนวนสมัคร ของวันนี้ ( @DateTime.Now.ToString("dd/MM/yyyy", new System.Globalization.CultureInfo("th-TH")) )</span>
+                        <div></div>
+                        <span class="Label_">จำนวนเบอร์โทร   <span style="padding-left: 5px;font-size:14px;"></span><span id="labelTel" class="Label_"> 0 </span> เบอร์</span>
+                        <span class="Label_">จำนวนรวม <span id="Label8_today"> 0 </span> บริการ</span>
+                        <div></div>
+                        <div data-show="1">
+                            <span class="Label_" id="label_ser1_today"> </span>
+                            <span style="padding-left: 10px;"></span>
+                            <span id="Label9_today"></span>
+                        </div>
+                        <div data-show="2">
+                            <span class="Label_" id="label_ser2_today"></span>
+                            <span style="padding-left: 10px;"></span>
+                            <span id="Label10_today"></span>
+                        </div>
+                        <div data-show="3">
+                            <span class="Label_" id="label_ser3_today"> </span>
+                            <span style="padding-left: 10px;"></span>
+                            <span id="Label11_today"> </span>
+                        </div>
+                        <div data-show="4">
+                            <span class="Label_" id="label_ser4_today">
+                            </span>
+                            <span style="padding-left: 10px;"></span>
+                            <span id="Label12_today">  </span>
+                        </div>
+
+
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="grap_from_detail fiexd">
+
+            <div>
+
+                <div class="vector">
+
+                    <span class="occ_tel" id="occ_tel">
+
+                    </span>
+
+                </div>
+
+                <div class="group1">
+                    <div class="div_top"><span class=" infor_tel">บันทึกโทร</span> </div>
+
+                    <div class="div_detail1">
+                        <span class="textbox_"></span>
+                        <span id="status" class="status1">
+
+                        </span>
+                    </div>
+                    <span class="lable1 tel">หมายเลขโทรศัพท์</span>
+                    <span class="textbox_"></span>
+                    <input type="text" placeholder="" id="txt_tel" value="" class="txt tel1" />
+                    @*<button id="button_request_phone" class="button_req_ph_">Request Tel</button>*@
+                    <span class="lable1 current_date_l">วันที่ปัจจุบัน</span>
+
+                    <input type="text" placeholder="" class="txt current_date" id="current_date" />
+                    <img src="~/Hidden/icons8-calendar-24.png" class="svg1" />
+
+                    <div>
+                        <span class="lable1 city">จังหวัด <span class="lable1 city_danger">*</span></span>
+                        <span class="textbox_"></span>
+                        <select id="cbocity" class="select1 cbocity_1">
+                            <option selected>
+                                -- กรุณาเลือก --
+                            </option>
+                            <option value="-">
+                                -
+                            </option>
+                        </select>
+
+                        <span class="lable1 tel_date_l ">วันที่โทร <span class="lable1 city_danger">*</span></span>
+                        <span class="textbox_"></span>
+                        <input type="text" placeholder="" class="txt date_tel" id="date_tel" />
+                        <img src="~/Hidden/icons8-calendar-24.png" class="svg2" />
+                        <div><span id="valid2">โปรดเลือกวันที่โทร</span></div>
+                        <div>
+                            <span id="valid1">โปรดเลือกจังหวัด</span>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    @*<select id="cboDeny" value="AIS"  class="">
+                            <option selected value="AIS">
+                                AIS
+                            </option>
+                        </select>*@
+
+
+                    @*<div>
+
+                            <span class="textbox_"></span>
+
+                        </div>*@
+
+
+                    <div>
+                        <span class="lable1 status_l">สถานะ <span class="lable1 city_danger">*</span> </span>
+                        <span class="textbox_"></span>
+                        <select class="select1 select_st_s" id="select_st">
+                        </select>
+                        <span class="lable1 reson_l">เหตุผล</span>
+                        <span class="textbox_"></span>
+                        <select class="select1 select_rs_s" id="select_rs">
+                            <option selected>
+                                -- กรุณาเลือก --
+                            </option>
+                        </select>
+                        <div> <span id="valid3">โปรดเลือกสถานะ</span></div>
+                    </div>
+
+
+                    <div class="">
+                        <div>
+                            <div class="div_top">
+                                <span class="info_cust_l">ข้อมูลลูกค้า</span>
+                            </div>
+
+                            <br />
+                            <div class="">
+                                <span class="lable1 custname_l"> ชื่อ</span>
+                                <span class="lable1 scustname_l">นามสกุล</span>
+                                <span class="lable1 sex_l">เพศ</span>
+                            </div>
+                            <div>
+                                <input type="text" id="cname" placeholder="" class="txt custname_s" />
+                                <input type="text" id="csname" placeholder="" class="txt cscustname_s" />
+                                <select id="sex2" class="select1 sex_s">
+                                    <option value="N">ไม่ระบุ</option>
+                                    <option value="M">ชาย</option>
+                                    <option value="F">หญิง</option>
+
+                                </select>
+                            </div>
+
+                            <br />
+                            <div>
+                                <span class="lable1 year_l"> ปีเกิด (พ.ศ) <span class="lable1 year_danger">*</span></span>
+                                <span class="lable1 datenum_l "> เดือนเกิด </span>
+                                <span class="lable1 mount_l"> วันที่เกิด </span>
+                                <span class="lable1 dateday_l"> วันเกิด <span class="lable1 day_danger">*</span> </span>
+
+                            </div>
+                            <div class="">
+                                <input class="select1 year_thai_s" id="year_thai" name="" />
+                                @*<option value="" selected>-- กรุณาเลือก --</option>
+                                    </input>*@
+
+                                <select class="select1 date_num_s" id="mouth_thai" name="">
+                                    <option value="" selected>-- กรุณาเลือก --</option>
+                                    <option value="01">มกราคม</option>
+                                    <option value="02">กุมภาพันธ์</option>
+                                    <option value="03">มีนาคม</option>
+                                    <option value="04">เมษายน</option>
+                                    <option value="05">พฤษภาคม</option>
+                                    <option value="06">มิถุนายน</option>
+                                    <option value="07">กรกฎาคม</option>
+                                    <option value="08">สิงหาคม</option>
+                                    <option value="09">กันยายน</option>
+                                    <option value="10">ตุลาคม</option>
+                                    <option value="11">พฤศจิกายน</option>
+                                    <option value="12">ธันวาคม</option>
+                                </select>
+
+                                <select class="select1 mouth_thai_s " id="date_num" name="">
+                                    <option value="" selected>-- กรุณาเลือก --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+
+
+                                <select class="select1 date_thai_s" id="date_thai" name="">
+                                    <option value="" selected>-- กรุณาเลือก--</option>
+                                    <option value="0">-</option>
+                                    <option value="1">วันจันทร์</option>
+                                    <option value="2">วันอังคาร</option>
+                                    <option value="3">วันพุธ</option>
+                                    <option value="4">วันพฤหัสบดี</option>
+                                    <option value="5">วันศุกร์</option>
+                                    <option value="6">วันเสาร์</option>
+                                    <option value="7">วันอาทิตย์</option>
+                                </select>
+
+
+                            </div>
+                            <div>
+                                <span id="valid4" class="year_thai_s">โปรดเลือกปีเกิด</span>
+                                <span id="valid5" class="date_thai_s">โปรดเลือกวันเกิด</span>
+                            </div>
+
+                            <script type="text/javascript">
+
+                            </script>
+                        </div>
+                        <br />
+                        <div>
+                            <div style="font-size: 20px; font-weight: 700; line-height: 36px; letter-spacing: 0em; text-align: left; margin-left: 80px; color: #333333; ">บริการ</div>
+                            <div id="Service_modal" class="">
+                                <div id="Service2" style=" width: 1000px; right: 200px; flex-wrap: wrap;"></div>
+
+                                <div id="Service" style="margin-left:80px;">
+                                </div>
+                                <div style="margin-left:300px;margin-top:30px;margin-bottom:30px;">
+
+                                    @*<button type="button" id="button_reload" class="btn btn-primary">Reload บริการอีกครั้ง</button>
+
+                                        <button type="button" id="button_ser_add" data-toggle="modal" data-target="#myModal2" class="btn btn-primary">เพิ่ม / ลบ / แก้ไข บริการ</button>
+
+                                        <button type="button" id="button_Service_save" class="btn btn-primary">บันทึก</button>*@
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mb-1" style="padding-bottom:20px;">
+                        <button type="button" id="button_save" class="button_clear">บันทึก</button>
+                        <button type="button" id="button_save2" class="button_edit">แก้ไข</button>
+                        <button type="button" id="button_clear" class="button_save">ตั้งค่าใหม่</button>
+                        @*<button type="button" id="button_add_ser" data-toggle="modal" data-target="#myModal" class="home-button5 button">เพิ่มบริการ</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="flex-wrap:wrap;" role="document">
+            <div class="modal-content" style=" width: 1000px; right: 200px; flex-wrap: wrap;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">เลือกบริการ</h5>
+                    <button type="button" class="close btn-danger col-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="flex-wrap:wrap;width:200%;" role="document">
+            <div class="modal-content" style=" width:200%; right:200px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="margin-left:auto;" id="exampleModalLabel">เพิ่มบริการ</h5>
+                    <button type="button" class="close btn-danger col-1" style="margin-left:auto;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="center_col">
+                        <button type="button" id="button_ser_set_active" class="btn btn-primary">บันทึก</button>
+                    </div>
+                    <br />
+                    @*<img id="reload2" src="~/Content/Image/ZKZx.gif" style="justify-content:center;" width="30" height="30" />*@
+                    <table id="Service_select" class="" width="100%">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" hidden class="select-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+
+                        @*<button type="button" id="button_Service_add_save" class="btn btn-primary">เพิ่มบริการ</button>
+                            <button type="button" id="button_ser_remove" class="btn btn-primary">ลบบริการ</button>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="flex-wrap:wrap;" role="document">
+            <div class="modal-content" style=" width: 1000px; right: 200px; flex-wrap: wrap;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มบริการ</h5>
+                    <button type="button" class="close btn-danger col-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @*<img id="reload" src="~/Content/Image/ZKZx.gif" style="justify-content:center;" />*@
+                <div id="Service3" style=" width: 1000px; right: 200px; flex-wrap: wrap;"></div>
+                <div class="modal-footer">
+                    <button type="button" id="button_ser_remove_save" class="btn btn-primary">ลบ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="copy2">© 2023 Teleinfo Media Public Company Limited</p>
+<link href="~/Hidden/jquery-ui.css" rel="stylesheet" />
+<script src="~/Hidden/jquery-ui.js"></script>
+
+<script src="~/Hidden/main.js"></script>
+<script src="~/Hidden/toggle.js"></script>
