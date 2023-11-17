@@ -62,14 +62,30 @@ namespace ais_web3.Controllers
           
             return json;
         }
+        public string checkTelphone(DataTable dt2 , string id)
+        {
+            string Phone = "";
+            if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString().Length > 1)
+            {
+                Phone = dt2.Rows[0]["DNIS"].ToString();
+                HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + id, dt2.Rows[0]["DNIS"].ToString()));
+                return Phone;
+            }
+            else
+            {
+                Phone = "''";
+                return Phone;
+            }
+        }
         public  string Get_Project(string id)
         {
+            string Status = "";
+            string Phone = "";
+            string SQL = "";
             try
             {
-
-                string SQL = "";
-                SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION  from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
-                // Conn.Open(SQL, Conn)
+              
+                SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION , CNFG_AGENT_INFO.DNIS as DNIS from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                 DataTable dt2 = null;
                 module = new Module2(id);
                   module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" },ref dt2);
@@ -79,42 +95,50 @@ namespace ais_web3.Controllers
                 }
                 if (dt2.Rows.Count > 0)
                 {
-
+                 
                     if (HttpContext.Request.Cookies["Tel" + id] == null)
                     {
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+
+                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
                     }
                     else if (HttpContext.Request.Cookies["Tel" + id] == null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                     {
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+
+                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
                     }
                     else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
                     {
 
-
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
                     }
                     else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
                     {
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
+
+                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
                     }
                     else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                     {
-                        return "Busy";
+
+                        Status = "Busy";
 
                     }
                     else if (HttpContext.Request.Cookies["Tel" + id] != null)
                     {
-                        return dt2.Rows[0]["DESCRIPTION"].ToString();
-                    }
 
-                    else
+                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
+                    }
+                    if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString() != "" && HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                     {
-                        return "Not Login";
+                        HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                    }
+                    if(Status == "Busy")
+                    {
+                      Phone =  checkTelphone(dt2, id);
                     }
 
+                    return Status + ";" + Phone;
+            
                 }
-
                 else
                 {
                     return "Not Login";

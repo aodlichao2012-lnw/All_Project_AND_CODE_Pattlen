@@ -114,7 +114,6 @@ $(function () {
                 fuc_select_status();
                 fuc_select_status_2();
                 fuc_edit_Service("#Service")
-                fucshowtel3(true);
                 sessionStorage.setItem("ishastel", "")
             }
         })
@@ -432,46 +431,7 @@ function formatNumber(number, decimalPlaces) {
 let set_interval;
 let set_intravel;
 let set_intravel2;
-function fucshowtel3(is_time) {
 
-    if (is_time === 1) {
-        /*            console.log("1")*/
-        $.ajax({
-            url: "/FrmDetail/GetPhone?id=" + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen")
-            , type: "GET",
-            cache: false,
-            success: function (e) {
-                console.log("Tel from ajax is = " + e)
-                if (e === "") {
-                    $("#txt_tel").attr('disabled', true)
-                    $("#txt_tel").val("กำลังค้นหาหมายเลขโทรศัพท์ ....")
-                }
-                else if (e === "0") {
-                    $("#txt_tel").val("")
-                }
-                else {
-                    $("#txt_tel").attr('disabled', true)
-                    $("#txt_tel").val(e)
-                    is_time = 0;
-                }
-            }
-        })
-
-
-    }
-    else if (is_time === 0) {
-    }
-    else
-        if (is_time === 2) {
-
-            $("#txt_tel").val(``)
-            /*  console.log("2")*/
-            /*        }*/
-        }
-
-
-
-}
 var chatHub;
 
 function fucsave() {
@@ -572,6 +532,7 @@ function fucsave() {
         datas.append("strDenycode", reson_code)
         datas.append("txtDate_Tel", date_tel)
         datas.append("id", sessionStorage.getItem("id"))
+        datas.append("Agen", sessionStorage.getItem("Agen"))
 
         /*    datas.append("cboDeny", current_date)*/
 
@@ -784,219 +745,7 @@ function fucsave() {
     }
     $(document).on('load', getstatus());
 
-    //function getstatus() {
-    //    setInterval(getfuc, 600);
-    //}
-
-    //$(document).on('load', getstatus());
-
-    //function getstatus() {
-    //    setInterval(getfuc, 600);
-    //}
-
-
-    //function fucshowtel3(is_time) {
-
-    //    if (is_time === 1) {
-    //        /*            console.log("1")*/
-
-    //        $.ajax({
-    //            url: "/FrmDetail/GetPhone?id=" + sessionStorage.getItem("id")
-    //            , type: "GET",
-    //            cache: false,
-    //            success: function (e) {
-    //                console.log("Tel from ajax is = " + e)
-    //                if (e === "") {
-    //                    $("#txt_tel").attr('disabled', true)
-    //                    $("#txt_tel").val("กำลังค้นหาหมายเลขโทรศัพท์ ....")
-    //                }
-    //                else if (e === "0") {
-    //                    $("#txt_tel").val("")
-    //                }
-    //                else {
-    //                    $("#txt_tel").attr('disabled', true)
-    //                    $("#txt_tel").val(e)
-    //                    is_time = 0;
-    //                }
-    //            }
-    //        })
-
-
-    //    }
-    //    else if (is_time === 0) {
-    //    }
-    //    else
-    //        if (is_time === 2) {
-
-    //            $("#txt_tel").val(``)
-    //            /*  console.log("2")*/
-    //            /*        }*/
-    //        }
-
-
-
-    //}
-
-    function fucsave() {
-
-
-
-        if ($("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() === "กำลังค้นหาหมายเลขโทรศัพท์ ....") {
-            alert2("ไม่สามารถบันทึกได้ เนื่องจากไม่มี เบอร์โทรศัพท์ กรุณากรอกหมายเลขโทรศัพท์")
-        } else {
-            if (regex.test($("#txt_tel").val())) {
-
-                if ($("#cbocity").val() == "" || $("#cbocity").val() == null) {
-                    $("#valid1").show()
-                } else {
-                    if ($("#date_tel").val() == "" || $("#date_tel").val() == null) {
-                        $("#valid2").show()
-                    } else {
-                        if ($("#txt_tel").val().length < 10) {
-                            alert2("กรุณากรอก หมายเลขโทรศัพท์ให้ครบ 10 หลัก")
-                        } else {
-                            if ($("#select_st").val() === "") {
-                                $("#valid3").show()
-                            } else {
-                                if ($("#select_st").val() === "01") {
-                                    if ($("#date_thai").val() == "" || $("#year_thai").val() == "" || $("#year_thai").val() == null || $("#mouth_thai").val() == null) {
-                                        alert2("กรุณากรอก วัน  ปี เกิด")
-                                        $("#valid4").show()
-                                        $("#valid5").show()
-                                    }
-                                    else {
-
-                                        Save_function()
-
-
-                                    }
-                                } else {
-
-                                    Save_function()
-
-
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            else {
-
-
-                alert2("กรุณาพิมพ์หมายเลขโทรศัพท์ให้ถูกต้อง ห้ามมีอักขระ หรือตัวอักษร")
-            }
-            showreportToday()
-
-        }
-
-
-        //function Save_function() {
-        //    let SERVICE2_ = "#SERVICE_";
-        //    let service = $("[id]").filter(function (e) {
-        //        return this.id === SERVICE2_
-        //    })
-        //    let datas = new FormData();
-
-        //    for (i = 0; i < service.prevObject.length; i++) {
-
-        //        if (service.prevObject[i].id.includes("SERVICE_") === true) {
-
-        //            datas.append(service.prevObject[i].id, service.prevObject[i].checked)
-        //        }
-
-        //    }
-
-        //    let reson = $("#select_st").val()
-        //    let reson_2 = $("#select_rs").find(":selected").text()
-        //    let reson_code = $("#select_rs").val()
-        //    let current_date = $("#current_date").val()
-        //    let cname = $("#cname").val()
-        //    let cbocity = $("#cbocity").val()
-        //    let cbocity_name = $("#cbocity").find(":selected").text()
-        //    let cboDeny = $("#cboDeny").val()
-        //    let sex2 = $("#sex2").val()
-        //    let csname = $("#csname").val()
-        //    let txt_tel = $("#txt_tel").val()
-        //    let date_num = $("#date_num").val()
-        //    let date_thai = $("#date_thai").val()
-        //    let year = $("#year_thai").val()
-        //    let mouth = $("#mouth_thai").val()
-        //    let date_tel = $("#date_tel").val()
-        //    datas.append("txtYear", year)
-        //    datas.append("cboMouth", mouth)
-        //    datas.append("cboStatus", reson)
-        //    datas.append("cboDate", date_num)
-        //    datas.append("txtName", cname)
-        //    datas.append("txtSName", csname)
-        //    datas.append("txtTel_No", txt_tel)
-        //    datas.append("Date_thai", date_thai)
-        //    datas.append("cbocity", cbocity)
-        //    datas.append("cbocity_name", cbocity_name)
-        //    datas.append("cboDeny", cboDeny)
-        //    datas.append("strDeny", reson_2)
-        //    datas.append("cboSex", sex2)
-        //    datas.append("strDenycode", reson_code)
-        //    datas.append("txtDate_Tel", date_tel)
-        //    datas.append("id", sessionStorage.getItem("id"))
-
-        //    /*    datas.append("cboDeny", current_date)*/
-
-        //    let ajax_ = $.ajax({
-        //        url: '/FrmDetail/btnSave_Click',
-        //        contentType: false,
-        //        processData: false,
-        //        type: 'POST',
-        //        data: datas
-        //        , success: function (e) {
-
-        //            showreportToday();
-        //            if (e === "บันทึกข้อมูลเรียบร้อย") {
-        //                alert2(e)
-
-        //                $("#status").text("Standby").css("color", "green")
-        //                $("#txt_tel").text("")
-        //                $("#txt_tel").val(``)
-        //                $("#button_save").prop('disabled', true)
-
-        //                showreportToday();
-        //                Issave = true
-        //                $("#button_save").prop('disabled', false)
-        //                $("#button_save2").prop('disabled', false)
-        //                $("#Service_select").hide()
-        //                $("#select_st").val(``)
-        //                $("#select_rs").text(`-- กรุณาเลือก--`)
-        //                /*                    $("#current_date").val(``)*/
-        //                $("#cname").val(``)
-        //                $("#cbocity").val(`0100`)
-        //                $("#cboDeny").val(``)
-        //                /*                    $("#date_tel").val(``)*/
-        //                $("#csname").val(``)
-        //                $("#txt_tel").val(``)
-        //                $("#date_num").val(``)
-        //                $("#date_thai").val(``)
-        //                $("#year_thai").val(``)
-        //                $("#mouth_thai").val(``)
-        //                $("#button_save").show()
-        //                $("#button_save2").hide()
-        //                fuc_edit_Service("#Service")
-        //                $("#valid1").hide()
-        //                $("#valid2").hide()
-        //                $("#valid3").hide()
-        //                $("#valid4").hide()
-        //                $("#valid5").hide()
-        //                showreportToday();
-        //            } else {
-        //                alert2(e)
-        //            }
-
-        //        }
-        //    })
-
-
-        //}
-    }
+ 
 function getfuc() {
   
     if (sessionStorage.getItem("ishastel") !== "Busy")
@@ -1006,53 +755,54 @@ function getfuc() {
             data: null,
             cache: false,
             success: function (e) {
-                console.log(e)
+                let tel = "";
+                let status = "";
+                if (e.split(";")[1] != "''") {
+                    tel = e.split(";")[1]
+                    status = e.split(";")[0]
+                } else {
+                     tel = "";
+                     status = e.split(";")[0]
+                }
+             
+                console.log(status)
 
-                if (e === "Busy") {
+                if (status === "Busy") {
 
                     if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
                         console.log("ค้นหาเบอร์ใหม่")
 
-                        fucshowtel3(1)
+                        $("txt_tel").val(tel)
                     }
                     else {
                         $("#button_save").prop('disabled', false)
                         console.log("มีเบอร์แล้ว")
-                        console.log(getCookie("Tel" + sessionStorage.getItem("id")))
-                        $("#txt_tel").text(getCookie("Tel" + getCookie("id")))
-                        sessionStorage.setItem("ishastel", "Busy")
-                        fucshowtel3(0)
+                        $("#txt_tel").val(getCookie("Tel" + sessionStorage.getItem("id")))
                     }
                     $("#status").text("Busy").css("color", "red")
                     showreportToday()
 
-                } else if (e === "Not Login") {
+                } else if (status === "Not Login") {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
                     $("#status").text("Not Login").css("color", "gray")
                     showreportToday()
 
-                } else if (e === "Available") {
-                    /*       fucshowtel3(1)*/
+                } else if (status === "Available") {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
                     $("#status").text("Available").css("color", "green")
-                    sessionStorage.setItem("ishastel", "Available")
                     showreportToday()
 
-                } else if (e === "Aux") {
+                } else if (status === "Aux") {
                     $("#status").text("Aux").css("color", "black")
                     showreportToday()
-                    fucshowtel3(0)
-                    sessionStorage.setItem("ishastel", "Aux")
+                    $("txt_tel").val(tel)
 
-                    /*                    fucshowtel3(2)*/
-                } else if (e === "Standby") {
+                } else if (status === "Standby") {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
                     $("#status").text("Standby").css("color", "green")
-                    fucshowtel3(2)
-                    sessionStorage.setItem("ishastel", "Standby")
                     showreportToday();
                 }
             }
@@ -1259,7 +1009,7 @@ function getfuc() {
         $("#valid4").hide()
     })
     $("#button_save").on('click', function (e) { fucsave(); showreportToday(); })
-    $("#button_save2").on('click', function (e) { fucsave(); showreportToday(); })
+
 
     $("#select_st").on('load',
         fuc_select_status()

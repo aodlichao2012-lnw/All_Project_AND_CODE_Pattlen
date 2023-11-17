@@ -1094,9 +1094,9 @@ namespace ais_web3.Controllers
                 int age;
                 int rowInsert = 0;
                 int day_no = 0;
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
+                if (form.Agen != null)
                 {
-                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                    string Agens = form. Agen;
                     Module2.Agent_Id = Agens;
                 }
                 string Agenid = Module2.Agent_Id;
@@ -2183,46 +2183,50 @@ namespace ais_web3.Controllers
             list.Add(list_Service(session_ID));
             return JsonConvert.SerializeObject(list);
         }
-        [HttpGet]
-        public string GetPhone(string id= "" , string Agen = "")
-        {
-            session_ID = id;
-            DataTable dataTable = null;
-            string sql = string.Empty;
-            string Agen_id = Agen;
-            //string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
-            try
-            {
-                sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "' AND ROWNUM = 1";
-                module = new Module2(session_ID);
-                module.Comman_Static(sql ,null ,null, ref dataTable);
-                if(HttpContext.Request.Cookies["Tel" + session_ID] == null || HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                {
-                    if (dataTable.Rows.Count > 0)
-                    {
-                        tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
-                        Response.Cookies.Add(new HttpCookie("Tel" + session_ID, tel_phone));
-                    }
-                    else
-                    {
-                        tel_phone = "";
-                    }
-                }
-                if (HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                {
-                    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                    HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                }
-                return tel_phone;
-            }
-            catch(Exception ex)
-            {
-                //WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
-                //WriteLog.instance.Log("GetPhone :" + sql);
-                return "";
-            }
+        //[HttpGet]
+        //public string GetPhone(string id= "" , string Agen = "" ,string Tel ="")
+        //{
+        //    session_ID = id;
+        //    DataTable dataTable = null;
+        //    string sql = string.Empty;
+        //    string Agen_id = Agen;
+        //    //string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
+        //    try
+        //    {
+        //        sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "' AND ROWNUM = 1";
+        //        module = new Module2(session_ID);
+        //        module.Comman_Static(sql ,null ,null, ref dataTable);
+        //        if(Tel == "null" || Tel == "")
+        //        {
+        //            if (dataTable.Rows.Count > 0)
+        //            {
+        //                tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
+                    
+        //            }
+        //            else
+        //            {
+        //                tel_phone = "";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            tel_phone = Tel;
+        //        }
+        //        if (Tel != "null" && Tel != "" && HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+        //        {
+        //            tel_phone = "";
+        //            HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+        //        }
+        //        return tel_phone;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        //WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
+        //        //WriteLog.instance.Log("GetPhone :" + sql);
+        //        return "";
+        //    }
 
-        }
+        //}
         public void updateUI(string strStat)
         {
             if (strStat.Length == 10)

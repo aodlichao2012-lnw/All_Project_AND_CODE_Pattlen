@@ -219,6 +219,7 @@ namespace Model_Helper
 
         public string Date_thai { get; set; }
         public string id { get; set; }
+        public string Agen { get; set; }
         public string txtTel_No { get; set; }
         public string txtOper { get; set; }
         public string txtDate_Tel { get; set; }
