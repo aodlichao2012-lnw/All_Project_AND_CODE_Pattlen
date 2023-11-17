@@ -67,8 +67,8 @@ namespace ais_web3.Controllers
             string Phone = "";
             if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString().Length > 1)
             {
-                Phone = dt2.Rows[0]["DNIS"].ToString();
-                HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + id, dt2.Rows[0]["DNIS"].ToString()));
+                Phone = "0"+ dt2.Rows[0]["DNIS"].ToString();
+                HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + id, Phone));
                 return Phone;
             }
             else
@@ -144,7 +144,6 @@ namespace ais_web3.Controllers
                     return "Not Login";
                 }
 
-                return "Unknow";
 
             }
             catch (Exception ex)
