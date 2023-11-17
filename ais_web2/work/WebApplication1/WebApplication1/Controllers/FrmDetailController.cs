@@ -524,7 +524,6 @@ namespace ais_web3.Controllers
         [HttpPost]
         public string btnSave_Click(form3 form)
         {
-            DataTable check_anumber = null;
             string sqlsearch = string.Empty;
             try
             {
@@ -590,21 +589,7 @@ namespace ais_web3.Controllers
                     return "กรุณาพิมพ์ ตัวเลขเท่านั้น ห้ามพิมพ์ตัวอักษร และ ห้ามพิมพ์อักขระ";
                 }
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("th-TH");
-                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
-                {
-                }
-                else
-                {
-                       module.Comman_Static($@"select * from MAS_LEADS_TRANS where anumber = '{form.txtTel_No}'" , null , null, ref check_anumber);
-                    if (check_anumber.Rows.Count == 0)
-                    {
-                        HttpContext.Request.Cookies["editv" + session_ID].Expires = DateTime.Now.AddYears(-153);
-
-                    }
-                    else
-                    {
-                    }
-                }
+ 
                 if (form.cboStatus == "01")
                 {
                     if (form.SERVICE_21 == false & form.SERVICE_11 == false && form.SERVICE_12 == false & form.SERVICE_13 == false)
@@ -641,8 +626,6 @@ namespace ais_web3.Controllers
                         return "คุณเลือกไม่สนใจ โปรดยกเลิกการเลือกบริการ";
                     }
                 }
-                if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
-                {
                     sqlsearch = "";
                     sqlsearch = "INSERT INTO MAS_LEADS_TRANS(ANUMBER,LEAD_CALL_DATE,SERVICE_01,SERVICE_02,SERVICE_03,SERVICE_04,SERVICE_05,SERVICE_06,SERVICE_07,SERVICE_08,SERVICE_09,SERVICE_10,SERVICE_11,SERVICE_12,SERVICE_13,SERVICE_14,SERVICE_15,SERVICE_16,SERVICE_17,SERVICE_18,SERVICE_19,SERVICE_20,SERVICE_21,SERVICE_22,SERVICE_23,SERVICE_24,SERVICE_25,SERVICE_26,SERVICE_27,SERVICE_28,SERVICE_29,SERVICE_33,";
                     sqlsearch += "CUST_NAME,CUST_SNAME,BIRTH_DAY ,BIRTH_DD,Birth_MM,BIRTH_YYYY,CUST_SEX,RES_CODE,CITY_NAME_T,OPERATION,DENY_CODE,PREDICT_STATUS,AGENT_ID)VALUES(";
@@ -849,7 +832,7 @@ namespace ais_web3.Controllers
                     }
                     else
                     {
-                        sqlsearch += "0" + "','"; // service_25
+                        sqlsearch += "0" + "','"; 
                     }
                     if (form.SERVICE_26 == true)
                     {
@@ -857,7 +840,7 @@ namespace ais_web3.Controllers
                     }
                     else
                     {
-                        sqlsearch += "0" + "','"; // service_26
+                        sqlsearch += "0" + "','"; 
                     }
                     if (form.SERVICE_27 == true)
                     {
@@ -867,7 +850,6 @@ namespace ais_web3.Controllers
                     {
                         sqlsearch += "0" + "','";
                     }
-                    // ElseIf SA7.Checked = False Then
                     if (form.SERVICE_28 == true)
                     {
                         sqlsearch += "1" + "','";
@@ -926,286 +908,9 @@ namespace ais_web3.Controllers
                     }
                     sqlsearch += "1" + "', '";
                     sqlsearch += Agenid + "')";
-                }
-                else
-                {
-                    sqlsearch += $@"UPDATE MAS_LEADS_TRANS SET ";
-                    if (form.SERVICE_01 == true)
-                    {
-                        sqlsearch += "SERVICE_01 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_01 =  '0' , ";
-                    }
-                    if (form.SERVICE_02 == true)
-                    {
-                        sqlsearch += "SERVICE_02 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_02 =  '0' , ";
-                    }
-                    if (form.SERVICE_03 == true)
-                    {
-                        sqlsearch += "SERVICE_03 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_03 =  '0' , ";
-                    }
-                    if (form.SERVICE_04 == true)
-                    {
-                        sqlsearch += "SERVICE_04 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_04 =  '0' , ";
-                    }
-                    if (form.SERVICE_05 == true)
-                    {
-                        sqlsearch += "SERVICE_05 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_05 =  '0' , ";
-                    }
-                    if (form.SERVICE_06 == true)
-                    {
-                        sqlsearch += "SERVICE_06 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_06 =  '0' , ";
-                    }
-                    if (form.SERVICE_07 == true)
-                    {
-                        sqlsearch += "SERVICE_07 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_07 =  '0' , ";
-                    }
-                    if (form.SERVICE_08 == true)
-                    {
-                        sqlsearch += "SERVICE_08 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_08 =  '0' , ";
-                    }
-                    if (form.SERVICE_09 == true)
-                    {
-                        sqlsearch += "SERVICE_09 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_09 =  '0' , ";
-                    }
-                    if (form.SERVICE_10 == true)
-                    {
-                        sqlsearch += "SERVICE_10 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_10 =  '0' , ";
-                    }
-                    if (form.SERVICE_11 == true)
-                    {
-                        sqlsearch += "SERVICE_11 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_11 =  '0' , ";
-                    }
-                    if (form.SERVICE_12 == true)
-                    {
-                        sqlsearch += "SERVICE_12 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_12 =  '0' , ";
-                    }
-                    if (form.SERVICE_13 == true)
-                    {
-                        sqlsearch += "SERVICE_13 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_13 =  '0' , ";
-                    }
-                    if (form.SERVICE_14 == true)
-                    {
-                        sqlsearch += "SERVICE_14 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_14 =  '0' , ";
-                    }
-                    if (form.SERVICE_15 == true)
-                    {
-                        sqlsearch += "SERVICE_15 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_15 =  '0' , ";
-                    }
-                    if (form.SERVICE_16 == true)
-                    {
-                        sqlsearch += "SERVICE_16 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_16 =  '0' , ";
-                    }
-                    if (form.SERVICE_17 == true)
-                    {
-                        sqlsearch += "SERVICE_17 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_17 =  '0' , ";
-                    }
-                    if (form.SERVICE_18 == true)
-                    {
-                        sqlsearch += "SERVICE_18 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_18 =  '0' , ";
-                    }
-                    if (form.SERVICE_19 == true)
-                    {
-                        sqlsearch += "SERVICE_19 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_19 =  '0' , ";
-                    }
-                    if (form.SERVICE_20 == true)
-                    {
-                        sqlsearch += "SERVICE_20 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_20 =  '0' , ";
-                    }
-                    if (form.SERVICE_21 == true)
-                    {
-                        sqlsearch += "SERVICE_21 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_21 =  '0' , ";
-                    }
-                    if (form.SERVICE_22 == true)
-                    {
-                        sqlsearch += "SERVICE_22 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_22 =  '0' , ";
-                    }
-                    if (form.SERVICE_23 == true)
-                    {
-                        sqlsearch += "SERVICE_23 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_23 =  '0' , ";
-                    }
-                    if (form.SERVICE_24 == true)
-                    {
-                        sqlsearch += "SERVICE_24 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_24 =  '0' , ";
-                    }
-                    if (form.SERVICE_25 == true)
-                    {
-                        sqlsearch += "SERVICE_25 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_25 =  '0' , ";
-                    }
-                    if (form.SERVICE_26 == true)
-                    {
-                        sqlsearch += "SERVICE_26 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_26 =  '0' , ";
-                    }
-                    if (form.SERVICE_27 == true)
-                    {
-                        sqlsearch += "SERVICE_27 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_27 =  '0' , ";
-                    }
-                    if (form.SERVICE_28 == true)
-                    {
-                        sqlsearch += "SERVICE_28 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_28 =  '0' , ";
-                    }
-                    if (form.SERVICE_29 == true)
-                    {
-                        sqlsearch += "SERVICE_29 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_29 =  '0' , ";
-                    }
-                    if (form.SERVICE_33 == true)
-                    {
-                        sqlsearch += "SERVICE_33 =  '1' ,";
-                    }
-                    else
-                    {
-                        sqlsearch += "SERVICE_33 =  '0' , ";
-                    }
-                    sqlsearch += $@"CUST_NAME = '{form.txtName}' , ";
-                    sqlsearch += $@"CUST_SNAME = '{form.txtSName}' , ";
-                    sqlsearch += $@"BIRTH_DD  = '{form.cboDate}' , ";
-                    sqlsearch += $@"BIRTH_DAY = '{day_no.ToString()}' , ";
-                    sqlsearch += $@"Birth_MM = '{form.cboMouth}', ";
-                    sqlsearch += $@"BIRTH_YYYY =  '{form.txtYear}', ";
-                    sqlsearch += $@"CUST_SEX =  '{form.cboSex}', ";
-                    sqlsearch += $@"RES_CODE =  '{form.cboStatus.ToString().Replace(" ", "")}', ";
-                    sqlsearch += $@"CITY_NAME_T = '{form.cbocity}', ";
-                    if (form.cboStatus.ToString() == "15")
-                    {
-                        sqlsearch += " OPERATION = 'Other', '";
-                    }
-                    else
-                    {
-                        sqlsearch += " OPERATION = 'AIS" + "', ";
-                    }
-                    if (form.cboStatus.ToString() == "03" | form.cboStatus.ToString() == "08")
-                    {
-                        sqlsearch += "DENY_CODE = '" + form.strDenycode.ToString() + "',";
-                    }
-                    else
-                    {
-                        sqlsearch += "DENY_CODE = '" + "',";
-                    }
-                    sqlsearch += "PREDICT_STATUS = '1" + "' ";
-
-                    sqlsearch += $@"WHERE ANUMBER = '{form.txtTel_No}' AND AGENT_ID = '{Module2.Agent_Id}'";
-                }
-
                 try
                 {
                     {
-
-                        if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
-                        {
                            module = new Module2(session_ID,form.connectionstring);
                             rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity" });
                             Module2.Instance.status_Edit = "";
@@ -1220,48 +925,25 @@ namespace ais_web3.Controllers
                             {
                                 return "server มี ปัญหา..";
                             }
-                            //string sqlClear_ = $@"UPDATE CNFG_AGENT_INFO SET DNIS = '' WHERE AGENT_ID = " + Module2.Agent_Id + "";
-                            //module = new Module2(session_ID);
-                            //module.CommanEx_Save(sqlClear_);
+
                             Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
                             if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                             {
                                 Response.Cookies.Add(new HttpCookie("Tel" + session_ID) {  Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
                             }
                             return "บันทึกข้อมูลเรียบร้อย";
-                        }
-                        else
-                        {
-                            //module = new Module2(session_ID);
-                            //rowInsert = module.CommanEx_Save(sqlsearch);
-                            //Module2.Instance.status_Edit = "";
-                            //Module2.Instance.cbocity = form.cbocity;
-                            //if (rowInsert == -1)
-                            //{
-                            //    return "server มี ปัญหา";
-                            //}
-                            //module = new Module2(session_ID);
-                            //module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
-                            //Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
-                            //Clear_edit(session_ID);
-                            //return "บันทึกข้อมูลเรียบร้อย";
-                            return "บันทึกไม่สำเร็จโปรดลองใหม่อีกครั้ง";
-                        }
+                      
+                   
                     }
                 }
                 catch (Exception ex)
                 {
-              //     module = new Module2(session_ID,connectionstring);
-              ///*      WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), */Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
-                    //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
-                    //WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
+
                     return "ไม่สามารถบันทึกข้อมูลได้เนื่องจาก" + ex.Message;
                 }
             }
             catch(Exception ex)
             {
-                //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
-                //WriteLog.instance.Log("btnSave_Click :" + sqlsearch;
                 return "ไม่สามารถบันทึกได้เนื่องจาก " + ex.Message.ToString();
             }
 
@@ -1534,16 +1216,16 @@ namespace ais_web3.Controllers
         [HttpGet]
         public string Clear_edit(string id ="" , string connectionstring ="")
         {
-            session_ID = id;
-            if (HttpContext.Response.Cookies["editv" + session_ID] != null)
-            {
-                HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-            }
-            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"+ session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-            {
-                HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-            }
+            //session_ID = id;
+            //if (HttpContext.Response.Cookies["editv" + session_ID] != null)
+            //{
+            //    HttpContext.Response.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+            //    HttpContext.Request.Cookies["editv" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+            //}
+            //if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel"+ session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+            //{
+            //    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+            //}
             return "";
         }
     }

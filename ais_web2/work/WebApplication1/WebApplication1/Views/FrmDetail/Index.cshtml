@@ -22,6 +22,16 @@
         background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งๆ */
         z-index: 2;
     }
+      
+    #modal2 {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* พื้นหลังโปร่งๆ */
+        z-index: 2;
+    }
 
     .total_l_today {
         padding: 6px;
@@ -126,7 +136,14 @@
         }
 </style>
 
+<div id="modal2">
+ 
+</div>
 <div id="modal1">
+    <div class="text_modal">
+        <img src="~/text/loading-gif.gif" class="" width="25" height="25" />
+        <div class="text_modal2">Loading</div>
+    </div>
 </div>
 <div class="body2">
     <a class="tmc_logo2" href="#">

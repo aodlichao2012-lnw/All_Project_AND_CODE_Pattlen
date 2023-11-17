@@ -39,6 +39,7 @@ sessionStorage.setItem("user_name", getCookie("id"))
     sessionStorage.setItem("Agent_Ip", getCookie("id"))
     sessionStorage.setItem("id", getCookie("id"))
 sessionStorage.setItem("ishastel", "")
+sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
 
 
 
@@ -54,7 +55,7 @@ function alert2(txt) {
         // ให้ทำอย่างอื่นต่อที่นี่หลังจากผู้ใช้คลิกปุ่ม OK
         if (value) {
             // ตัวอย่าง: ทำสิ่งที่คุณต้องการเมื่อคลิก OK
-            $("#modal1").css("display", "none");
+            $("#modal2").css("display", "none");
             // ทำอย่างอื่นต่อที่นี่
         }
     });
@@ -64,7 +65,7 @@ function alert2(txt) {
 function checkSweetAlertStatus() {
     if (isSweetAlertOpen) {
         // SweetAlert ถูกเปิดอยู่
-        $("#modal1").css("display", "block");
+        $("#modal2").css("display", "block");
     } else {
         // SweetAlert ไม่ถูกเปิด
     }
@@ -115,7 +116,7 @@ $(function () {
                 fuc_select_status();
                 fuc_select_status_2();
                 fuc_edit_Service("#Service")
-                sessionStorage.setItem("ishastel", "")
+                sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
             }
         })
 
@@ -485,7 +486,8 @@ function fucsave() {
 
     }
 }
-    function Save_function() {
+function Save_function() {
+    $("#modal1").css("display", "block");
         let SERVICE2_ = "#SERVICE_";
         let service = $("[id]").filter(function (e) {
             return this.id === SERVICE2_
@@ -545,7 +547,7 @@ function fucsave() {
             type: 'POST',
             data: datas
             , success: function (e) {
-
+                $("#modal1").css("display", "none");
                 showreportToday();
                 if (e === "บันทึกข้อมูลเรียบร้อย") {
 
@@ -749,10 +751,10 @@ function fucsave() {
 
  
 function getfuc() {
-  
+
     if (sessionStorage.getItem("ishastel") !== "Busy")
         $.ajax({
-            url: '/FrmStatus/FrmStatus_Load?id=' + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen") + "&connectionstring=" + sessionStorage.getItem("strcon"),
+            url: '/FrmStatus/FrmStatus_Load?id=' + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&Tel=" + sessionStorage.getItem("Tel" + sessionStorage.getItem("id")),
             type: "GET",
             data: null,
             cache: false,
@@ -771,15 +773,17 @@ function getfuc() {
 
                 if (status === "Busy") {
 
-                    if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
+                    if (sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == "" || sessionStorage.getItem("Tel" + sessionStorage.getItem("id")) == null) {
                         console.log("ค้นหาเบอร์ใหม่")
 
                         $("txt_tel").val(tel)
+                        sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), tel)
                     }
                     else {
                         $("#button_save").prop('disabled', false)
                         console.log("มีเบอร์แล้ว")
-                        $("#txt_tel").val(getCookie("Tel" + sessionStorage.getItem("id")))
+                        $("#txt_tel").val(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
+                     
                     }
                     $("#status").text("Busy").css("color", "red")
                     showreportToday()
@@ -788,11 +792,13 @@ function getfuc() {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
                     $("#status").text("Not Login").css("color", "gray")
+                    sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                     showreportToday()
 
                 } else if (status === "Available") {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
+                    sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                     $("#status").text("Available").css("color", "green")
                     showreportToday()
 
@@ -804,6 +810,7 @@ function getfuc() {
                 } else if (status === "Standby") {
                     $("#txt_tel").val(``)
                     $("#txt_tel").text("")
+                    sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                     $("#status").text("Standby").css("color", "green")
                     showreportToday();
                 }
@@ -820,10 +827,11 @@ function getfuc() {
     let name_serivce;
     let table2;
     $(document).on('load', $("#modal1").css("display", "none"));
+    $(document).on('load', $("#modal2").css("display", "none"));
 
     $(".sweet-confirm").on('click', function (e) {
 
-        $("#modal1").css("display", "none")
+        $("#modal2").css("display", "none")
     })
     $("#total_l").hide()
     $("#right_bar").hide()

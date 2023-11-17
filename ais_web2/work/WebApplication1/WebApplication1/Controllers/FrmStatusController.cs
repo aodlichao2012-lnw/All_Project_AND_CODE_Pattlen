@@ -33,7 +33,7 @@ namespace ais_web3.Controllers
             return "";
         }
         [HttpGet]
-        public string FrmStatus_Load(string id ="" , string Agen ="" , string connectionstring = "")
+        public string FrmStatus_Load(string id ="" , string Agen ="" , string connectionstring = "" , string Tel = "")
         {
             session_ID = id;
 
@@ -57,7 +57,7 @@ namespace ais_web3.Controllers
             }
 
         
-                json = Get_Project(session_ID , connectionstring);
+                json = Get_Project(session_ID , connectionstring , Tel);
 
           
             return json;
@@ -77,7 +77,7 @@ namespace ais_web3.Controllers
                 return Phone;
             }
         }
-        public  string Get_Project(string id , string connectionstring ="")
+        public  string Get_Project(string id , string connectionstring ="" , string Tel ="")
         {
             string Status = "";
             string Phone = "";
@@ -96,41 +96,19 @@ namespace ais_web3.Controllers
                 if (dt2.Rows.Count > 0)
                 {
                  
-                    if (HttpContext.Request.Cookies["Tel" + id] == null)
+                    if (Tel == "")
                     {
 
                         Status = dt2.Rows[0]["DESCRIPTION"].ToString();
                     }
-                    else if (HttpContext.Request.Cookies["Tel" + id] == null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                    {
-
-                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
-                    }
-                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("1/1/0001 12:00:00"))
-                    {
-
-                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
-                    }
-                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires == Convert.ToDateTime("2000/01/01 00:00:00"))
-                    {
-
-                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
-                    }
-                    else if (HttpContext.Request.Cookies["Tel" + id] != null && HttpContext.Request.Cookies["Tel" + id].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                    else if (Tel != "")
                     {
 
                         Status = "Busy";
 
                     }
-                    else if (HttpContext.Request.Cookies["Tel" + id] != null)
-                    {
 
-                        Status = dt2.Rows[0]["DESCRIPTION"].ToString();
-                    }
-                    if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString() != "" && HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                    {
-                        HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                    }
+                  
                     if(Status == "Busy")
                     {
                       Phone =  checkTelphone(dt2, id);
