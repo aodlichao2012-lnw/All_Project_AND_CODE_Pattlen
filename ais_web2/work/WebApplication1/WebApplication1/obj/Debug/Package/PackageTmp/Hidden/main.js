@@ -41,6 +41,7 @@ sessionStorage.setItem("user_name", getCookie("id"))
 sessionStorage.setItem("ishastel", "")
 
 
+
 var isSweetAlertOpen = false;
 function alert2(txt) {
     isSweetAlertOpen = true;
@@ -106,7 +107,7 @@ $(function () {
         $("#button_save").prop('disabled', false)
         $("#button_save2").prop('disabled', false)
         let ajax_ = $.ajax({
-            url: '/FrmDetail/Clear_edit?id=' + sessionStorage.getItem("id"),
+            url: '/FrmDetail/Clear_edit?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
             type: 'GET',
             data: null,
             success: function (e) {
@@ -243,7 +244,7 @@ function clearAllCookies() {
 function fuclogout() {
 
     let ajax_ = $.ajax({
-        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id"),
+        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET',
         success: function (e) {
             if (e === "server มี ปัญหา") {
@@ -288,7 +289,7 @@ let column_name_id_ser = "";
 function fuc_edit_Service(Service) {
 
     $.ajax({
-        url: '/FrmDetail/list_Service2?id=' + sessionStorage.getItem("id"),
+        url: '/FrmDetail/list_Service2?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET'
         , success: function (e) {
             if (e !== null) {
@@ -350,7 +351,7 @@ function fuc_edit_Service(Service) {
 }
 function fuc_select_status_2() {
     let ajax_ = $.ajax({
-        url: "/FrmDetail/showCity?id=" + sessionStorage.getItem("id")
+        url: "/FrmDetail/showCity?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
         , type: "GET",
         success: function (e) {
             if (e === "") {
@@ -394,7 +395,7 @@ function button_ser_save(value, id) {
 }
 function cbostatus() {
     let ajax_ = $.ajax({
-        url: '/FrmReportTel/FrmReportTel_Load?id=' + sessionStorage.getItem("id"),
+        url: '/FrmReportTel/FrmReportTel_Load?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET',
         data: null,
         success: function (e) {
@@ -533,6 +534,7 @@ function fucsave() {
         datas.append("txtDate_Tel", date_tel)
         datas.append("id", sessionStorage.getItem("id"))
         datas.append("Agen", sessionStorage.getItem("Agen"))
+        datas.append("strcon", sessionStorage.getItem("strcon"))
 
         /*    datas.append("cboDeny", current_date)*/
 
@@ -597,7 +599,7 @@ function fucsave() {
     function showreportToday() {
 
         $.ajax({
-            url: '/FrmDetail/showreportToday?id=' + sessionStorage.getItem("id"),
+            url: '/FrmDetail/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
             cache: false,
             type: 'GET',
             data: null,
@@ -702,7 +704,7 @@ function fucsave() {
     }
     function fuc_select_status() {
         let ajax_ = $.ajax({
-            url: "/FrmDetail/setcboStatus?id=" + sessionStorage.getItem("id")
+            url: "/FrmDetail/setcboStatus?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
             , type: "GET",
 
             success: function (e) {
@@ -750,7 +752,7 @@ function getfuc() {
   
     if (sessionStorage.getItem("ishastel") !== "Busy")
         $.ajax({
-            url: '/FrmStatus/FrmStatus_Load?id=' + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen"),
+            url: '/FrmStatus/FrmStatus_Load?id=' + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen") + "&connectionstring=" + sessionStorage.getItem("strcon"),
             type: "GET",
             data: null,
             cache: false,
@@ -831,17 +833,17 @@ function getfuc() {
     $("#Service").on('load', fuc_edit_Service("#Service"));
     $("#button_search").on('click', function (e) {
 
-        window.location.href = '/FrmSearchNumber/Index?id=' + sessionStorage.getItem("id")
+        window.location.href = '/FrmSearchNumber/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
     })
     $("#button_Main").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
     })
     $("#button_Report").on('click', function (e) {
 
-        window.location.href = '/FrmReportTel/Index?id=' + sessionStorage.getItem("id")
+        window.location.href = '/FrmReportTel/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
     })
 
@@ -883,13 +885,13 @@ function getfuc() {
     $("#button_save2").hide()
     $("#svg1").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 
     })
     $("#svg2").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id")
+        window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 
     })
@@ -1023,7 +1025,7 @@ function getfuc() {
         let reson_select = $("#select_st").val()
         /*  let select = $('#browsers [value="' + reson_select + '"]').data('val')*/
         let ajax_ = $.ajax({
-            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + sessionStorage.getItem("id")
+            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
             , type: "GET",
             success: function (e) {
 

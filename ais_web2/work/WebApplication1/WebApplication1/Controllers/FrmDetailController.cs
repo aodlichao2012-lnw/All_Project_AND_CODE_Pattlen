@@ -8,26 +8,13 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Security.Principal;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
-using System.Web.UI;
-using System.Threading.Tasks;
-//using Oracle.DataAccess.Client;
-using System.Net.Http;
-using System.Collections;
 using Oracle.ManagedDataAccess.Client;
-
-using System.Web.SessionState;
 using Model_Helper;
 using WebApplication1.Models;
-using System.Net;
-//using Oracle.DataAccess.Client;
-
 namespace ais_web3.Controllers
 {
     [OutputCache(Duration = 3600)]
@@ -69,57 +56,14 @@ namespace ais_web3.Controllers
         private string strData, pAni1, sLang1; // ...AVAYA CTI
         private string Anumber = "";
         static string tel_phone;
-        private string FromLoad(Telclass2 telclass)
+        private   string setcboDeny(string res_code ,string id =""  , string connectionstring ="")
         {
-            try
-            {
-                if (telclass.status != "")
-                {
-                    string json = showDataforEdit(telclass);
-                    Response.Cookies.Add(new HttpCookie("editv"+ session_ID, json));
-                    return json;
-                }
-                else if (telclass.status == null || telclass.status == "")
-                {
-                    string json = showDataforEdit(telclass);
-                    HttpContext.Response.Cookies["editv"].Value = json;
-                    Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
-                    return json;
-                }
-                else if (telclass.status != "01")
-                {
-                    if (telclass.status != "01" | telclass.status == "05" | telclass.status == "02" | telclass.status == "03")
-                    {
-                        showDay = "show";
-                        string json = showdata2(telclass);
-                        HttpContext.Response.Cookies["editv"].Value = json;
-                        Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
-                        return json;
-                    }
-                    else if (telclass.status == "01" | telclass.status == "05" | telclass.status == "02" | telclass.status == "03")
-                    {
-                        string json = showdata2(telclass);
-                        HttpContext.Response.Cookies["editv"].Value = json;
-                        Response.Cookies.Add(new HttpCookie("editv" + session_ID, json));
-                        return json;
-                    }
-                    return "";
-                }
-                return "";
-            }
-            catch(Exception ex) {
-                //WriteLog.instance.Log("FromLoad :" + ex.Message.ToString());
-                return "";
-            }
-        }
-        private   string setcboDeny(string res_code ,string id ="")
-        {
-            module = new Module2(id);
+            module = new Module2(id , connectionstring);
             DataTable dt = null;
             try
             {
                 string sql = "SELECT DENY_CODE , DENY_NAME  FROM MAS_RESON_DENY WHERE RES_CODE = :RES_CODE "; // WHERE RES_STATUS = '0' "
-                module = new Module2(id);
+               module = new Module2(id,connectionstring);
                 module.Common_static_reson(sql, new string[] { res_code }, new string[] { ":RES_CODE" }, ref dt);
                return JsonConvert.SerializeObject(dt);
             }
@@ -127,473 +71,6 @@ namespace ais_web3.Controllers
             {
                 //WriteLog.instance.Log("Error ที่ : setcboDeny" + ex.Message.ToString()); 
                 return null;
-            }
-        }
-        private DataTable setcboDenyByCode()
-        {
-            module = new Module2(session_ID);
-            DataTable dt = null;
-           sql = "SELECT * FROM MAS_RESON_DENY WHERE Deny_Code = :Deny_Code ";
-            module = new Module2(session_ID);
-            module.Comman_Static(sql, new string[] { strDeny_Code }, new string[] { ":Deny_Code" } , ref dt);
-            if (dt.Rows.Count != 0)
-            {
-                return dt;
-            }
-            return null;
-        }
-        private string checkMonth(string checkcbos)
-        {
-            if (checkcbos == "01")
-            {
-                return "มกราคม";
-            }
-            else if (checkcbos == "02")
-            {
-                return "กุมภาพันธ์";
-            }
-            else if (checkcbos == "03")
-            {
-                return "มีนาคม";
-            }
-            else if (checkcbos == "04")
-            {
-                return "เมษายน";
-            }
-            else if (checkcbos == "05")
-            {
-                return "พฤษภาคม";
-            }
-            else if (checkcbos == "06")
-            {
-                return "มิถุนายน";
-            }
-            else if (checkcbos == "07")
-            {
-                return "กรกฏาคม";
-            }
-            else if (checkcbos == "08")
-            {
-                return "สิงหาคม";
-            }
-            else if (checkcbos == "09")
-            {
-                return "กันยายน";
-            }
-            else if (checkcbos == "10")
-            {
-                return "ตุลาคม";
-            }
-            else if (checkcbos == "11")
-            {
-                return "พฤศจิกายน";
-            }
-            else if (checkcbos == "12")
-            {
-                return "ธันวาคม";
-            }
-            return checkcbos;
-        }
-        private string checkDay(checkcbo checkcbos)
-        {
-            if (mystr == "Sunday")
-            {
-                return "อาทิตย์";
-            }
-            else if (mystr == "Monday")
-            {
-                return "จันทร์";
-            }
-            else if (mystr == "Tuesday")
-            {
-                return "อังคาร";
-            }
-            else if (mystr == "Wednesday")
-            {
-                return "พุธ";
-            }
-            else if (mystr == "Thursday")
-            {
-                return "พฤหัสบดี";
-            }
-            else if (mystr == "Friday")
-            {
-                return "ศุกร์";
-            }
-            else if (mystr == "Saturday")
-            {
-                return "เสาร์";
-            }
-            return "";
-        }
-        public string showDataforEdit(Telclass2 telclass2)
-        {
-            string sqlselect = "";
-            try
-            {
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                {
-                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                    Module2.Agent_Id = Agens;
-                }
-                DataTable dt = null;
-                form1 form = new form1();
-                string sDate = "";
-                string sDate2 = "";
-                sqlselect = "SELECT MAS_LEADS_TRANS.*, MAS_REASON.* , CALL_SEARCH_CITY.* , MAS_RESON_DENY.* FROM MAS_LEADS_TRANS \r\n LEFT JOIN MAS_REASON   ON   MAS_LEADS_TRANS.RES_CODE =MAS_REASON.RES_CODE\r\n  LEFT JOIN CALL_SEARCH_CITY  ON MAS_LEADS_TRANS.CITY_NAME_T  = CALL_SEARCH_CITY.CITY_CODE\r\n   LEFT JOIN MAS_RESON_DENY   ON MAS_LEADS_TRANS.RES_CODE  = MAS_RESON_DENY.RES_CODE\r\n WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID  AND MAS_REASON.RES_NAME = :RES_NAME AND CALL_SEARCH_CITY.CITY_CODE\r\n = MAS_LEADS_TRANS.CITY_NAME_T AND MAS_RESON_DENY.DENY_CODE =  MAS_LEADS_TRANS.DENY_CODE";
-                module = new Module2(session_ID);
-                module.Comman_Static(sqlselect, new string[] { telclass2.anumber, Module2.Agent_Id ,telclass2.status }, new string[] { ":ANUMBER", ":AGENT_ID" , ":RES_NAME" }, ref dt);
-                if (dt.Rows.Count > 0)
-                {
-                    form.txtTel_No = telclass2.anumber;
-                    form.txtOper = Module2.Instance.strOperr;
-                    sDate = dt.Rows[0]["LEAD_CALL_DATE"].ToString();
-                    if (!string.IsNullOrEmpty(sDate))
-                    {
-                        try
-                        {
-                            form.txtDate_Tel = Convert.ToDateTime(sDate).ToString("dd/MM/yyyy");
-                        }
-                        catch
-                        {
-                            form.txtDate_Tel = "";
-                        }
-                    }
-                    try
-                    {
-                        DateTime dt2 = Convert.ToDateTime($@"{dt.Rows[0]["BIRTH_MM"].ToString()}-{dt.Rows[0]["BIRTH_DD"].ToString()}-{dt.Rows[0]["BIRTH_YYYY"].ToString()}");
-                        form.cboDate_No = dt2.Day.ToString("00");
-                        form.cboMouth = dt2.Month.ToString("00");
-                        form.txtYear = dt2.Year.ToString();
-                        form.cboDate = Convert.ToString((int)dt2.DayOfWeek);
-                        form.Date_thai = dt.Rows[0]["BIRTH_DAY"].ToString();
-                    }
-                    catch
-                    {
-                    }
-                    if (dt.Rows[0]["RES_CODE"].ToString() == "01")
-                    {
-                        form.cboStatus = telclass2.status;
-                        form.res_code = "01";
-                        form.cboDeny = "";
-                        strDeny = "";
-                        strRec_Code = "01";
-                        if ((sDate2 ?? "") == (String.Format(Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yy")) ?? ""))
-                        {
-                            form.btnEdit = true;
-                            form.btnSave = true;
-                            form.Button1 = true;
-                        }
-                        else
-                        {
-                            form.btnEdit = false;
-                            form.btnSave = false;
-                            form.Button1 = false;
-                        }
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "02")
-                    {
-                        form.res_code = "02";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        form.strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "03")
-                    {
-                        form.res_code = "03";
-                        form.cboStatus = telclass2.status;
-                        form.strDeny = dt.Rows[0]["DENY_NAME"].ToString();
-                        form.strDenycode = dt.Rows[0]["DENY_CODE"].ToString();
-                        setcboDenyByCode();
-                        form.btnEdit = true;
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "04")
-                    {
-                        form.res_code = "04";
-                        form.cboStatus = dt.Rows[0]["RES_NAME"].ToString();
-                        form.cboDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "05")
-                    {
-                        form.res_code = "05";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                        form.btnEdit = true;
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "06")
-                    {
-                        form.res_code = "06";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "07")
-                    {
-                        form.res_code = "07";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "09")
-                    {
-                        form.res_code = "09";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "11")
-                    {
-                        form.res_code = "11";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "12")
-                    {
-                        form.res_code = "12";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "13")
-                    {
-                        form.res_code = "13";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "14")
-                    {
-                        form.res_code = "14";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "15")
-                    {
-                        form.res_code = "15";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "16")
-                    {
-                        form.res_code = "16";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "08")
-                    {
-                        form.res_code = "08";
-                        form.cboStatus = telclass2.status;
-                        form.cboDeny = "";
-                        strDeny = "";
-                    }
-                    if (dt.Rows[0]["RES_CODE"].ToString() == "01" | dt.Rows[0]["RES_CODE"].ToString() == "02" | dt.Rows[0]["RES_CODE"].ToString() == "03" | dt.Rows[0]["RES_CODE"].ToString() == "05")
-                    {
-                        if (dt.Rows[0]["CUST_SEX"].ToString() == "M")
-                        {
-                            form.cboSex = "M";
-                        }
-                        else if (dt.Rows[0]["CUST_SEX"].ToString() == "F")
-                        {
-                            form.cboSex = "F";
-                        }
-                        else if (dt.Rows[0]["CUST_SEX"].ToString() == "N")
-                        {
-                            form.cboSex = "N";
-                        }
-                        else if (string.IsNullOrEmpty(dt.Rows[0]["CUST_SEX"].ToString()))
-                        {
-                            form.cboSex = "F";
-                        }
-                        form.txtYear = dt.Rows[0]["BIRTH_YYYY"].ToString();
-                        if (dt.Rows[0]["SERVICE_1"].ToString() == "1")
-                        {
-                            form.SERVICE_1 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_1"].ToString() == "0")
-                        {
-                            form.SERVICE_1 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_2"].ToString() == "1")
-                        {
-                            form.SERVICE_2 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_2"].ToString() == "0")
-                        {
-                            form.SERVICE_2 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_3"].ToString() == "1")
-                        {
-                            form.SERVICE_3 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_3"].ToString() == "0")
-                        {
-                            form.SERVICE_3 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_4"].ToString() == "1")
-                        {
-                            form.SERVICE_4 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_4"].ToString() == "0")
-                        {
-                            form.SERVICE_4 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_5"].ToString() == "1")
-                        {
-                            form.SERVICE_5 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_5"].ToString() == "0")
-                        {
-                            form.SERVICE_5 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_6"].ToString() == "1")
-                        {
-                            form.SERVICE_6 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_6"].ToString() == "0")
-                        {
-                            form.SERVICE_6 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_7"].ToString() == "1")
-                        {
-                            form.SERVICE_7 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_7"].ToString() == "0")
-                        {
-                            form.SERVICE_7 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_8"].ToString() == "1")
-                        {
-                            form.SERVICE_8 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_8"].ToString() == "0")
-                        {
-                            form.SERVICE_9 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_9"].ToString() == "1")
-                        {
-                            form.SERVICE_9 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_9"].ToString() == "0")
-                        {
-                            form.SERVICE_9 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_10"].ToString() == "1")
-                        {
-                            form.SERVICE_10 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_10"].ToString() == "0")
-                        {
-                            form.SERVICE_10 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_11"].ToString() == "1")
-                        {
-                            form.SERVICE_11 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_11"].ToString() == "0")
-                        {
-                            form.SERVICE_11 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_12"].ToString() == "1")
-                        {
-                            form.SERVICE_12 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_12"].ToString() == "0")
-                        {
-                            form.SERVICE_12 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_13"].ToString() == "1")
-                        {
-                            form.SERVICE_13 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_13"].ToString() == "0")
-                        {
-                            form.SERVICE_13 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_14"].ToString() == "1")
-                        {
-                            form.SERVICE_14 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_14"].ToString() == "0")
-                        {
-                            form.SERVICE_14 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_16"].ToString() == "1")
-                        {
-                            form.SERVICE_16 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_16"].ToString() == "0")
-                        {
-                            form.SERVICE_16 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_21"].ToString() == "1")
-                        {
-                            form.SERVICE_21 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_21"].ToString() == "0")
-                        {
-                            form.SERVICE_21 = false;
-                        }
-                        if (dt.Rows[0]["SERVICE_29"].ToString() == "1")
-                        {
-                            form.SERVICE_29 = true;
-                        }
-                        else if (dt.Rows[0]["SERVICE_29"].ToString() == "0")
-                        {
-                            form.SERVICE_29 = false;
-                        }
-                    }
-                    if (string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
-                    {
-                        form.cbocity_name = "";
-                        form.cbocity = dt.Rows[0]["CITY_CODE"].ToString();
-                    }
-                    else if (!string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
-                    {
-                        form.cbocity_name = dt.Rows[0]["CITY_NAME_T"].ToString();
-                        form.cbocity = dt.Rows[0]["CITY_CODE"].ToString();
-                    }
-                    if (dt.Rows[0]["CUST_SEX"].ToString() == "M")
-                    {
-                        form.cboSex = "M";
-                    }
-                    else if (dt.Rows[0]["CUST_SEX"].ToString() == "F")
-                    {
-                        form.cboSex = "F";
-                    }
-                    else if (dt.Rows[0]["CUST_SEX"].ToString() == "N")
-                    {
-                        form.cboSex = "N";
-                    }
-                    else if (string.IsNullOrEmpty(dt.Rows[0]["CUST_SEX"].ToString()))
-                    {
-                        form.cboSex = "F";
-                    }
-                    form.cboDeny = strDeny;
-                    form.txtName = dt.Rows[0]["CUST_NAME"].ToString();
-                    form.txtSName = dt.Rows[0]["CUST_SNAME"].ToString();
-                    form.cboDate_No = dt.Rows[0]["BIRTH_DD"].ToString();
-                    form.Date_thai = dt.Rows[0]["BIRTH_DAY"].ToString();
-                    form.statustel = telclass2.status;
-                    string json = JsonConvert.SerializeObject(form);
-                    byte[] utf8Bytes = Encoding.UTF8.GetBytes(json);
-                    string json_url_string = HttpUtility.UrlEncode(utf8Bytes);
-                    return json_url_string;
-                }
-                return JsonConvert.SerializeObject(null);
-            }
-            catch(Exception ex)
-            {
-                //WriteLog.instance.Log("showDataforEdit :" + ex.Message.ToString());
-                //WriteLog.instance.Log("showDataforEdit :" + sqlselect); 
-                return null;
-            }
-            finally
-            {
             }
         }
         public string showdata2(Telclass2 telclass2)
@@ -609,7 +86,7 @@ namespace ais_web3.Controllers
                 string sqlselect = "";
                 form1 form = new form1();
                 sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
-                module = new Module2(session_ID);
+               module = new Module2(session_ID, form.  connectionstring);
                 module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" }, ref dt);
                 if (dt.Rows.Count > 0)
                 {
@@ -883,7 +360,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="")
+        public string cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="" , string connectionstring ="")
         {
             List<string> list = new List<string>();
             string json = string.Empty;
@@ -919,7 +396,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string showCity(string id ="")
+        public string showCity(string id ="" , string connectionstring ="")
         {
             string searchcity = string.Empty ;
             try
@@ -927,7 +404,7 @@ namespace ais_web3.Controllers
                 DataTable dt = null;
                 string json = string.Empty;
                 searchcity = " SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
-                module = new Module2(id);
+               module = new Module2(id,connectionstring);
                 module.Comman_Static(searchcity , null, null, ref dt);
                     if (dt != null)
                     {
@@ -951,7 +428,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string setcboStatus(string id ="")
+        public string setcboStatus(string id ="" , string connectionstring ="")
         {
             string sql = string.Empty;
             DataTable dt = null;
@@ -959,7 +436,7 @@ namespace ais_web3.Controllers
             try
             {
                 sql = "SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
-                module = new Module2(id);
+               module = new Module2(id,connectionstring);
                 module.Comman_Static(sql , null,null,ref dt);
                     if (dt != null)
                     {
@@ -982,44 +459,8 @@ namespace ais_web3.Controllers
             {
             }
         }
-        //private string SetAVAL()
-        //{
-        //    string Agen_id = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-        //    int rowUpdate;
-        //    strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '5', DNIS= '' WHERE  AGENT_ID = '"+ Agen_id + "' ";
-        //    Event_Log("SqlUpdate  Available : " + strUpdate);
-        //    try
-        //    {
-        //        {
-        //            module = new Module2(session_ID);
-        //            rowUpdate = Module2.Instance.CommanEx(strUpdate);
-        //            // Conn.Close()
-        //        }
-        //        Event_Log("RowUpdate :  " + rowUpdate);
-        //        Event_Log("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        //        return strUpdate;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message;
-        //    }
-        //}
-        private void SelectCall_Count()
-        {
-            Module2.Instance.Connectdb();
-            sqlsearch = "";
-            sqlsearch = "SELECT CALL_COUNT FROM CNFG_AGENT_INFO WHERE  AGENT_ID = '" + Module2.Agent_Id + "' ";
-            da = new OracleDataAdapter(sqlsearch, Module2.Connect);
-            da.Fill(ds, "Call_Count");
-            Module2.Connect.Close();
-
-            if (ds.Tables["Call_Count"].Rows.Count > 0)
-            {
-                Module2.Instance.Call_Count = Convert.ToInt32(ds.Tables["Call_Count"].Rows[i]["Call_Count"].ToString());
-            }
-        }
         [HttpGet]
-        public string SingOut(string id )
+        public string SingOut(string id ,string connectionstring = "")
         {
             session_ID = id;
             string strUpdate = string.Empty;
@@ -1041,7 +482,7 @@ namespace ais_web3.Controllers
                         try
                         {
                             {
-                            module = new Module2(id);
+                           module = new Module2(id,connectionstring);
                             module.Comman_Static(strUpdate, null, null, ref dt);
                                 message = "200";
                             string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
@@ -1088,7 +529,7 @@ namespace ais_web3.Controllers
             try
             {
                 session_ID = form.id;
-                module = new Module2(session_ID);
+               module = new Module2(session_ID,form.connectionstring);
                 int year2;
                 string year3;
                 int age;
@@ -1758,14 +1199,14 @@ namespace ais_web3.Controllers
 
                     sqlsearch += $@"WHERE ANUMBER = '{form.txtTel_No}' AND AGENT_ID = '{Module2.Agent_Id}'";
                 }
-                Event_Log("Sql Insert :    " + sqlsearch);
+
                 try
                 {
                     {
 
                         if (HttpContext.Request.Cookies["editv" + session_ID] == null || HttpContext.Request.Cookies["editv" + session_ID].Value == null || HttpContext.Request.Cookies["editv" + session_ID].Expires.Year == 2000)
                         {
-                            module = new Module2(session_ID);
+                           module = new Module2(session_ID,form.connectionstring);
                             rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity" });
                             Module2.Instance.status_Edit = "";
                             Module2.Instance.cbocity = form.cbocity;
@@ -1773,7 +1214,7 @@ namespace ais_web3.Controllers
                             {
                                 return "server มี ปัญหา";
                             }
-                            module = new Module2(session_ID);
+                           module = new Module2(session_ID,form.connectionstring);
                           string status =  module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
                             if(status == "500")
                             {
@@ -1810,7 +1251,7 @@ namespace ais_web3.Controllers
                 }
                 catch (Exception ex)
                 {
-              //      module = new Module2(session_ID);
+              //     module = new Module2(session_ID,connectionstring);
               ///*      WriteLog.instance.Log_Get_information_SaveData_And_Edit("Fail", ex.Message.ToString(), */Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"), form);
                     //WriteLog.instance.Log("btnSave_Click :" + ex.Message.ToString());
                     //WriteLog.instance.Log("btnSave_Click :" + sqlsearch);
@@ -1825,100 +1266,9 @@ namespace ais_web3.Controllers
             }
 
         }
-        public void Get_Error(string err_num, string err_des, string err_func)
-        {
-            string Err_number = err_num;
-            Log_Error("Error  :" + err_num + "**" + err_des + ":::" + err_func);
-            if (Err_number == "-2147217900" | Err_number == "3709")
-            {
-                Module2.Instance.Connectdb();
-            }
-        }
-        public void Log_Error(string msg)
-        {
-            try
-            {
-                string path = Directory.GetCurrentDirectory() + @"\Log_Error\" + Strings.Format(DateTime.Now, "yyyyMMdd");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                var fs = new FileStream(path + "Shinee_Contara.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
-                fs.Close();
-                var sw = new StreamWriter(path, true);
-                object NextLine = Convert.ToString(DateTime.Now) + " : " + msg;
-                sw.Write((NextLine, Constants.vbCrLf).ToString());
-                sw.Close();
-            }
-            catch
-            {
-                string Err_ERR = Information.Err().Number.ToString();
-            }
-        }
-        private void FrmDetail_FormClosed()
-        {
-        }
-        private void FrmDetail_FormClosing()
-        {
-        }
-        public void Error_Log(string msg)
-        {
-            try
-            {
-                string path = Directory.GetCurrentDirectory() + @"\Error_Log\" + DateTime.Now.ToString("yyyy-MM-dd"); // & Format(Now, "yyyyMMdd") 
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                var fs = new FileStream(path + "_Log_Shinee.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
-                fs.Close();
-                var sw = new StreamWriter(path, true);
-                object NextLine = Convert.ToString(DateTime.Now) + " :" + "  " + msg;
-                sw.Write(string.Concat(NextLine, Constants.vbCrLf));
-                sw.Close();
-            }
-            catch
-            {
-            }
-        }
-        public void Event_Log(string msg)
-        {
-            try
-            {
-                string path = Directory.GetCurrentDirectory() + @"\Event_Log\" + DateTime.Now.ToString("yyyy-MM-dd");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                var fs = new FileStream(path + "_Log_Shinee.txt", FileMode.Append, FileAccess.Write, FileShare.Write);
-                fs.Close();
-                var sw = new StreamWriter(path, true);
-                object NextLine = Convert.ToString(DateTime.Now) + " :" + msg;
-                sw.Write((NextLine, Constants.vbCrLf).ToString());
-                sw.Close();
-            }
-            catch
-            {
-            }
-        }
+
         [HttpGet]
-        public string LoadEdit(string id = "")
-        {
-            try
-            {
-                if (HttpContext.Request.Cookies["editv" + session_ID] == null)
-                {
-                    return "";
-                }
-                return HttpContext.Request.Cookies["editv" + session_ID].Value;
-            }
-            catch
-            {
-                return "";
-            }
-        }
-        [HttpGet]
-        public ActionResult Index(string id = "")
+        public ActionResult Index(string id = "" , string connectionstring = "")
         {
             string StrSql = string.Empty;
             int return1 = 0;
@@ -1942,14 +1292,15 @@ namespace ais_web3.Controllers
                 if (jwt != "" && jwt != null)
                 {
                     string keys = jwt;
-                    module = new Module2(session_ID);
+                   module = new Module2(session_ID,connectionstring);
+          
                     List<string> userjson = module.GetFromToken(keys);
 
                     if (datet <= Convert.ToDateTime(userjson[2].ToString()))
                     {
                         StrSql = "SELECT * FROM PREDIC_AGENTS";
                         StrSql += " WHERE ROWNUM = 1 AND (LOGIN = :userjson )";
-                        module = new Module2(session_ID);
+                       module = new Module2(session_ID,connectionstring);
                         DataSet ds = module.CommandSet(StrSql, "Login_agent", new string[] { userjson[0] }, new string[] { "userjson" });
                         if (ds != null)
                         {
@@ -1970,8 +1321,7 @@ namespace ais_web3.Controllers
                                     Response.Cookies.Add(new HttpCookie("Agen", Module2.Agent_Id));
                                     Response.Cookies.Add(new HttpCookie("id", session_ID));
                                     Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
-              
-                                    return1 = 1;
+                                return1 = 1;
                             }
                             else
                             {
@@ -1983,16 +1333,11 @@ namespace ais_web3.Controllers
                             return1 = 0;
                         }
                     }
-                    string session = string.Empty;
-                    string agenid = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                    string   values_genid = agenid;
+              
                     if (return1 == 1)
                     {
-                        List<string> values1 = new List<string>()
-                        {
-                            values_genid
-                        };
-                        return  View(values1);
+                       
+                        return  View();
                     }
                     else
                     {
@@ -2012,7 +1357,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string list_Service2(string id ="")
+        public string list_Service2(string id ="" , string connectionstring ="")
         {
             string sql = string.Empty;
             DataTable dt1 = null;
@@ -2021,7 +1366,7 @@ namespace ais_web3.Controllers
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED WHERE MAS_SERV_USED.is_active = '1'";
                 session_ID = id;
-                module = new Module2(session_ID);
+               module = new Module2(session_ID,connectionstring);
                 module.Comman_Static(sql, null, null, ref dt1);
                 return JsonConvert.SerializeObject(dt1);
             }
@@ -2033,42 +1378,6 @@ namespace ais_web3.Controllers
             {
             }
         }
-        //[HttpPost]
-        //public string SetVisible_Unvisible_Enable(form2 form)
-        //{
-        //    string sql = string.Empty;
-        //    try
-        //    {
-        //        int dt = 0;
-        //        string[] group_serivic_id = form.Service_id_name.Split(',');
-        //        string[] group_active_bool = form.IsActive.Split(',');
-        //        group_serivic_id[group_serivic_id.Length - 1] = "";
-        //        group_active_bool[group_active_bool.Length - 1] = "";
-        //        int i = 0;
-        //        foreach (var item in group_serivic_id)
-        //        {
-        //            string isActiveValue = group_active_bool[i] == "เปิดให้ใช้บริการ" ? "0" : "1";
-        //            sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = :isActiveValue, MDF_DATE = sysdate WHERE SERVICE_ID = :itemID";
-        //            try
-        //            {
-        //                module = new Module2(session_ID);
-        //                dt = module.CommanEx(sql, new string[] { isActiveValue, item }, new string[] { ":isActiveValue", ":itemID" });
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                return "บันทึกไม่สำเร็จเนื่องจาก " + ex.Message.ToString();
-        //            }
-        //            i++;
-        //        }
-        //        return "บันทึกสำเร็จ";
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + ex.Message.ToString());
-        //        //WriteLog.instance.Log("SetVisible_Unvisible_Enable :" + sql);
-        //        return "บันทึกไม่สำเร็จ";
-        //    }
-        //}
         [HttpPost]
         public string SetVisible(form2 form)
         {
@@ -2086,7 +1395,7 @@ namespace ais_web3.Controllers
                 }
                 new_unvisible = new_unvisible.Remove(new_unvisible.Length - 4, 4);
                  sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = '0' , MDF_DATE = '{DateTime.Now.ToString("dd-MMM-yy")}' WHERE  SERVICE_ID IN ({new_unvisible})";
-                module = new Module2(session_ID);
+               module = new Module2(session_ID,form.connectionstring);
                 module.Comman_Static(sql , null,null,ref dt);
                 if (dt.Rows.Count == 0)
                 {
@@ -2102,17 +1411,17 @@ namespace ais_web3.Controllers
             return "กรุณาเลือกข้อมูล";
         }
         [HttpGet]
-        public string SetVisible_remove(string txt_tel)
+        public string SetVisible_remove(string txt_tel, string connectionstring = "")
         {
             DataTable dt1 = null;
             string sql = string.Empty;
             sql = $@"SELECT DISTINCT MAS_SERVICE.SERVICE_ID as SER_ID , 
                 MAS_SERVICE.SERVICE_NAME as SER_NAME , CASE WHEN MAS_SERVICE.IS_ACTIVE = '1' THEN 'เปิดให้ใช้บริการ' ELSE 'ปิดการใช้บริการ' END as IS_ACTIVE FROM MAS_SERVICE ORDER BY IS_ACTIVE DESC";
-            module = new Module2(session_ID);
+           module = new Module2(session_ID,connectionstring);
             dt1 = module.Comman_Static_All(sql);
             return JsonConvert.SerializeObject(dt1);
         }
-        public string list_Service(string id = "")
+        public string list_Service(string id = "", string connectionstring = "")
         {
             session_ID = id;
             string sql = string.Empty;
@@ -2121,7 +1430,7 @@ namespace ais_web3.Controllers
             {
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
-                module = new Module2(session_ID);
+               module = new Module2(session_ID,connectionstring);
                 module.Comman_Static(sql, null, null, ref dt1);
                 return JsonConvert.SerializeObject(dt1);
             }
@@ -2134,7 +1443,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string showreportToday(string id = "")
+        public string showreportToday(string id = "", string connectionstring = "")
         {
             session_ID = id;
             string Agens = string.Empty;
@@ -2170,11 +1479,11 @@ namespace ais_web3.Controllers
             string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
             sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
             Thread.Sleep(1000);
-            module = new Module2(session_ID);
+           module = new Module2(session_ID,connectionstring);
             DataTable dt3 = module.Comman_Static2(sql2);
             List<string> json_list = new List<string>();
             List<string> list = new List<string>();
-            module = new Module2(session_ID);
+           module = new Module2(session_ID,connectionstring);
             DataTable dt2 = module.Service_Sum(new Telclass() { res_code = "01", agent_id = Agens });
             string data01 = JsonConvert.SerializeObject(dt2);
             string data02 = JsonConvert.SerializeObject(dt3);
@@ -2183,50 +1492,6 @@ namespace ais_web3.Controllers
             list.Add(list_Service(session_ID));
             return JsonConvert.SerializeObject(list);
         }
-        //[HttpGet]
-        //public string GetPhone(string id= "" , string Agen = "" ,string Tel ="")
-        //{
-        //    session_ID = id;
-        //    DataTable dataTable = null;
-        //    string sql = string.Empty;
-        //    string Agen_id = Agen;
-        //    //string Agen_IP = HttpContext.Request.Cookies["Agent_Ip" + session_ID].Value;
-        //    try
-        //    {
-        //        sql = "SELECT DNIS FROM CNFG_AGENT_INFO WHERE AGENT_ID = '" + Agen_id + "' AND ROWNUM = 1";
-        //        module = new Module2(session_ID);
-        //        module.Comman_Static(sql ,null ,null, ref dataTable);
-        //        if(Tel == "null" || Tel == "")
-        //        {
-        //            if (dataTable.Rows.Count > 0)
-        //            {
-        //                tel_phone = "0" + dataTable.Rows[0]["DNIS"].ToString();
-                    
-        //            }
-        //            else
-        //            {
-        //                tel_phone = "";
-        //            }
-        //        }
-        //        else
-        //        {
-        //            tel_phone = Tel;
-        //        }
-        //        if (Tel != "null" && Tel != "" && HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-        //        {
-        //            tel_phone = "";
-        //            HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-        //        }
-        //        return tel_phone;
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        //WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
-        //        //WriteLog.instance.Log("GetPhone :" + sql);
-        //        return "";
-        //    }
-
-        //}
         public void updateUI(string strStat)
         {
             if (strStat.Length == 10)
@@ -2239,7 +1504,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string Save_service(string id, string values)
+        public string Save_service(string id, string values,string connectionstring ="")
         {
             string sql = string.Empty;
             try
@@ -2248,7 +1513,7 @@ namespace ais_web3.Controllers
 
                 DataTable dataTable = null;
                 sql = $@"UPDATE MAS_SERVICE SET  SERVICE_NAME = :values2 , MDF_DATE = :Date1 WHERE SERVICE_ID = :id2 ";
-                module = new Module2(session_ID);
+               module = new Module2(session_ID,connectionstring);
                 module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , ref dataTable);
                 if (dataTable.Rows.Count == 0)
                 {
@@ -2267,7 +1532,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string Clear_edit(string id ="")
+        public string Clear_edit(string id ="" , string connectionstring ="")
         {
             session_ID = id;
             if (HttpContext.Response.Cookies["editv" + session_ID] != null)
@@ -2280,19 +1545,6 @@ namespace ais_web3.Controllers
                 HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
             }
             return "";
-        }
-        [HttpGet]
-        public string Get_sessionStorage_detail()
-        {
-            string values = showCity() + ";" + setcboStatus();
-            return values;
-        }
-        [HttpPost]
-        public void Send_localstoreless(localstoreless localstoreless)
-        {
-            Module2.strConn_ = localstoreless.strConn;
-            Module2.strDB_ = localstoreless.strDB;
-            Module2.type_db_ = localstoreless.type_db;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ais_web3.Controllers
             return "";
         }
         [HttpGet]
-        public string FrmStatus_Load(string id ="" , string Agen ="")
+        public string FrmStatus_Load(string id ="" , string Agen ="" , string connectionstring = "")
         {
             session_ID = id;
 
@@ -57,12 +57,12 @@ namespace ais_web3.Controllers
             }
 
         
-                json = Get_Project(session_ID);
+                json = Get_Project(session_ID , connectionstring);
 
           
             return json;
         }
-        public string checkTelphone(DataTable dt2 , string id)
+        public string checkTelphone(DataTable dt2, string id, string connectionstring = "")
         {
             string Phone = "";
             if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString().Length > 1)
@@ -77,7 +77,7 @@ namespace ais_web3.Controllers
                 return Phone;
             }
         }
-        public  string Get_Project(string id)
+        public  string Get_Project(string id , string connectionstring ="")
         {
             string Status = "";
             string Phone = "";
@@ -87,7 +87,7 @@ namespace ais_web3.Controllers
               
                 SQL = "select CNFG_STATUS_CODE.DESCRIPTION  as DESCRIPTION , CNFG_AGENT_INFO.DNIS as DNIS from CNFG_AGENT_INFO,CNFG_STATUS_CODE  where AGENT_ID = :AGENT_ID AND CNFG_AGENT_INFO.LOGON_EXT= CNFG_STATUS_CODE.STATUS_ID AND ROWNUM = 1";
                 DataTable dt2 = null;
-                module = new Module2(id);
+                module = new Module2(id ,connectionstring);
                   module.Comman_Static2(SQL, new string[] { Agenids }, new string[] { ":AGENT_ID" },ref dt2);
                 if (dt2 == null)
                 {

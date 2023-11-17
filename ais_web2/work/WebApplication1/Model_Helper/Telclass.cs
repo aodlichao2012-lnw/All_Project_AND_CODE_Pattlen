@@ -9,6 +9,7 @@ namespace Model_Helper
     public class Telclass2
     {
         public string anumber { get; set; }
+        public string connectionstring { get; set; } = "";
         public string cust_name;
         public string cust_sname { get; set; }
         public string cust_sex { get; set; }
@@ -78,6 +79,7 @@ namespace Model_Helper
     public class form1
     {
         public string Date_thai { get; set; }
+        public string connectionstring { get; set; } = "";
         public string txtTel_No { get; set; }
         public string txtOper { get; set; }
         public string txtDate_Tel { get; set; }
@@ -147,6 +149,7 @@ namespace Model_Helper
     }
     public class form2
     {
+        public string connectionstring { get; set; } = "";
         public string Date_thai { get; set; }
         public string IsActive { get; set; }
         public string Service_id_name { get; set; }
@@ -218,6 +221,7 @@ namespace Model_Helper
     {
 
         public string Date_thai { get; set; }
+        public string connectionstring { get; set; } = "";
         public string id { get; set; }
         public string Agen { get; set; }
         public string txtTel_No { get; set; }

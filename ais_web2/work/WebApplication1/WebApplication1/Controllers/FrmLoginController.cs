@@ -108,11 +108,11 @@ namespace ais_web3.Controllers
         {
             if (txtUsername == "")
             {
-                return session_ID + ";" + "2";
+                return session_ID + ";" + "2" + ";|" + "";
             }
             else if (txtPassword == "")
             {
-                return session_ID + ";" + "3";
+                return session_ID + ";" + "3" + ";|" + "";
             }
             else
             {
@@ -132,9 +132,9 @@ namespace ais_web3.Controllers
                     string tokenuser = JWT.Encode(username, null, JwsAlgorithm.none);
                     string tokempass = JWT.Encode(password, null, JwsAlgorithm.none);
                     Response.Cookies.Add(new HttpCookie("login" + session_ID, tokenuser + ";" + tokempass));
-                    return session_ID + ";" + "1";
+                    return session_ID + ";" + "1" + ";|" + module.strConn;
                 }
-                return session_ID + ";" + result;
+                return session_ID + ";" + result + ";|" + "";
             }
         }
         [HttpPost]
@@ -148,15 +148,15 @@ namespace ais_web3.Controllers
                 }
                 if (!Regex.IsMatch(txtUsername, @"^[0-9a-zA-z]"))
                 {
-                    return session_ID + ";" + "04";
+                    return session_ID + ";" + "04" + ";|" + "";
                 }
                 if (!Regex.IsMatch(txtPassword, @"^[0-9a-zA-z]"))
                 {
-                    return session_ID + ";" + "04";
+                    return session_ID + ";" + "04" + ";|" + "";
                 }
                 if (Regex.IsMatch(txtPassword, @"^[ก-ฮ]"))
                 {
-                    return session_ID + ";" + "04";
+                    return session_ID + ";" + "04" + ";|" + "";
                 }
                 string type_keep = type;
                 txtUsername = $"'{txtUsername}'";
@@ -192,7 +192,8 @@ namespace ais_web3.Controllers
                 DataSet ds = module.CommandSet(StrSql, "Login_agent");
                 if (ds.Tables["Login_agent"].Rows.Count != 0)
                 {
-                   string Agen = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
+
+                    string Agen = ds.Tables["Login_agent"].Rows[0]["Agent_Id"].ToString();
                     //Module2.EXTENSION = ds.Tables["Login_agent"].Rows[0]["EXTENSION"].ToString();
                     //WriteLog.instance.Log_Save_information(Module2.Agent_Id, DateTime.Now.ToString("yyyyMMdd"));
                     //Module2.Instance.Group_Id = Convert.ToInt32(ds.Tables["Login_agent"].Rows[0]["Group_Id"]);
@@ -215,16 +216,16 @@ namespace ais_web3.Controllers
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
                     module.UpdateCNFG_Agent_Info_login("5", Agen, ip);
-                    return session_ID + ";" + "1";
+                    return session_ID + ";" + "1" + ";|" + module.strConn;
                 }
                 else
                 {
-                    return session_ID + ";" + "06";
+                    return session_ID + ";" + "06" + ";|" + "";
                 }
             }
             catch (OracleException ex)
             {
-                return session_ID + ";" + "05 " + ex.Message.ToString();
+                return session_ID + ";" + "05 " + ex.Message.ToString() + ";|" + "";
             }
         }
     }

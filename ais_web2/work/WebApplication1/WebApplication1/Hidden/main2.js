@@ -1,746 +1,5 @@
 ﻿
-//$(document).load(function (e) {
 
-//})
-//function connect() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect2() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect3() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect4() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect5() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect6() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect7() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect8() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect9() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect10() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect11() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect12() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect13() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect14() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect15() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect16() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect17() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect18() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
-
-//function connect19() {
-//    // ตรวจสอบสถานะของการเชื่อมต่อก่อนที่จะสร้าง connection ใหม่
-//    if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.connected) {
-//        console.log("Already connected");
-//        return;
-//    }
-
-//    // สร้าง connection ใหม่
-//    chatHub = $.connection.chatHub;
-
-//    // เพิ่ม event handler สำหรับการรับข้อความ
-//    chatHub.client.ReceiveData = function (status) {
-//        /*  console.log("Received status: " + status);*/
-//        $("#status").text(status);
-//        getstatus();
-//    };
-
-//    $.connection.hub.reconnect = true;
-
-//    // ตั้งค่า keepAlive และเวลาที่ต้องการทดสอบการเชื่อมต่อ
-//    $.connection.hub.keepAlive = 500;
-
-//    // เริ่ม connection
-//    $.connection.hub.start({ transport: ['serverSentEvents', 'longPolling'], waitForPageLoad: false, pingInterval: 1000 }).done(function () {
-//        console.log("Connected to SignalR Hub");
-//        // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-//        console.log(`SignalR connection transport used is "${$.connection.hub.transport.name}"`);
-
-//        // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
-//        setInterval(function () {
-//            console.log(sessionStorage.getItem("Agen"))
-//            /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
-//            chatHub.server.requestData(sessionStorage.getItem("id") + ";" + sessionStorage.getItem("Agen"));
-//        }, 2000);
-//    });
-//}
 
 function alert2(txt) {
     isSweetAlertOpen = true;
@@ -831,60 +90,6 @@ function getCookie1(cookieName) {
     }
 
 }
-function Cache_item() {
-    let ajax_ = $.ajax({
-        url: '/FrmDetail/Get_sessionStorage_detail',
-        type: 'GET'
-        , success: function (e) {
-            let cbocity_j;
-            let select_st_j;
-
-
-            if (sessionStorage.getItem("cbocity") != null) {
-                cbocity_j = sessionStorage.getItem("cbocity");
-            }
-            if (sessionStorage.getItem("select_st") != null) {
-                select_st_j = sessionStorage.getItem("select_st");
-            }
-            else {
-                sessionStorage.setItem("cbocity", e.split(';')[0]);
-                cbocity_j = sessionStorage.getItem("cbocity");
-                sessionStorage.setItem("select_st", e.split(';')[1]);
-                select_st_j = sessionStorage.getItem("select_st");
-            }
-            let values = JSON.parse(cbocity_j)
-            if (values != null || values != "" || e != "[]") {
-                let htmls = ` <select style="width:200px;height:25px;"  id="cbocity" > `
-                for (i = 0; i < values.length; i++) {
-                    htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
-                }
-                htmls += ` </select>`
-                $("#cbocity").html(htmls)
-            }
-
-            let values2 = JSON.parse(select_st_j)
-            if (values2 != "" || values2 != null || e != "[]") {
-                let htmls = ` <select  id="select_st"  style="width:200px;height:25px;" >   <option value="" selected>
-                                    -- กรุณาเลือก--
-                                </option>`
-
-                for (i = 0; i < values2.length; i++) {
-                    if (values2[i].RES_CODE === "01") {
-                        htmls += `  <option  value="` + values2[i].RES_CODE + `"  >` + values2[i].RES_NAME + `</option>`
-                    }
-                    else {
-                        htmls += `  <option  value="` + values2[i].RES_CODE + `"  >` + values2[i].RES_NAME + `</option>`
-                    }
-                }
-                htmls += ` </select >`
-                $("#select_st").html(htmls)
-
-            }
-
-        }
-    })
-
-}
 function clearCookie(cookieName) {
     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
@@ -899,7 +104,7 @@ function clearAllCookies() {
 function fuclogout() {
 
     let ajax_ = $.ajax({
-        url: "/FrmDetail/SingOut?id=" + getCookie("id"),
+        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET',
         success: function (e) {
             if (e === "server มี ปัญหา") {
@@ -944,7 +149,7 @@ let column_name_id_ser = "";
 function fuc_edit_Service(Service) {
 
     $.ajax({
-        url: '/FrmDetail/list_Service2?id=' + getCookie("id"),
+        url: '/FrmDetail/list_Service2?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET',
         data: null
         , success: function (e) {
@@ -1099,7 +304,7 @@ function fuc_insert_ser_confirm() {
     data1.append("IsActive", bool_active)
     data1.append("Service_id_name", span_active_name)
     let ajax_ = $.ajax({
-        url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + getCookie("id"),
+        url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'POST',
         processData: false,
         contentType: false,
@@ -1137,7 +342,7 @@ let table_sub;
 let table_sub2;
 function cbostatus() {
     let ajax_ = $.ajax({
-        url: '/FrmReportTel/FrmReportTel_Load?id=' + getCookie("id"),
+        url: '/FrmReportTel/FrmReportTel_Load?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         type: 'GET',
         data: null,
         success: function (e) {
@@ -1282,7 +487,7 @@ function fucsave() {
         /*    datas.append("cboDeny", current_date)*/
 
         let ajax_ = $.ajax({
-            url: '/FrmDetail/btnSave_Click?id=' + getCookie("id"),
+            url: '/FrmDetail/btnSave_Click?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
             contentType: false,
             processData: false,
             type: 'POST',
@@ -1330,7 +535,7 @@ function fucsave() {
 function showreportToday() {
 
     $.ajax({
-        url: '/FrmReportTel/showreportToday?id=' + getCookie("id"),
+        url: '/FrmReportTel/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
         cache: false,
         type: 'GET',
         data: null,
@@ -1761,13 +966,13 @@ $("#button_save2").hide()
 
 $("#svg1").on('click', function (e) {
 
-    window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+    window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 
 })
 $("#svg2").on('click', function (e) {
 
-    window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+    window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 
 })
@@ -1811,7 +1016,7 @@ $(function () {
         $("#button_save").prop('disabled', false)
         $("#button_save2").prop('disabled', false)
         let ajax_ = $.ajax({
-            url: '/FrmDetail/Clear_edit?id=' + getCookie("id"),
+            url: '/FrmDetail/Clear_edit?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
             type: 'GET',
             data: null,
             success: function (e) {
@@ -1944,17 +1149,17 @@ $("#button_ser_set_active").prop('disabled', true);
 $("#Service").on('load', fuc_edit_Service("#Service"));
 $("#button_search").on('click', function (e) {
 
-    window.location.href = '/FrmSearchNumber/Index?id=' + getCookie("id")
+    window.location.href = '/FrmSearchNumber/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 })
 $("#button_Main").on('click', function (e) {
 
-    window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+    window.location.href = '/FrmDetail/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 })
 $("#button_Report").on('click', function (e) {
 
-    window.location.href = '/FrmReportTel/Index?id=' + getCookie("id")
+    window.location.href = '/FrmReportTel/Index?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
 
 })
 

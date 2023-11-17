@@ -55,163 +55,245 @@ namespace Model_Helper
             //}
             return this;
         }
-        public Module2(string id ="")
+        public Module2(string id ="" ,string ConnectionString ="")
         {
-            session_ID = id;
-            if (type_db == null)
+            if(ConnectionString != "")
             {
-                if (HttpContext.Current.Request.Cookies["type_db"+ session_ID] != null)
-                {
-                    type_db = HttpContext.Current.Request.Cookies["type_db" + session_ID].Value.ToString();
-                }
-
-            }
-            if (user_name == null)
-            {
-                if (HttpContext.Current.Request.Cookies["user_name" + session_ID] != null)
-                    user_name = HttpContext.Current.Request.Cookies["user_name" + session_ID].Value.ToString();
-            }
-            if (strDB == null)
-            {
-                if (HttpContext.Current.Request.Cookies["strDB" + session_ID] != null)
-                    strDB = HttpContext.Current.Request.Cookies["strDB" + session_ID].Value.ToString();
-            }
-
-            if (strConn != null)
-            {
-                strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                strConn = ConnectionString;
             }
             else
             {
-                if (type_db != null)
+                session_ID = id;
+                if (type_db == null)
                 {
-                    if (strDB == "Production")
+                    if (HttpContext.Current.Request.Cookies["type_db" + session_ID] != null)
                     {
-
-                        if (type_db == "1200")
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                            strConn = ConfigurationManager.AppSettings["pro1"].ToString();
-                            else
-                           strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else if (type_db == "2400")
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro2"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                            
-     
-                        }
-                        else if (type_db == "4800")
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn"] == null)
-                                strConn = ConfigurationManager.AppSettings["pro3"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
+                        type_db = HttpContext.Current.Request.Cookies["type_db" + session_ID].Value.ToString();
                     }
-                    else if (strDB == "Backup")
-                    {
 
-                        if (type_db == "1200")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["back1"].ToString();
-                            else
-                             strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else if (type_db == "2400")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["back2"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else if (type_db == "4800")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["back3"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["back"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                    }
-                    else
-                    {
-                        if (type_db == "1200")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro1"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else if (type_db == "2400")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro2"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else if (type_db == "4800")
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro3"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                        }
-                        else
-                        {
-                              if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["pro"].ToString();
-                            else
-                               strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                }
+                if (user_name == null)
+                {
+                    if (HttpContext.Current.Request.Cookies["user_name" + session_ID] != null)
+                        user_name = HttpContext.Current.Request.Cookies["user_name" + session_ID].Value.ToString();
+                }
+                if (strDB == null)
+                {
+                    if (HttpContext.Current.Request.Cookies["strDB" + session_ID] != null)
+                        strDB = HttpContext.Current.Request.Cookies["strDB" + session_ID].Value.ToString();
+                }
 
-                        }
-                    }
+                if (strConn != null)
+                {
+                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                    HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
                 }
                 else
                 {
+                    if (type_db != null)
+                    {
+                        if (strDB == "Production")
+                        {
 
-                    if (strDB == "Production")
-                    {
-                          if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                            strConn = ConfigurationManager.AppSettings["pro" ].ToString();
+                            if (type_db == "1200")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro1"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                            else if (type_db == "2400")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro2"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+
+
+                            }
+                            else if (type_db == "4800")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro3"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+       
+                            }
+                            else
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                        }
+                        else if (strDB == "Backup")
+                        {
+
+                            if (type_db == "1200")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["back1"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                            else if (type_db == "2400")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["back2"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                            else if (type_db == "4800")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["back3"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                           
+                            }
+                            else
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["back"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                        }
                         else
-                           strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                    }
-                    else if (strDB == "Backup")
-                    {
-                          if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                            strConn = ConfigurationManager.AppSettings["back" ].ToString();
-                        else
-                           strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                        {
+                            if (type_db == "1200")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro1"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                            else if (type_db == "2400")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro2"].ToString();
+       
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+       
+                                }
+                            }
+                            else if (type_db == "4800")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    strConn = ConfigurationManager.AppSettings["pro3"].ToString();
+                                else
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+   
+                            }
+                            else
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                                else
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+   
+
+                            }
+                        }
                     }
                     else
                     {
-                        if (HttpContext.Current.Request.Cookies["strConn" + session_ID] != null)
-                            strConn = HttpContext.Current.Request.Cookies["strConn"].Value.ToString();
-                        //else
-                        //   strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
+
+                        if (strDB == "Production")
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                            {
+                                strConn = ConfigurationManager.AppSettings["pro"].ToString();
+   
+                            }
+                            else
+                            {
+                                strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+   
+                            }
+                        }
+                        else if (strDB == "Backup")
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                strConn = ConfigurationManager.AppSettings["back"].ToString();
+                            else
+                                strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
+                        }
+                        else
+                        {
+                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] != null)
+                                strConn = HttpContext.Current.Request.Cookies["strConn"].Value.ToString();
+                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
+                            //else
+                            //   strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
 
 
+                        }
                     }
                 }
+
             }
+         
 
         }
         public static Module2 Module2s = null;
@@ -287,20 +369,6 @@ namespace Model_Helper
         public string status_CheckAux = "";
         public int Call_Count = 0;
         public Dictionary<string, object> keyValuePairs;
-        public object Caching_set(string key, object o)
-        {
-
-            KeyValuePairs.Add(key, o);
-
-            return o;
-        }
-        public object Caching_Get(string key)
-        {
-            object keyValues2 = KeyValuePairs[key];
-            return keyValues2;
-        }
-
-
         public string UpdateCNFG_Agent_Info_login(string status, string Agen = "", string IP = "", string DNIS = "")
         {
          
@@ -380,31 +448,10 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Connect : " + ex.Message.ToString());
-                //WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
             }
         }
-
-        public void Connectdb3()
-        {
-            try
-            {
-
-
-
-            }
-            catch (Exception ex)
-            {
-                //WriteLog.instance.Log("Error ที่ Connect3 : " + ex.Message.ToString());
-                //WriteLog.instance.Log("ไม่สามารถบันทึกข้อมูลได้เนื่องจากปัญหาติดต่อฐานข้อมูล " + ex.Message + "ผลการตรวจสอบ");
-            }
-        }
-
         public void Common_static_reson(string sQL, string[] input, string[] parameter, ref DataTable dt)
         {
-            //WriteLog.instance.LogSql(sQL);
-            DataTable dt2 = new DataTable();
-            object connectionLock = new object();
             Connectdb();
             dt = Excutue_process_sql(sQL, input, parameter);
         }
@@ -416,32 +463,21 @@ namespace Model_Helper
                 DataTable dt2 = new DataTable();
                 dt = Excutue_process_sql(sQL, input, parameter);
 
-
-
             }
             catch (Exception ex)
-            {
-                //WriteLog.instance.Log("Error ที่ Comman_Static : " + ex.Message.ToString());
-
-            }
-            finally
             {
 
             }
         }
-
-
         private DataTable Excutue_process_sql(string sQL, string[] input, string[] parameter)
         {
             string Paraname = string.Empty;
             DataTable dt1 = Execute_Sql(sQL, input, parameter, Paraname);
-
             return dt1;
         }
 
         private DataTable Execute_Sql(string sQL, string[] input, string[] parameter, string Paraname)
         {
-
             DataTable dt2 = new DataTable();
             var paramList = new DynamicParameters();
 
@@ -453,7 +489,6 @@ namespace Model_Helper
                 {
                     using (OracleCommand command = new OracleCommand(sQL, Connect))
                     {
-                        //WriteLog.instance.LogSql(Connect.ConnectionString);
                         if (input != null)
                         {
                             if (input.Length > 0)
@@ -462,9 +497,6 @@ namespace Model_Helper
                                 foreach (string s in parameter)
                                 {
                                     paramList.Add(s, input[i]);
-                                    //command.Parameters.Add(s, input[i]);
-                                    //parameterinput.Add(input[i]);
-                                    //parametername.Add(s);
                                     i++;
                                 }
                             }
@@ -507,15 +539,10 @@ namespace Model_Helper
                     transaction.Commit();
                     transaction.Dispose();
                     Connect.Close();
-
-
                 }
             };
-
-
             return dt2;
         }
-
 
         public DataTable Comman_Static_All(string sQL)
         {
@@ -526,10 +553,6 @@ namespace Model_Helper
                 DataTable dt = new DataTable();
 
                 Connectdb();
-
-
-                //// เปิดการเชื่อมต่อกับ Oracle
-                //Connect.Open();
 
                 using (OracleTransaction transaction = Connect.BeginTransaction())
                 {
@@ -556,24 +579,15 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Static_All : " + ex.Message.ToString());
                 return null;
             }
-            finally
-            {
 
-
-
-                // ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
-                Connect.Close();
-            }
         }
 
         public void Comman_Static2(string sQL, string[] input, string[] parameter, ref DataTable datatable)
         {
             try
             {
-
                 string Paraname = string.Empty;
                 DataTable dt = new DataTable();
                 try
@@ -592,7 +606,6 @@ namespace Model_Helper
                                     int i = 0;
                                     foreach (string s in parameter)
                                     {
-                                        //WriteLog.instance.Log("Input :" + s);
                                         oracleParameter = new OracleParameter();
                                         oracleParameter.Value = input[i];
                                         oracleParameter.ParameterName = s;
@@ -640,7 +653,6 @@ namespace Model_Helper
                                 else
                                 {
                                     OracleDataReader sqls = command.ExecuteReader();
-                                    //dr2 = new OracleDataAdapter(sqls, Conn2);
                                     int d = sqls.FieldCount;
                                     if (sqls.HasRows)
                                     {
@@ -665,18 +677,14 @@ namespace Model_Helper
                                 transaction.Dispose();
 
                             }
-
                         }
-
                         Connection.Close();
                     }
-
                     datatable = dt;
 
                 }
                 catch (Exception ex)
                 {
-                    //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 }
 
 
@@ -685,17 +693,10 @@ namespace Model_Helper
             {
 
             }
-            finally
-            {
-
-            }
         }
-
-
 
         public string CommanDataread(string textbox_search_number = "")
         {
-            Thread thread = null;
             var paramList = new DynamicParameters();
             string sqlselect = "";
             List<Telclass2> telclassList = new List<Telclass2>();
@@ -704,8 +705,6 @@ namespace Model_Helper
             string stryy = Strings.Format(Convert.ToDateTime(DateTime.Now).ToString("yy"));
             try
             {
-
-
                 string Today = strday + "-" + strmm + "-" + stryy;
                 if (HttpContext.Current.Request.Cookies["Agen"] != null)
                 {
@@ -724,7 +723,6 @@ namespace Model_Helper
                     {
                         using (OracleCommand command = new OracleCommand(sqlselect, connect))
                         {
-                            //WriteLog.instance.LogSql(sqlselect);
 
                             List<ViewModel> da = connect.Query<ViewModel>(command.CommandText).ToList();
 
@@ -765,7 +763,6 @@ namespace Model_Helper
                         transaction.Commit();
 
                     }
-
                     connect.Close();
                 }
 
@@ -775,14 +772,8 @@ namespace Model_Helper
 
             catch (OracleException ex)
             {
-                //WriteLog.instance.Log("Error ที่ CommanDataread : " + ex.Message.ToString());
                 return "";
             }
-            finally
-            {
-            }
-
-
         }
 
         public int CommanEx(string sQL, string[] input = null, string[] parameter = null)
@@ -817,7 +808,6 @@ namespace Model_Helper
                         }
                         catch (OracleException ex)
                         {
-                            //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                             transaction.Commit();
                             transaction.Dispose();
                             Cmd.Dispose();
@@ -827,18 +817,12 @@ namespace Model_Helper
                     }
 
                 }
-
-
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Ex : " + ex.Message.ToString());
                 return 0;
             }
-
         }
-
-
         public int CommanEx_Save(string sQL, string[] input = null, string[] parameter = null)
         {
             try
@@ -871,7 +855,6 @@ namespace Model_Helper
                         }
                         catch (OracleException ex)
                         {
-                            //WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
                             transaction.Commit();
                             transaction.Dispose();
                             return -1;
@@ -881,11 +864,7 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Ex_save : " + ex.Message.ToString());
                 return -1;
-            }
-            finally
-            {
             }
         }
         public DataSet CommandSet(string sQL, string table, string[] input = null, string[] parameter = null)
@@ -893,8 +872,6 @@ namespace Model_Helper
             try
             {
                 DataSet ds2 = new DataSet();
-
-
                 using (OracleConnection Connect6 = new OracleConnection(strConn))
                 {
                     Connect6.Open();
@@ -913,7 +890,6 @@ namespace Model_Helper
                                 command.Parameters.Add(parameter1);
                                 i++;
                             }
-
                         }
                         OracleDataAdapter da = new OracleDataAdapter(command);
                         da.Fill(ds2, table);
@@ -928,13 +904,9 @@ namespace Model_Helper
             }
             catch (OracleException ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Set : " + ex.Message.ToString());
                 return null;
             }
-
         }
-
-
         public List<string> GetFromToken(string jwt)
         {
             try
@@ -996,32 +968,6 @@ namespace Model_Helper
             }
 
         }
-
-        //[Obsolete]
-        //public void BeginTransaction_Con()
-        //{
-        //    transaction = Connect.BeginTransaction();
-        //}
-
-        //[Obsolete]
-        //public void BeginTransaction_Con1()
-        //{
-        //    transaction = Connect1.BeginTransaction();
-        //}
-
-        //[Obsolete]
-        //public void Commitransaction_Con()
-        //{
-        //    transaction.Commit();
-        //}
-
-        //[Obsolete]
-        //public void Commitransaction_Con1()
-        //{
-        //    transaction.Commit();
-        //}
-
-
         public DataTable Comman_Static2(string sQL)
         {
             try
@@ -1327,12 +1273,6 @@ namespace Model_Helper
 
             return table;
         }
-
     }
 
-    public interface ICahce
-    {
-        object Caching_set(string username, object password);
-        object Caching_Get(string username);
-    }
 }
