@@ -1,4 +1,5 @@
-﻿
+﻿$(document).on('load', $("#modal1").css("display", "none"));
+$(document).on('load', $("#modal2").css("display", "none"));
 function getCookie(cookieName) {
     var name = cookieName + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -246,7 +247,7 @@ function clearAllCookies() {
 function fuclogout() {
 
     let ajax_ = $.ajax({
-        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
+        url: "/FrmDetail/SingOut?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&Agen=" + sessionStorage.getItem("Agen"),
         type: 'GET',
         success: function (e) {
             if (e === "server มี ปัญหา") {
@@ -548,9 +549,10 @@ function Save_function() {
         type: 'POST',
         data: datas
         , success: function (e) {
-            $("#modal1").css("display", "none");
+
             showreportToday();
             if (e === "บันทึกข้อมูลเรียบร้อย") {
+                $("#modal1").css("display", "none")
                 sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                 sessionStorage.setItem("ishastel", "Standby")
                 $("#status").text("Standby").css("color", "green")
@@ -588,7 +590,7 @@ function Save_function() {
                 alert2(e)
                 $("#status").text("Standby").css("color", "green")
             } else {
-
+                $("#modal1").css("display", "none")
                 alert2(e)
                 sessionStorage.setItem("ishastel", "Standby")
             }
@@ -827,8 +829,7 @@ let fucshowtel2 = null;
 let id_serivce;
 let name_serivce;
 let table2;
-$(document).on('load', $("#modal1").css("display", "none"));
-$(document).on('load', $("#modal2").css("display", "none"));
+
 
 $(".sweet-confirm").on('click', function (e) {
 

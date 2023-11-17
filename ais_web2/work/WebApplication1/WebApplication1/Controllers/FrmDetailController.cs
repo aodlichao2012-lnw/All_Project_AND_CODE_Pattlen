@@ -460,7 +460,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string SingOut(string id ,string connectionstring = "")
+        public string SingOut(string id ,string connectionstring = "" ,string Agen ="")
         {
             session_ID = id;
             string strUpdate = string.Empty;
@@ -468,36 +468,34 @@ namespace ais_web3.Controllers
             DataTable dt = null;
             try
             {
-                    if (HttpContext.Request.Cookies["Agen" + id] != null)
+                    if (Agen != "")
                     {
-                        string Agens = HttpContext.Request.Cookies["Agen" + id].Value;
-                        Module2.Agent_Id = Agens;
                         strUpdate = "";
                         strUpdate = "UPDATE CNFG_AGENT_INFO SET STATUS_ID = '0' ,";
                         strUpdate += " TERMINAL_IP  = '',";
                         strUpdate += " CALL_COUNT  = 0,";
                         strUpdate += " LOGON_EXT  = 0,";
                         strUpdate += " LOGIN_TIME   = ''";
-                        strUpdate += " WHERE  AGENT_ID = '" + Agens + "'";
+                        strUpdate += " WHERE  AGENT_ID = '" + Agen + "'";
                         try
                         {
                             {
                            module = new Module2(id,connectionstring);
                             module.Comman_Static(strUpdate, null, null, ref dt);
                                 message = "200";
-                            string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
-                            foreach (string item in list_cookie)
-                            {
-                            if (item != null)
-                                {
-                                    HttpContext.Response.Cookies[item].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                                    HttpContext.Response.Cookies.Add(new HttpCookie(item));
-                                }
-                            }
-                            HttpContext.Response.Cookies["strDB"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                            HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));  
-                            HttpContext.Response.Cookies["Agen"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                            HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));
+                            //string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
+                            //foreach (string item in list_cookie)
+                            //{
+                            //if (item != null)
+                            //    {
+                            //        HttpContext.Response.Cookies[item].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                            //        HttpContext.Response.Cookies.Add(new HttpCookie(item));
+                            //    }
+                            //}
+                            //HttpContext.Response.Cookies["strDB"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                            //HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));  
+                            //HttpContext.Response.Cookies["Agen"+ id].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                            //HttpContext.Response.Cookies.Add(new HttpCookie("strDB"));
                         }
                         }
                         catch (Exception ex)
