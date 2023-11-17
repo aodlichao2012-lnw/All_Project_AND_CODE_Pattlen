@@ -551,7 +551,7 @@ function Save_function() {
             $("#modal1").css("display", "none");
             showreportToday();
             if (e === "บันทึกข้อมูลเรียบร้อย") {
-
+                sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                 sessionStorage.setItem("ishastel", "Standby")
                 $("#status").text("Standby").css("color", "green")
                 $("#txt_tel").text("")
