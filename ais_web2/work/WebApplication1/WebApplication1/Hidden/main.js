@@ -821,7 +821,7 @@ function getfuc() {
         })
 }
 function getstatus() {
-    setInterval(getfuc, 600);
+    setInterval(getfuc, 1800);
 }
 
 let cbostatus2 = null;
