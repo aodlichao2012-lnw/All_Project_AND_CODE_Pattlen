@@ -119,6 +119,7 @@ $(function () {
                 fuc_edit_Service("#Service")
                 sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                 $("#status").text("Standby").css("color", "green")
+                sessionStorage.setItem("ishastel", "")
             }
         })
 
@@ -552,9 +553,9 @@ function Save_function() {
 
             showreportToday();
             if (e === "บันทึกข้อมูลเรียบร้อย") {
+                sessionStorage.setItem("ishastel", "")
                 $("#modal1").css("display", "none")
                 sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
-                sessionStorage.setItem("ishastel", "Standby")
                 $("#status").text("Standby").css("color", "green")
                 $("#txt_tel").text("")
                 $("#txt_tel").val(``)
@@ -592,7 +593,6 @@ function Save_function() {
             } else {
                 $("#modal1").css("display", "none")
                 alert2(e)
-                sessionStorage.setItem("ishastel", "Standby")
             }
 
         }
@@ -755,7 +755,7 @@ $(document).on('load', getstatus());
 
 function getfuc() {
 
-    if (sessionStorage.getItem("ishastel") !== "Busy")
+    if (sessionStorage.getItem("ishastel") == "")
         $.ajax({
             url: '/FrmStatus/FrmStatus_Load?id=' + sessionStorage.getItem("id") + "&Agen=" + sessionStorage.getItem("Agen") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&Tel=" + sessionStorage.getItem("Tel" + sessionStorage.getItem("id")),
             type: "GET",
@@ -786,6 +786,7 @@ function getfuc() {
                         $("#button_save").prop('disabled', false)
                         console.log("มีเบอร์แล้ว")
                         $("#txt_tel").val(sessionStorage.getItem("Tel" + sessionStorage.getItem("id")))
+                        sessionStorage.setItem("ishastel", tel)
 
                     }
                     $("#status").text("Busy").css("color", "red")
@@ -796,6 +797,7 @@ function getfuc() {
                     $("#txt_tel").text("")
                     $("#status").text("Not Login").css("color", "gray")
                     sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
+                    sessionStorage.setItem("ishastel", "")
                     showreportToday()
 
                 } else if (status === "Available") {
@@ -803,6 +805,7 @@ function getfuc() {
                     $("#txt_tel").text("")
                     sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                     $("#status").text("Available").css("color", "green")
+                    sessionStorage.setItem("ishastel", "")
                     showreportToday()
 
                 } else if (status === "Aux") {
@@ -815,6 +818,7 @@ function getfuc() {
                     $("#txt_tel").text("")
                     sessionStorage.setItem("Tel" + sessionStorage.getItem("id"), "")
                     $("#status").text("Standby").css("color", "green")
+                    sessionStorage.setItem("ishastel", "")
                     showreportToday();
                 }
             }
