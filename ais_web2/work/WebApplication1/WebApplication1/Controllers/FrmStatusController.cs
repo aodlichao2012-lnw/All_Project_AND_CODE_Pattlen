@@ -40,15 +40,9 @@ namespace ais_web3.Controllers
             string json = null;
             try
             {
-                    if(Agen != "")
-                    {
-                        Agenids = Agen;
-                    }
-                    else  if (HttpContext.Request.Cookies["Agen" + session_ID].Value != null)
-                    {
-                        Agenids = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                        Module2.Agent_Id = Agenids;
-                    }
+
+              Agenids = Agen;
+                                       
             }
             catch (Exception ex)
             {
@@ -68,7 +62,7 @@ namespace ais_web3.Controllers
             if (dt2.Rows[0]["DNIS"] != null && dt2.Rows[0]["DNIS"].ToString().Length > 1)
             {
                 Phone = "0"+ dt2.Rows[0]["DNIS"].ToString();
-                HttpContext.Response.Cookies.Add(new HttpCookie("Tel" + id, Phone));
+         
                 return Phone;
             }
             else

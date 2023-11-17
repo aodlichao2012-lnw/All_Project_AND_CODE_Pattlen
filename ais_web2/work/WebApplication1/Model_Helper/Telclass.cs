@@ -31,6 +31,8 @@ namespace Model_Helper
     public class Telclass
     {
         public string Date_thai { get; set; }
+        public string connectionstring { get; set; } = "";
+        public string Agen { get; set; } = "";
         public string id { get; set; }
         public string anumber { get; set; }
         public string agent_id { get; set; }

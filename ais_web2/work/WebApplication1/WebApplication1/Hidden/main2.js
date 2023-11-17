@@ -535,7 +535,7 @@ function fucsave() {
 function showreportToday() {
 
     $.ajax({
-        url: '/FrmReportTel/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
+        url: '/FrmReportTel/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&Agen=" + sessionStorage.getItem("Agen"),
         cache: false,
         type: 'GET',
         data: null,
@@ -652,7 +652,9 @@ function btnreport_click() {
     datas.append("res_code", reson)
 
     datas.append("Day", date)
-    datas.append("id", getCookie("id"))
+    datas.append("id", sessionStorage.getItem("id"))
+    datas.append("Agen", sessionStorage.getItem("Agen"))
+    datas.append("id", sessionStorage.getItem("strcon"))
 
     let ajax_ = $.ajax({
         url: '/FrmReportTel/btnReport_Click',

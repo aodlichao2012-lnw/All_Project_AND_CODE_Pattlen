@@ -604,7 +604,7 @@ function Save_function() {
 function showreportToday() {
 
     $.ajax({
-        url: '/FrmDetail/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
+        url: '/FrmDetail/showreportToday?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon") + "&Agen=" + sessionStorage.getItem("Agen"),
         cache: false,
         type: 'GET',
         data: null,

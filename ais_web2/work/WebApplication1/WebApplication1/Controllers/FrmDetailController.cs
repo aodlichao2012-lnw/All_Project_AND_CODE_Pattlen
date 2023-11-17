@@ -73,292 +73,7 @@ namespace ais_web3.Controllers
                 return null;
             }
         }
-        public string showdata2(Telclass2 telclass2)
-        {
-            DataTable dt = null;
-            try
-            {
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                {
-                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                    Module2.Agent_Id = Agens;
-                }
-                string sqlselect = "";
-                form1 form = new form1();
-                sqlselect = "SELECT * FROM MAS_LEADS_TRANS WHERE ANUMBER = :ANUMBER AND AGENT_ID = :AGENT_ID";
-               module = new Module2(session_ID, form.  connectionstring);
-                module.Comman_Static(sqlselect, new string[] { Module2.Agent_Id, telclass2.anumber }, new string[] { ":ANUMBER", ":AGENT_ID" }, ref dt);
-                if (dt.Rows.Count > 0)
-                {
-                    if (dt.Rows[0]["RES_CODE"].ToString() == "01")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "02")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "03")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "04")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "05")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "06")
-                    {
-                    }
-                    else if (dt.Rows[0]["RES_CODE"].ToString() == "07")
-                    {
-                    }
-                    if (!string.IsNullOrEmpty(dt.Rows[0]["DENY_CODE"].ToString()))
-                    {
-                    }
-                    else if (string.IsNullOrEmpty(dt.Rows[0]["DENY_CODE"].ToString()))
-                    {
-                        form.cboDeny = "";
-                    }
-                    if (dt.Rows[0]["CUST_SEX"].ToString() == "M")
-                    {
-                        form.cboSex = "ชาย";
-                    }
-                    else if (dt.Rows[0]["CUST_SEX"].ToString() == "F")
-                    {
-                        form.cboSex = "หญิง";
-                    }
-                    else if (dt.Rows[0]["CUST_SEX"].ToString() == " ")
-                    {
-                        form.cboSex = "";
-                    }
-                    if (dt.Rows[0]["BIRTH_DAY"].ToString() == "1")
-                    {
-                        form.cboDate = "อาทิตย์";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "2")
-                    {
-                        form.cboDate = "จันทร์";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "3")
-                    {
-                        form.cboDate = "อังคาร";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "4")
-                    {
-                        form.cboDate = "พุธ";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "5")
-                    {
-                        form.cboDate = "พฤหัสบดี";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "6")
-                    {
-                        form.cboDate = "ศุกร์";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "7")
-                    {
-                        form.cboDate = "เสาร์";
-                    }
-                    else if (dt.Rows[0]["BIRTH_DAY"].ToString() == "0")
-                    {
-                        form.cboDate = "";
-                    }
-                    if (dt.Rows[0][" Birth_MM"].ToString() == "01")
-                    {
-                        form.cboMouth = "มกราคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "02")
-                    {
-                        form.cboMouth = "กุมภาพันธ์";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "03")
-                    {
-                        form.cboMouth = "มีนาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "04")
-                    {
-                        form.cboMouth = "เมษายน";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "05")
-                    {
-                        form.cboMouth = "พฤษภาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "06")
-                    {
-                        form.cboMouth = "มิถุนายน";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "07")
-                    {
-                        form.cboMouth = "กรกฏาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "08")
-                    {
-                        form.cboMouth = "สิงหาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "09")
-                    {
-                        form.cboMouth = "กันยายน";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "10")
-                    {
-                        form.cboMouth = "ตุลาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "11")
-                    {
-                        form.cboMouth = "พฤศจิกายน";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "12")
-                    {
-                        form.cboMouth = "ธันวาคม";
-                    }
-                    else if (dt.Rows[0][" Birth_MM"].ToString() == "00")
-                    {
-                        form.cboMouth = "";
-                    }
-                    form.txtYear = dt.Rows[0]["BIRTH_YYYY"].ToString();
-                    if (dt.Rows[0]["SERVICE_01"].ToString() == "1")
-                    {
-                        form.SERVICE_1 = true;
-                        form.SERVICE_8 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_01"].ToString() == "0")
-                    {
-                        form.SERVICE_1 = false;
-                        form.SERVICE_8 = false;
-                    }
 
-                    if (dt.Rows[0]["SERVICE_02"].ToString() == "1")
-                    {
-                        form.SERVICE_2 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_02"].ToString() == "0")
-                    {
-                        form.SERVICE_2 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_03"].ToString() == "1")
-                    {
-                        form.SERVICE_3 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_03"].ToString() == "0")
-                    {
-                        form.SERVICE_3 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_04"].ToString() == "1")
-                    {
-                        form.SERVICE_4 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_04"].ToString() == "0")
-                    {
-                        form.SERVICE_4 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_05"].ToString() == "1")
-                    {
-                        form.SERVICE_5 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_05"].ToString() == "0")
-                    {
-                        form.SERVICE_5 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_06"].ToString() == "1")
-                    {
-                        form.SERVICE_6 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_06"].ToString() == "0")
-                    {
-                        form.SERVICE_6 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_07"].ToString() == "1")
-                    {
-                        form.SERVICE_7 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_07"].ToString() == "0")
-                    {
-                        form.SERVICE_7 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_08"].ToString() == "1")
-                    {
-                        form.SERVICE_8 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_08"].ToString() == "0")
-                    {
-                        form.SERVICE_8 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_09"].ToString() == "1")
-                    {
-                        form.SERVICE_9 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_09"].ToString() == "0")
-                    {
-                        form.SERVICE_9 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_10"].ToString() == "1")
-                    {
-                        form.SERVICE_10 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_10"].ToString() == "0")
-                    {
-                        form.SERVICE_10 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_11"].ToString() == "1")
-                    {
-                        form.SERVICE_11 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_11"].ToString() == "0")
-                    {
-                        form.SERVICE_11 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_12"].ToString() == "1")
-                    {
-                        form.SERVICE_12 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_12"].ToString() == "0")
-                    {
-                        form.SERVICE_12 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_13"].ToString() == "1")
-                    {
-                        form.SERVICE_13 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_13"].ToString() == "0")
-                    {
-                        form.SERVICE_13 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_14"].ToString() == "1")
-                    {
-                        form.SERVICE_14 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_14"].ToString() == "0")
-                    {
-                        form.SERVICE_14 = false;
-                    }
-                    if (dt.Rows[0]["SERVICE_16"].ToString() == "1")
-                    {
-                        form.SERVICE_16 = true;
-                    }
-                    else if (dt.Rows[0]["SERVICE_16"].ToString() == "0")
-                    {
-                        form.SERVICE_16 = false;
-                    }
-                    if (string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
-                    {
-                        form.cbocity = "";
-                    }
-                    else if (!string.IsNullOrEmpty(dt.Rows[0]["CITY_NAME_T"].ToString()))
-                    {
-                        form.cbocity = dt.Rows[0]["CITY_NAME_T"].ToString();
-                    }
-                    form.statustel = telclass2.status;
-                    return JsonConvert.SerializeObject(form);
-                }
-                return JsonConvert.SerializeObject(null);
-            }
-            catch
-            {
-                return "";
-            }
-            finally
-            {
-            }
-        }
         [HttpGet]
         public string cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="" , string connectionstring ="")
         {
@@ -924,11 +639,11 @@ namespace ais_web3.Controllers
                                 return "server มี ปัญหา..";
                             }
 
-                            Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
-                            if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
-                            {
-                                Response.Cookies.Add(new HttpCookie("Tel" + session_ID) {  Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
-                            }
+                            //Response.Cookies.Add(new HttpCookie("Isave" + session_ID, "save"));
+                            //if (HttpContext.Request.Cookies["Tel" + session_ID] != null && HttpContext.Request.Cookies["Tel" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
+                            //{
+                            //    Response.Cookies.Add(new HttpCookie("Tel" + session_ID) {  Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
+                            //}
                             return "บันทึกข้อมูลเรียบร้อย";
                       
                    
@@ -1123,13 +838,13 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string showreportToday(string id = "", string connectionstring = "")
+        public string showreportToday(string id = "", string connectionstring = "" ,string Agen ="")
         {
             session_ID = id;
             string Agens = string.Empty;
-            if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
+            if (Agen != "")
             {
-                Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
+                Agens = Agen;
             }
             string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
                      "" +

@@ -214,14 +214,12 @@ namespace ais_web3.Controllers
             }
         }
         [HttpGet]
-        public string showreportToday(string id = "")
+        public string showreportToday(string id = "", string connectionstring ="", string Agen ="")
         {
             session_ID = id;
-            string Agens = string.Empty;
-            if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-            {
-                Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-            }
+            string Agens = Agen;
+
+
 
             string sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
                      "" +
@@ -251,7 +249,7 @@ namespace ais_web3.Controllers
                 string yy = DateTime.Now.ToString("dd-MMM-yy", new CultureInfo("en-US")).Split('-')[2];
                 sql2 += " And to_date(LEAD_CALL_DATE,'YYYY/MM/DD') = to_date('" + dd + "/" + mm + "/" + yy + "','YYYY/MM/DD')";
             Thread.Sleep(1000);
-            module = new Module2(session_ID);
+            module = new Module2(session_ID, connectionstring);
             DataTable  dt3 = module.Comman_Static2(sql2);
             List<string> json_list = new List<string>();
             //DataTable dt2 = Service_Sum(new Telclass() { res_code = "01", agent_id = Agenid });
@@ -274,16 +272,7 @@ namespace ais_web3.Controllers
             {
                 session_ID = telclass.id;
                 DataTable dt3 = new DataTable();
-                if (HttpContext.Request.Cookies["Agen" + session_ID] != null)
-                {
-                    string Agens = HttpContext.Request.Cookies["Agen" + session_ID].Value;
-                    Module2.Agent_Id = Agens;
-                }
-                string Agenid = Module2.Agent_Id;
-                if (Agenid == "")
-                {
-                    Agenid = Agenids;
-                }
+                string Agens = telclass.Agen;
                 try
                 {
                     sql2 = "select  ANUMBER, CUST_NAME , CUST_SNAME , MAS_REASON.RES_NAME as RES_NAME , MAS_RESON_DENY.DENY_NAME as DENY_NAME , " +
@@ -308,7 +297,7 @@ namespace ais_web3.Controllers
 
                         "LEFT JOIN MAS_REASON ON MAS_REASON.RES_CODE = MAS_LEADS_TRANS.RES_CODE LEFT JOIN MAS_RESON_DENY ON MAS_RESON_DENY.DENY_CODE = MAS_LEADS_TRANS.DENY_CODE" +
                         " ";
-                    sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agenid + "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
+                    sql2 += " where   MAS_LEADS_TRANS.AGENT_ID = '" + Agens + "' AND MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "'";
                     if (telclass.Day != null)
                     {
                         string dd = telclass.Day.Split('/')[0];
@@ -340,9 +329,8 @@ namespace ais_web3.Controllers
                 }
                 try
                 {
-                    telclass.agent_id = Agenid;
                     Thread.Sleep(1000);
-                    module = new Module2(session_ID);
+                    module = new Module2(session_ID  ,telclass.connectionstring);
                     dt3 = module.Comman_Static4(sql2);
                     if (dt3 != null)
                     {
