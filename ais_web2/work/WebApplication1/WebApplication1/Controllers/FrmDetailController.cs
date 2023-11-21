@@ -240,6 +240,7 @@ namespace ais_web3.Controllers
             string sqlsearch = string.Empty;
             try
             {
+                string Agens = string.Empty;
                 session_ID = form.id;
                module = new Module2(session_ID,form.connectionstring);
                 int year2;
@@ -249,10 +250,10 @@ namespace ais_web3.Controllers
                 int day_no = 0;
                 if (form.Agen != null)
                 {
-                    string Agens = form. Agen;
+                     Agens = form. Agen;
                     Module2.Agent_Id = Agens;
                 }
-                string Agenid = Module2.Agent_Id;
+                //string Agenid = Module2.Agent_Id;
                 if (form.txtYear == null)
                 {
                     form.txtYear = string.Empty;
@@ -620,7 +621,7 @@ namespace ais_web3.Controllers
                         sqlsearch += "" + "','";
                     }
                     sqlsearch += "1" + "', '";
-                    sqlsearch += Agenid + "')";
+                    sqlsearch += Agens + "')";
                 try
                 {
                     {
@@ -633,7 +634,7 @@ namespace ais_web3.Controllers
                                 return "server มี ปัญหา";
                             }
                            module = new Module2(session_ID,form.connectionstring);
-                          string status =  module.UpdateCNFG_Agent_Info("5", Module2.Agent_Id, form.txtTel_No);
+                          string status =  module.UpdateCNFG_Agent_Info("5", Agens, form.txtTel_No);
                             if(status == "500")
                             {
                                 return "server มี ปัญหา..";

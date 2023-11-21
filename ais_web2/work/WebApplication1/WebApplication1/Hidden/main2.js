@@ -654,8 +654,7 @@ function btnreport_click() {
     datas.append("Day", date)
     datas.append("id", sessionStorage.getItem("id"))
     datas.append("Agen", sessionStorage.getItem("Agen"))
-    datas.append("id", sessionStorage.getItem("strcon"))
-
+    datas.append("connectionstring", sessionStorage.getItem("strcon"))
     let ajax_ = $.ajax({
         url: '/FrmReportTel/btnReport_Click',
         processData: false,

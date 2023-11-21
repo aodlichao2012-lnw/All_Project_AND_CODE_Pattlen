@@ -1123,10 +1123,13 @@ namespace Model_Helper
         public string sql_Select_Report( Telclass telclass)
         {
             string sql2 = string.Empty;
-            string Agenid = Module2.Agent_Id;
+            if(telclass.Agen == "")
+            {
+                telclass.Agen = telclass.agent_id;
+            }
 
             sql2 = "Select sum(service_21) as ser21 ,sum(service_11) as ser11 ,sum(service_12) as ser12 ,sum(service_13) as ser13 , sum(COALESCE(service_21,'0')+COALESCE(service_11,'0')+COALESCE(service_12,'0') + (CASE WHEN service_13 = null THEN '0' ELSE service_13 END )) AS    sum from mas_leads_trans";
-            sql2 += " where  MAS_LEADS_TRANS.AGENT_ID = '" + telclass.agent_id + "' and MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "' ";
+            sql2 += " where  MAS_LEADS_TRANS.AGENT_ID = '" + telclass.Agen + "' and MAS_LEADS_TRANS.RES_CODE = '" + telclass.res_code + "' ";
 
             if (telclass.Day != "" && telclass.Day != null)
             {
