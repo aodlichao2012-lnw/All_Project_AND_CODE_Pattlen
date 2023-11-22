@@ -156,7 +156,7 @@
     function fuclogout() {
 
         let ajax_ = $.ajax({
-            url: "/FrmDetail/SingOut?id=" + getCookie("id"),
+            url: "/FrmDetail/SingOut?id=" + localStorage.getItem("id"),
             type: 'GET',
             success: function (e) {
                 if (e === "server มี ปัญหา") {
@@ -201,7 +201,7 @@
     function fuc_edit_Service(Service) {
 
         $.ajax({
-            url: '/FrmDetail/list_Service2?id=' + getCookie("id"),
+            url: '/FrmDetail/list_Service2?id=' + localStorage.getItem("id"),
             type: 'GET',
             data: null
             , success: function (e) {
@@ -356,7 +356,7 @@
         data1.append("IsActive", bool_active)
         data1.append("Service_id_name", span_active_name)
         let ajax_ = $.ajax({
-            url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + getCookie("id"),
+            url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + localStorage.getItem("id"),
             type: 'POST',
             processData: false,
             contentType: false,
@@ -394,7 +394,7 @@
     let table_sub2;
     function cbostatus() {
         let ajax_ = $.ajax({
-            url: '/FrmReportTel/FrmReportTel_Load?id=' + getCookie("id"),
+            url: '/FrmReportTel/FrmReportTel_Load?id=' + localStorage.getItem("id"),
             type: 'GET',
             data: null,
             success: function (e) {
@@ -539,7 +539,7 @@
             /*    datas.append("cboDeny", current_date)*/
 
             let ajax_ = $.ajax({
-                url: '/FrmDetail/btnSave_Click?id=' + getCookie("id"),
+                url: '/FrmDetail/btnSave_Click?id=' + localStorage.getItem("id"),
                 contentType: false,
                 processData: false,
                 type: 'POST',
@@ -587,7 +587,7 @@
     function showreportToday() {
 
         $.ajax({
-            url: '/FrmReportTel/showreportToday?id=' + getCookie("id"),
+            url: '/FrmReportTel/showreportToday?id=' + localStorage.getItem("id"),
             cache: false,
             type: 'GET',
             data: null,
@@ -704,7 +704,7 @@
         datas.append("res_code", reson)
 
         datas.append("Day", date)
-        datas.append("id", getCookie("id"))
+        datas.append("id", localStorage.getItem("id"))
 
         let ajax_ = $.ajax({
             url: '/FrmReportTel/btnReport_Click',
@@ -1018,13 +1018,13 @@
 
     $("#svg1").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + localStorage.getItem("id")
 
 
     })
     $("#svg2").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + localStorage.getItem("id")
 
 
     })
@@ -1068,7 +1068,7 @@
             $("#button_save").prop('disabled', false)
             $("#button_save2").prop('disabled', false)
             let ajax_ = $.ajax({
-                url: '/FrmDetail/Clear_edit?id=' + getCookie("id"),
+                url: '/FrmDetail/Clear_edit?id=' + localStorage.getItem("id"),
                 type: 'GET',
                 data: null,
                 success: function (e) {
@@ -1201,17 +1201,17 @@
     $("#Service").on('load', fuc_edit_Service("#Service"));
     $("#button_search").on('click', function (e) {
 
-        window.location.href = '/FrmSearchNumber/Index?id=' + getCookie("id")
+        window.location.href = '/FrmSearchNumber/Index?id=' + localStorage.getItem("id")
 
     })
     $("#button_Main").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' + localStorage.getItem("id")
 
     })
     $("#button_Report").on('click', function (e) {
 
-        window.location.href = '/FrmReportTel/Index?id=' + getCookie("id")
+        window.location.href = '/FrmReportTel/Index?id=' + localStorage.getItem("id")
 
     })
 

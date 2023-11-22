@@ -584,7 +584,7 @@
             $("#button_save").prop('disabled', false)
             $("#button_save2").prop('disabled', false)
             let ajax_ = $.ajax({
-                url: '/FrmDetail/Clear_edit?id=' + getCookie("id"),
+                url: '/FrmDetail/Clear_edit?id=' +localStorage.getItem("id"),
                 type: 'GET',
                 data: null,
                 success: function (e) {
@@ -721,7 +721,7 @@
     function fuclogout() {
 
         let ajax_ = $.ajax({
-            url: "/FrmDetail/SingOut?id=" + getCookie("id"),
+            url: "/FrmDetail/SingOut?id=" + localStorage.getItem("id"),
             type: 'GET',
             success: function (e) {
                 if (e === "server มี ปัญหา") {
@@ -766,7 +766,7 @@
     function fuc_edit_Service(Service) {
 
         $.ajax({
-            url: '/FrmDetail/list_Service2?id=' + getCookie("id"),
+            url: '/FrmDetail/list_Service2?id=' +localStorage.getItem("id"),
             type: 'GET'
             , success: function (e) {
                 if (e !== null) {
@@ -828,7 +828,7 @@
     }
     function fuc_select_status_2() {
         let ajax_ = $.ajax({
-            url: "/FrmDetail/showCity?id=" + getCookie("id")
+            url: "/FrmDetail/showCity?id=" +localStorage.getItem("id")
             , type: "GET",
             success: function (e) {
                 if (e === "") {
@@ -901,7 +901,7 @@
     }
     function cbostatus() {
         let ajax_ = $.ajax({
-            url: '/FrmReportTel/FrmReportTel_Load?id=' + getCookie("id"),
+            url: '/FrmReportTel/FrmReportTel_Load?id=' +localStorage.getItem("id"),
             type: 'GET',
             data: null,
             success: function (e) {
@@ -1011,7 +1011,7 @@
             // ใช้ setInterval เพื่อเรียก chatHub.server.requestData ทุก 10 วินาที
             setInterval(function () {
                 console.log(localStorage.getItem("Agen"))
-                /*   console.log("ส่งค่า Agen " + getCookie("Agen" + getCookie("id")) + " ไป")*/
+                /*   console.log("ส่งค่า Agen " + getCookie("Agen" +localStorage.getItem("id")) + " ไป")*/
                 chatHub.server.requestData(localStorage.getItem("id") + ";" + localStorage.getItem("Agen"));
             }, 2000);
         });
@@ -1115,7 +1115,7 @@
             datas.append("cboSex", sex2)
             datas.append("strDenycode", reson_code)
             datas.append("txtDate_Tel", date_tel)
-            datas.append("id", getCookie("id"))
+            datas.append("id",localStorage.getItem("id"))
 
             /*    datas.append("cboDeny", current_date)*/
 
@@ -1178,7 +1178,7 @@
         let e = $("#status").text()
         if (e === "Busy") {
 
-            if (getCookie("Tel" + getCookie("id")) == "" || getCookie("Tel" + getCookie("id")) == null) {
+            if (getCookie("Tel" +localStorage.getItem("id")) == "" || getCookie("Tel" +localStorage.getItem("id")) == null) {
                 console.log("ค้นหาเบอร์ใหม่")
 
                 fucshowtel3(1)
@@ -1186,8 +1186,8 @@
             else {
                 $("#button_save").prop('disabled', false)
                 console.log("มีเบอร์แล้ว")
-                console.log(getCookie("Tel" + getCookie("id")))
-                $("#txt_tel").text(getCookie("Tel" + getCookie("id")))
+                console.log(getCookie("Tel" +localStorage.getItem("id")))
+                $("#txt_tel").text(getCookie("Tel" +localStorage.getItem("id")))
                 fucshowtel3(0)
             }
             $("#status").text("Busy").css("color", "red")
@@ -1226,7 +1226,7 @@
     function showreportToday() {
 
         $.ajax({
-            url: '/FrmDetail/showreportToday?id=' + getCookie("id"),
+            url: '/FrmDetail/showreportToday?id=' +localStorage.getItem("id"),
             cache: false,
             type: 'GET',
             data: null,
@@ -1331,7 +1331,7 @@
     }
     function fuc_select_status() {
         let ajax_ = $.ajax({
-            url: "/FrmDetail/setcboStatus?id=" + getCookie("id")
+            url: "/FrmDetail/setcboStatus?id=" +localStorage.getItem("id")
             , type: "GET",
 
             success: function (e) {
@@ -1391,17 +1391,17 @@
     $("#Service").on('load', fuc_edit_Service("#Service"));
     $("#button_search").on('click', function (e) {
 
-        window.location.href = '/FrmSearchNumber/Index?id=' + getCookie("id")
+        window.location.href = '/FrmSearchNumber/Index?id=' +localStorage.getItem("id")
 
     })
     $("#button_Main").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' +localStorage.getItem("id")
 
     })
     $("#button_Report").on('click', function (e) {
 
-        window.location.href = '/FrmReportTel/Index?id=' + getCookie("id")
+        window.location.href = '/FrmReportTel/Index?id=' +localStorage.getItem("id")
 
     })
 
@@ -1443,13 +1443,13 @@
     $("#button_save2").hide()
     $("#svg1").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' +localStorage.getItem("id")
 
 
     })
     $("#svg2").on('click', function (e) {
 
-        window.location.href = '/FrmDetail/Index?id=' + getCookie("id")
+        window.location.href = '/FrmDetail/Index?id=' +localStorage.getItem("id")
 
 
     })
@@ -1584,7 +1584,7 @@
         let reson_select = $("#select_st").val()
         /*  let select = $('#browsers [value="' + reson_select + '"]').data('val')*/
         let ajax_ = $.ajax({
-            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" + getCookie("id")
+            url: "/FrmDetail/cboStatus_SelectedIndexChanged?cboStatus=" + reson_select + "&res_code=" + reson_select + "&id=" +localStorage.getItem("id")
             , type: "GET",
             success: function (e) {
 

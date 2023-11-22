@@ -2199,15 +2199,13 @@ namespace ais_web3.Controllers
                 }
                 if (HttpContext.Request.Cookies["Isave" + session_ID] != null && HttpContext.Request.Cookies["Isave" + session_ID].Expires != Convert.ToDateTime("2000/01/01 00:00:00"))
                 {
-                    HttpContext.Response.Cookies["Tel" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
-                    HttpContext.Response.Cookies["Isave" + session_ID].Expires = Convert.ToDateTime("2000/01/01 00:00:00");
+                    Response.Cookies.Add(new HttpCookie("Tel" + session_ID, tel_phone) { Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
+                    Response.Cookies.Add(new HttpCookie("Isave" + session_ID, tel_phone) { Expires = Convert.ToDateTime("2000/01/01 00:00:00") });
                 }
                 return tel_phone;
             }
             catch(Exception ex)
             {
-                //WriteLog.instance.Log("GetPhone :" + ex.Message.ToString());
-                //WriteLog.instance.Log("GetPhone :" + sql);
                 return "";
             }
 

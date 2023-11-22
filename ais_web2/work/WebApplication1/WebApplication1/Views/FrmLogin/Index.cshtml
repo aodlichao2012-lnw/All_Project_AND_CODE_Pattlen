@@ -196,13 +196,13 @@
                     }
                     else {
                         document.cookie = "id=" + e + "; path=/";
-                        localStorage.setItem("user_name", getCookie("id"))
-                        localStorage.setItem("strDB", getCookie("id"))
-                        localStorage.setItem("type_title", getCookie("id"))
-                        localStorage.setItem("type_db", getCookie("id"))
+                        localStorage.setItem("user_name", getCookie("user_name" +getCookie("id")))
+                        localStorage.setItem("strDB", getCookie("strDB"+ getCookie("id")))
+                        localStorage.setItem("type_title", getCookie("type_title"+ getCookie("id")))
+                        localStorage.setItem("type_db", getCookie("type_db"+ getCookie("id")))
                         localStorage.setItem("Agen", getCookie("Agen"))
-                        localStorage.setItem("EXTENSION", getCookie("id"))
-                        localStorage.setItem("Agent_Ip", getCookie("id"))
+                        localStorage.setItem("EXTENSION", getCookie("EXTENSION"+ getCookie("id")))
+                        localStorage.setItem("Agent_Ip", getCookie("Agent_Ip"+ getCookie("id")))    
                         localStorage.setItem("id", getCookie("id"))
                         window.location.href = '/FrmDetail/Index?id=' + e
                 
