@@ -138,6 +138,7 @@ namespace ais_web3.Controllers
             }
         }
         [HttpPost]
+        [Obsolete]
         public string LogIn(string txtUsername, string txtPassword, string type)
         {
             try
@@ -209,12 +210,14 @@ namespace ais_web3.Controllers
                     //Response.Cookies.Add(new HttpCookie("id", session_ID));
                     //Response.Cookies.Add(new HttpCookie("EXTENSION" + session_ID, Module2.EXTENSION));
                     string ip = string.Empty;
-                    myIPs = System.Net.Dns.GetHostByName(myHost);
-                    foreach (IPAddress myIP in myIPs.AddressList)
+                    IPHostEntry hostEntry = Dns.GetHostEntry(myHost);
+
+                    foreach (IPAddress myIP in hostEntry.AddressList)
                     {
-                        ip = myIP.ToString();
+                         ip = myIP.ToString();
                         Response.Cookies.Add(new HttpCookie("Agent_Ip" + session_ID, ip));
                     }
+                    module = new Module2(session_ID);
                     module.UpdateCNFG_Agent_Info_login("5", Agen, ip);
                     return session_ID + ";" + "1" + ";|" + module.strConn;
                 }
