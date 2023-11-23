@@ -257,7 +257,6 @@ namespace Model_Helper
                             }
                         }
                     }
-
                 }
             }
             catch
