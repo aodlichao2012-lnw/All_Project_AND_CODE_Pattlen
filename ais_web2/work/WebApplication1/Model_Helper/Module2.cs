@@ -18,7 +18,6 @@ using System.Xml.Linq;
 
 namespace Model_Helper
 {
-
     public class Module2
     {
       string  session_ID = System.Web.HttpContext.Current.Session.SessionID;
@@ -27,13 +26,11 @@ namespace Model_Helper
         public readonly string strConn;
         public readonly string type_db;
         MemoryCache cache = MemoryCache.Default;
-
         public static string strDB_;
         public static string user_name_;
         public static string strConn_;
         public static string type_db_;
         public Module2 Module2_;
-
         public Module2 Load()
         {
 
@@ -280,18 +277,13 @@ namespace Model_Helper
         public static OracleConnection Connect5;
         public static OracleConnection Connect6;
         public static OracleConnection Connect7;
-
         public static OracleConnection Conn2;
-
         public OracleConnection ConnORAOCC;
-
         public OracleCommand com;
-
         public OracleCommand Cmd;
         public DataSet ds;
         public DataTable dt;
         private OracleTransaction transaction;
-
         public OracleDataAdapter da;
         public OracleDataReader dr;
         public string agent = "";
@@ -360,7 +352,6 @@ namespace Model_Helper
                 return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message + "ผลการตรวจสอบ";
             }
         }  
-        
         public string UpdateCNFG_Agent_Info(string status, string Agen = "", string DNIS = "")
         {
          
@@ -391,7 +382,6 @@ namespace Model_Helper
                 return "500";
             }
         }
-
         public void Connectdb()
         {
             try
@@ -414,16 +404,13 @@ namespace Model_Helper
         }
         public void Comman_Static(string sQL, string[] input, string[] parameter, ref DataTable dt)
         {
-
             try
             {
                 DataTable dt2 = new DataTable();
                 dt = Excutue_process_sql(sQL, input, parameter);
-
             }
             catch (Exception ex)
             {
-
             }
         }
         private DataTable Excutue_process_sql(string sQL, string[] input, string[] parameter)
@@ -432,7 +419,6 @@ namespace Model_Helper
             DataTable dt1 = Execute_Sql(sQL, input, parameter, Paraname);
             return dt1;
         }
-
         private DataTable Execute_Sql(string sQL, string[] input, string[] parameter, string Paraname)
         {
             DataTable dt2 = new DataTable();
@@ -465,13 +451,11 @@ namespace Model_Helper
                             {
                                 if (Paraname.Split(',')[0] == ":UNVIST")
                                 {
-
                                     List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
                                     dt2 = ToDataTable(data);
                                 }
                                 else
                                 {
-
                                     List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
                                     dt2 = ToDataTable(data);
                                 }
@@ -480,9 +464,7 @@ namespace Model_Helper
                             {
                                 List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
                                 dt2 = ToDataTable(data);
-
                             }
-
                         }
                         else
                         {
@@ -500,7 +482,6 @@ namespace Model_Helper
             };
             return dt2;
         }
-
         public DataTable Comman_Static_All(string sQL)
         {
             try
@@ -540,7 +521,6 @@ namespace Model_Helper
             }
 
         }
-
         public void Comman_Static2(string sQL, string[] input, string[] parameter, ref DataTable datatable)
         {
             try
@@ -724,8 +704,8 @@ namespace Model_Helper
                 using(OracleConnection connection = new OracleConnection(strConn))
                 {
                     connection.Open();
-                    using (OracleTransaction transaction = connection.BeginTransaction())
-                    {
+                    //using (OracleTransaction transaction = connection.BeginTransaction())
+                    //{
                         OracleCommand Cmd = new OracleCommand(sQL, connection);
                         if (input != null)
                         {
@@ -739,8 +719,8 @@ namespace Model_Helper
                         try
                         {
                             Cmd.ExecuteNonQuery();
-                            transaction.Commit();
-                            transaction.Dispose();
+                            //transaction.Commit();
+                            //transaction.Dispose();
                             Cmd.Dispose();
                             connection.Close();
                             return 0;
@@ -752,7 +732,7 @@ namespace Model_Helper
                             return -1;
                         }
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {

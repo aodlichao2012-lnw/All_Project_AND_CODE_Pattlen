@@ -26,11 +26,6 @@ namespace ais_web3.Controllers
         string user_name = string.Empty;
         public FrmDetailController()
         {
-
-
-
-            //WriteLog.instance.Log_browser_Detail_page("FrmDetail/Index");
-
         }
         public Dictionary<string, string> keyValuePairs;
         public delegate void updatestatus(string strstat);
@@ -73,7 +68,6 @@ namespace ais_web3.Controllers
                 return null;
             }
         }
-
         [HttpGet]
         public string cboStatus_SelectedIndexChanged(string cboStatus, string res_code ,string id ="" , string connectionstring ="")
         {
@@ -662,7 +656,6 @@ namespace ais_web3.Controllers
             }
 
         }
-
         [HttpGet]
         public ActionResult Index(string id = "" , string connectionstring = "")
         {
