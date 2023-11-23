@@ -590,7 +590,6 @@ namespace Model_Helper
             {
             }
         }
-
         public string CommanDataread(string textbox_search_number = "")
         {
             var paramList = new DynamicParameters();
@@ -671,7 +670,6 @@ namespace Model_Helper
                 return "";
             }
         }
-
         public int CommanEx(string sQL, string[] input = null, string[] parameter = null)
         {
             try
@@ -723,7 +721,6 @@ namespace Model_Helper
         {
             try
             {
-
                 using(OracleConnection connection = new OracleConnection(strConn))
                 {
                     connection.Open();
@@ -1105,7 +1102,6 @@ namespace Model_Helper
 
 
         }
-
         public DataTable Comman_Static3(string sQL)
         {
             try
@@ -1172,5 +1168,4 @@ namespace Model_Helper
             return table;
         }
     }
-
 }
