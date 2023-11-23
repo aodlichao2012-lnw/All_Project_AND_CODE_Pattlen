@@ -57,247 +57,214 @@ namespace Model_Helper
         }
         public Module2(string id ="" ,string ConnectionString ="")
         {
-            if(ConnectionString != "")
+            try
             {
-                strConn = ConnectionString;
-            }
-            else
-            {
-                session_ID = id;
-                if (type_db == null)
+                if (ConnectionString != "")
                 {
-                    if (HttpContext.Current.Request.Cookies["type_db" + session_ID] != null)
-                    {
-                        type_db = HttpContext.Current.Request.Cookies["type_db" + session_ID].Value.ToString();
-                    }
-
-                }
-                if (user_name == null)
-                {
-                    if (HttpContext.Current.Request.Cookies["user_name" + session_ID] != null)
-                        user_name = HttpContext.Current.Request.Cookies["user_name" + session_ID].Value.ToString();
-                }
-                if (strDB == null)
-                {
-                    if (HttpContext.Current.Request.Cookies["strDB" + session_ID] != null)
-                        strDB = HttpContext.Current.Request.Cookies["strDB" + session_ID].Value.ToString();
-                }
-
-                if (strConn != null)
-                {
-                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                    HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
+                    strConn = ConnectionString;
                 }
                 else
                 {
-                    if (type_db != null)
+                    session_ID = id;
+                    if (type_db == null)
                     {
-                        if (strDB == "Production")
+                        if (HttpContext.Current.Request.Cookies["type_db" + session_ID] != null)
                         {
-
-                            if (type_db == "1200")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro1"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                            else if (type_db == "2400")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro2"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-
-
-                            }
-                            else if (type_db == "4800")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn"] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro3"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-       
-                            }
-                            else
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
+                            type_db = HttpContext.Current.Request.Cookies["type_db" + session_ID].Value.ToString();
                         }
-                        else if (strDB == "Backup")
-                        {
-
-                            if (type_db == "1200")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["back1"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                            else if (type_db == "2400")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["back2"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                            else if (type_db == "4800")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["back3"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                           
-                            }
-                            else
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["back"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (type_db == "1200")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro1"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                            else if (type_db == "2400")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                {
-                                    strConn = ConfigurationManager.AppSettings["pro2"].ToString();
-       
-                                }
-                                else
-                                {
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-       
-                                }
-                            }
-                            else if (type_db == "4800")
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                    strConn = ConfigurationManager.AppSettings["pro3"].ToString();
-                                else
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-   
-                            }
-                            else
-                            {
-                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
-                                else
-                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-   
-
-                            }
-                        }
+                    }
+                    if (user_name == null)
+                    {
+                        if (HttpContext.Current.Request.Cookies["user_name" + session_ID] != null)
+                            user_name = HttpContext.Current.Request.Cookies["user_name" + session_ID].Value.ToString();
+                    }
+                    if (strDB == null)
+                    {
+                        if (HttpContext.Current.Request.Cookies["strDB" + session_ID] != null)
+                            strDB = HttpContext.Current.Request.Cookies["strDB" + session_ID].Value.ToString();
+                    }
+                    if (strConn != null)
+                    {
+                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                        HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
                     }
                     else
                     {
+                        if (type_db != null)
+                        {
+                            if (strDB == "Production")
+                            {
 
-                        if (strDB == "Production")
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                if (type_db == "1200")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro1"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "2400")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro2"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "4800")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn"] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro3"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                            }
+                            else if (strDB == "Backup")
                             {
-                                strConn = ConfigurationManager.AppSettings["pro"].ToString();
-   
+
+                                if (type_db == "1200")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["back1"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "2400")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["back2"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "4800")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["back3"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["back"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
                             }
                             else
                             {
-                                strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-   
+                                if (type_db == "1200")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro1"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "2400")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    {
+                                        strConn = ConfigurationManager.AppSettings["pro2"].ToString();
+                                    }
+                                    else
+                                    {
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                    }
+                                }
+                                else if (type_db == "4800")
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                        strConn = ConfigurationManager.AppSettings["pro3"].ToString();
+                                    else
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                }
+                                else
+                                {
+                                    if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                        strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                                    else
+                                        strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                }
                             }
-                        }
-                        else if (strDB == "Backup")
-                        {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
-                                strConn = ConfigurationManager.AppSettings["back"].ToString();
-                            else
-                                strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
                         }
                         else
                         {
-                            if (HttpContext.Current.Request.Cookies["strConn" + session_ID] != null)
-                                strConn = HttpContext.Current.Request.Cookies["strConn"].Value.ToString();
-                            HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
-                            //else
-                            //   strConn = HttpContext.Current.Request.Cookies["strConn"].Value;
-
-
+                            if (strDB == "Production")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                {
+                                    strConn = ConfigurationManager.AppSettings["pro"].ToString();
+                                }
+                                else
+                                {
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                }
+                            }
+                            else if (strDB == "Backup")
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
+                                    strConn = ConfigurationManager.AppSettings["back"].ToString();
+                                else
+                                    strConn = HttpContext.Current.Request.Cookies["strConn" + session_ID].Value;
+                                HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
+                            }
+                            else
+                            {
+                                if (HttpContext.Current.Request.Cookies["strConn" + session_ID] != null)
+                                    strConn = HttpContext.Current.Request.Cookies["strConn"].Value.ToString();
+                                HttpContext.Current.Response.Cookies.Add(new HttpCookie("strcon", strConn));
+                            }
                         }
                     }
+
                 }
-
             }
-         
-
+            catch
+            {
+            }
         }
         public static Module2 Module2s = null;
-
 
         public static Module2 Instance
         {
