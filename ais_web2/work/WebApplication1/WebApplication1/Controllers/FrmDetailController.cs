@@ -343,7 +343,7 @@ namespace ais_web3.Controllers
                     sqlsearch = "";
                     sqlsearch = "INSERT INTO MAS_LEADS_TRANS(ANUMBER,LEAD_CALL_DATE,SERVICE_01,SERVICE_02,SERVICE_03,SERVICE_04,SERVICE_05,SERVICE_06,SERVICE_07,SERVICE_08,SERVICE_09,SERVICE_10,SERVICE_11,SERVICE_12,SERVICE_13,SERVICE_14,SERVICE_15,SERVICE_16,SERVICE_17,SERVICE_18,SERVICE_19,SERVICE_20,SERVICE_21,SERVICE_22,SERVICE_23,SERVICE_24,SERVICE_25,SERVICE_26,SERVICE_27,SERVICE_28,SERVICE_29,SERVICE_33,";
                     sqlsearch += "CUST_NAME,CUST_SNAME,BIRTH_DAY ,BIRTH_DD,Birth_MM,BIRTH_YYYY,CUST_SEX,RES_CODE,CITY_NAME_T,OPERATION,DENY_CODE,PREDICT_STATUS,AGENT_ID)VALUES(";
-                    sqlsearch += " :txtTel_No ,";
+                    sqlsearch += " '"+form.txtTel_No+"' ,";
                     sqlsearch += " sysdate,'";
                     // -----------------  for predictive AIS --------------------
                     if (form.SERVICE_01 == true)
@@ -588,15 +588,15 @@ namespace ais_web3.Controllers
                     {
                         sqlsearch += "0" + "',";
                     }
-                    sqlsearch += " :txtName , ";
-                    sqlsearch += " :txtSName , ";
-                    sqlsearch += " :cboDate_No , ";
-                    sqlsearch += " :cboDate, ";
-                    sqlsearch += " :cboMouth, ";
-                    sqlsearch += " :txtYear, ";
-                    sqlsearch += " :cboSex, ";
-                    sqlsearch += " :cboStatus, ";
-                    sqlsearch += " :cbocity, ";
+                    sqlsearch += "'"+ form.txtName      +"' , ";
+                    sqlsearch += "'"+ form.txtSName     +"' , ";
+                    sqlsearch += "'"+ form.cboDate_No   +"' , ";
+                    sqlsearch += "'"+ form.cboDate      +"' , ";
+                    sqlsearch += "'"+ form.cboMouth     +"' , ";
+                    sqlsearch += "'"+ form.txtYear      +"' , ";
+                    sqlsearch += "'"+ form.cboSex       +"' , ";
+                    sqlsearch += "'"+ form.cboStatus.Replace(" ","")    +"' , ";
+                    sqlsearch += "'"+ form.cbocity      +"' , ";
                     if (form.cboStatus.ToString() == "15")
                     {
                         sqlsearch += "'Other', '";
@@ -626,7 +626,7 @@ namespace ais_web3.Controllers
                 {
                     {
                            module = new Module2(session_ID,form.connectionstring);
-                            rowInsert = module.CommanEx_Save(sqlsearch, new string[] { form.txtTel_No, form.txtName, form.txtSName, day_no.ToString(), form.cboDate, form.cboMouth, form.txtYear, form.cboSex, form.cboStatus.ToString().Replace(" ", ""), form.cbocity }, new string[] { ":txtTel_No", ":txtName", ":txtSName", ":cboDate_No", ":cboDate", ":cboMouth", ":txtYear", ":cboSex", ":cboStatus", ":cbocity" });
+                            rowInsert = module.CommanEx_Save(sqlsearch,null,null);
                             Module2.Instance.status_Edit = "";
                             Module2.Instance.cbocity = form.cbocity;
                             if (rowInsert == -1)

@@ -588,110 +588,50 @@ namespace Model_Helper
         {
             try
             {
-                string Paraname = string.Empty;
                 DataTable dt = new DataTable();
-                try
+
+                using (OracleConnection connection = new OracleConnection(strConn))
                 {
-                    using (OracleConnection Connection = new OracleConnection(strConn))
+                    connection.Open();
+
+                    using (OracleTransaction transaction = connection.BeginTransaction())
                     {
-                        Connection.Open();
-                        using (OracleTransaction transaction = Connection.BeginTransaction())
+                        using (OracleCommand command = new OracleCommand(sQL, connection))
                         {
-                            OracleCommand command = new OracleCommand(sQL, Connection);
-                            OracleParameter oracleParameter = null;
-                            if (input != null)
+                            if (input != null && input.Length > 0)
                             {
-                                if (input.Length > 0)
+                                for (int i = 0; i < input.Length; i++)
                                 {
-                                    int i = 0;
-                                    foreach (string s in parameter)
-                                    {
-                                        oracleParameter = new OracleParameter();
-                                        oracleParameter.Value = input[i];
-                                        oracleParameter.ParameterName = s;
-                                        Paraname += s + ",";
-                                        oracleParameter.DbType = DbType.String;
-                                        oracleParameter.Direction = ParameterDirection.Input;
+                                    OracleParameter oracleParameter = new OracleParameter();
+                                    oracleParameter.Value = input[i];
+                                    oracleParameter.ParameterName = parameter[i];
+                                    oracleParameter.DbType = DbType.String;
+                                    oracleParameter.Direction = ParameterDirection.Input;
 
-                                        command.Parameters.Add(oracleParameter);
-                                        i++;
-                                    }
+                                    command.Parameters.Add(oracleParameter);
                                 }
                             }
 
-                            if (input != null)
+                            using (OracleDataReader sqlReader = command.ExecuteReader())
                             {
-                                if (input.Length == 2)
+                                if (sqlReader.HasRows)
                                 {
-                                    if (Paraname.Split(',')[0] == ":UNVIST")
-                                    {
-                                        OracleDataReader sqls = command.ExecuteReader();
-                                        //dr2 = new OracleDataAdapter(sqls, Conn2);
-                                        int d = sqls.FieldCount;
-                                        if (sqls.HasRows)
-                                        {
-                                            dt.Load(sqls);
-                                        }
-                                        transaction.Commit();
-                                        command.Dispose();
-                                        transaction.Dispose();
-                                    }
-                                    else
-                                    {
-                                        OracleDataReader sqls = command.ExecuteReader();
-                                        //dr2 = new OracleDataAdapter(sqls, Conn2);
-                                        int d = sqls.FieldCount;
-                                        if (sqls.HasRows)
-                                        {
-                                            dt.Load(sqls);
-                                        }
-                                        transaction.Commit();
-                                        command.Dispose();
-                                        transaction.Dispose();
-                                    }
-                                }
-                                else
-                                {
-                                    OracleDataReader sqls = command.ExecuteReader();
-                                    int d = sqls.FieldCount;
-                                    if (sqls.HasRows)
-                                    {
-                                        dt.Load(sqls);
-                                    }
-                                    transaction.Commit();
-                                    command.Dispose();
-                                    transaction.Dispose();
+                                    dt.Load(sqlReader);
                                 }
                             }
-                            else
-                            {
-                                OracleDataReader sqls = command.ExecuteReader();
-                                int d = sqls.FieldCount;
-                                if (sqls.HasRows)
-                                {
-                                    dt.Load(sqls);
-                                }
 
-                                transaction.Commit();
-                                command.Dispose();
-                                transaction.Dispose();
-
-                            }
+                            transaction.Commit();
                         }
-                        Connection.Close();
                     }
-                    datatable = dt;
 
-                }
-                catch (Exception ex)
-                {
+                    connection.Close();
                 }
 
-
+                datatable = dt;
             }
-            catch
+            catch (Exception ex)
             {
-
+                // Log or handle the exception
             }
         }
 
@@ -827,7 +767,6 @@ namespace Model_Helper
         {
             try
             {
-              DataTable  dt = new DataTable();
 
                 using(OracleConnection connection = new OracleConnection(strConn))
                 {
