@@ -94,7 +94,6 @@ namespace Model_Helper
                         {
                             if (strDB == "Production")
                             {
-
                                 if (type_db == "1200")
                                 {
                                     if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
@@ -142,7 +141,6 @@ namespace Model_Helper
                             }
                             else if (strDB == "Backup")
                             {
-
                                 if (type_db == "1200")
                                 {
                                     if (HttpContext.Current.Request.Cookies["strConn" + session_ID] == null)
@@ -264,7 +262,6 @@ namespace Model_Helper
             }
         }
         public static Module2 Module2s = null;
-
         public static Module2 Instance
         {
             get
@@ -275,11 +272,6 @@ namespace Model_Helper
             }
         }
         public static Dictionary<string, object> KeyValuePairs { get; set; }
-
-        // Public Const Static_Cookie.strConnect As String = "Provider=OraOLEDB.Oracle;Data Source=ORAIEC2;User ID=PREGOV;Password=RIUD6D;" 'base จริง
-        // Public Const Static_Cookie.strConnect As String = "Provider=OraOLEDB.Oracle;Data Source=ORAIEC2;User ID=PREGOW;Password=RIUD7D;"
-        // Public Connect As New OracleClient.OracleConnection
-
         public static OracleConnection Connect;
         public static OracleConnection Connect1;
         public static OracleConnection Connect2;
@@ -303,7 +295,6 @@ namespace Model_Helper
         public OracleDataAdapter da;
         public OracleDataReader dr;
         public string agent = "";
-        // Public agent_id As String = ""
         public static string Agent_Id { get; set; }
         public static string EXTENSION { get; set; }
         public int Group_Id;
@@ -597,7 +588,6 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
             }
         }
 
