@@ -204,7 +204,6 @@ function fuc_edit_Service(Service) {
 
                 }
                 $(Service).html(htmls)
-                getfucLoad();
             }
 
         }
@@ -899,7 +898,6 @@ function fuc_select_status() {
         data: null,
         success: function (e) {
             if (e === null) {
-                Cache_item()
             }
             if (e === "server มี ปัญหา" || e === "<empty string>") {
                 alert2("server มี ปัญหา กำลัง reload ในอีกสักครู่")
@@ -1290,7 +1288,7 @@ $("#year_thai").on('change', function (e) {
 
 
 
-let intervalId = null;
+
 let telephone_update = '';
 let telephone_isSave = '';
 let status_busy = '';

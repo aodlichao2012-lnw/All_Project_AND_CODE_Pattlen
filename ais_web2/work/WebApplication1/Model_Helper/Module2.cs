@@ -20,7 +20,7 @@ namespace Model_Helper
 {
     public class Module2
     {
-      string  session_ID = System.Web.HttpContext.Current.Session.SessionID;
+        string session_ID = System.Web.HttpContext.Current.Session.SessionID;
         public readonly string strDB;
         public readonly string user_name;
         public readonly string strConn;
@@ -52,7 +52,7 @@ namespace Model_Helper
             //}
             return this;
         }
-        public Module2(string id ="" ,string ConnectionString ="")
+        public Module2(string id = "", string ConnectionString = "")
         {
             try
             {
@@ -269,15 +269,7 @@ namespace Model_Helper
             }
         }
         public static Dictionary<string, object> KeyValuePairs { get; set; }
-        public static OracleConnection Connect;
-        public static OracleConnection Connect1;
-        public static OracleConnection Connect2;
-        public static OracleConnection Connect3;
-        public static OracleConnection Connect4;
-        public static OracleConnection Connect5;
-        public static OracleConnection Connect6;
-        public static OracleConnection Connect7;
-        public static OracleConnection Conn2;
+
         public OracleConnection ConnORAOCC;
         public OracleCommand com;
         public OracleCommand Cmd;
@@ -320,12 +312,12 @@ namespace Model_Helper
         public Dictionary<string, object> keyValuePairs;
         public string UpdateCNFG_Agent_Info_login(string status, string Agen = "", string IP = "", string DNIS = "")
         {
-         
+
             string strUpdate;
             strUpdate = "";
             strUpdate = "UPDATE CNFG_AGENT_INFO  SET ";
 
-            if(IP != "")
+            if (IP != "")
             {
                 strUpdate += "TERMINAL_IP   = '" + IP + "' ,";
             }
@@ -351,10 +343,10 @@ namespace Model_Helper
             {
                 return "ระบบมีปัญหา กรุณาติดต่อ Admin ค่ะ" + ex.Message + "ผลการตรวจสอบ";
             }
-        }  
+        }
         public string UpdateCNFG_Agent_Info(string status, string Agen = "", string DNIS = "")
         {
-         
+
             string strUpdate;
             strUpdate = "";
             strUpdate = "UPDATE CNFG_AGENT_INFO  SET ";
@@ -382,35 +374,22 @@ namespace Model_Helper
                 return "500";
             }
         }
-        public void Connectdb()
-        {
-            try
-            {
-
-                Connect = new OracleConnection(strConn);
-                {
-                    Connect.Open();
-                }
-
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+       
         public void Common_static_reson(string sQL, string[] input, string[] parameter, ref DataTable dt)
         {
-            Connectdb();
             dt = Excutue_process_sql(sQL, input, parameter);
         }
-        public void Comman_Static(string sQL, string[] input, string[] parameter, ref DataTable dt)
+        public DataTable Comman_Static(string sQL, string[] input, string[] parameter)
         {
             try
             {
                 DataTable dt2 = new DataTable();
-                dt = Excutue_process_sql(sQL, input, parameter);
+                dt2 = Excutue_process_sql(sQL, input, parameter);
+                return dt2;
             }
             catch (Exception ex)
             {
+                return null;
             }
         }
         private DataTable Excutue_process_sql(string sQL, string[] input, string[] parameter)
@@ -422,61 +401,82 @@ namespace Model_Helper
         private DataTable Execute_Sql(string sQL, string[] input, string[] parameter, string Paraname)
         {
             DataTable dt2 = new DataTable();
-            var paramList = new DynamicParameters();
 
             using (OracleConnection Connect = new OracleConnection(strConn))
             {
 
                 Connect.Open();
-                using (OracleTransaction transaction = Connect.BeginTransaction())
+
+                using (OracleCommand command = new OracleCommand(sQL, Connect))
                 {
-                    using (OracleCommand command = new OracleCommand(sQL, Connect))
+                    if (input != null)
                     {
-                        if (input != null)
+                        if (input.Length > 0)
                         {
-                            if (input.Length > 0)
+                            int i = 0;
+                            foreach (string s in parameter)
                             {
-                                int i = 0;
-                                foreach (string s in parameter)
-                                {
-                                    paramList.Add(s, input[i]);
-                                    i++;
-                                }
+                                OracleParameter oracleParameter = new OracleParameter();
+                                oracleParameter.Value = input[i];
+                                oracleParameter.ParameterName = parameter[i];
+                                oracleParameter.DbType = DbType.String;
+                                oracleParameter.Direction = ParameterDirection.Input;
+
+                                command.Parameters.Add(oracleParameter);
+                                i++;
                             }
                         }
+                    }
 
-                        if (input != null)
+                    if (input != null)
+                    {
+                        if (input.Length == 2)
                         {
-                            if (input.Length == 2)
+                            if (Paraname.Split(',')[0] == ":UNVIST")
                             {
-                                if (Paraname.Split(',')[0] == ":UNVIST")
+                                using (OracleDataReader sqlReader = command.ExecuteReader())
                                 {
-                                    List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
-                                    dt2 = ToDataTable(data);
-                                }
-                                else
-                                {
-                                    List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
-                                    dt2 = ToDataTable(data);
+                                    if (sqlReader.HasRows)
+                                    {
+                                        dt2.Load(sqlReader);
+                                    }
                                 }
                             }
                             else
                             {
-                                List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText, paramList).ToList();
-                                dt2 = ToDataTable(data);
+                                using (OracleDataReader sqlReader = command.ExecuteReader())
+                                {
+                                    if (sqlReader.HasRows)
+                                    {
+                                        dt2.Load(sqlReader);
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            Task.Delay(2000);
-                            List<ViewModel> data = Connect.Query<ViewModel>(command.CommandText).ToList();
-                            dt2 = ToDataTable(data);
-
+                            using (OracleDataReader sqlReader = command.ExecuteReader())
+                            {
+                                if (sqlReader.HasRows)
+                                {
+                                    dt2.Load(sqlReader);
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+                        using (OracleDataReader sqlReader = command.ExecuteReader())
+                        {
+                            if (sqlReader.HasRows)
+                            {
+                                dt2.Load(sqlReader);
+                            }
+                        }
 
-                    transaction.Commit();
-                    transaction.Dispose();
+                    }
+
+
                     Connect.Close();
                 }
             };
@@ -489,31 +489,25 @@ namespace Model_Helper
                 string Paraname = string.Empty;
                 OracleDataReader dr2;
                 DataTable dt = new DataTable();
-
-                Connectdb();
-
-                using (OracleTransaction transaction = Connect.BeginTransaction())
+                using (OracleConnection connect = new OracleConnection(strConn))
                 {
-                    OracleCommand command = new OracleCommand(sQL, Connect);
-                    try
+                  using( OracleCommand command = new OracleCommand(sQL, connect))
                     {
-                        dr2 = command.ExecuteReader();
-                        dt.Load(dr2);
-                        command.Dispose();
-                        transaction.Commit();
-                        transaction.Dispose();
-                        return dt;
-                    }
-                    catch
-                    {
-                        transaction.Commit();
-                        transaction.Dispose();
-                        return null;
-                    }
+                        try
+                        {
+                            dr2 = command.ExecuteReader();
+                            dt.Load(dr2);
+                            command.Dispose();
 
+                            return dt;
+                        }
+                        catch
+                        {
+
+                            return null;
+                        }
+                    }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -526,44 +520,35 @@ namespace Model_Helper
             try
             {
                 DataTable dt = new DataTable();
-
                 using (OracleConnection connection = new OracleConnection(strConn))
                 {
                     connection.Open();
-
-                    using (OracleTransaction transaction = connection.BeginTransaction())
+                    using (OracleCommand command = new OracleCommand(sQL, connection))
                     {
-                        using (OracleCommand command = new OracleCommand(sQL, connection))
+                        if (input != null && input.Length > 0)
                         {
-                            if (input != null && input.Length > 0)
+                            for (int i = 0; i < input.Length; i++)
                             {
-                                for (int i = 0; i < input.Length; i++)
-                                {
-                                    OracleParameter oracleParameter = new OracleParameter();
-                                    oracleParameter.Value = input[i];
-                                    oracleParameter.ParameterName = parameter[i];
-                                    oracleParameter.DbType = DbType.String;
-                                    oracleParameter.Direction = ParameterDirection.Input;
+                                OracleParameter oracleParameter = new OracleParameter();
+                                oracleParameter.Value = input[i];
+                                oracleParameter.ParameterName = parameter[i];
+                                oracleParameter.DbType = DbType.String;
+                                oracleParameter.Direction = ParameterDirection.Input;
 
-                                    command.Parameters.Add(oracleParameter);
-                                }
+                                command.Parameters.Add(oracleParameter);
                             }
-
-                            using (OracleDataReader sqlReader = command.ExecuteReader())
-                            {
-                                if (sqlReader.HasRows)
-                                {
-                                    dt.Load(sqlReader);
-                                }
-                            }
-
-                            transaction.Commit();
                         }
+
+                        using (OracleDataReader sqlReader = command.ExecuteReader())
+                        {
+                            if (sqlReader.HasRows)
+                            {
+                                dt.Load(sqlReader);
+                            }
+                        }
+
                     }
-
-                    connection.Close();
                 }
-
                 datatable = dt;
             }
             catch (Exception ex)
@@ -594,8 +579,6 @@ namespace Model_Helper
                 {
 
                     connect.Open();
-                    using (OracleTransaction transaction = connect.BeginTransaction())
-                    {
                         using (OracleCommand command = new OracleCommand(sqlselect, connect))
                         {
 
@@ -635,10 +618,6 @@ namespace Model_Helper
                             }
 
                         }
-                        transaction.Commit();
-
-                    }
-                    connect.Close();
                 }
 
                 string json = JsonConvert.SerializeObject(telclassList);
@@ -656,12 +635,12 @@ namespace Model_Helper
             {
                 dt = new DataTable();
 
-            using(OracleConnection Connect = new OracleConnection(strConn))
+                using (OracleConnection Connect = new OracleConnection(strConn))
                 {
                     Connect.Open();
-                    using (OracleTransaction transaction = Connect.BeginTransaction())
+
+                    using (OracleCommand Cmd = new OracleCommand(sQL, Connect))
                     {
-                        OracleCommand Cmd = new OracleCommand(sQL, Connect);
                         if (input != null)
                         {
                             int i = 0;
@@ -675,15 +654,13 @@ namespace Model_Helper
                         {
                             int i = Cmd.ExecuteNonQuery();
                             Cmd.Dispose();
-                            transaction.Commit();
-                            transaction.Dispose();
+
                             Connect.Close();
                             return i;
                         }
                         catch (OracleException ex)
                         {
-                            transaction.Commit();
-                            transaction.Dispose();
+
                             Cmd.Dispose();
                             Connect.Close();
                             return -1;
@@ -701,12 +678,11 @@ namespace Model_Helper
         {
             try
             {
-                using(OracleConnection connection = new OracleConnection(strConn))
+                using (OracleConnection connection = new OracleConnection(strConn))
                 {
                     connection.Open();
-                    //using (OracleTransaction transaction = connection.BeginTransaction())
-                    //{
-                        OracleCommand Cmd = new OracleCommand(sQL, connection);
+                    using (OracleCommand Cmd = new OracleCommand(sQL, connection))
+                    {
                         if (input != null)
                         {
                             int i = 0;
@@ -719,19 +695,17 @@ namespace Model_Helper
                         try
                         {
                             Cmd.ExecuteNonQuery();
-                            //transaction.Commit();
-                            //transaction.Dispose();
                             Cmd.Dispose();
                             connection.Close();
                             return 0;
                         }
                         catch (OracleException ex)
                         {
-                            transaction.Commit();
-                            transaction.Dispose();
                             return -1;
                         }
                     }
+
+                }
                 //}
             }
             catch (Exception ex)
@@ -747,9 +721,9 @@ namespace Model_Helper
                 using (OracleConnection Connect6 = new OracleConnection(strConn))
                 {
                     Connect6.Open();
-                    using (OracleTransaction transaction = Connect6.BeginTransaction())
+
+                    using (OracleCommand command = new OracleCommand(sQL, Connect6))
                     {
-                        OracleCommand command = new OracleCommand(sQL, Connect6);
                         int i = 0;
                         OracleParameter parameter1 = null;
                         if (input != null)
@@ -766,12 +740,11 @@ namespace Model_Helper
                         OracleDataAdapter da = new OracleDataAdapter(command);
                         da.Fill(ds2, table);
                         command.Dispose();
-                        transaction.Commit();
-                        transaction.Dispose();
                         Connect6.Close();
                     }
-
+               
                 }
+
                 return ds2;
             }
             catch (OracleException ex)
@@ -863,10 +836,9 @@ namespace Model_Helper
                     }
                     catch (Exception ex)
                     {
-                        //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                         return null;
                     }
-           
+
                     // ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
                     Connect3.Close();
 
@@ -875,7 +847,6 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -887,22 +858,19 @@ namespace Model_Helper
         {
             try
             {
-         
+
                 DataTable dt = new DataTable();
 
                 try
                 {
-                    using (OracleConnection Connect4 = new OracleConnection(strConn)) 
+                    using (OracleConnection Connect4 = new OracleConnection(strConn))
                     {
                         Connect4.Open();
-                       OracleDataAdapter  dr2 = new OracleDataAdapter(sQL, Connect4);
+                        OracleDataAdapter dr2 = new OracleDataAdapter(sQL, Connect4);
                         if (!string.IsNullOrEmpty(sQL))
                         {
 
                             dr2.Fill(dt);
-
-
-                            // ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
                             Connect4.Close();
                         }
                     }
@@ -911,7 +879,6 @@ namespace Model_Helper
                 }
                 catch (Exception ex)
                 {
-                    //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                     return null;
                 }
 
@@ -920,71 +887,6 @@ namespace Model_Helper
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
-                return null;
-            }
-            finally
-            {
-
-            }
-        }  
-        public DataTable Comman_Static5(string sQL)
-        {
-            try
-            {
-                OracleDataAdapter dr2;
-                DataTable dt = new DataTable();
-
-                //try
-                //{
-                //    Connect7 = new OracleConnection(strConn);
-                //    {
-                //        Connect7.Open();
-                //    }
-
-                //    //// เปิดการเชื่อมต่อกับ Oracle
-                //    //Connect.Open();
-
-                //    dr2 = new OracleDataAdapter(sQL, Connect7);
-                //}
-                //catch (Exception ex)
-                //{
-                //    WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
-                //    return null;
-                //}
-                //if (!string.IsNullOrEmpty(sQL))
-                //{
-
-                //    dr2.Fill(dt);
-
-                //}
-
-                //// ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
-                //Connect7.Close();
-
-                using(OracleConnection Connect5 = new OracleConnection(strConn))
-                {
-                    Connect5.Open();
-                    using(OracleTransaction transaction = Connect5.BeginTransaction())
-                    {
-                        dr2 = new OracleDataAdapter(sQL, Connect5);
-                        if (!string.IsNullOrEmpty(sQL))
-                        {
-
-                            dr2.Fill(dt);
-
-                        }
-                        transaction.Commit();
-                        transaction.Dispose();
-                        Connect5.Close();
-                    }
-                }
-
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                //WriteLog.instance.Log("Error ที่ Comman_Static2 : " + ex.Message.ToString());
                 return null;
             }
             finally
@@ -992,10 +894,40 @@ namespace Model_Helper
 
             }
         }
-        public string sql_Select_Report( Telclass telclass)
+        public DataTable Comman_Static5(string sQL)
+        {
+            try
+            {
+                OracleDataAdapter dr2;
+                DataTable dt = new DataTable();
+                using (OracleConnection Connect5 = new OracleConnection(strConn))
+                {
+                    Connect5.Open();
+
+                    dr2 = new OracleDataAdapter(sQL, Connect5);
+                    if (!string.IsNullOrEmpty(sQL))
+                    {
+
+                        dr2.Fill(dt);
+
+                    }
+                    Connect5.Close();
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+
+            }
+        }
+        public string sql_Select_Report(Telclass telclass)
         {
             string sql2 = string.Empty;
-            if(telclass.Agen == "")
+            if (telclass.Agen == "")
             {
                 telclass.Agen = telclass.agent_id;
             }
@@ -1025,49 +957,45 @@ namespace Model_Helper
             string sql = string.Empty;
             try
             {
-                
+
                 DataTable dt = Comman_Static3(sql_Select_Report(telclass));
 
                 return dt;
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                //WriteLog.instance.Log("Service_Sum :" + sql);
                 return null;
             }
 
 
 
-        }   
+        }
         public DataTable Service_Sum2(Telclass telclass)
         {
 
             string sql = string.Empty;
             try
             {
-                
+
                 DataTable dt = Comman_Static4(sql_Select_Report(telclass));
 
                 return dt;
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Service_Sum :" + ex.Message.ToString());
-                //WriteLog.instance.Log("Service_Sum :" + sql);
                 return null;
             }
 
 
 
-        }   
+        }
         public DataTable Service_Sum3(Telclass telclass)
         {
 
             string sql = string.Empty;
             try
             {
-                
+
                 DataTable dt = Comman_Static5(sql_Select_Report(telclass));
 
                 return dt;
@@ -1086,47 +1014,33 @@ namespace Model_Helper
         {
             try
             {
-
                 DataTable dt = new DataTable();
                 using (OracleConnection Connect5 = new OracleConnection(strConn))
                 {
                     Connect5.Open();
-                    using (OracleTransaction transaction = Connect5.BeginTransaction())
+                    try
                     {
-                        try
-                        {
-
-                        }
-                        catch (Exception ex)
-                        {
-                            //WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
-                            return null;
-                        }
-                        if (!string.IsNullOrEmpty(sQL))
-                        {
-                            //List<ViewModel> model =  Connect5.Query<ViewModel>(sQL).ToList();
-                            //  dt = ToDataTable(model);
-                            OracleDataAdapter dr2 = new OracleDataAdapter(sQL, Connect5);
-                            dr2.Fill(dt);
-                            transaction.Commit();
-                            transaction.Dispose();
-                            Connect5.Close();
-                        }
-                        return dt;
                     }
-             
+                    catch (Exception ex)
+                    {
+                        return null;
+                    }
+                    if (!string.IsNullOrEmpty(sQL))
+                    {
+                        OracleDataAdapter dr2 = new OracleDataAdapter(sQL, Connect5);
+                        dr2.Fill(dt);
+                        Connect5.Close();
+                    }
+                    return dt;
                 }
+
             }
             catch (Exception ex)
             {
-                //WriteLog.instance.Log("Error ที่ Comman_Static3 : " + ex.Message.ToString());
                 return null;
             }
             finally
             {
-                // ปิดการเชื่อมต่อเมื่อเสร็จสิ้น
-
-
             }
         }
         public static DataTable ToDataTable<T>(IEnumerable<T> items)

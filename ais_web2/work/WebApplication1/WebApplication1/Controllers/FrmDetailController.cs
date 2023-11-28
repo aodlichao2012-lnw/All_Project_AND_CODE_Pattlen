@@ -12,9 +12,10 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Text;
-using Oracle.ManagedDataAccess.Client;
 using Model_Helper;
 using WebApplication1.Models;
+using Oracle.ManagedDataAccess.Client;
+
 namespace ais_web3.Controllers
 {
     [OutputCache(Duration = 3600)]
@@ -114,7 +115,7 @@ namespace ais_web3.Controllers
                 string json = string.Empty;
                 searchcity = " SELECT CITY_CODE , CITY_NAME_T FROM CALL_SEARCH_CITY ORDER BY CITY_NAME_T ASC";
                module = new Module2(id,connectionstring);
-                module.Comman_Static(searchcity , null, null, ref dt);
+           dt =     module.Comman_Static(searchcity , null, null);
                     if (dt != null)
                     {
                         if (dt.Rows.Count != 0)
@@ -146,7 +147,7 @@ namespace ais_web3.Controllers
             {
                 sql = "SELECT RES_CODE , RES_NAME FROM MAS_REASON WHERE RES_STATUS = '1' ORDER BY RES_CODE ASC ";
                module = new Module2(id,connectionstring);
-                module.Comman_Static(sql , null,null,ref dt);
+            dt =    module.Comman_Static(sql , null,null);
                     if (dt != null)
                     {
                         if (dt.Rows.Count > 0)
@@ -190,7 +191,7 @@ namespace ais_web3.Controllers
                         {
                             {
                            module = new Module2(id,connectionstring);
-                            module.Comman_Static(strUpdate, null, null, ref dt);
+                         dt =   module.Comman_Static(strUpdate, null, null);
                                 message = "200";
                             //string[] list_cookie = HttpContext.Request.Cookies.AllKeys;
                             //foreach (string item in list_cookie)
@@ -756,7 +757,7 @@ namespace ais_web3.Controllers
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED WHERE MAS_SERV_USED.is_active = '1'";
                 session_ID = id;
                module = new Module2(session_ID,connectionstring);
-                module.Comman_Static(sql, null, null, ref dt1);
+              dt1 =  module.Comman_Static(sql, null, null);
                 return JsonConvert.SerializeObject(dt1);
             }
             catch
@@ -785,7 +786,7 @@ namespace ais_web3.Controllers
                 new_unvisible = new_unvisible.Remove(new_unvisible.Length - 4, 4);
                  sql = $@"UPDATE MAS_SERVICE SET IS_ACTIVE = '0' , MDF_DATE = '{DateTime.Now.ToString("dd-MMM-yy")}' WHERE  SERVICE_ID IN ({new_unvisible})";
                module = new Module2(session_ID,form.connectionstring);
-                module.Comman_Static(sql , null,null,ref dt);
+            dt =  module.Comman_Static(sql , null,null);
                 if (dt.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";
@@ -820,7 +821,7 @@ namespace ais_web3.Controllers
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
                 MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
                module = new Module2(session_ID,connectionstring);
-                module.Comman_Static(sql, null, null, ref dt1);
+                dt1 = module.Comman_Static(sql, null, null);
                 return JsonConvert.SerializeObject(dt1);
             }
             catch
@@ -903,7 +904,7 @@ namespace ais_web3.Controllers
                 DataTable dataTable = null;
                 sql = $@"UPDATE MAS_SERVICE SET  SERVICE_NAME = :values2 , MDF_DATE = :Date1 WHERE SERVICE_ID = :id2 ";
                module = new Module2(session_ID,connectionstring);
-                module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } , ref dataTable);
+              dataTable =  module.Comman_Static(sql, new string[] { values, DateTime.Now.ToString("dd-MMM-yy"), id }, new string[] { "values2", "Date1", "id2", } );
                 if (dataTable.Rows.Count == 0)
                 {
                     return "บันทึกสำเร็จ";
