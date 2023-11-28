@@ -1,6 +1,77 @@
 ﻿
+function fuc_select_status_2() {
+    let ajax_ = $.ajax({
+        url: "/FrmDetail/showCity?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
+        , type: "GET",
+        success: function (e) {
+            if (e === "") {
+                Cache_item()
+            }
+            if (e === "server มี ปัญหา") {
+                alert2("server มี ปัญหา กำลัง reload ในอีกสักครู่");
+                fuc_select_status_2();
+            }
+            let values = JSON.parse(e)
+            if (values != null || values != "" || e != "[]") {
+                let htmls = ` <select style="width:200px;height:25px;"  id="cbocity" > `
+                htmls += `  <option  value="-" >  -- กรุณาเลือก -- </option>`
+                htmls += `  <option  value="-" > - </option>`
+                for (i = 0; i < values.length; i++) {
+                    htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
+                }
+                htmls += ` </select>`
+                $("#cbocity").html(htmls)
+            } else {
+                fuc_select_status_2()
+            }
 
+        }
+    })
 
+}
+function fuc_select_status() {
+    let ajax_ = $.ajax({
+        url: "/FrmDetail/setcboStatus?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
+        , type: "GET",
+
+        success: function (e) {
+            if (e === null) {
+                Cache_item()
+            }
+            if (e === "server มี ปัญหา" || e === "<empty string>") {
+                alert2("server มี ปัญหา กำลัง reload ในอีกสักครู่")
+                fuc_select_status();
+            }
+            if (cbostatus2 === null) {
+                let values = JSON.parse(e)
+                if (values != "" || values != null || e != "[]") {
+                    let htmls = ` <select  id="select_st"  style="width:200px;height:25px;" >   <option value="" selected>
+                                        -- กรุณาเลือก --
+                                    </option>`
+
+                    for (i = 0; i < values.length; i++) {
+                        if (values[i].RES_CODE === "01") {
+                            htmls += `  <option  value="` + values[i].RES_CODE + `"  >` + values[i].RES_NAME + `</option>`
+                        }
+                        else {
+                            htmls += `  <option  value="` + values[i].RES_CODE + `"  >` + values[i].RES_NAME + `</option>`
+                        }
+                    }
+                    htmls += ` </select >`
+                    $("#select_st").html(htmls)
+
+                    clearInterval()
+                }
+                else {
+                    fuc_select_status()
+                }
+
+            }
+
+        }
+    })
+
+}
 function alert2(txt) {
     isSweetAlertOpen = true;
     checkSweetAlertStatus()
@@ -29,37 +100,7 @@ function checkSweetAlertStatus() {
         // SweetAlert ไม่ถูกเปิด
     }
 }
-function fuc_select_status_2() {
-    let ajax_ = $.ajax({
-        url: "/FrmDetail/showCity"
-        , type: "GET",
-        data: null,
-        success: function (e) {
-            if (e === "") {
-                Cache_item()
-            }
-            if (e === "server มี ปัญหา") {
-                alert2("server มี ปัญหา กำลัง reload ในอีกสักครู่");
-                fuc_select_status_2();
-            }
-            let values = JSON.parse(e)
-            if (values != null || values != "" || e != "[]") {
-                let htmls = ` <select style="width:200px;height:25px;"  id="cbocity" > `
-                htmls += `  <option  value="-" >  -- กรุณาเลือก -- </option>`
-                htmls += `  <option  value="-" > - </option>`
-                for (i = 0; i < values.length; i++) {
-                    htmls += `  <option  value="` + values[i].CITY_CODE + `" >` + values[i].CITY_NAME_T + `</option>`
-                }
-                htmls += ` </select>`
-                $("#cbocity").html(htmls)
-            } else {
-                fuc_select_status_2()
-            }
 
-        }
-    })
-
-}
 function getCookie(cookieName) {
     var name = cookieName + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -204,141 +245,13 @@ function fuc_edit_Service(Service) {
 
                 }
                 $(Service).html(htmls)
+                getfucLoad();
             }
 
         }
 
     })
 }
-function fuc_insert_ser() {
-    let datas = null;
-    if ($("#txt_tel").val() == null) {
-        datas = null
-    } else {
-        datas = $("#txt_tel").val()
-    }
-    let ajax_ = $.ajax({
-        url: '/FrmDetail/SetVisible_remove?txt_tel=' + datas,
-        type: 'GET'
-        , data: datas
-        , success: function (e) {
-            let htmls2 = ``
-            let values = JSON.parse(e)
-
-            table2 = $("#Service_select").dataTable({
-                destroy: true,
-
-                lengthChange: false,
-                columns: [
-                    { data: 'SER_ID', render: function (data, type, row) { return '<input type="checkbox" id="addSERVICE_' + data + '" value="' + data + '" data-active="' + row["IS_ACTIVE"] + '" class="editor-active">' } },
-                    { data: 'SER_ID', title: 'หมายเลขบริการ' },
-                    { data: 'IS_ACTIVE', render: function (data, type, row) { return `<span id="ch` + row["SER_ID"] + `">` + data + `</span>` } },
-                    {
-                        data: 'SER_NAME', render: function (data, type, row) {
-                            return '<input type="text" id="editSERVICE_' + row["SER_ID"] + '" value="' + data + '" class="editor-active2 m-3 " disabled style="width:100%;"><button id="button_ser_save' + row["SER_ID"] + '" class="btn btn-primary " >บันทึก</button>'
-                        }
-                    },
-                    { data: 'SER_NAME', render: function (data, type, row) { return '<span style="display: none;">' + data + '</span>' } }
-
-
-
-                ],
-                data: values,
-                "createdRow": function (row, data, dataIndex) {
-                    // ตรวจสอบเงื่อนไขของข้อมูลในแต่ละคอลัมน์
-                    // ในตัวอย่างนี้เราจะตรวจสอบคอลัมน์ที่ 2 (index 1)
-                    var columnValue = data.IS_ACTIVE;
-                    if (columnValue == 'เปิดให้ใช้บริการ') {
-                        // กำหนดพื้นหลัง (background color) สำหรับแถวนี้
-                        $(row).css('background-color', 'lightgreen');
-                    } else if (columnValue == 'ปิดการใช้บริการ') {
-                        $(row).css('background-color', 'lightcoral');
-                    }
-                }
-            })
-            /*         table2.addClass("table-responsive-xl")*/
-            table2.removeAttr('style')
-            $("#Service_select").show()
-        }
-
-    })
-
-}
-function button_ser_save(value, id) {
-    let ajax_ = $.ajax({
-        url: '/FrmDetail/Save_service?id=' + id + "&values=" + value,
-        type: 'GET',
-        data: null,
-        success: function (e) {
-            alert2(e)
-            fuc_edit_Service("#Service")
-            $("#button_ser_set_active").prop('disabled', true);
-        }
-    })
-
-}
-function fuc_insert_ser_confirm() {
-
-    let checkedvalues = $('#Service_select tbody td');
-    let active;
-    let bool_active = "";
-    let data_active = "";
-    let span_active_name = "";
-    let span_active_name_val = "";
-    let is_checked;
-
-    checkedvalues.each(function (e) {
-        active = $(this).find("input[type='checkbox']:checked")
-        is_checked = active.prop("checked")
-        data_active = active.attr("data-active")
-        span_active_name_val = active.val()
-        if (is_checked) {
-            bool_active += data_active + ","
-            span_active_name += span_active_name_val + ","
-        }
-
-
-    })
-    let data1 = new FormData();
-    data1.append("IsActive", bool_active)
-    data1.append("Service_id_name", span_active_name)
-    let ajax_ = $.ajax({
-        url: '/FrmDetail/SetVisible_Unvisible_Enable?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
-        type: 'POST',
-        processData: false,
-        contentType: false,
-        data: data1,
-        success: function (e) {
-            alert2(e);
-            /*            fuc_insert_ser();*/
-        }
-    })
-
-}
-function fuc_Service_ser_show(Service) {
-    //$("#Service2").remove()
-    $("#Service2").remove()
-    $("#Service_modal").html(`<div id="Service2" style=" width: 1000px; right: 200px; flex-wrap: wrap;"></div>`)
-    let htmls2 = ``;
-    let nameid = column_name_id_ser.split(',')
-    let name = column_name_ser.split(',')
-
-    htmls2 += `<div style="" >`
-    for (i = 0; i < name.length - 1; i++) {
-        if ($("#" + nameid[i] + "").is(':checked')) {
-            htmls2 += `  <input type="checkbox" id="lb` + nameid[i] + `" placeholder="" class="input" /> <span style=""> <span id="lbsersh` + nameid[i] + `" > บริการ ` + name[i] + `</span>`
-        }
-
-    }
-    htmls2 += `</div style="" >`
-    column_name_id_ser = ``;
-    column_name_ser = ``;
-    $(Service).html(htmls2)
-}
-let table;
-let htmls;
-let table_sub;
-let table_sub2;
 function cbostatus() {
     let ajax_ = $.ajax({
         url: '/FrmReportTel/FrmReportTel_Load?id=' + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon"),
@@ -371,18 +284,19 @@ function cbostatus() {
     })
 
 }
+
+let table;
+let htmls;
+let table_sub;
+let table_sub2;
+
 function formatNumber(number, decimalPlaces) {
     let numbers = number.torelative(decimalPlaces);
     return numbers.replace('0', 'X').replace('.', '').replace('1', 'X').replace('2', 'X').replace('4', 'X').replace('5', 'X').replace('7', 'X').replace('8', 'X').replace('9', 'X')
 }
 let set_interval;
 
-function fucback() {
 
-
-    window.location.href = '/FrmDetail/Index'
-
-}
 function fucsave() {
 
 
@@ -891,48 +805,7 @@ function tableload(tables, table_sub3) {
     }
 
 }
-function fuc_select_status() {
-    let ajax_ = $.ajax({
-        url: "/FrmDetail/setcboStatus"
-        , type: "GET",
-        data: null,
-        success: function (e) {
-            if (e === null) {
-            }
-            if (e === "server มี ปัญหา" || e === "<empty string>") {
-                alert2("server มี ปัญหา กำลัง reload ในอีกสักครู่")
-                fuc_select_status();
-            }
-            if (cbostatus2 === null) {
-                let values = JSON.parse(e)
-                if (values != "" || values != null || e != "[]") {
-                    let htmls = ` <select  id="select_st"  style="width:200px;height:25px;" >   <option value="" selected>
-                                    -- กรุณาเลือก --
-                                </option>`
 
-                    for (i = 0; i < values.length; i++) {
-                        if (values[i].RES_CODE === "01") {
-                            htmls += `  <option  value="` + values[i].RES_CODE + `"  >` + values[i].RES_NAME + `</option>`
-                        }
-                        else {
-                            htmls += `  <option  value="` + values[i].RES_CODE + `"  >` + values[i].RES_NAME + `</option>`
-                        }
-                    }
-                    htmls += ` </select >`
-                    $("#select_st").html(htmls)
-
-                    clearInterval()
-                }
-                else {
-                    fuc_select_status()
-                }
-
-            }
-
-        }
-    })
-
-}
 $(document).on('load', showreportToday());
 let cbostatus2 = null;
 let fucshowtel2 = null;
@@ -1256,8 +1129,6 @@ $("#button_ser_remove_save").on('click',
     }
 )
 
-$(document).on('load', cbostatus())
-
 
 $("#button_logout").on('click', function (e) { fuclogout() })
 $("#button_back").on('click', function (e) { fucback() })
@@ -1288,7 +1159,7 @@ $("#year_thai").on('change', function (e) {
 
 
 
-
+let intervalId = null;
 let telephone_update = '';
 let telephone_isSave = '';
 let status_busy = '';
@@ -1336,9 +1207,9 @@ $("#button_report").on('click', function (e) {
 })
 
 
-$("#select_st").on('load',
-    fuc_select_status()
-)
+//$("#select_st").on('load',
+//    fuc_select_status()
+//)
 $("#cbocity").on('load',
     fuc_select_status_2()
 )

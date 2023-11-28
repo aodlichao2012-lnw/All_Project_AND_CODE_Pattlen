@@ -1,14 +1,10 @@
-﻿let intervalId = null;
-let telephone_update = '';
-let telephone_isSave = '';
-let status_busy = '';
+﻿
 $(window).on('load', function (e) {
     $("#txt_tel").attr('disabled', true)
 })
-/*$(document).on('load', fucshowtel());*/
-$(document).on('load', getstatus());
 
-const regex = /^[0-9]+$/;
+
+
 
 function alert2(txt) {
     swal({
@@ -23,8 +19,7 @@ function alert2(txt) {
         }
     });
 }
-let set_intravel;
-let set_intravel2;
+
 //function Load_Telnumber() {
 //    set_intravel2 = setInterval(function (e) {
 //        if ($("#txt_tel").val() == "" || $("#txt_tel").val() == null || $("#txt_tel").val() == "กำลังค้นหาหมายเลขโทรศัพท์ ....") {

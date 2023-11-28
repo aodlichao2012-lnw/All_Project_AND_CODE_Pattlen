@@ -31,10 +31,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/14/2022 09:32:32</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.pdb">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNetCore.Http.Features.dll">
       <publishTime>04/16/2022 05:18:18</publishTime>
@@ -43,7 +43,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/18/2022 23:32:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Extensions.Primitives.dll">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
       <publishTime>01/13/2014 23:11:08</publishTime>
@@ -58,13 +58,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/27/2022 23:39:10</publishTime>
     </File>
     <File Include="bin/Model_Helper.dll">
-      <publishTime>11/28/2023 14:42:31</publishTime>
+      <publishTime>11/28/2023 15:27:43</publishTime>
     </File>
     <File Include="bin/Model_Helper.dll.config">
-      <publishTime>11/28/2023 13:54:56</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/Model_Helper.pdb">
-      <publishTime>11/28/2023 14:42:31</publishTime>
+      <publishTime>11/28/2023 15:27:43</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/18/2021 03:03:36</publishTime>
@@ -241,10 +241,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/18/2022 23:34:40</publishTime>
     </File>
     <File Include="bin/System.IO.Pipelines.dll">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/System.Memory.dll">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>05/28/2022 06:41:34</publishTime>
@@ -253,7 +253,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/15/2018 20:29:44</publishTime>
     </File>
     <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
-      <publishTime>11/28/2023 13:54:56</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
       <publishTime>02/19/2020 17:05:18</publishTime>
@@ -289,10 +289,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/27/2022 23:42:50</publishTime>
     </File>
     <File Include="bin/WebApplication1.dll">
-      <publishTime>11/28/2023 14:42:32</publishTime>
+      <publishTime>11/28/2023 15:27:44</publishTime>
     </File>
     <File Include="bin/WebApplication1.pdb">
-      <publishTime>11/28/2023 14:42:32</publishTime>
+      <publishTime>11/28/2023 15:27:44</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -904,13 +904,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/02/2023 13:36:09</publishTime>
     </File>
     <File Include="Hidden/main.css">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Hidden/main.js">
-      <publishTime>11/28/2023 13:54:56</publishTime>
+      <publishTime>11/28/2023 15:24:55</publishTime>
     </File>
     <File Include="Hidden/main2.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:25:29</publishTime>
     </File>
     <File Include="Hidden/moment.js_2.15.1_moment.min.js">
       <publishTime>10/10/2023 14:42:41</publishTime>
@@ -931,7 +931,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/05/2023 14:09:13</publishTime>
     </File>
     <File Include="Hidden/status.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Hidden/StyleSheet1.css">
       <publishTime>10/05/2023 17:09:55</publishTime>
@@ -1537,25 +1537,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/05/2023 17:09:55</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.map">
       <publishTime>10/05/2023 17:09:56</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
       <publishTime>10/05/2023 17:09:55</publishTime>
     </File>
     <File Include="Scripts/jquery.signalR-2.4.3.js">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Scripts/jquery.signalR-2.4.3.min.js">
       <publishTime>11/10/2023 10:22:00</publishTime>
@@ -1603,13 +1603,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2023 15:06:47</publishTime>
     </File>
     <File Include="Views/FrmDetail/Index.cshtml">
-      <publishTime>11/28/2023 10:58:46</publishTime>
+      <publishTime>11/28/2023 15:24:55</publishTime>
     </File>
     <File Include="Views/FrmDetail/View.cshtml">
       <publishTime>09/14/2023 18:27:46</publishTime>
     </File>
     <File Include="Views/FrmLogin/Index.cshtml">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:24:55</publishTime>
     </File>
     <File Include="Views/FrmReportTel/Index.cshtml">
       <publishTime>11/15/2023 14:47:31</publishTime>
@@ -1633,19 +1633,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/07/2023 13:04:18</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:18:38</publishTime>
     </File>
     <File Include="Views/Sweet/Alert.cshtml">
       <publishTime>10/25/2023 15:27:24</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>11/22/2023 12:27:36</publishTime>
+      <publishTime>11/28/2023 15:23:35</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>10/06/2023 13:00:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/28/2023 14:42:40</publishTime>
+      <publishTime>11/28/2023 15:27:51</publishTime>
     </File>
   </ItemGroup>
 </Project>
