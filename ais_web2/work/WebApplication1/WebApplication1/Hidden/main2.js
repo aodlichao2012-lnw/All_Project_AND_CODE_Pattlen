@@ -1,4 +1,4 @@
-﻿
+﻿$(document).on('load', cbostatus())
 function fuc_select_status_2() {
     let ajax_ = $.ajax({
         url: "/FrmDetail/showCity?id=" + sessionStorage.getItem("id") + "&connectionstring=" + sessionStorage.getItem("strcon")
