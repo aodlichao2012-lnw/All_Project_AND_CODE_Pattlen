@@ -604,6 +604,7 @@ function btnreport_click() {
 function sum(table, table2, table_sub3) {
 
     $("#Label8").text(table[0].SUM)
+    alert2($("#Label8").text())
     $("#labelTel2").text(table2.length)
     $("#Labelstatus").text(table2[0].RES_NAME)
     if (table[0].SUM == null) {

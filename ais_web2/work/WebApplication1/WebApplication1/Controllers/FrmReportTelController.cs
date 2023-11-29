@@ -138,12 +138,12 @@ namespace ais_web3.Controllers
         private string actionflag;
         private int z;
         [HttpGet]
-        public string FrmReportTel_Load(string id = "")
+        public string FrmReportTel_Load(string id = "" ,string connectionstring ="")
         {
             session_ID = id;
             List<string> list = new List<string>();
             list.Add(DateTime.Now.ToString());
-            string jsondata_1 = JsonConvert.SerializeObject(setcboStatus());
+            string jsondata_1 = JsonConvert.SerializeObject(setcboStatus(connectionstring));
             list.Add(jsondata_1);
             if(jsondata_1 == "")
             {
@@ -151,7 +151,7 @@ namespace ais_web3.Controllers
             }
             return JsonConvert.SerializeObject(list);
         }
-        private DataTable setcboStatus()
+        private DataTable setcboStatus(string connectionstring ="")
         {
 
             DataTable dt = null;
@@ -159,7 +159,7 @@ namespace ais_web3.Controllers
             try
             {
                 sql = "SELECT * FROM MAS_REASON ORDER BY RES_CODE ASC ";
-                module = new Module2(session_ID);
+                module = new Module2(session_ID , connectionstring);
               dt =  module.Comman_Static(sql,null,null);
 
                 if (dt != null)
