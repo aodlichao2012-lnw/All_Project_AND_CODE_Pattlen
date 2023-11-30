@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9BD293D-291A-4A20-87E9-FC9F8D4CFD82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ais_web3</RootNamespace>
+    <AssemblyName>ais_web3</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44339</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.21.12.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AllController.cs" />
+    <Compile Include="Controllers\FrmDetailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db_connection.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Hidden\.4.1_js_buttons.html5.min.js" />
+    <Content Include="Hidden\1.12.4_jquery.min.js" />
+    <Content Include="Hidden\1.2.14_css_dataTables.checkboxes.min.css" />
+    <Content Include="Hidden\ajax_libs_pdfmake_0.1.32_vfs_fonts.js" />
+    <Content Include="Hidden\all_page1.css" />
+    <Content Include="Hidden\bootstrap-datetimepicker_4.7.14_js_bootstrap-datetimepicker.min.js" />
+    <Content Include="Hidden\cdn.datatables.net_1.13.6_css_jquery.dataTables.min.css" />
+    <Content Include="Hidden\cdn.datatables.net_1.13.6_js_jquery.dataTables.min.js" />
+    <Content Include="Hidden\cdn.datatables.net_buttons_1.2.1_js_buttons.print.min.js" />
+    <Content Include="Hidden\cdn.datatables.net_buttons_2.4.1_css_buttons.dataTables.min.css" />
+    <Content Include="Hidden\cdn.datatables.net_buttons_2.4.1_js_dataTables.buttons.min.js" />
+    <Content Include="Hidden\cdn.jsdelivr.net_npm_jquery-datatables-checkboxes%401.2.14_js_dataTables.checkboxes.min.js" />
+    <Content Include="Hidden\cdn.jsdelivr.net_npm_sweetalert2%4011.js" />
+    <Content Include="Hidden\code.jquery.com_jquery-3.7.0.js" />
+    <Content Include="Hidden\css_bootstrap-datetimepicker.min.css" />
+    <Content Include="Hidden\css_buttons.dataTables.min.css" />
+    <Content Include="Hidden\dataTables.buttons.min.js" />
+    <Content Include="Hidden\icons8-calendar-24.png" />
+    <Content Include="Hidden\jquery-datatables-checkboxes%401.2.14_css_dataTables.checkboxes.min.css" />
+    <Content Include="Hidden\jquery-ui.css" />
+    <Content Include="Hidden\jquery-ui.js" />
+    <Content Include="Hidden\latest_moment.min.js" />
+    <Content Include="Hidden\libs_jszip_3.10.1_jszip.min.js" />
+    <Content Include="Hidden\limonte-sweetalert2_11.7.32_sweetalert2.min.js" />
+    <Content Include="Hidden\login.js" />
+    <Content Include="Hidden\main.css" />
+    <Content Include="Hidden\main.js" />
+    <Content Include="Hidden\main2.js" />
+    <Content Include="Hidden\moment.js_2.15.1_moment.min.js" />
+    <Content Include="Hidden\monthly-calendar-svgrepo-com.svg" />
+    <Content Include="Hidden\pdfmake_0.1.53_pdfmake.min.js" />
+    <Content Include="Hidden\report.css" />
+    <Content Include="Hidden\Reson.js" />
+    <Content Include="Hidden\Search_number.js" />
+    <Content Include="Hidden\showtel.js" />
+    <Content Include="Hidden\status.js" />
+    <Content Include="Hidden\StyleSheet1.css" />
+    <Content Include="Hidden\sweet-alert.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.eslintrc.cjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\assets\GitHub-social-preview.png" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\assets\swal2-logo-square.png" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\assets\swal2-logo.png" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\assets\sweetalert2.gif" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress.config.mjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\.eslintrc.cjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\accessibility.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\api.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\bindClickHandler.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\inputs.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\clickConfirm.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\close.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\destroy.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\getFocusableElements.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\getIcon.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\getInput.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\showLoading.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\timer.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\methods\update.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\mixins.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\allowOutsideClick.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\customClass.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\grow.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\html.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\icon.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\image.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\padding.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\position.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\preConfirm.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\preDeny.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\progressSteps.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\showClass.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\stopKeydownPropagation.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\target.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\template.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\params\validationMessage.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\scrollbar.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\styling.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\tests.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\e2e\toast.cy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\styles.css" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\support\commands.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\support\index.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\cypress\utils.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\release.config.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\rollup.config.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\sandbox\index.html" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\buttons-handlers.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\constants.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\globalState.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\close.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\enable-disable-elements.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\getInput.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\hideLoading.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\update.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\validation-message.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\instanceMethods\_destroy.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\keydown-handler.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\popup-click-handler.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\privateMethods.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\privateProps.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\argsToParams.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\bindClickHandler.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\dom.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\fire.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\mixin.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\showLoading.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\staticMethods\timer.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\SweetAlert.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\sweetalert2.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\types.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\aria.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\classes.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\defaultInputValidators.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\DismissReason.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\animationEndEvent.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\domUtils.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\getters.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\index.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\init.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\inputUtils.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\render.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderActions.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderCloseButton.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderContainer.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderContent.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderFooter.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderIcon.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderImage.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderInput.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderPopup.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderProgressSteps.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\dom\renderers\renderTitle.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\getTemplateParams.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\iosFix.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\isNodeEnv.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\openPopup.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\params.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\scrollbar.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\setParameters.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\Timer.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\utils\utils.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\require-in-commonjs.cjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\webpack\index.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\webpack\webpack.config.js" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\tools\build-dist.mjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\tools\build.mjs" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\tools\purge-jsdelivr.mjs" />
+    <Content Include="Hidden\sweetalert2\sweetalert-dev.js" />
+    <Content Include="Hidden\sweetalert2\sweetalert.css" />
+    <Content Include="Hidden\sweetalert2\sweetalert.min.js" />
+    <Content Include="Hidden\sweetalert2\sweetalert2.css" />
+    <Content Include="Hidden\sweetalert2\sweetalert2.min.js" />
+    <Content Include="Hidden\toggle.js" />
+    <Content Include="Hidden\twitter-bootstrap_3.3.7_js_bootstrap.min.js" />
+    <Content Include="Hidden\vfs_fonts.js" />
+    <Content Include="Hidden\_twitter-bootstrap_3.3.7_css_bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Hidden\sweet-alert.js_0.4.5.zip" />
+    <Content Include="Hidden\sweetalert2-11.7.32.zip" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.editorconfig" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\CODE_OF_CONDUCT.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\FUNDING.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\ISSUE_TEMPLATE\01_bug_report.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\ISSUE_TEMPLATE\02_feature_request.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\ISSUE_TEMPLATE\03_question.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\workflows\chrome.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\workflows\firefox.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.github\workflows\webkit.yml" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.gitignore" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.prettierignore" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\.stylelintrc.json" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\CHANGELOG.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\jsconfig.json" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\LICENSE" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\package.json" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\README.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\renovate.json" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\SECURITY.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\SPONSORS.md" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_animations.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_body.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_core.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_icons.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_mixins.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_theming.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_toasts-animations.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_toasts-body.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\scss\_toasts.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\sweetalert2.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\src\variables.scss" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\sweetalert2.code-workspace" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\tools\deploy-to-netlify.sh" />
+    <Content Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\yarn.lock" />
+    <Content Include="Hidden\THSarabunNew-Bold.ttf" />
+    <Content Include="Hidden\THSarabunNew-BoldItalic.ttf" />
+    <Content Include="Hidden\THSarabunNew-Italic.ttf" />
+    <Content Include="Hidden\THSarabunNew.ttf" />
+    <Content Include="Hidden\THSarabunNew.zip" />
+    <Content Include="Hidden\__MACOSX\._THSarabunNew Bold.ttf" />
+    <Content Include="Hidden\__MACOSX\._THSarabunNew BoldItalic.ttf" />
+    <Content Include="Hidden\__MACOSX\._THSarabunNew Italic.ttf" />
+    <Content Include="Hidden\__MACOSX\._THSarabunNew.ttf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="sweetalert2.css" />
+    <Content Include="sweetalert2.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\All\Login.cshtml" />
+    <Content Include="Views\All\Detail.cshtml" />
+    <Content Include="Views\All\FrmReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\FrmDetail\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\sweetalert2.d.ts" />
+    <TypeScriptCompile Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\ts\dist-sweetalert2.ts" />
+    <TypeScriptCompile Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\ts\simple-usage.ts" />
+    <TypeScriptCompile Include="Hidden\sweetalert2-11.7.32\sweetalert2-11.7.32\test\ts\src-sweetalert2.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60609</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44339/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

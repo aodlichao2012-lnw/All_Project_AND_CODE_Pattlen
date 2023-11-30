@@ -192,7 +192,7 @@ namespace ais_web3.Controllers
             session_ID = telclass.id;
             return showreport(telclass);
         }
-        public string list_Service(string id = "")
+        public string list_Service(string id = "" , string connectionstring  ="")
         {
             try
             {
@@ -200,8 +200,8 @@ namespace ais_web3.Controllers
                 string sql = string.Empty;
                 DataTable dt1 = null;
                 sql = $@"SELECT DISTINCT MAS_SERV_USED.SERVICE_ID as SER_ID , 
-                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY SERVICE_ID ASC";
-                module = new Module2(session_ID);
+                MAS_SERV_USED.SERVICE_NAME as SER_NAME , MAS_SERV_USED.IS_ACTIVE as IS_ACTIVE , MAS_SERV_USED.is_active as active FROM  MAS_SERV_USED ORDER BY  SER_ID DESC";
+                module = new Module2(session_ID, connectionstring);
             dt1 =   module.Comman_Static(sql, null, null);
                 return JsonConvert.SerializeObject(dt1);
             }
@@ -254,13 +254,13 @@ namespace ais_web3.Controllers
             List<string> json_list = new List<string>();
             //DataTable dt2 = Service_Sum(new Telclass() { res_code = "01", agent_id = Agenid });
             List<string> list = new List<string>();
-            module = new Module2(session_ID);
+            module = new Module2(session_ID, connectionstring);
             DataTable dt2 =module. Service_Sum(new Telclass() { res_code = "01", agent_id = Agens });
             string data01 = JsonConvert.SerializeObject(dt2);
             string data02 = JsonConvert.SerializeObject(dt3);
             list.Add(data01);
             list.Add(data02);
-            list.Add(list_Service(session_ID));
+            list.Add(list_Service(session_ID, connectionstring));
             return JsonConvert.SerializeObject(list);
 
 
@@ -340,7 +340,7 @@ namespace ais_web3.Controllers
                             {
                                 if (status1 == "01")
                                 {
-                                    module = new Module2(session_ID);
+                                    module = new Module2(session_ID, telclass.connectionstring);
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
                                     DataTable dt2 = module.Service_Sum2(telclass);
@@ -348,12 +348,12 @@ namespace ais_web3.Controllers
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
-                                    list.Add(list_Service(session_ID));
+                                    list.Add(list_Service(session_ID, telclass.connectionstring));
                                     return JsonConvert.SerializeObject(list);
                                 }
                                 else
                                 {
-                                    module = new Module2(session_ID);
+                                    module = new Module2(session_ID, telclass.connectionstring);
                                     telclass.res_code = status1;
                                     List<string> list = new List<string>();
                                     DataTable dt2 = module. Service_Sum3(telclass);
@@ -361,7 +361,7 @@ namespace ais_web3.Controllers
                                     string data02 = JsonConvert.SerializeObject(dt3);
                                     list.Add(data01);
                                     list.Add(data02);
-                                    list.Add(list_Service(session_ID));
+                                    list.Add(list_Service(session_ID, telclass.connectionstring));
                                     return JsonConvert.SerializeObject(list);
                                 }
                             }

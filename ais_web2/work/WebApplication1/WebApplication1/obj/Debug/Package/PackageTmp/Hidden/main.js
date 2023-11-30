@@ -975,7 +975,7 @@ let table;
 let htmls;
 let table_sub;
 let table_sub2;
-$(document).on('load', cbostatus())
+
 $("#button_logout").on('click', function (e) { fuclogout() })
 $("#button_back").on('click', function (e) { fucback() })
 $("#year_thai").on('change', function (e) {

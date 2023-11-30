@@ -512,44 +512,40 @@ function sum2(table, table2, table_sub3) {
 
         $("#Label8_today").text(table[0].SUM)
         $("#labelTel").text(table2.length)
-        if (table_sub3[0].SER_ID == '11' && table_sub3[0].IS_ACTIVE == "1") {
+        if (table_sub3[0].IS_ACTIVE == 1 ) {
             $("#label_ser1_today").text(table_sub3[0].SER_NAME)
-            $("#Label9_today").text(table[0].SER11 + " บริการ")
+            $("#Label9_today").text(table[0].SER21 + " บริการ")
 
         }
         else {
             $("div[data-show='1']").remove();
         }
 
-        if (table_sub3[1].SER_ID == '12' && table_sub3[1].IS_ACTIVE == "1") {
+        if (table_sub3[1].IS_ACTIVE == 1 ) {
             $("#label_ser2_today").text(table_sub3[1].SER_NAME)
-            $("#Label10_today").text(table[0].SER12 + " บริการ")
+            $("#Label10_today").text(table[0].SER13 + " บริการ")
         }
         else {
             $("div[data-show='2']").remove();
         }
 
-        if (table_sub3[2].SER_ID == '13' && table_sub3[2].IS_ACTIVE == "1") {
+        if (table_sub3[2].IS_ACTIVE == 1 ) {
             $("#label_ser3_today").text(table_sub3[2].SER_NAME)
-            $("#Label11_today").text(table[0].SER13 + " บริการ")
+            $("#Label11_today").text(table[0].SER12 + " บริการ")
 
         }
         else {
             $("div[data-show='3']").remove();
         }
 
-        if (table[0].SER21 > 0 && table_sub3[3].SER_ID == '21' && table_sub3[3].IS_ACTIVE == "1") {
+        if (table_sub3[3].IS_ACTIVE == 1 ) {
             $("#label_ser4_today").text(table_sub3[3].SER_NAME)
-            $("#Label12_today").text(table[0].SER21 + " บริการ")
+            $("#Label12_today").text(table[0].SER11 + " บริการ")
 
         }
         else {
             $("div[data-show='4']").remove();
         }
-
-
-
-
     }
 
 
@@ -569,7 +565,7 @@ function btnreport_click() {
     datas.append("Agen", sessionStorage.getItem("Agen"))
     datas.append("connectionstring", sessionStorage.getItem("strcon"))
     let ajax_ = $.ajax({
-        url: '/FrmReportTel/btnReport_Click',
+        url: '/All/btnReport_Click',
         processData: false,
         contentType: false,
         type: 'POST',
@@ -604,7 +600,6 @@ function btnreport_click() {
 function sum(table, table2, table_sub3) {
 
     $("#Label8").text(table[0].SUM)
-    alert2($("#Label8").text())
     $("#labelTel2").text(table2.length)
     $("#Labelstatus").text(table2[0].RES_NAME)
     if (table[0].SUM == null) {
@@ -648,51 +643,46 @@ function sum(table, table2, table_sub3) {
     } else {
 
 
-        if (table_sub3[0].SER_ID == '11' && table_sub3[0].IS_ACTIVE == "1") {
+        if (table_sub3[0].IS_ACTIVE == 1) {
             $("#label_ser1").text(table_sub3[0].SER_NAME)
-            $("#Label9").text(table[0].SER11 + " บริการ")
+            $("#Label9").text(table[0].SER21 + " บริการ")
 
         }
         else {
             $("div[data-show='1']").remove();
         }
 
-        if (table_sub3[1].SER_ID == '12' && table_sub3[1].IS_ACTIVE == "1") {
+        if (table_sub3[1].IS_ACTIVE == 1){
             $("#label_ser2").text(table_sub3[1].SER_NAME)
-            $("#Label10").text(table[0].SER12 + " บริการ")
+            $("#Label10").text(table[0].SER13 + " บริการ")
         }
         else {
             $("div[data-show='2']").remove();
         }
 
-        if (table_sub3[2].SER_ID == '13' && table_sub3[2].IS_ACTIVE == "1") {
+        if (table_sub3[2].IS_ACTIVE == 1) {
             $("#label_ser3").text(table_sub3[2].SER_NAME)
-            $("#Label11").text(table[0].SER13 + " บริการ")
+            $("#Label11").text(table[0].SER12 + " บริการ")
 
         }
         else {
             $("div[data-show='3']").remove();
         }
 
-        if (table[0].SER21 > 0 && table_sub3[3].SER_ID == '21' && table_sub3[3].IS_ACTIVE == "1") {
+        if (table_sub3[3].IS_ACTIVE == 1) {
             $("#label_ser4").text(table_sub3[3].SER_NAME)
-            $("#Label12").text(table[0].SER21 + " บริการ")
+            $("#Label12").text(table[0].SER11 + " บริการ")
 
         }
         else {
             $("div[data-show='4']").remove();
         }
-
-
-
-
     }
-
-
 }
 function tableload(tables, table_sub3) {
     var columns = [];
 
+    console.log(table_sub3[0])
 
     $("#Label4").text(tables.length)
     if (tables[0].RES_NAME === "ไม่สนใจ") {
@@ -721,7 +711,7 @@ function tableload(tables, table_sub3) {
             { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
             { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
         );
-        for (var i = 0; i < table_sub3.length - 1; i++) {
+        for (var i = 0; i < table_sub3.length ; i++) {
 
             if (table_sub3[i].IS_ACTIVE == 1) {
                 columns.push(
@@ -756,11 +746,13 @@ function tableload(tables, table_sub3) {
         $("#total_l").show()
     } else {
 
+
+
         $('#tb_1').DataTable().destroy();
         $('#tb_11').DataTable().destroy();
         $('#tb_11').hide()
         $('#tb_1').show()
-
+        console.log(tables[0])
         columns.push(
 
             {
@@ -779,9 +771,8 @@ function tableload(tables, table_sub3) {
             { data: 'CUST_NAME', title: 'ชื่อ', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
             { data: 'CUST_SNAME', title: 'นามสกุล', render: function (data, type, row) { return `<span style='padding-right: 60px;text-align: left;display: flex;'>` + data + `<span>` } },
         );
-        for (var i = 0; i < table_sub3.length - 1; i++) {
+        for (var i = 0; i < table_sub3.length ; i++) {
             if (table_sub3[i].IS_ACTIVE == 1) {
-                console.log(table_sub3)
                 columns.push(
 
                     { data: 'SERVICE_' + table_sub3[i].SER_ID, title: "" + table_sub3[i].SER_NAME + "" },
@@ -1204,6 +1195,7 @@ $("#year_thai").on('click', function (e) {
 $("#button_save").on('click', function (e) { fucsave(); showreportToday(); })
 $("#button_save2").on('click', function (e) { fucsave(); showreportToday(); })
 $("#button_report").on('click', function (e) {
+
     btnreport_click()
 })
 
