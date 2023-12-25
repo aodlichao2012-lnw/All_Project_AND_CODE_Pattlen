@@ -42,6 +42,7 @@ namespace Trade_forex
                 button1.BackColor = Color.Transparent;
                 timer1.Stop();
                 timer1.Enabled = false;
+                count = 30;
             }
             else
             {
