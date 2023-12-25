@@ -47,11 +47,11 @@ namespace Trade_forex
                     // กำหนดทิศทางการซื้อขาย
                     if (movingAverage > 2)
                     {
-                        Treading.sale();
+                        Treading.sale(2.00);
                     }
                     else
                     {
-                        Treading.buy();
+                        Treading.buy(2.00);
                     }
 
                 }
@@ -266,11 +266,11 @@ namespace Trade_forex
 
     public class Treading
     {
-        public static void sale()
+        public static void sale(double price)
         {
 
         }
-        public static void buy()
+        public static void buy(double price)
         {
 
         }
