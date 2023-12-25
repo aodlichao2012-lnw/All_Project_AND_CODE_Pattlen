@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EDl8XT4JJ6hCk5jkmQP6IKBLJ+Y03H+isr5Cg0obBuodG5VDMrBs+g84xiTJw/XyA2++4Us5hxB7jof38EwQRQ==",
+  "dgSpecHash": "7H5XdciseLev4xgw505zAPfBavMIg+J5mM0R9wexowC+V5wSiCD1v+0ASHyGMRTHhtRrsxXjQ2T8/TP9Bi4MPg==",
   "success": true,
   "projectFilePath": "D:\\Code_All_project\\All_Project_AND_CODE_Pattlen\\ais_web2\\Webapi_Global\\Global_api_service\\Code\\Webapi_Global\\Webapi_Global.csproj",
   "expectedPackageFiles": [
@@ -97,7 +97,11 @@
     "C:\\Users\\Suparat\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\Suparat\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Suparat\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\Suparat\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+    "C:\\Users\\Suparat\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

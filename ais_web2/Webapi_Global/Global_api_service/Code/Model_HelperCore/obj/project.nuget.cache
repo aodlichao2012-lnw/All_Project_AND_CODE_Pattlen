@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hdEyOKAmWKrQ/hk9LV9WYN6Bau4+/fUQGr21kqoCiqf+iMWBPL6vvTyosJmt+w6HsLZlehyWkBPP3HgUWyxSlQ==",
+  "dgSpecHash": "jgsdAA0OV69i42wLPKx8AjA7LEEz+JN/LGj0reL9RiZi8R5YkxdyJ9Vj1e+/yRTsVsJWLng4WEKAtDd/eG0Vqg==",
   "success": true,
   "projectFilePath": "D:\\Code_All_project\\All_Project_AND_CODE_Pattlen\\ais_web2\\Webapi_Global\\Global_api_service\\Code\\Model_HelperCore\\Model_HelperCore.csproj",
   "expectedPackageFiles": [
@@ -75,7 +75,10 @@
     "C:\\Users\\Suparat\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Suparat\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\Suparat\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
-    "C:\\Users\\Suparat\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\Suparat\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Suparat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

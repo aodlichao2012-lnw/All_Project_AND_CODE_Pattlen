@@ -1,0 +1,13 @@
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\Trade_forex.exe.config
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\Trade_forex.exe
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\Trade_forex.pdb
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.AssemblyReference.cache
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.Properties.Resources.resources
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.GenerateResource.cache
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.CoreCompileInputs.cache
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.CopyComplete
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.exe
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.pdb
+C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\ExchangeRatesAPI.exe
