@@ -21,17 +21,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using static Trade_forex.Tradeing_Forex;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Reflection.Emit;
 
 namespace Trade_forex
 {
     public partial class Tradeing_Forex : Form
     {
-        static int count = 60;
+        static int count = 30;
         public Tradeing_Forex()
         {
             InitializeComponent();
 
-    
+            timer1.Tick += Timer1_Tick;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,9 +45,8 @@ namespace Trade_forex
             }
             else
             {
-                count = 60;
+                count = 30;
                 label1.Text = "นับถอยหลังในอีก  : " + count;
-                timer1.Tick += Timer1_Tick;
                 timer1.Enabled = true;
                 timer1.Start();
             }
@@ -66,7 +66,7 @@ namespace Trade_forex
                     label1.Text = "เริ่มกระบวนการซื้อขาย";
                     button1.BackColor = Color.Green;
                     Thread.Sleep(5000);
-                    count = 60;
+                    count = 30;
                     timer1.Stop();
                     timer1.Enabled = false;
                     Load_by_click();
@@ -93,17 +93,21 @@ namespace Trade_forex
 
 
                     // วิเคราะห์ข้อมูล
-                    double movingAverage = Values_Exchange.Excange(forexData, "EUR");
+                    double movingAverage = Values_Exchange.Excange(forexData, listBox1.SelectedItem.ToString());
 
+                    BeginInvoke(new Action(() => {
+
+                        if (movingAverage > 2)
+                        {
+                            lb2.Text = "ขายไป : -" + Treading.sale(Convert.ToDouble(textBox4.Text)) + " Rate : " + movingAverage;
+                        }
+                        else
+                        {
+                            lb2.Text = "ซื้อมา : +" + Treading.buy(Convert.ToDouble(textBox3.Text)) + " Rate : " + movingAverage;
+                        }
+                    }));
                     // กำหนดทิศทางการซื้อขาย
-                    if (movingAverage > 2)
-                    {
-                        Treading.sale(Convert.ToDouble( textBox4.Text));
-                    }
-                    else
-                    {
-                        Treading.buy(Convert.ToDouble(textBox3.Text));
-                    }
+                   
 
                 }
                 else
@@ -317,13 +321,13 @@ namespace Trade_forex
 
     public class Treading
     {
-        public static void sale(double price)
+        public static string sale(double price)
         {
-
+            return price.ToString();
         }
-        public static void buy(double price)
+        public static string buy(double price)
         {
-
+            return price.ToString();
         }
     }
 }
