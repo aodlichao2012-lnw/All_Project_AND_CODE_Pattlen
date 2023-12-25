@@ -249,16 +249,7 @@ namespace Trade_forex
     {
         public static double Excange(Root forexData , string currency)
         {
-            //for (double i = 0; i < forexData.conversion_rates.; i++)
-            //{
-            //    if(currency == forexData.conversion_rates[i].GetType().GetProperties().GetValue(i).ToString())
-            //    {
-            //        return Convert.ToDouble(forexData.conversion_rates[i].GetType().GetProperties().GetValue(i).ToString());
-            //    }
 
-            //}
-
-            //return 0.00;
             for(int i =0; i < forexData.conversion_rates.GetType().GetProperties().Length; i++)
             {
                 if(forexData.conversion_rates.GetType().GetProperties().GetValue(i).ToString().Replace("Double ", "") == currency)
