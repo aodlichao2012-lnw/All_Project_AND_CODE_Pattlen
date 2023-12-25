@@ -11,3 +11,17 @@ C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.cspr
 C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.exe
 C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\obj\Debug\Trade_forex.pdb
 C:\Users\Suparat\source\repos\Trade_forex\Trade_forex\bin\Debug\ExchangeRatesAPI.exe
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\Trade_forex.exe.config
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\Trade_forex.exe
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\Trade_forex.pdb
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\ExchangeRatesAPI.exe
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\Newtonsoft.Json.dll
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\bin\Debug\Newtonsoft.Json.xml
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.AssemblyReference.cache
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.Tradeing_Forex.resources
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.Properties.Resources.resources
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.GenerateResource.cache
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.CoreCompileInputs.cache
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.csproj.CopyComplete
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.exe
+D:\Code_All_project\All_Project_AND_CODE_Pattlen\Trade_forex\Trade_forex\obj\Debug\Trade_forex.pdb

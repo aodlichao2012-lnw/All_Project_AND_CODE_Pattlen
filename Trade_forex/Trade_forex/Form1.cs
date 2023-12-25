@@ -18,19 +18,70 @@ using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using static Trade_forex.Form1;
+using static Trade_forex.Tradeing_Forex;
+using System.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Trade_forex
 {
-    public partial class Form1 : Form
+    public partial class Tradeing_Forex : Form
     {
-        public Form1()
+        static int count = 60;
+        public Tradeing_Forex()
         {
             InitializeComponent();
 
+    
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.BackColor == Color.Green)
+            {
+                button1.BackColor = Color.Transparent;
+                timer1.Stop();
+                timer1.Enabled = false;
+            }
+            else
+            {
+                count = 60;
+                label1.Text = "นับถอยหลังในอีก  : " + count;
+                timer1.Tick += Timer1_Tick;
+                timer1.Enabled = true;
+                timer1.Start();
+            }
+        
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            BeginInvoke(new Action(() => {
+                if (count > 0)
+                {
+                    count--;
+                    label1.Text = "นับถอยหลังในอีก  : " + count;
+                }
+                else if (count <= 0)
+                {
+                    label1.Text = "เริ่มกระบวนการซื้อขาย";
+                    button1.BackColor = Color.Green;
+                    Thread.Sleep(5000);
+                    count = 60;
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    Load_by_click();
+                    timer1.Enabled = true;
+                    label1.Text = "นับถอยหลังในอีก  : " + count;
+                }
+            }));
+        }
+
+        public void Load_by_click()
+        {
             using (HttpClient client = new HttpClient())
             {
-
+                string Apikey = textBox1.Text;
+                string symbol = textBox2.Text;
                 string apiUrl = $"https://v6.exchangerate-api.com/v6/f5e5f8c38f2e7d14e87c3b38/latest/USD";
                 HttpResponseMessage response = client.GetAsync(apiUrl).Result;
 
@@ -47,11 +98,11 @@ namespace Trade_forex
                     // กำหนดทิศทางการซื้อขาย
                     if (movingAverage > 2)
                     {
-                        Treading.sale(2.00);
+                        Treading.sale(Convert.ToDouble( textBox4.Text));
                     }
                     else
                     {
-                        Treading.buy(2.00);
+                        Treading.buy(Convert.ToDouble(textBox3.Text));
                     }
 
                 }
@@ -65,7 +116,7 @@ namespace Trade_forex
     }
     // คลาสที่ใช้เก็บข้อมูล Forex ที่ได้จาก API
 
-      public class ConversionRates
+    public class ConversionRates
         {
             public double USD { get; set; }
             public double AED { get; set; }
